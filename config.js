@@ -97,7 +97,7 @@ const KEY_LAUNCHER_CONTENT = {
                 footerLabel: "Supported integrations",
                 footerValue: "Zalo, WhatsApp, Viber",
                 footerColor: "text-zinc-600 dark:text-zinc-400",
-                image: "assets/feature_call.png"
+                image: "assets/feature_call.jpg"
             },
             {
                 icon: "play_circle",
@@ -106,7 +106,7 @@ const KEY_LAUNCHER_CONTENT = {
                 footerLabel: "Media Engine",
                 footerValue: "Chill Mode",
                 footerColor: "text-brand-500 dark:text-brand-400",
-                image: "assets/feature_lyrics.png"
+                image: "assets/feature_lyrics.jpg"
             },
             {
                 icon: "widgets",
@@ -115,7 +115,7 @@ const KEY_LAUNCHER_CONTENT = {
                 footerLabel: "Panel type",
                 footerValue: "Hidden / Anti-Distraction",
                 footerColor: "text-zinc-600 dark:text-zinc-400",
-                image: "assets/feature_widgets.png"
+                image: "assets/feature_widgets.jpg"
             },
             {
                 icon: "calendar_today",
@@ -124,7 +124,7 @@ const KEY_LAUNCHER_CONTENT = {
                 footerLabel: "Agenda",
                 footerValue: "Easy import / export",
                 footerColor: "text-brand-500 dark:text-brand-400",
-                image: "assets/feature_calendar.png"
+                image: "assets/feature_calendar.jpg"
             },
             {
                 icon: "hourglass_empty",
@@ -133,7 +133,7 @@ const KEY_LAUNCHER_CONTENT = {
                 footerLabel: "Work Ethic",
                 footerValue: "Deep Work Mode",
                 footerColor: "text-brand-500 dark:text-brand-400",
-                image: "assets/feature_pomodoro.png"
+                image: "assets/feature_pomodoro.jpg"
             },
             {
                 icon: "shield",
@@ -142,7 +142,7 @@ const KEY_LAUNCHER_CONTENT = {
                 footerLabel: "Data pipeline",
                 footerValue: "100% Offline / Local",
                 footerColor: "text-emerald-500",
-                image: "assets/feature_vault.png"
+                image: "assets/feature_vault.jpg"
             },
             {
                 icon: "palette",
@@ -151,7 +151,7 @@ const KEY_LAUNCHER_CONTENT = {
                 footerLabel: "Layout",
                 footerValue: "Monochrome / System colors",
                 footerColor: "text-zinc-600 dark:text-zinc-400",
-                image: "assets/feature_theme.png"
+                image: "assets/feature_theme.jpg"
             }
         ]
     },
