@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <title>Terms of Service – Key Launcher</title>
+    <meta name="description" content="Terms of Service for Key Launcher – the minimalist T9 Android launcher by Lousify Tech.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+    <script>
+        (function(){
+            var stored = localStorage.getItem('theme');
+            var dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.toggle('dark', dark);
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        })();
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans:    ['DM Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono:    ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50:  '#fffdf0',
+                            100: '#fef7c2',
+                            400: '#fcd34d',
+                            500: '#fbbc06',
+                            600: '#e2a300',
+                            900: '#713f12',
+                            950: '#030014',
+                        },
+                        dark: {
+                            950: '#09090b',
+                            900: '#121214',
+                            800: '#1c1c1f',
+                            700: '#27272a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::selection { background-color: rgba(251,188,6,0.25); color: inherit; }
+        .material-symbols-outlined { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
+
+        /* Language toggle */
+        [lang-content]               { display: none; }
+        body.lang-vi [lang-content="vi"] { display: block; }
+        body.lang-en [lang-content="en"] { display: block; }
+        /* inline spans */
+        span[lang-content]               { display: none; }
+        body.lang-vi span[lang-content="vi"] { display: inline; }
+        body.lang-en span[lang-content="en"] { display: inline; }
+
+        /* TOC active link */
+        .toc-link {
+            transition: all 0.2s;
+            border-left: 2px solid transparent;
+            padding-left: 0.75rem;
+        }
+        .toc-link.active {
+            border-left-color: #fbbc06;
+            color: #fbbc06;
+            font-weight: 600;
+        }
+        .dark .toc-link.active { color: #fcd34d; border-left-color: #fcd34d; }
+    </style>
+</head>
+<body class="bg-zinc-50 dark:bg-[#030014] text-zinc-800 dark:text-zinc-100 font-sans overflow-x-hidden antialiased transition-colors duration-300 lang-en">
+
+    <!-- Radial Glow Background (dark only) -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none -z-10 overflow-hidden opacity-0 dark:opacity-100 transition-opacity duration-300">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-900/10 blur-[120px]"></div>
+        <div class="absolute top-[40%] right-[-10%] w-[60%] h-[60%] rounded-full bg-brand-500/5 blur-[150px]"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+
+            <!-- Logo + Back -->
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <img src="assets/logo_key_launcher.png" alt="Key Launcher"
+                         class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div style="display:none" class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-indigo-400 items-center justify-center font-display font-bold text-white text-lg">K</div>
+                    <span class="font-display font-bold tracking-tight text-zinc-900 dark:text-white leading-none">Key Launcher</span>
+                </a>
+                <span class="hidden sm:block text-zinc-300 dark:text-zinc-700">|</span>
+                <a href="index.html" class="hidden sm:flex items-center gap-1 text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="material-symbols-outlined !text-[14px]">arrow_back</span>
+                    <span lang-content="vi">Trang chủ</span>
+                    <span lang-content="en">Home</span>
+                </a>
+            </div>
+
+            <!-- Right controls -->
+            <div class="flex items-center gap-3">
+                <!-- Updated date -->
+                <span class="hidden md:block text-[11px] font-mono text-zinc-400 dark:text-zinc-600">
+                    <span lang-content="vi">Cập nhật: 04/03/2026</span>
+                    <span lang-content="en">Updated: Mar 04, 2026</span>
+                </span>
+
+                <!-- Language toggle -->
+                <div class="flex bg-zinc-100 dark:bg-zinc-900 p-0.5 rounded-lg border border-zinc-200 dark:border-zinc-800">
+                    <button id="btn-en" onclick="setLanguage('en')"
+                        class="lang-btn px-3 py-1 text-xs font-semibold rounded-md transition-all duration-200 cursor-pointer bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white shadow-sm">EN</button>
+                    <button id="btn-vi" onclick="setLanguage('vi')"
+                        class="lang-btn px-3 py-1 text-xs font-semibold rounded-md transition-all duration-200 cursor-pointer text-zinc-500 dark:text-zinc-400">VN</button>
+                </div>
+
+                <!-- Theme toggle -->
+                <button id="theme-toggle"
+                    class="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all duration-200"
+                    aria-label="Toggle Theme">
+                    <span id="theme-icon" class="material-symbols-outlined !text-[18px]">dark_mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-4 py-12 md:py-16">
+
+        <!-- Page title -->
+        <div class="mb-10">
+            <span class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold">
+                <span lang-content="vi">Pháp lý</span>
+                <span lang-content="en">Legal</span>
+            </span>
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-zinc-900 dark:text-white tracking-tight mt-2">
+                <span lang-content="vi">Điều khoản Dịch vụ</span>
+                <span lang-content="en">Terms of Service</span>
+            </h1>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-10">
+
+            <!-- Sidebar TOC -->
+            <aside class="md:w-56 shrink-0">
+                <div class="sticky top-24">
+                    <p class="text-[10px] font-mono tracking-widest text-zinc-400 dark:text-zinc-600 uppercase mb-4">
+                        <span lang-content="vi">Nội dung</span>
+                        <span lang-content="en">On this page</span>
+                    </p>
+                    <nav id="toc-nav" class="flex flex-col gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+                        <a href="#introduction" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">1. Giới thiệu</span>
+                            <span lang-content="en">1. Introduction</span>
+                        </a>
+                        <a href="#acceptance" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">2. Chấp nhận điều khoản</span>
+                            <span lang-content="en">2. Acceptance of Terms</span>
+                        </a>
+                        <a href="#usage" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">3. Quyền sử dụng</span>
+                            <span lang-content="en">3. License to Use</span>
+                        </a>
+                        <a href="#restrictions" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">4. Các hạn chế</span>
+                            <span lang-content="en">4. Restrictions</span>
+                        </a>
+                        <a href="#intellectual-property" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">5. Sở hữu trí tuệ</span>
+                            <span lang-content="en">5. Intellectual Property</span>
+                        </a>
+                        <a href="#privacy" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">6. Quyền riêng tư</span>
+                            <span lang-content="en">6. Privacy</span>
+                        </a>
+                        <a href="#disclaimer" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">7. Miễn trừ trách nhiệm</span>
+                            <span lang-content="en">7. Disclaimer</span>
+                        </a>
+                        <a href="#termination" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">8. Chấm dứt</span>
+                            <span lang-content="en">8. Termination</span>
+                        </a>
+                        <a href="#contact" class="toc-link hover:text-zinc-900 dark:hover:text-zinc-200">
+                            <span lang-content="vi">9. Liên hệ</span>
+                            <span lang-content="en">9. Contact</span>
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Article -->
+            <article class="flex-1 min-w-0 bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/80 rounded-2xl p-8 shadow-sm">
+
+                <!-- 1. Introduction -->
+                <section id="introduction" class="mb-10 pb-10 border-b border-zinc-100 dark:border-zinc-800/60">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">1. Giới thiệu</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Chào mừng bạn đến với Key Launcher. Các Điều khoản sử dụng này ("Điều khoản") chi phối việc bạn truy cập và sử dụng ứng dụng Key Launcher ("Dịch vụ").</p>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Bằng cách cài đặt hoặc sử dụng ứng dụng, bạn đồng ý tuân thủ các điều khoản này. Nếu bạn không đồng ý với bất kỳ phần nào của các điều khoản, vui lòng không sử dụng ứng dụng của chúng tôi.</p>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">1. Introduction</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Welcome to Key Launcher. These Terms of Service ("Terms") govern your access to and use of the Key Launcher application ("Service").</p>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">By installing or using the application, you agree to be bound by these terms. If you do not agree with any part of these terms, please do not use our application.</p>
+                    </div>
+                </section>
+
+                <!-- 2. Acceptance -->
+                <section id="acceptance" class="mb-10 pb-10 border-b border-zinc-100 dark:border-zinc-800/60">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">2. Chấp nhận điều khoản</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Dịch vụ này dành cho người dùng từ 13 tuổi trở lên. Bằng việc sử dụng Key Launcher, bạn khẳng định rằng bạn có đủ năng lực pháp lý để ký kết hợp đồng ràng buộc hoặc đã có sự đồng ý của cha mẹ/người giám hộ.</p>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">2. Acceptance of Terms</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">This Service is intended for users who are at least 13 years old. By using Key Launcher, you represent that you have the legal capacity to enter into a binding agreement or have received parental/guardian consent.</p>
+                    </div>
+                </section>
+
+                <!-- 3. License -->
+                <section id="usage" class="mb-10 pb-10 border-b border-zinc-100 dark:border-zinc-800/60">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">3. Quyền sử dụng</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Key Launcher cấp cho bạn một giấy phép cá nhân, có giới hạn, không độc quyền, không thể chuyển nhượng và có thể thu hồi để sử dụng ứng dụng trên các thiết bị thuộc sở hữu của bạn nhằm mục đích cá nhân, phi thương mại.</p>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">3. License to Use</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Key Launcher grants you a personal, limited, non-exclusive, non-transferable, and revocable license to use the application on devices you own for personal, non-commercial purposes.</p>
+                    </div>
+                </section>
+
+                <!-- 4. Restrictions -->
+                <section id="restrictions" class="mb-10 pb-10 border-b border-zinc-100 dark:border-zinc-800/60">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">4. Các hạn chế</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">Bạn cam kết không thực hiện các hành vi sau:</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-red-400 mt-0.5 shrink-0">block</span>
+                                Sao chép, sửa đổi hoặc tạo ra các sản phẩm phái sinh từ mã nguồn của ứng dụng.
+                            </li>
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-red-400 mt-0.5 shrink-0">block</span>
+                                Sử dụng ứng dụng cho bất kỳ mục đích bất hợp pháp nào hoặc vi phạm pháp luật địa phương.
+                            </li>
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-red-400 mt-0.5 shrink-0">block</span>
+                                Cố gắng xâm nhập trái phép vào hệ thống, dữ liệu của người dùng khác hoặc máy chủ của chúng tôi.
+                            </li>
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-red-400 mt-0.5 shrink-0">block</span>
+                                Phát tán phần mềm độc hại thông qua hoặc liên quan đến ứng dụng.
+                            </li>
+                        </ul>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">4. Restrictions</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">You agree not to engage in any of the following activities:</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-red-400 mt-0.5 shrink-0">block</span>
+                                Copy, modify, or create derivative works from the application's source code.
+                            </li>
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-red-400 mt-0.5 shrink-0">block</span>
+                                Use the application for any illegal purpose or in violation of local laws.
+                            </li>
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-red-400 mt-0.5 shrink-0">block</span>
+                                Attempt to gain unauthorized access to our systems, other users' data, or our servers.
+                            </li>
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-red-400 mt-0.5 shrink-0">block</span>
+                                Distribute malware through or in connection with the application.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- 5. Intellectual Property -->
+                <section id="intellectual-property" class="mb-10 pb-10 border-b border-zinc-100 dark:border-zinc-800/60">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">5. Sở hữu trí tuệ</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Tất cả nội dung, tính năng, logo và chức năng của Key Launcher là tài sản độc quyền của nhà phát triển và được bảo hộ bởi luật bản quyền, thương hiệu và các luật sở hữu trí tuệ khác.</p>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">5. Intellectual Property</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">All content, features, logos, and functionality of Key Launcher are the exclusive property of the developer and are protected by copyright, trademark, and other intellectual property laws.</p>
+                    </div>
+                </section>
+
+                <!-- 6. Privacy -->
+                <section id="privacy" class="mb-10 pb-10 border-b border-zinc-100 dark:border-zinc-800/60">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">6. Quyền riêng tư</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">Việc sử dụng Key Launcher cũng được chi phối bởi Chính sách Bảo mật của chúng tôi. Vui lòng xem lại Chính sách Bảo mật để hiểu cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn.</p>
+                        <div class="flex items-start gap-3 bg-brand-500/8 dark:bg-brand-500/10 border border-brand-500/20 rounded-xl p-4">
+                            <span class="material-symbols-outlined !text-[18px] text-brand-500 dark:text-brand-400 mt-0.5 shrink-0">info</span>
+                            <p class="text-sm text-zinc-700 dark:text-zinc-300">Chúng tôi không thu thập bất kỳ thông tin nhạy cảm nào mà không có sự đồng ý rõ ràng của bạn.</p>
+                        </div>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">6. Privacy</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">Your use of Key Launcher is also governed by our Privacy Policy. Please review our Privacy Policy to understand how we collect, use, and protect your information.</p>
+                        <div class="flex items-start gap-3 bg-brand-500/8 dark:bg-brand-500/10 border border-brand-500/20 rounded-xl p-4">
+                            <span class="material-symbols-outlined !text-[18px] text-brand-500 dark:text-brand-400 mt-0.5 shrink-0">info</span>
+                            <p class="text-sm text-zinc-700 dark:text-zinc-300">We do not collect any sensitive information without your explicit consent.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. Disclaimer -->
+                <section id="disclaimer" class="mb-10 pb-10 border-b border-zinc-100 dark:border-zinc-800/60">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">7. Miễn trừ trách nhiệm</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Dịch vụ được cung cấp trên cơ sở "NGUYÊN TRẠNG" và "SẴN CÓ". Chúng tôi không đảm bảo rằng dịch vụ sẽ không bị gián đoạn, không có lỗi hoặc hoàn toàn bảo mật.</p>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Trong phạm vi tối đa được pháp luật cho phép, Key Launcher sẽ không chịu trách nhiệm cho bất kỳ thiệt hại trực tiếp, gián tiếp hoặc ngẫu nhiên nào phát sinh từ việc bạn sử dụng hoặc không thể sử dụng ứng dụng.</p>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">7. Disclaimer of Warranties</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">The Service is provided on an "AS IS" and "AS AVAILABLE" basis. We do not guarantee that the service will be uninterrupted, error-free, or completely secure.</p>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">To the maximum extent permitted by law, Key Launcher shall not be liable for any direct, indirect, or incidental damages arising from your use or inability to use the application.</p>
+                    </div>
+                </section>
+
+                <!-- 8. Termination -->
+                <section id="termination" class="mb-10 pb-10 border-b border-zinc-100 dark:border-zinc-800/60">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">8. Chấm dứt</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">Chúng tôi có quyền tạm ngừng hoặc chấm dứt quyền truy cập của bạn vào Dịch vụ ngay lập tức, mà không cần thông báo trước, nếu bạn vi phạm bất kỳ điều khoản nào trong văn bản này.</p>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">8. Termination</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed">We reserve the right to suspend or terminate your access to the Service immediately, without prior notice, if you breach any of the terms in this document.</p>
+                    </div>
+                </section>
+
+                <!-- 9. Contact -->
+                <section id="contact">
+                    <div lang-content="vi">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">9. Liên hệ</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Nếu bạn có bất kỳ câu hỏi nào về các Điều khoản này, vui lòng liên hệ với chúng tôi qua email:</p>
+                    </div>
+                    <div lang-content="en">
+                        <h2 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-3">9. Contact Information</h2>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">If you have any questions about these Terms, please contact us via email:</p>
+                    </div>
+                    <a href="mailto:loi.tranquang@gmail.com"
+                       class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:border-brand-500/50 hover:text-brand-600 dark:hover:text-brand-400 transition-all duration-200">
+                        <span class="material-symbols-outlined !text-[16px]">mail</span>
+                        loi.tranquang@gmail.com
+                    </a>
+                </section>
+
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-950 py-12 mt-12 text-xs text-zinc-500 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex flex-col items-center md:items-start gap-1">
+                <span class="font-display font-bold text-zinc-900 dark:text-white tracking-tight">Key Launcher</span>
+                <span class="text-[10px] font-mono text-zinc-400 dark:text-zinc-600 uppercase tracking-wider">
+                    <span lang-content="vi">© 2026 Lousify Tech. Bảo lưu mọi quyền.</span>
+                    <span lang-content="en">© 2026 Lousify Tech. All rights reserved.</span>
+                </span>
+            </div>
+            <div class="flex items-center gap-6 font-medium">
+                <a href="tos.html" class="text-brand-500 dark:text-brand-400 font-semibold">
+                    <span lang-content="vi">Điều khoản</span>
+                    <span lang-content="en">Terms</span>
+                </a>
+                <a href="privacy-policy.html" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">
+                    <span lang-content="vi">Quyền riêng tư</span>
+                    <span lang-content="en">Privacy Policy</span>
+                </a>
+                <a href="index.html" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">
+                    <span lang-content="vi">Trang chủ</span>
+                    <span lang-content="en">Home</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ── Language switcher ──────────────────────────────────────
+        function setLanguage(lang) {
+            document.body.classList.remove('lang-vi', 'lang-en');
+            document.body.classList.add('lang-' + lang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                const isActive = btn.id === 'btn-' + lang;
+                btn.classList.toggle('bg-white',       isActive);
+                btn.classList.toggle('dark:bg-zinc-800', isActive);
+                btn.classList.toggle('text-zinc-900',  isActive);
+                btn.classList.toggle('dark:text-white', isActive);
+                btn.classList.toggle('shadow-sm',      isActive);
+                btn.classList.toggle('text-zinc-500',  !isActive);
+                btn.classList.toggle('dark:text-zinc-400', !isActive);
+            });
+            localStorage.setItem('lang', lang);
+        }
+        // Restore saved language
+        const savedLang = localStorage.getItem('lang') || 'en';
+        setLanguage(savedLang);
+
+        // ── Theme toggle ───────────────────────────────────────────
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon   = document.getElementById('theme-icon');
+
+        function applyTheme(isDark) {
+            document.documentElement.classList.toggle('dark', isDark);
+            themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+        }
+        applyTheme(document.documentElement.classList.contains('dark'));
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = !document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            applyTheme(isDark);
+        });
+
+        // ── TOC active state on scroll ─────────────────────────────
+        window.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id   = entry.target.getAttribute('id');
+                    const link = document.querySelector(`.toc-link[href="#${id}"]`);
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+                        if (link) link.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-20% 0px -70% 0px' });
+
+            document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
+        });
+    </script>
+</body>
+</html>

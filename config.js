@@ -402,8 +402,8 @@ const KEY_LAUNCHER_CONTENT = {
         creatorText: "PRODUCT BY LOUSIFY TECH",
         copyright: "© 2026 Lousify Tech. All rights reserved.",
         privacyText: "Privacy Policy",
-        privacyUrl: "privacy.html",
+        privacyUrl: "privacy-policy.html",
         termsText: "Terms of Service",
-        termsUrl: "https://loitq07.github.io/terms-of-service/"
+        termsUrl: "tos.html"
     }
 };

@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
     
     <!-- Primary SEO Meta Tags -->
     <title>Key Launcher - Minimalist T9 App Launcher for Android</title>
@@ -15,7 +19,9 @@
     <meta property="og:url" content="https://keylauncher.com/">
     <meta property="og:title" content="Key Launcher - Minimalist T9 App Launcher for Android">
     <meta property="og:description" content="Launch apps in just 2 taps. Digital detox, extreme battery saving, and absolute privacy offline. Featuring a classic T9 keypad and a sleek minimalist layout.">
-    <meta property="og:image" content="https://keylauncher.com/og-image.png">
+    <meta property="og:image" content="https://keylauncher.com/assets/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://keylauncher.com/assets/og-image.jpg">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,11 +82,13 @@
 
     <!-- Inline Blocking Script to Prevent Theme Flashing -->
     <script>
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        (function(){
+            var stored = localStorage.getItem('theme');
+            var dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.toggle('dark', dark);
+            // Always persist so every page sees the same explicit value
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        })();
     </script>
 
     <!-- Tailwind CSS CDN -->
@@ -539,7 +547,7 @@
 
     <!-- Download Banner CTA -->
     <section class="max-w-5xl mx-auto px-4 pb-24">
-        <div class="border border-zinc-200 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 dark:from-zinc-900/60 dark:to-zinc-950 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden shadow-md dark:shadow-none">
+        <div class="p-8 md:p-12 text-center relative overflow-hidden">
             <div class="absolute -top-12 -left-12 w-48 h-48 rounded-full bg-brand-500/5 blur-3xl pointer-events-none"></div>
             
             <h2 id="cta-title" class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-zinc-900 dark:text-white tracking-tight mb-4">
