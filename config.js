@@ -68,6 +68,13 @@ const KEY_LAUNCHER_CONTENT = {
                 title: "New Android launcher uses dumb phone techniques in a smart way",
                 quote: "A launcher built around a T9 keypad mixes 90s vibes with surprisingly powerful shortcuts",
                 url: "https://mobilesyrup.com/2026/05/06/new-android-launcher-uses-dumb-phone-techniques-in-a-smart-way/"
+            },
+            {
+                source: "Computerworld",
+                logo: "assets/logo_computerworld.svg",
+                title: "A retro-geeky Android home screen remix",
+                quote: "Key Launcher has only been out and available on the Play Store for a matter of weeks now, but it's impressively polished — and, even more important, impressively original while also having some fantastic geek-tech throwback vibes.",
+                url: "https://www.computerworld.com/article/4180222/retro-android-home-screen.html"
             }
         ],
         video: {
