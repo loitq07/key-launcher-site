@@ -214,7 +214,7 @@
         }
     </style>
 </head>
-<body class="bg-zinc-50 dark:bg-[#030014] text-zinc-800 dark:text-zinc-100 font-sans selection:bg-brand-500/20 overflow-x-hidden antialiased transition-colors duration-300">
+<body class="bg-zinc-50 dark:bg-[#030014] text-zinc-800 dark:text-zinc-100 font-sans selection:bg-brand-500/20 overflow-x-hidden antialiased transition-colors duration-300 pt-16 lg:pt-0">
 
     <!-- Radial Glowing Background Elements -->
     <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none -z-10 overflow-hidden opacity-0 dark:opacity-100 transition-opacity duration-300">
@@ -223,7 +223,7 @@
     </div>
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition-colors duration-300">
+    <header class="fixed lg:sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition duration-300">
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-2 group">
@@ -243,7 +243,7 @@
                 <a href="#features" id="nav-link-features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
                 <a href="#pricing" id="nav-link-pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Pricing</a>
                 <a href="#testimonials" id="nav-link-testimonials" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Reviews</a>
-
+                <a href="#faq" id="nav-link-faq" class="hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
             </nav>
 
             <!-- Actions and Theme Toggle -->
@@ -269,6 +269,7 @@
             <a href="#features" id="mobile-link-features" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Features</a>
             <a href="#pricing" id="mobile-link-pricing" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Pricing</a>
             <a href="#testimonials" id="mobile-link-testimonials" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Reviews</a>
+            <a href="#faq" id="mobile-link-faq" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">FAQ</a>
 
             <a href="" id="mobile-download-btn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white hover:bg-brand-500 cursor-pointer active:scale-[0.98] transition-all duration-200 font-display">
                 <span class="material-symbols-outlined mr-2 !text-[18px]">download</span> Get it on Google Play
@@ -545,6 +546,26 @@
         </div>
     </section>
 
+    <!-- FAQs Section -->
+    <section id="faq" class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100/30 dark:bg-zinc-950/20 py-20 md:py-32 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span id="faq-badge" class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold">Common questions</span>
+                <h2 id="faq-title" class="font-display font-extrabold text-3xl sm:text-4xl text-zinc-900 dark:text-white tracking-tight mt-2 mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p id="faq-subtitle" class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
+                    Have questions about Key Launcher? Find answers to the most common queries below.
+                </p>
+            </div>
+
+            <!-- Accordion Container -->
+            <div id="faq-accordion" class="space-y-4 max-w-3xl mx-auto">
+                <!-- Loaded dynamically by JS -->
+            </div>
+        </div>
+    </section>
+
     <!-- Download Banner CTA -->
     <section class="max-w-5xl mx-auto px-4 pb-24">
         <div class="p-8 md:p-12 text-center relative overflow-hidden">
@@ -636,8 +657,7 @@
             document.getElementById('nav-link-press').innerText = data.navigation.press;
             document.getElementById('nav-link-pricing').innerText = data.navigation.pricing;
             document.getElementById('nav-link-testimonials').innerText = data.navigation.testimonials;
-            
-
+            document.getElementById('nav-link-faq').innerText = data.navigation.faq || "FAQ";
             
             const navDownload = document.getElementById('nav-download-btn');
             navDownload.href = data.navigation.downloadUrl;
@@ -648,9 +668,8 @@
             document.getElementById('mobile-link-press').innerText = data.navigation.press;
             document.getElementById('mobile-link-pricing').innerText = data.navigation.pricing;
             document.getElementById('mobile-link-testimonials').innerText = data.navigation.testimonials;
+            document.getElementById('mobile-link-faq').innerText = data.navigation.faq || "FAQ";
             
-
-
             const mobileDownload = document.getElementById('mobile-download-btn');
             mobileDownload.href = data.navigation.downloadUrl;
             mobileDownload.innerHTML = `<span class="material-symbols-outlined mr-2 !text-[18px]">download</span> ${data.navigation.downloadText}`;
@@ -1346,6 +1365,81 @@
                 </div>
             `).join('');
 
+            // FAQs
+            document.getElementById('faq-badge').innerText = data.faq.badgeText;
+            document.getElementById('faq-title').innerHTML = data.faq.title;
+            document.getElementById('faq-subtitle').innerText = data.faq.subtitle;
+            const faqContainer = document.getElementById('faq-accordion');
+            
+            if (faqContainer && data.faq && data.faq.items) {
+                faqContainer.innerHTML = data.faq.items.map((item, idx) => `
+                    <div class="faq-item border border-zinc-200 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/10 backdrop-blur-md rounded-2xl overflow-hidden transition-all duration-300 shadow-sm hover:border-zinc-300 hover:dark:border-zinc-700">
+                        <button class="faq-trigger w-full flex items-center justify-between p-5 text-left font-display font-bold text-sm sm:text-base text-zinc-900 dark:text-white cursor-pointer select-none focus:outline-none" aria-expanded="false" data-index="${idx}">
+                            <span>${item.question}</span>
+                            <span class="material-symbols-outlined shrink-0 text-zinc-400 dark:text-zinc-500 transition-transform duration-300 !text-[20px] ml-4 pointer-events-none">
+                                keyboard_arrow_down
+                            </span>
+                        </button>
+                        <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                            <div class="p-5 pt-0 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed font-sans border-t border-zinc-100/50 dark:border-zinc-800/30">
+                                ${item.answer}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // Accordion interactions logic
+                const faqTriggers = faqContainer.querySelectorAll('.faq-trigger');
+                faqTriggers.forEach(trigger => {
+                    trigger.addEventListener('click', () => {
+                        const item = trigger.closest('.faq-item');
+                        const content = item.querySelector('.faq-content');
+                        const icon = trigger.querySelector('.material-symbols-outlined');
+                        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+                        // Close all other items first (accordion style)
+                        faqTriggers.forEach(otherTrigger => {
+                            if (otherTrigger !== trigger) {
+                                const otherItem = otherTrigger.closest('.faq-item');
+                                const otherContent = otherItem.querySelector('.faq-content');
+                                const otherIcon = otherTrigger.querySelector('.material-symbols-outlined');
+                                otherTrigger.setAttribute('aria-expanded', 'false');
+                                otherContent.style.maxHeight = '0px';
+                                if (otherIcon) {
+                                    otherIcon.style.transform = 'rotate(0deg)';
+                                }
+                                otherItem.classList.remove('border-zinc-300', 'dark:border-zinc-700', 'bg-white/80', 'dark:bg-zinc-900/30');
+                            }
+                        });
+
+                        // Toggle current item
+                        if (isOpen) {
+                            trigger.setAttribute('aria-expanded', 'false');
+                            content.style.maxHeight = '0px';
+                            if (icon) {
+                                icon.style.transform = 'rotate(0deg)';
+                            }
+                            item.classList.remove('border-zinc-300', 'dark:border-zinc-700', 'bg-white/80', 'dark:bg-zinc-900/30');
+                        } else {
+                            trigger.setAttribute('aria-expanded', 'true');
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                            if (icon) {
+                                icon.style.transform = 'rotate(180deg)';
+                            }
+                            item.classList.add('border-zinc-300', 'dark:border-zinc-700', 'bg-white/80', 'dark:bg-zinc-900/30');
+                        }
+                    });
+                });
+
+                // Recalculate heights on resize if active to prevent text clipping
+                window.addEventListener('resize', () => {
+                    const activeContent = faqContainer.querySelector('.faq-trigger[aria-expanded="true"]')?.closest('.faq-item')?.querySelector('.faq-content');
+                    if (activeContent) {
+                        activeContent.style.maxHeight = activeContent.scrollHeight + 'px';
+                    }
+                });
+            }
+
             // Download CTA Banner
             document.getElementById('cta-title').innerText = data.downloadCta.title;
             document.getElementById('cta-desc').innerText = data.downloadCta.description;
@@ -1403,7 +1497,14 @@
         const mobileMenu = document.getElementById('mobile-menu');
 
         menuBtn.addEventListener('click', () => {
+            const isClosed = mobileMenu.classList.contains('hidden');
             mobileMenu.classList.toggle('hidden');
+            if (isClosed) {
+                const header = document.querySelector('header');
+                if (header) {
+                    header.classList.remove('-translate-y-full');
+                }
+            }
         });
 
         // Close mobile menu on click
@@ -1413,6 +1514,41 @@
                 mobileMenu.classList.add('hidden');
             });
         });
+
+        // Header Scroll (Reveal on Scroll Up)
+        (function() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            const mobileMenu = document.getElementById('mobile-menu');
+            let lastScrollY = window.pageYOffset || window.scrollY;
+            const threshold = 15; // minimum scroll distance before hiding/showing
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.pageYOffset || window.scrollY;
+                
+                // If mobile menu is open, don't hide the header
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    header.classList.remove('-translate-y-full');
+                    lastScrollY = currentScrollY;
+                    return;
+                }
+                
+                // Check if scroll is significant enough
+                if (Math.abs(currentScrollY - lastScrollY) < threshold) {
+                    return;
+                }
+                
+                if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+                    // Scrolling down & passed header height -> hide
+                    header.classList.add('-translate-y-full');
+                } else {
+                    // Scrolling up or near the top -> show
+                    header.classList.remove('-translate-y-full');
+                }
+                
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+        })();
 
         // Theme Toggle Logic
         const themeToggleBtn = document.getElementById('theme-toggle');

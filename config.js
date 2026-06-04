@@ -9,6 +9,7 @@ const KEY_LAUNCHER_CONTENT = {
         press: "Press",
         pricing: "Pricing",
         testimonials: "Reviews",
+        faq: "FAQ",
         downloadText: "Download Free",
         downloadUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free"
     },
@@ -390,6 +391,39 @@ const KEY_LAUNCHER_CONTENT = {
                 initials: "JC",
                 author: "JC Dela Cruz (Jheyz)",
                 role: "Infinix ZERO Flip"
+            }
+        ]
+    },
+
+    // FAQs Section
+    faq: {
+        badgeText: "Common questions",
+        title: "Frequently Asked Questions",
+        subtitle: "Have questions about Key Launcher? Find answers to the most common queries below.",
+        items: [
+            {
+                question: "What is a T9 App Launcher?",
+                answer: "A T9 launcher uses the classic 3x4 keypad layout (like old dumb phones) to find and launch apps. Each key represents multiple letters (e.g., 2 is ABC, 3 is DEF). By pressing keys matching your app name (for example, 4-2-6 for 'Han' or 'Games'), the launcher instantly filters your apps. It takes just 2 or 3 taps to open any app, eliminating home screen clutter and helping you avoid mindless scrolling."
+            },
+            {
+                question: "Is Key Launcher safe and private?",
+                answer: "Absolutely. Key Launcher operates 100% offline and locally on your device. It does not request internet permissions, does not collect any personal data, and does not upload your usage statistics to any cloud servers. Your private vault and app usage data are stored securely on your own phone."
+            },
+            {
+                question: "Does Key Launcher support custom icon packs and wallpapers?",
+                answer: "Yes. Key Launcher provides full support for custom icon packs, system colors, and various typography choices. You can customize the look of individual icons, set auto-wallpaper changes, and use your favorite fonts. Some advanced visual customizations are part of the optional PRO plan."
+            },
+            {
+                question: "Will Key Launcher drain my battery?",
+                answer: "No, on the contrary! Key Launcher is built using efficient native Android architecture. It has no background network synchronization, no ads, and a highly optimized minimalist layout. This helps reduce CPU activity and screen-on power consumption, leading to better battery life."
+            },
+            {
+                question: "What messaging and calling integrations are supported?",
+                answer: "The launcher supports instant dialing and messaging. By typing contacts or numbers, you can directly launch phone calls, SMS, or open chat apps like WhatsApp, Zalo, and Viber to contact people instantly without navigating through different contact lists."
+            },
+            {
+                question: "Can I try the PRO features before purchasing?",
+                answer: "Yes, you can! Key Launcher offers a 30-day free trial for core PRO features, including Focus Mode, Synced Lyrics, and custom Icon Packs. This lets you experience the full potential of the launcher before deciding whether to purchase a yearly subscription or a lifetime license."
             }
         ]
     },

@@ -111,7 +111,7 @@
     </div>
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition-colors duration-300">
+    <header class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition-all duration-300">
         <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
 
             <!-- Logo + Back -->
@@ -470,6 +470,40 @@
 
             document.querySelectorAll('section[id]').forEach(s => observer.observe(s));
         });
+
+        // Header Scroll (Reveal on Scroll Up)
+        (function() {
+            const header = document.querySelector('header');
+            if (!header) return;
+            const mobileMenu = document.getElementById('mobile-menu');
+            let lastScrollY = window.pageYOffset || window.scrollY;
+            const threshold = 15; // minimum scroll distance before hiding/showing
+            
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.pageYOffset || window.scrollY;
+                
+                // If mobile menu is open, don't hide the header
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    lastScrollY = currentScrollY;
+                    return;
+                }
+                
+                // Check if scroll is significant enough
+                if (Math.abs(currentScrollY - lastScrollY) < threshold) {
+                    return;
+                }
+                
+                if (currentScrollY > 100 && currentScrollY > lastScrollY) {
+                    // Scrolling down & passed header height -> hide
+                    header.classList.add('-translate-y-full');
+                } else {
+                    // Scrolling up or near the top -> show
+                    header.classList.remove('-translate-y-full');
+                }
+                
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+        })();
     </script>
     <!-- Vercel Analytics -->
     <script>
