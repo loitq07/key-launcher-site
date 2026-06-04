@@ -166,7 +166,7 @@ const KEY_LAUNCHER_CONTENT = {
     // Pricing / Plans Section
     pricing: {
         badgeText: "Transparent pricing",
-        title: "Use for Free. Upgrade to PRO.",
+        title: "Use for Free. <br class=\"sm:hidden\">Upgrade to PRO.",
         subtitle: "Core features are entirely free and ad-free forever. Optional PRO subscription unlocks deep aesthetic customization.",
         plans: [
             {
@@ -319,7 +319,7 @@ const KEY_LAUNCHER_CONTENT = {
     // Testimonials / Reviews Section
     testimonials: {
         badgeText: "User feedback",
-        title: "Real Users. Real Reviews.",
+        title: "Real Users. <br class=\"sm:hidden\">Real Reviews.",
         items: [
             {
                 quote: "TL;DR: Great experience, this was my choice launcher across 5 ones I tried. I expect to use it for a long time and recommend it. Long story: The launcher is very customizable while feeling quick to use. The main page hosts 8 quick launch apps for common use ones then the T9 for everything else, so it feels like everything is available at the touch of a button. Calling my wife? Dial her number with the T9. Finding an app? 2 or 3 button presses away. Everything is quick to access.",
