@@ -471,6 +471,37 @@
 
     </section>
 
+    <!-- Focus Mode Highlight Section -->
+    <section id="focus-mode" class="border-t border-zinc-200 dark:border-zinc-900 bg-white dark:bg-zinc-950 py-20 md:py-32 transition-colors duration-300 overflow-hidden relative">
+        <!-- Glow Decorative Element -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 dark:bg-brand-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Centered Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span id="focus-mode-badge" class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold mb-3 block">
+                    Super Focus
+                </span>
+                <h2 id="focus-mode-title" class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-zinc-900 dark:text-white tracking-tight leading-tight mb-6">
+                    Mute Distractions. Silence the Noise.
+                </h2>
+                <p id="focus-mode-desc" class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
+                    Turn your device into the ultimate desk companion. Key Launcher's Super Focus mode silences all distracting notifications and replaces your standard interface with a minimalist dashboard. Enjoy seamless, zero-distraction access to essential utilities like your music player, calendar, Pomodoro timer, personal photo slideshow, and a classic offline game for quick breaks.
+                </p>
+            </div>
+            
+            <!-- Bullet features list (3-column layout on desktop) -->
+            <div id="focus-mode-bullets" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+                <!-- Loaded dynamically -->
+            </div>
+            
+            <!-- Large Centered Landscape Video Showcase -->
+            <div class="max-w-5xl mx-auto flex justify-center">
+                <video id="focus-mode-video" autoplay loop muted playsinline class="w-full h-auto block"></video>
+            </div>
+        </div>
+    </section>
+
     <!-- Transparent Pricing / Pro Version Section -->
     <section id="pricing" class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100/30 dark:bg-zinc-950/20 py-20 md:py-32 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4">
@@ -1176,6 +1207,34 @@
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(setupDesktopCarousel, 200);
             });
+
+            // ── Focus Mode Section ─────────────────────────────────────────────
+            if (data.focusMode) {
+                const badgeEl = document.getElementById('focus-mode-badge');
+                if (badgeEl) badgeEl.innerText = data.focusMode.badgeText;
+                
+                const titleEl = document.getElementById('focus-mode-title');
+                if (titleEl) titleEl.innerHTML = data.focusMode.title;
+                
+                const descEl = document.getElementById('focus-mode-desc');
+                if (descEl) descEl.innerText = data.focusMode.description;
+                
+                const videoEl = document.getElementById('focus-mode-video');
+                if (videoEl) videoEl.src = data.focusMode.image;
+                
+                const bulletsContainer = document.getElementById('focus-mode-bullets');
+                if (bulletsContainer && data.focusMode.bullets) {
+                    bulletsContainer.innerHTML = data.focusMode.bullets.map(b => `
+                        <div class="flex gap-3">
+                            <span class="material-symbols-outlined text-brand-500 dark:text-brand-400 shrink-0 !text-[24px]">${b.icon}</span>
+                            <div>
+                                <h4 class="font-display font-bold text-sm text-zinc-900 dark:text-white">${b.title}</h4>
+                                <p class="text-zinc-500 dark:text-zinc-400 text-xs mt-1 leading-relaxed">${b.description}</p>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
 
             // Pricing Grid
             document.getElementById('pricing-badge').innerText = data.pricing.badgeText;

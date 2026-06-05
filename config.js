@@ -24,13 +24,13 @@ const KEY_LAUNCHER_CONTENT = {
         playStoreBadge: "assets/google_play_badge.png",
         screenshot: "assets/screenshot_hero.png",
         screenshots: [
-            "assets/hero_1.png",
-            "assets/hero_2.png",
-            "assets/hero_3.png",
-            "assets/hero_4.png",
-            "assets/hero_5.png",
-            "assets/hero_6.png",
-            "assets/hero_7.png"
+            "assets/hero_1.webp",
+            "assets/hero_2.webp",
+            "assets/hero_3.webp",
+            "assets/hero_4.webp",
+            "assets/hero_5.webp",
+            "assets/hero_6.webp",
+            "assets/hero_7.webp"
         ],
         rating: {
             stars: 4.7,
@@ -160,6 +160,46 @@ const KEY_LAUNCHER_CONTENT = {
                 footerValue: "Monochrome / System colors",
                 footerColor: "text-zinc-600 dark:text-zinc-400",
                 image: "assets/feature_theme.jpg"
+            }
+        ]
+    },
+
+    // Focus Mode Highlight Section
+    focusMode: {
+        badgeText: "Super Focus",
+        title: "Mute Distractions. <br class=\"hidden sm:inline\">Silence the Noise.",
+        description: "Turn your device into the ultimate desk companion. Key Launcher's Super Focus mode silences all distracting notifications and replaces your standard interface with a minimalist dashboard. Enjoy seamless, zero-distraction access to essential utilities like your music player, calendar, Pomodoro timer, personal photo slideshow, and a classic offline game for quick breaks.",
+        image: "assets/focus_mode.webm",
+        bullets: [
+            {
+                icon: "do_not_disturb_on",
+                title: "1-Tap Silent Mode",
+                description: "Instantly mute incoming alerts from all distracting social apps."
+            },
+            {
+                icon: "music_note",
+                title: "Music Player",
+                description: "Relax with synced lyrics right on your screen."
+            },
+            {
+                icon: "calendar_today",
+                title: "Calendar & Agenda",
+                description: "Keep track of your agenda at a single glance."
+            },
+            {
+                icon: "hourglass_empty",
+                title: "Pomodoro Timer",
+                description: "Built-in interval timer to keep you in the zone."
+            },
+            {
+                icon: "photo_album",
+                title: "Album Slideshow",
+                description: "Cycle through favorite memories while you work."
+            },
+            {
+                icon: "sports_esports",
+                title: "T-Rex Game",
+                description: "A fun, classic offline run for short breaks."
             }
         ]
     },
