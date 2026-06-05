@@ -30,7 +30,8 @@ const KEY_LAUNCHER_CONTENT = {
             "assets/hero_4.webp",
             "assets/hero_5.webp",
             "assets/hero_6.webp",
-            "assets/hero_7.webp"
+            "assets/hero_7.webp",
+            "assets/hero_8.webp"
         ],
         rating: {
             stars: 4.7,
