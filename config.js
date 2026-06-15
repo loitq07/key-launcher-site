@@ -484,8 +484,8 @@ const KEY_LAUNCHER_CONTENT = {
         creatorText: "PRODUCT BY LOUSIFY TECH",
         copyright: "© 2026 Lousify Tech. All rights reserved.",
         privacyText: "Privacy Policy",
-        privacyUrl: "privacy-policy.html",
+        privacyUrl: "/privacy-policy",
         termsText: "Terms of Service",
-        termsUrl: "tos.html"
+        termsUrl: "/tos"
     }
 };
