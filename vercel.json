@@ -3,11 +3,11 @@
   "rewrites": [
     {
       "source": "/help",
-      "destination": "https://key-launcher-help-xyz.vercel.app/help"
+      "destination": "https://key-launcher-help-xyz.vercel.app/"
     },
     {
       "source": "/help/:path*",
-      "destination": "https://key-launcher-help-xyz.vercel.app/help/:path*"
+      "destination": "https://key-launcher-help-xyz.vercel.app/:path*"
     }
   ]
 }
