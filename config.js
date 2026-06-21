@@ -10,6 +10,8 @@ const KEY_LAUNCHER_CONTENT = {
         pricing: "Pricing",
         testimonials: "Reviews",
         faq: "FAQ",
+        guide: "Guide",
+        guideUrl: "/guide",
         downloadText: "Download Free",
         downloadUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free"
     },
@@ -486,6 +488,8 @@ const KEY_LAUNCHER_CONTENT = {
         privacyText: "Privacy Policy",
         privacyUrl: "/privacy-policy",
         termsText: "Terms of Service",
-        termsUrl: "/tos"
+        termsUrl: "/tos",
+        guideText: "User Guide",
+        guideUrl: "/guide"
     }
 };

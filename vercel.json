@@ -1,3 +1,16 @@
 {
   "cleanUrls": true
 }
+
+{
+  "rewrites": [
+    {
+      "source": "/help",
+      "destination": "https://key-launcher-help-xyz.vercel.app/help"
+    },
+    {
+      "source": "/help/:path*",
+      "destination": "https://key-launcher-help-xyz.vercel.app/help/:path*"
+    }
+  ]
+}

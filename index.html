@@ -256,6 +256,7 @@
                 <a href="#pricing" id="nav-link-pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Pricing</a>
                 <a href="#testimonials" id="nav-link-testimonials" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Reviews</a>
                 <a href="#faq" id="nav-link-faq" class="hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
+                <a href="/guide" id="nav-link-guide" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Guide</a>
             </nav>
 
             <!-- Actions and Theme Toggle -->
@@ -282,6 +283,7 @@
             <a href="#pricing" id="mobile-link-pricing" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Pricing</a>
             <a href="#testimonials" id="mobile-link-testimonials" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Reviews</a>
             <a href="#faq" id="mobile-link-faq" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">FAQ</a>
+            <a href="/guide" id="mobile-link-guide" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Guide</a>
 
             <a href="" id="mobile-download-btn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white hover:bg-brand-500 cursor-pointer active:scale-[0.98] transition-all duration-200 font-display">
                 <span class="material-symbols-outlined mr-2 !text-[18px]">download</span> Get it on Google Play
@@ -644,6 +646,7 @@
             <!-- Links & Social -->
             <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 font-medium">
                 <div class="flex items-center gap-6">
+                    <a href="" id="footer-guide-link" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">User Guide</a>
                     <a href="" id="footer-terms-link" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Terms of Service</a>
                     <a href="" id="footer-privacy-link" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Privacy Policy</a>
                 </div>
@@ -701,6 +704,9 @@
             document.getElementById('nav-link-pricing').innerText = data.navigation.pricing;
             document.getElementById('nav-link-testimonials').innerText = data.navigation.testimonials;
             document.getElementById('nav-link-faq').innerText = data.navigation.faq || "FAQ";
+            if (document.getElementById('nav-link-guide')) {
+                document.getElementById('nav-link-guide').innerText = data.navigation.guide || "Guide";
+            }
             
             const navDownload = document.getElementById('nav-download-btn');
             navDownload.href = data.navigation.downloadUrl;
@@ -712,6 +718,9 @@
             document.getElementById('mobile-link-pricing').innerText = data.navigation.pricing;
             document.getElementById('mobile-link-testimonials').innerText = data.navigation.testimonials;
             document.getElementById('mobile-link-faq').innerText = data.navigation.faq || "FAQ";
+            if (document.getElementById('mobile-link-guide')) {
+                document.getElementById('mobile-link-guide').innerText = data.navigation.guide || "Guide";
+            }
             
             const mobileDownload = document.getElementById('mobile-download-btn');
             mobileDownload.href = data.navigation.downloadUrl;
@@ -1526,6 +1535,12 @@
                 footerCreator.innerText = data.footer.creatorText;
             }
             document.getElementById('footer-copyright').innerText = data.footer.copyright;
+
+            const footerGuide = document.getElementById('footer-guide-link');
+            if (footerGuide) {
+                footerGuide.innerText = data.footer.guideText || "User Guide";
+                footerGuide.href = data.footer.guideUrl || "/guide";
+            }
 
             const footerTerms = document.getElementById('footer-terms-link');
             footerTerms.innerText = data.footer.termsText;
