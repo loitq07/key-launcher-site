@@ -1,16 +1,13 @@
 {
-  "cleanUrls": true
-}
-
-{
+  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/help",
-      "destination": "https://key-launcher-help-xyz.vercel.app/help"
+      "destination": "https://THAY-URL-THẬT-Ở-ĐÂY.vercel.app/help"
     },
     {
       "source": "/help/:path*",
-      "destination": "https://key-launcher-help-xyz.vercel.app/help/:path*"
+      "destination": "https://THAY-URL-THẬT-Ở-ĐÂY.vercel.app/help/:path*"
     }
   ]
 }
