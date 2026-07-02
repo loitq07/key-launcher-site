@@ -93,6 +93,62 @@
                 overflow-x: clip;
             }
         }
+
+        /* Pre-allocate space for dynamic elements to prevent Cumulative Layout Shift (CLS) */
+        #nav-logo {
+            width: 32px;
+            height: 32px;
+        }
+        #hero-playstore-badge-img {
+            aspect-ratio: 173 / 52;
+            width: 173px;
+            height: 52px;
+        }
+        #hero-rating-badge {
+            min-height: 24px;
+        }
+        #hero-value-props {
+            min-height: 18px;
+        }
+        #media-articles-list {
+            min-height: 480px;
+        }
+        @media (min-width: 1024px) {
+            #media-articles-list {
+                min-height: 380px;
+            }
+        }
+        #features-carousel {
+            min-height: 290px;
+        }
+        #focus-mode-bullets {
+            min-height: 200px;
+        }
+        #focus-mode-video {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+        }
+        #pricing-grid {
+            min-height: 1200px;
+        }
+        @media (min-width: 768px) {
+            #pricing-grid {
+                min-height: 580px;
+            }
+        }
+        #testimonials-grid {
+            min-height: 800px;
+        }
+        @media (min-width: 768px) {
+            #testimonials-grid {
+                min-height: 500px;
+            }
+        }
+        #faq-accordion {
+            min-height: 400px;
+        }
     </style>
 
     <!-- Load Content Config File first -->
@@ -251,7 +307,7 @@
         <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" class="flex items-center gap-2 group">
-                <img id="nav-logo" src="" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105 hidden">
+                <img id="nav-logo" src="" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105 hidden" width="32" height="32">
                 <div id="nav-logo-fallback" class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center font-display font-bold text-white text-lg transition-transform group-hover:scale-105">
                     K
                 </div>
@@ -325,7 +381,7 @@
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-6">
                 <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" id="hero-playstore-link" target="_blank" rel="noopener noreferrer" class="inline-block transform hover:-translate-y-0.5 active:scale-95 cursor-pointer transition-all duration-200">
-                    <img id="hero-playstore-badge-img" src="assets/google_play_badge.png" alt="Get it on Google Play" class="h-[52px]">
+                    <img id="hero-playstore-badge-img" src="assets/google_play_badge.png" alt="Get it on Google Play" class="h-[52px]" width="173" height="52">
                 </a>
                <!--  <div class="flex items-center gap-3">
                     <a href="" id="hero-reddit-btn" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 hover:dark:text-white hover:border-zinc-300 hover:dark:border-zinc-700 cursor-pointer active:scale-[0.95] transition-all duration-200" aria-label="Reddit">
@@ -526,7 +582,7 @@
             
             <!-- Large Centered Landscape Video Showcase -->
             <div class="max-w-5xl mx-auto flex justify-center">
-                <video id="focus-mode-video" autoplay loop muted playsinline class="w-full h-auto block"></video>
+                <video id="focus-mode-video" autoplay loop muted playsinline class="w-full aspect-video block rounded-2xl" width="1024" height="576"></video>
             </div>
         </div>
     </section>
