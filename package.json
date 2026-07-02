@@ -1,0 +1,11 @@
+{
+  "name": "key-launcher-site",
+  "version": "1.0.0",
+  "description": "Key Launcher Landing Page",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./css/style.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
+  }
+}

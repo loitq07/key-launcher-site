@@ -83,7 +83,8 @@ const KEY_LAUNCHER_CONTENT = {
         ],
         video: {
             title: "Watch the Full Review Video",
-            embedUrl: "https://www.youtube.com/embed/1U8iC-S4IRU?si=CZ3GvCIa0jq1SmR9"
+            embedUrl: "https://www.youtube.com/embed/09Wzav3Iw-Y?start=119",
+            url: "https://www.youtube.com/watch?v=09Wzav3Iw-Y&t=119s"
         }
     },
 
