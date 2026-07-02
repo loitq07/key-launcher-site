@@ -10,8 +10,8 @@ const KEY_LAUNCHER_CONTENT = {
         pricing: "Pricing",
         testimonials: "Reviews",
         faq: "FAQ",
-        guide: "Guide",
-        guideUrl: "/guide",
+        help: "Help",
+        helpUrl: "https://www.keylauncher.app/help",
         downloadText: "Download Free",
         downloadUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free"
     },
@@ -489,7 +489,7 @@ const KEY_LAUNCHER_CONTENT = {
         privacyUrl: "/privacy-policy",
         termsText: "Terms of Service",
         termsUrl: "/tos",
-        guideText: "User Guide",
-        guideUrl: "/guide"
+        helpText: "Help",
+        helpUrl: "https://www.keylauncher.app/help"
     }
 };

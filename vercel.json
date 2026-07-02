@@ -1,13 +1,15 @@
 {
   "cleanUrls": true,
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/help",
-      "destination": "https://key-launcher-help-xyz.vercel.app/help"
+      "source": "/guide",
+      "destination": "https://www.keylauncher.app/help",
+      "permanent": true
     },
     {
-      "source": "/help/:path*",
-      "destination": "https://key-launcher-help-xyz.vercel.app/help/:path*"
+      "source": "/guide/:path*",
+      "destination": "https://www.keylauncher.app/help/:path*",
+      "permanent": true
     }
   ]
 }
