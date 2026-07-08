@@ -435,6 +435,90 @@ const KEY_LAUNCHER_CONTENT = {
                 initials: "JC",
                 author: "JC Dela Cruz (Jheyz)",
                 role: "Infinix ZERO Flip"
+            },
+            {
+                quote: "this app is basically perfect. well designed, fast, easy to use, visually stunning. ad free!!!! purchase for full features is a reasonable $5 a year or $10 one time purchase (I will only ever use apps that offer a 1 time purchase) but is perfectly useable without paying. this is everything a launcher should be.",
+                avatar: "assets/alliyah.jpg",
+                initials: "A",
+                author: "Alliyah",
+                role: "Motorola motorola razr 60 ultra"
+            },
+            {
+                quote: "I felt like this launcher was made for me. Very big Niagara launcher fan, but would install an app dialer and additional apps to improve my experience. This already has an app dialer at its core with super shortcuts, widget page, RSS feed, and categories in the app drawer. Loving this launcher so far and paid for premium!",
+                avatar: "assets/marlo_hernandez.jpg",
+                initials: "MH",
+                author: "Marlo Hernandez",
+                role: "ZTE REDMAGIC 9 Pro"
+            },
+            {
+                quote: "As a long time Nova user, I started looking for a new launcher when I found out about the terrible things the company who bought Nova was doing. I tried many launchers and found that Key Launcher was the best of the bunch and met all my very picky requirements. Key Launcher is fast, flexible, highly configurable, and the developer is very helpful, very responsive, and very invested in making his customers happy and building the best product possible. I am very happy and very satisfied!",
+                avatar: "",
+                initials: "ST",
+                author: "Skip Tannen",
+                role: ""
+            },
+            {
+                quote: "super useful launcher, developer super active providing frequent new updates with new features. I moved from Smart, Nova and Octopi.",
+                avatar: "assets/rafal_skos.jpg",
+                initials: "RS",
+                author: "Rafal Skos",
+                role: "Google Pixel 10 Pro"
+            },
+            {
+                quote: "My daily driver, T9 keyboard is intuitive and fast to use, it has a really nice UI alongside focus mode and timed lyrics on the home screen. So far, the launcher is fast and responsive. The developer patches out any bugs very quickly too! Overall, I can't recommend this launcher enough if you miss the T9 keyboard or looking for a unique launcher :)",
+                avatar: "assets/charlie.jpg",
+                initials: "C",
+                author: "Charlie",
+                role: "Google Pixel 8 Pro"
+            },
+            {
+                quote: "This launcher is exceptional, offering a visually stunning experience that serves as a compelling reason to utilize the Android platform.",
+                avatar: "assets/ivan_lara_mainar.png",
+                initials: "IM",
+                author: "Ivan Lara Mainar",
+                role: "Samsung Galaxy S25 Ultra"
+            },
+            {
+                quote: "Great balance between clean/minimal and features/functionality. The T9 search is super fast with smart memory, and the inclusion of widgets and app actions in \"quick dial\" shortcuts makes it complete and very flexible without being overcrowded. Great launcher! And as extra benefit, the developer responds quickly and adequately to reports and feedback.",
+                avatar: "assets/tim.jpg",
+                initials: "T",
+                author: "Tim",
+                role: "Oppo Find X9 Pro"
+            },
+            {
+                quote: "This is one of the top launcher applications available on the Play Store, developed with a unique approach.",
+                avatar: "",
+                initials: "AD",
+                author: "Aditya Dwivedi",
+                role: "Realme 8 5G"
+            },
+            {
+                quote: "The interface design, with the keyboard on the main page, the widget page, and especially notifications on the left page, is very convenient. The sorting of applications on the main page according to usage is another important feature. An intelligently designed professional launcher",
+                avatar: "",
+                initials: "E",
+                author: "Erdem",
+                role: "Samsung Galaxy A23"
+            },
+            {
+                quote: "To be honest, I didn't like it much at first, but they've improved it, and I've tried using it more. Now, I find it quite pleasant. Notifications, calendar, app grouping, widgets, etc.—everything a good launcher needs. Highly recommended.",
+                avatar: "assets/carl_berrick.jpg",
+                initials: "CB",
+                author: "Carl Berrick",
+                role: "Google Pixel 8a"
+            },
+            {
+                quote: "my favourite launcher on samsung so far, still working to make it mine but I love it!",
+                avatar: "assets/jesse_wills.png",
+                initials: "JW",
+                author: "Jesse Wills",
+                role: "Samsung Galaxy S24 Ultra"
+            },
+            {
+                quote: "Extremely polished launcher, what an excellent proposal, see, may this standard of quality be maintained (translated)",
+                avatar: "",
+                initials: "AP",
+                author: "Ailton pires guimaraes",
+                role: "Samsung Galaxy A16"
             }
         ]
     },
