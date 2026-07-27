@@ -123,11 +123,16 @@
             min-height: 18px;
         }
         #media-articles-list {
-            min-height: 480px;
+            min-height: 1180px;
+        }
+        @media (min-width: 640px) {
+            #media-articles-list {
+                min-height: 600px;
+            }
         }
         @media (min-width: 1024px) {
             #media-articles-list {
-                min-height: 380px;
+                min-height: 400px;
             }
         }
         #features-carousel {
@@ -434,9 +439,9 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+            <div class="flex flex-col gap-12">
                 <!-- Video Showcase -->
-                <div class="lg:col-span-7 flex flex-col justify-center">
+                <div class="w-full max-w-3xl mx-auto flex flex-col">
                     <div class="w-full aspect-video rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-lg bg-black">
                         <iframe id="media-video-frame" class="w-full h-full"
                                 src="https://www.youtube.com/embed/1U8iC-S4IRU?si=CZ3GvCIa0jq1SmR9"
@@ -446,13 +451,13 @@
                                 referrerpolicy="strict-origin-when-cross-origin"
                                 allowfullscreen></iframe>
                     </div>
-                    <a id="media-video-title" href="" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-500 hover:text-red-500 dark:hover:text-red-400 font-mono mt-3 flex items-center gap-1.5 justify-center lg:justify-start transition-colors duration-200">
+                    <a id="media-video-title" href="" target="_blank" rel="noopener noreferrer" class="text-xs text-zinc-500 hover:text-red-500 dark:hover:text-red-400 font-mono mt-3 flex items-center gap-1.5 justify-center transition-colors duration-200">
                         <!-- Injected by JS -->
                     </a>
                 </div>
-                
-                <!-- Articles List -->
-                <div id="media-articles-list" class="lg:col-span-5 flex flex-col justify-between gap-4">
+
+                <!-- Articles Grid -->
+                <div id="media-articles-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
                     <!-- Injected dynamically -->
                 </div>
             </div>

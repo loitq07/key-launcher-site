@@ -19,6 +19,15 @@ function renderArticleLogo(article) {
             <img src="assets/logo_android_authority_dark.svg" alt="${article.source}" class="h-3.5 object-contain opacity-90 hidden dark:block">
         `;
     }
+    // MakeUseOf keeps its brand red, so it can't go through the dark:invert path below.
+    // Its lockup stacks "MAKE / USE / OF." over three lines, so h-3.5 would render each
+    // line ~4px tall and illegible — h-5 matches the optical weight of the other wordmarks.
+    if (article.logo.includes('logo_MakeUseOf')) {
+        return `
+            <img src="assets/logo_MakeUseOf.svg" alt="${article.source}" class="h-5 object-contain opacity-75 dark:hidden">
+            <img src="assets/logo_MakeUseOf_dark.svg" alt="${article.source}" class="h-5 object-contain opacity-90 hidden dark:block">
+        `;
+    }
     return `
         <img src="${article.logo}" alt="${article.source}" class="h-3.5 object-contain opacity-75 dark:invert dark:opacity-90">
     `;
@@ -394,21 +403,19 @@ function renderContent() {
     
     const articlesContainer = document.getElementById('media-articles-list');
     articlesContainer.innerHTML = data.media.articles.map(article => `
-        <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="group flex flex-col justify-between border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/20 hover:border-zinc-300 hover:dark:border-zinc-700 p-4 rounded-xl transition-all shadow-sm">
-            <div>
-                <div class="flex items-center justify-between mb-1.5">
-                    ${renderArticleLogo(article)}
-                    <span class="material-symbols-outlined text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white !text-[16px] transition-colors">
-                        north_east
-                    </span>
-                </div>
-                <h4 class="font-display font-bold text-xs sm:text-sm text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors mt-2">
-                    ${article.title}
-                </h4>
-                <p class="text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed italic mt-1">
-                    "${article.quote}"
-                </p>
+        <a href="${article.url}" target="_blank" rel="noopener noreferrer" class="group h-full flex flex-col border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/20 hover:border-zinc-300 hover:dark:border-zinc-700 p-4 rounded-xl transition-all shadow-sm">
+            <div class="flex items-center justify-between mb-1.5">
+                ${renderArticleLogo(article)}
+                <span class="material-symbols-outlined text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-white !text-[16px] transition-colors">
+                    north_east
+                </span>
             </div>
+            <h4 class="font-display font-bold text-sm text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors mt-2">
+                ${article.title}
+            </h4>
+            <p class="text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed italic mt-2 line-clamp-6">
+                "${article.quote}"
+            </p>
         </a>
     `).join('');
 

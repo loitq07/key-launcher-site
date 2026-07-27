@@ -67,6 +67,13 @@ const KEY_LAUNCHER_CONTENT = {
                 url: "https://www.androidauthority.com/best-new-android-apps-games-may-2026-3661657/"
             },
             {
+                source: "Android Authority",
+                logo: "assets/logo_android_authority_light.svg",
+                title: "These 11 paid Android apps are worth every penny I spent",
+                quote: "Key Launcher is among the most impressive launchers I’ve ever used. I thought I’d hate the idea of a T9 keypad-based home screen, but it’s since replaced the Pixel Launcher on my Pixel 8. That alone should tell you how good it is.",
+                url: "https://www.androidauthority.com/best-paid-android-apps-3690115/"
+            },
+            {
                 source: "MobileSyrup",
                 logo: "assets/ms-logo.svg",
                 title: "New Android launcher uses dumb phone techniques in a smart way",
@@ -79,6 +86,13 @@ const KEY_LAUNCHER_CONTENT = {
                 title: "A retro-geeky Android home screen remix",
                 quote: "Key Launcher has only been out and available on the Play Store for a matter of weeks now, but it's impressively polished — and, even more important, impressively original while also having some fantastic geek-tech throwback vibes.",
                 url: "https://www.computerworld.com/article/4180222/retro-android-home-screen.html"
+            },
+            {
+                source: "MakeUseOf",
+                logo: "assets/logo_MakeUseOf.svg",
+                title: "I swapped my app grid for a T9 keypad and my Android is faster than ever",
+                quote: "I have tried several launchers, but I'd have to say that Key Launcher is the only one that tries to solve Android's clutter problem.",
+                url: "https://www.makeuseof.com/swapped-app-grid-for-t9-keypad-my-android-is-faster-than-ever/"
             }
         ],
         video: {
@@ -233,8 +247,8 @@ const KEY_LAUNCHER_CONTENT = {
                     { name: "Up to 8 pinned items & 3 widgets", included: true },
                     { name: "3 Super Shortcut slots (keys 1-3)", included: true },
                     { name: "1 Private Vault secure item & 1 App Limit", included: true },
-                    { name: "30-day trial of Focus Mode, Synced Lyrics & Icon Packs", included: true },
-                    { name: "Notification Dots & Backup / Restore included", included: true }
+                    { name: "30-day trial of Focus Mode, Synced Lyrics, Icon Packs & Backup", included: true },
+                    { name: "Notification Dots, Quick Actions & Swipe Gestures included", included: true }
                 ]
             },
             {
@@ -265,11 +279,11 @@ const KEY_LAUNCHER_CONTENT = {
                 isRecommended: true,
                 features: [
                     { name: "Unlimited pinned items & widgets", included: true },
-                    { name: "All 9 Super Shortcut slots", included: true },
+                    { name: "All 9 Super Shortcut slots & unlimited app pages", included: true },
                     { name: "Unlimited Private Vault items & App Limits", included: true },
                     { name: "Full Focus Mode, Synced Lyrics & Icon Packs", included: true },
-                    { name: "Widget Center custom wallpaper & custom fonts", included: true },
-                    { name: "Auto wallpaper & Backup / Restore included", included: true }
+                    { name: "Custom fonts, keyboard color presets & Calculator Mode", included: true },
+                    { name: "Auto wallpaper, unlimited RSS sources & Backup / Restore", included: true }
                 ]
             }
         ],
@@ -283,7 +297,16 @@ const KEY_LAUNCHER_CONTENT = {
                         { nameEn: "Swipe Gestures", free: "✅", pro: "✅" },
                         { nameEn: "Contact Search", free: "✅", pro: "✅" },
                         { nameEn: "Hide Apps & Contacts", free: "✅", pro: "✅" },
-                        { nameEn: "Double-Tap to Lock", free: "✅", pro: "✅" }
+                        { nameEn: "Double-Tap to Lock", free: "✅", pro: "✅" },
+                        { nameEn: "App Pages", free: "2 pages", pro: "Unlimited" }
+                    ]
+                },
+                {
+                    nameEn: "Keyboard",
+                    features: [
+                        { nameEn: "Calculator Mode", free: "30-day trial", pro: "✅" },
+                        { nameEn: "Ringer Toggle", free: "30-day trial", pro: "✅" },
+                        { nameEn: "Keyboard Color Presets", free: "30-day trial", pro: "✅" }
                     ]
                 },
                 {
@@ -332,8 +355,9 @@ const KEY_LAUNCHER_CONTENT = {
                     nameEn: "Appearance",
                     features: [
                         { nameEn: "Wallpaper Options", free: "✅", pro: "✅" },
-                        { nameEn: "Auto Wallpaper Change", free: "❌", pro: "✅" },
+                        { nameEn: "Auto Wallpaper Change", free: "30-day trial", pro: "✅" },
                         { nameEn: "Icon Pack Support", free: "30-day trial", pro: "✅" },
+                        { nameEn: "Custom Fonts", free: "30-day trial", pro: "✅" },
                         { nameEn: "Icon Customization", free: "✅", pro: "✅" },
                         { nameEn: "Notification Dots", free: "✅", pro: "✅" },
                         { nameEn: "Wallpaper Overlay", free: "✅", pro: "✅" }
@@ -346,9 +370,15 @@ const KEY_LAUNCHER_CONTENT = {
                     ]
                 },
                 {
+                    nameEn: "Discover Feed",
+                    features: [
+                        { nameEn: "RSS Feed Sources", free: "3 sources", pro: "Unlimited" }
+                    ]
+                },
+                {
                     nameEn: "Settings & Data",
                     features: [
-                        { nameEn: "Backup & Restore", free: "✅", pro: "✅" }
+                        { nameEn: "Backup & Restore", free: "30-day trial", pro: "✅" }
                     ]
                 },
                 {
