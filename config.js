@@ -228,13 +228,13 @@ const KEY_LAUNCHER_CONTENT = {
         title: "Use for Free. <br class=\"sm:hidden\">Upgrade to PRO.",
         subtitle: "Core features are entirely free and ad-free forever. Optional PRO subscription unlocks deep aesthetic customization.",
 
-        // Copy for the regional price block. Prices themselves live in
-        // pricing-regional.js, generated from the Play Console price matrix.
+        // Copy for the regional price block. The prices themselves are served
+        // per-visitor by api/pricing.js and never shipped to the browser.
         regional: {
             annualLabel: "1-Year Subscription",
             lifetimeLabel: "Lifetime Purchase",
             regionLabel: "Prices for",
-            regionSelectLabel: "Show prices for another country",
+            regionUnknown: "Prices shown in USD. Google Play charges the price set for your account's country.",
             discountNote: "{pct}% below the global price, adjusted for local purchasing power.",
             discountMinPct: 10,
             policyNote: "No sales, ever. Prices only go up \u2014 buy earlier, pay less. Lifetime purchases are never repriced."
@@ -267,8 +267,8 @@ const KEY_LAUNCHER_CONTENT = {
                 name: "PRO Plan",
                 price: "",
                 pricePeriod: "",
-                // Rendered by app.js from pricing-regional.js so every visitor sees
-                // the price Google Play will actually charge in their country.
+                // Rendered by app.js from /api/pricing, which resolves the caller's
+                // country at the edge and returns only that country's prices.
                 regionalPricing: true,
                 description: "Tailor every aspect of your mobile layout to fit your aesthetic lofi chill music routines.",
                 buttonText: "Upgrade In-App",

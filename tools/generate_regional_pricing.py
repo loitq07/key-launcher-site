@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
-"""Generate pricing-regional.js from the app repo's price matrix.
+"""Generate api/pricing.js from the app repo's price matrix.
 
 Source of truth is `pricing/price_matrix.csv` in loitq07/minimal-t9-launcher,
 which is generated from World Bank price level data and pushed to Play Console.
 This script never invents a price: every number it emits is copied from that CSV.
 
+The output is a Vercel Edge Function, not a static asset. The full matrix stays
+on the server: each request resolves the caller's country from the Play/Vercel
+geo header and the response carries that one country's prices and nothing else,
+so a visitor cannot read the price list for any other country.
+
 Usage:
     python3 tools/generate_regional_pricing.py \
         --matrix ../minimal-t9-launcher/pricing/price_matrix.csv \
         --config ../minimal-t9-launcher/pricing/pricing.json \
-        --out pricing-regional.js
+        --out api/pricing.js
 """
 
 import argparse
@@ -18,24 +23,67 @@ import json
 import os
 from datetime import date
 
-# tzdb zones that browsers still report but that zone.tab no longer lists.
-TZ_ALIASES = {
-    "Asia/Saigon": "Asia/Ho_Chi_Minh",
-    "Asia/Calcutta": "Asia/Kolkata",
-    "Asia/Katmandu": "Asia/Kathmandu",
-    "Asia/Rangoon": "Asia/Yangon",
-    "Asia/Istanbul": "Europe/Istanbul",
-    "Europe/Kiev": "Europe/Kyiv",
-    "Europe/Nicosia": "Asia/Nicosia",
-    "America/Buenos_Aires": "America/Argentina/Buenos_Aires",
-    "America/Godthab": "America/Nuuk",
-    "Atlantic/Faeroe": "Atlantic/Faroe",
-    "Pacific/Ponape": "Pacific/Pohnpei",
-    "US/Eastern": "America/New_York",
-    "US/Central": "America/Chicago",
-    "US/Mountain": "America/Denver",
-    "US/Pacific": "America/Los_Angeles",
-}
+FUNCTION_TEMPLATE = """\
+// Regional pricing endpoint for Key Launcher PRO \u2014 GENERATED FILE, DO NOT EDIT BY HAND.
+// Source of truth: pricing/price_matrix.csv in loitq07/minimal-t9-launcher,
+// the same matrix that is pushed to Google Play Console.
+// Regenerate with: python3 tools/generate_regional_pricing.py
+// Generated {generated} from {count} Play regions.
+//
+// The table below never leaves the server. Each response carries the caller's
+// own country and nothing else, so no visitor can read another country's price.
+
+export const config = {{ runtime: 'edge' }};
+
+// ISO country -> [currency, annual, lifetime, annualDecimals, lifetimeDecimals,
+//                 percent below the plain FX conversion]
+const PRICES = {{
+{table}
+}};
+
+const BASE = {{
+    currency: {base_currency},
+    annual: {base_annual},
+    lifetime: {base_lifetime},
+    decimals: {base_decimals}
+}};
+
+export default function handler(request) {{
+    // Vercel resolves this from the caller's IP at the edge. It is absent when
+    // running locally, in which case we fall back to the global base price.
+    const country = (request.headers.get('x-vercel-ip-country') || '').toUpperCase();
+    const row = PRICES[country];
+
+    const body = row
+        ? {{
+            country: country,
+            currency: row[0],
+            annual: {{ amount: row[1], decimals: row[3] }},
+            lifetime: {{ amount: row[2], decimals: row[4] }},
+            discountPct: row[5],
+            resolved: true
+        }}
+        : {{
+            country: null,
+            currency: BASE.currency,
+            annual: {{ amount: BASE.annual, decimals: BASE.decimals }},
+            lifetime: {{ amount: BASE.lifetime, decimals: BASE.decimals }},
+            discountPct: 0,
+            resolved: false
+        }};
+
+    return new Response(JSON.stringify(body), {{
+        status: 200,
+        headers: {{
+            'content-type': 'application/json; charset=utf-8',
+            // The answer differs per caller, so it must never be shared by a
+            // cache: a cached response would show one country's price to another.
+            'cache-control': 'private, no-store, max-age=0',
+            'vary': 'x-vercel-ip-country'
+        }}
+    }});
+}}
+"""
 
 
 def read_matrix(path):
@@ -55,27 +103,6 @@ def pct(raw):
     return int(round(float(raw.strip().rstrip("%"))))
 
 
-def read_zone_tab(path, countries):
-    """Map IANA timezone -> ISO country code, limited to priced countries."""
-    zones = {}
-    if not os.path.exists(path):
-        return zones
-    with open(path, encoding="utf-8") as fh:
-        for line in fh:
-            if line.startswith("#") or not line.strip():
-                continue
-            parts = line.split("\t")
-            if len(parts) < 3:
-                continue
-            country, zone = parts[0].strip(), parts[2].strip()
-            if country in countries:
-                zones[zone] = country
-    for alias, canonical in TZ_ALIASES.items():
-        if canonical in zones:
-            zones[alias] = zones[canonical]
-    return dict(sorted(zones.items()))
-
-
 def js_string(value):
     return json.dumps(value, ensure_ascii=False)
 
@@ -85,7 +112,6 @@ def main():
     ap.add_argument("--matrix", required=True)
     ap.add_argument("--config", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--zone-tab", default="/usr/share/zoneinfo/zone.tab")
     args = ap.parse_args()
 
     rows = read_matrix(args.matrix)
@@ -97,71 +123,37 @@ def main():
 
     countries = {}
     for row in rows:
-        countries[row["country"]] = [
-            row["name"],
+        countries[row["country"]] = (
             row["currency"],
-            float(row["annual_local"]),
-            float(row["lifetime_local"]),
-            decimals_of(row["annual_local"]),
-            decimals_of(row["lifetime_local"]),
-            row["tier"],
+            row["annual_local"],
+            row["lifetime_local"],
             pct(row["annual_off_vs_fx"]),
-            pct(row["lifetime_off_vs_fx"]),
-        ]
-
-    zones = read_zone_tab(args.zone_tab, set(countries))
-
-    lines = [
-        "// Regional pricing data for Key Launcher PRO — GENERATED FILE, DO NOT EDIT BY HAND.",
-        "// Source of truth: pricing/price_matrix.csv in loitq07/minimal-t9-launcher,",
-        "// the same matrix that is pushed to Google Play Console.",
-        "// Regenerate with: python3 tools/generate_regional_pricing.py",
-        f"// Generated {date.today().isoformat()} from {len(countries)} Play regions.",
-        "",
-        "const KEY_LAUNCHER_PRICING = {",
-        f"    baseCurrency: {js_string(base_currency)},",
-        "    base: {",
-        f"        annual: {base['annual']},",
-        f"        lifetime: {base['lifetime']}",
-        "    },",
-        "    defaultCountry: \"US\",",
-        "",
-        "    // [name, currency, annual, lifetime, annualDecimals, lifetimeDecimals,",
-        "    //  tier, annualOffVsFx%, lifetimeOffVsFx%]",
-        "    countries: {",
-    ]
-
-    for code, values in sorted(countries.items()):
-        name, currency, annual, lifetime, ad, ld, tier, aoff, loff = values
-        annual_js = f"{annual:.{ad}f}"
-        lifetime_js = f"{lifetime:.{ld}f}"
-        lines.append(
-            f"        {code}: [{js_string(name)}, {js_string(currency)}, "
-            f"{annual_js}, {lifetime_js}, {ad}, {ld}, {js_string(tier)}, {aoff}, {loff}],"
         )
 
-    lines[-1] = lines[-1].rstrip(",")
-    lines += [
-        "    },",
-        "",
-        "    // IANA timezone -> ISO country, used to guess the visitor's Play region.",
-        "    timezones: {",
-    ]
+    table = []
+    for code, (currency, annual, lifetime, off) in sorted(countries.items()):
+        table.append(
+            f"    {code}: [{js_string(currency)}, {annual}, {lifetime}, "
+            f"{decimals_of(annual)}, {decimals_of(lifetime)}, {off}],"
+        )
+    if table:
+        table[-1] = table[-1].rstrip(",")
 
-    zone_entries = [f"        {js_string(zone)}: {js_string(code)}," for zone, code in zones.items()]
-    if zone_entries:
-        zone_entries[-1] = zone_entries[-1].rstrip(",")
-    lines += zone_entries
-    lines += [
-        "    }",
-        "};",
-        "",
-    ]
+    out = FUNCTION_TEMPLATE.format(
+        generated=date.today().isoformat(),
+        count=len(countries),
+        table="\n".join(table),
+        base_currency=js_string(base_currency),
+        base_annual=base["annual"],
+        base_lifetime=base["lifetime"],
+        base_decimals=decimals_of(str(base["annual"])),
+    )
 
+    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:
-        fh.write("\n".join(lines))
+        fh.write(out)
 
-    print(f"wrote {args.out}: {len(countries)} countries, {len(zones)} timezones")
+    print(f"wrote {args.out}: {len(countries)} countries")
 
 
 if __name__ == "__main__":
