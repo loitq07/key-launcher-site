@@ -227,6 +227,18 @@ const KEY_LAUNCHER_CONTENT = {
         badgeText: "Transparent pricing",
         title: "Use for Free. <br class=\"sm:hidden\">Upgrade to PRO.",
         subtitle: "Core features are entirely free and ad-free forever. Optional PRO subscription unlocks deep aesthetic customization.",
+
+        // Copy for the regional price block. Prices themselves live in
+        // pricing-regional.js, generated from the Play Console price matrix.
+        regional: {
+            annualLabel: "1-Year Subscription",
+            lifetimeLabel: "Lifetime Purchase",
+            regionLabel: "Prices for",
+            regionSelectLabel: "Show prices for another country",
+            discountNote: "{pct}% below the global price, adjusted for local purchasing power.",
+            discountMinPct: 10,
+            policyNote: "No sales, ever. Prices only go up \u2014 buy earlier, pay less. Lifetime purchases are never repriced."
+        },
         plans: [
             {
                 name: "Free Plan",
@@ -255,24 +267,9 @@ const KEY_LAUNCHER_CONTENT = {
                 name: "PRO Plan",
                 price: "",
                 pricePeriod: "",
-                priceHtml: `
-                    <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
-                            <span class="text-xs text-zinc-500">1-Year Subscription</span>
-                            <div class="text-right">
-                                <span class="text-lg font-bold text-zinc-900 dark:text-white">$4.99</span>
-                                <span class="text-xs text-zinc-400 line-through ml-1.5">$9.99</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between pt-1">
-                            <span class="text-xs text-zinc-500">Lifetime Purchase</span>
-                            <div class="text-right">
-                                <span class="text-lg font-bold text-zinc-900 dark:text-white">$9.99</span>
-                                <span class="text-xs text-zinc-400 line-through ml-1.5">$19.99</span>
-                            </div>
-                        </div>
-                    </div>
-                `,
+                // Rendered by app.js from pricing-regional.js so every visitor sees
+                // the price Google Play will actually charge in their country.
+                regionalPricing: true,
                 description: "Tailor every aspect of your mobile layout to fit your aesthetic lofi chill music routines.",
                 buttonText: "Upgrade In-App",
                 buttonUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",

@@ -606,6 +606,185 @@ function renderContent() {
         }
     }
 
+    // ---- Regional pricing -------------------------------------------------
+    // Prices come from pricing-regional.js, generated from the same matrix that
+    // is pushed to Google Play Console, so the site never quotes a price Play
+    // will not charge. Detection order: explicit ?region= override, a country the
+    // visitor picked before, their timezone, then their locale, then US base.
+    const PRICING = typeof KEY_LAUNCHER_PRICING !== 'undefined' ? KEY_LAUNCHER_PRICING : null;
+    const REGION_STORAGE_KEY = 'kl-region';
+
+    function knownCountry(code) {
+        if (!PRICING || !code) return null;
+        const upper = String(code).toUpperCase();
+        return PRICING.countries[upper] ? upper : null;
+    }
+
+    function storedCountry() {
+        try {
+            return knownCountry(localStorage.getItem(REGION_STORAGE_KEY));
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function countryFromTimezone() {
+        try {
+            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            return knownCountry(PRICING.timezones[tz]);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function countryFromLocale() {
+        const locales = navigator.languages && navigator.languages.length
+            ? navigator.languages
+            : [navigator.language];
+        for (const locale of locales) {
+            if (!locale) continue;
+            const match = /[-_]([A-Za-z]{2})\b/.exec(locale);
+            const found = match && knownCountry(match[1]);
+            if (found) return found;
+        }
+        return null;
+    }
+
+    function detectCountry() {
+        if (!PRICING) return null;
+        const fromUrl = knownCountry(new URLSearchParams(window.location.search).get('region'));
+        return fromUrl
+            || storedCountry()
+            || countryFromTimezone()
+            || countryFromLocale()
+            || PRICING.defaultCountry;
+    }
+
+    function countryName(code, fallback) {
+        try {
+            return new Intl.DisplayNames(['en'], { type: 'region' }).of(code) || fallback;
+        } catch (e) {
+            return fallback;
+        }
+    }
+
+    function localeForCountry(code) {
+        // Format a country's price the way that country writes it, so the site
+        // matches the Play Store listing rather than the visitor's own locale.
+        try {
+            return new Intl.Locale('und-' + code).maximize().toString();
+        } catch (e) {
+            return undefined;
+        }
+    }
+
+    function formatPrice(amount, currency, decimals, code) {
+        // Keep the exact digits Play charges: 49.000 VND stays whole, 8,99 EUR
+        // keeps its cents, and TRY 129 is not inflated to 129.00.
+        const options = {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals
+        };
+        const locales = [localeForCountry(code), undefined];
+        for (const locale of locales) {
+            try {
+                return new Intl.NumberFormat(locale, Object.assign({ currencyDisplay: 'narrowSymbol' }, options)).format(amount);
+            } catch (e) {
+                try {
+                    return new Intl.NumberFormat(locale, options).format(amount);
+                } catch (err) {
+                    /* try the next locale */
+                }
+            }
+        }
+        return currency + ' ' + amount;
+    }
+
+    function priceRowHtml(label, formatted) {
+        return `
+            <div class="flex items-center justify-between gap-3">
+                <span class="text-xs text-zinc-500">${label}</span>
+                <span class="text-lg font-bold text-zinc-900 dark:text-white">${formatted}</span>
+            </div>
+        `;
+    }
+
+    function regionalPricingHtml(code) {
+        const copy = (data.pricing.regional) || {};
+        if (!PRICING) {
+            return `
+                <div class="flex flex-col gap-2">
+                    ${priceRowHtml(copy.annualLabel || '1-Year Subscription', '$' + '9.99')}
+                    ${priceRowHtml(copy.lifetimeLabel || 'Lifetime Purchase', '$' + '24.99')}
+                </div>
+            `;
+        }
+
+        const entry = PRICING.countries[code] || PRICING.countries[PRICING.defaultCountry];
+        const [fallbackName, currency, annual, lifetime, annualDecimals, lifetimeDecimals, , annualOff] = entry;
+        const name = countryName(code, fallbackName);
+        const minDiscount = typeof copy.discountMinPct === 'number' ? copy.discountMinPct : 10;
+        const discount = annualOff >= minDiscount && copy.discountNote
+            ? copy.discountNote.replace('{pct}', annualOff)
+            : '';
+
+        const options = Object.keys(PRICING.countries)
+            .map(c => ({ code: c, name: countryName(c, PRICING.countries[c][0]) }))
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map(c => `<option value="${c.code}"${c.code === code ? ' selected' : ''}>${c.name}</option>`)
+            .join('');
+
+        return `
+            <div class="flex flex-col gap-2">
+                <div class="border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
+                    ${priceRowHtml(copy.annualLabel || '1-Year Subscription', formatPrice(annual, currency, annualDecimals, code))}
+                </div>
+                <div class="pt-1">
+                    ${priceRowHtml(copy.lifetimeLabel || 'Lifetime Purchase', formatPrice(lifetime, currency, lifetimeDecimals, code))}
+                </div>
+                <div class="mt-3 pt-3 border-t border-zinc-100 dark:border-zinc-800/80">
+                    <div class="flex items-center justify-between gap-2 text-[11px] text-zinc-500">
+                        <span>${copy.regionLabel || 'Prices for'}</span>
+                        <span class="relative inline-flex items-center gap-0.5 font-semibold text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white underline decoration-dotted underline-offset-2 transition-colors cursor-pointer">
+                            ${name} \u00b7 ${currency}
+                            <span class="material-symbols-outlined !text-[14px] no-underline">expand_more</span>
+                            <select id="pricing-region-select" aria-label="${copy.regionSelectLabel || 'Show prices for another country'}"
+                                class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                                ${options}
+                            </select>
+                        </span>
+                    </div>
+                    ${discount ? `<p class="mt-2 text-[11px] leading-relaxed text-zinc-500 dark:text-zinc-400">${discount}</p>` : ''}
+                    ${copy.policyNote ? `<p class="mt-1.5 text-[11px] leading-relaxed text-zinc-400 dark:text-zinc-500">${copy.policyNote}</p>` : ''}
+                </div>
+            </div>
+        `;
+    }
+
+    let activeCountry = detectCountry();
+
+    function bindRegionSelect() {
+        const select = document.getElementById('pricing-region-select');
+        if (!select) return;
+        select.addEventListener('change', (event) => {
+            const chosen = knownCountry(event.target.value);
+            if (!chosen) return;
+            activeCountry = chosen;
+            try {
+                localStorage.setItem(REGION_STORAGE_KEY, chosen);
+            } catch (e) {
+                /* storage blocked; the choice just does not persist */
+            }
+            const block = document.getElementById('pro-price-block');
+            if (block) {
+                block.innerHTML = regionalPricingHtml(activeCountry);
+                bindRegionSelect();
+            }
+        });
+    }
+
     // Pricing Grid
     document.getElementById('pricing-badge').innerText = data.pricing.badgeText;
     document.getElementById('pricing-title').innerHTML = data.pricing.title;
@@ -619,8 +798,8 @@ function renderContent() {
             </div>` : ''}
             <div>
                 <span class="text-xs font-mono ${plan.isRecommended ? 'text-zinc-900 dark:text-white font-semibold' : 'text-zinc-500'} uppercase">${plan.name}</span>
-                <div class="mt-4 mb-6">
-                    ${plan.priceHtml ? plan.priceHtml : `
+                <div class="mt-4 mb-6"${plan.regionalPricing ? ' id="pro-price-block"' : ''}>
+                    ${plan.regionalPricing ? regionalPricingHtml(activeCountry) : plan.priceHtml ? plan.priceHtml : `
                         <div class="flex items-baseline gap-1">
                             <span class="text-3xl sm:text-4xl font-display font-extrabold text-zinc-900 dark:text-white">${plan.price}</span>
                             <span class="text-zinc-500 text-sm font-medium">${plan.pricePeriod}</span>
@@ -646,6 +825,8 @@ function renderContent() {
             </a>
         </div>
     `).join('');
+
+    bindRegionSelect();
 
     // Detailed Feature Comparison Table Rendering
     const comparisonTableBody = document.getElementById('comparison-table-body');
