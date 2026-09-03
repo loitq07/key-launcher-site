@@ -33,46 +33,6 @@ function renderArticleLogo(article) {
     `;
 }
 
-async function setupRegionalPricing() {
-    const status = document.getElementById('pricing-status');
-    const grid = document.getElementById('pricing-grid');
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
-    grid.setAttribute('aria-busy', 'true');
-
-    try {
-        // The server chooses the region. Browser language only formats the returned currency.
-        const response = await fetch('/api/pricing', {
-            cache: 'no-store',
-            credentials: 'omit',
-            signal: controller.signal
-        });
-        if (!response.ok) throw new Error('Pricing unavailable');
-        const prices = await response.json();
-        if (!prices || !/^[A-Z]{3}$/.test(prices.currency) ||
-            !Number.isFinite(prices.annual) || prices.annual <= 0 ||
-            !Number.isFinite(prices.lifetime) || prices.lifetime <= 0) {
-            throw new Error('Regional pricing unavailable');
-        }
-        const formatter = new Intl.NumberFormat(navigator.language || 'en-US', {
-            style: 'currency',
-            currency: prices.currency,
-            minimumFractionDigits: 0
-        });
-        grid.querySelectorAll('[data-price]').forEach(element => {
-            const plan = element.dataset.price;
-            element.textContent = formatter.format(plan === 'free' ? 0 : prices[plan]);
-        });
-        status.textContent = `Prices in ${prices.currency}. Final prices are shown in the app.`;
-    } catch {
-        // Do not guess another country's price when geolocation or the request is unavailable.
-        status.textContent = 'See your local PRO prices in the app.';
-    } finally {
-        clearTimeout(timeout);
-        grid.setAttribute('aria-busy', 'false');
-    }
-}
-
 function renderContent() {
     const data = KEY_LAUNCHER_CONTENT;
 
@@ -646,6 +606,136 @@ function renderContent() {
         }
     }
 
+    // ---- Regional pricing -------------------------------------------------
+    // /api/pricing resolves the caller's country at the edge and returns only
+    // that country's prices. Keep neutral placeholders until prices are available.
+    const PRICING_ENDPOINT = '/api/pricing';
+
+    let regionalPrices = null;
+
+    function countryName(code) {
+        if (!code) return '';
+        try {
+            return new Intl.DisplayNames(['en'], { type: 'region' }).of(code) || code;
+        } catch (e) {
+            return code;
+        }
+    }
+
+    function localeForCountry(code) {
+        // Format a country's price the way that country writes it, so the site
+        // matches the Play Store listing rather than the visitor's own locale.
+        if (!code) return undefined;
+        try {
+            return new Intl.Locale('und-' + code).maximize().toString();
+        } catch (e) {
+            return undefined;
+        }
+    }
+
+    function formatPrice(amount, currency, decimals, code) {
+        // Keep the exact number of digits Play charges: whole-unit currencies
+        // stay whole and are never inflated with a .00, and currencies priced
+        // with cents keep them.
+        const options = {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals
+        };
+        const locales = [localeForCountry(code), undefined];
+        for (const locale of locales) {
+            try {
+                return new Intl.NumberFormat(locale, Object.assign({ currencyDisplay: 'narrowSymbol' }, options)).format(amount);
+            } catch (e) {
+                try {
+                    return new Intl.NumberFormat(locale, options).format(amount);
+                } catch (err) {
+                    /* try the next locale */
+                }
+            }
+        }
+        return currency + ' ' + amount;
+    }
+
+    function priceRowHtml(label, formatted) {
+        return `
+            <div class="flex items-center justify-between gap-3">
+                <span class="text-xs text-zinc-500">${label}</span>
+                <span class="text-lg font-bold text-zinc-900 dark:text-white">${formatted}</span>
+            </div>
+        `;
+    }
+
+    function regionalPricingHtml() {
+        const copy = (data.pricing.regional) || {};
+        const prices = regionalPrices;
+        const pending = !prices;
+        const code = prices && prices.resolved ? prices.country : null;
+
+        const annual = pending
+            ? 'See in app'
+            : formatPrice(prices.annual.amount, prices.currency, prices.annual.decimals, code);
+        const lifetime = pending
+            ? 'See in app'
+            : formatPrice(prices.lifetime.amount, prices.currency, prices.lifetime.decimals, code);
+
+        const minDiscount = typeof copy.discountMinPct === 'number' ? copy.discountMinPct : 10;
+        const discount = !pending && prices.discountPct >= minDiscount && copy.discountNote
+            ? copy.discountNote.replace('{pct}', prices.discountPct)
+            : '';
+
+        let region = '';
+        if (!pending) {
+            region = code
+                ? `${copy.regionLabel || 'Prices for'} <span class="font-semibold text-zinc-700 dark:text-zinc-300">${countryName(code)}</span> \u00b7 ${prices.currency}`
+                : (copy.regionUnknown || 'Prices shown in USD.');
+        }
+
+        return `
+            <div class="flex flex-col gap-2">
+                <div class="border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
+                    ${priceRowHtml(copy.annualLabel || '1-Year Subscription', annual)}
+                </div>
+                <div class="pt-1">
+                    ${priceRowHtml(copy.lifetimeLabel || 'Lifetime Purchase', lifetime)}
+                </div>
+                <div class="mt-3 pt-3 border-t border-zinc-100 dark:border-zinc-800/80 min-h-[3rem]">
+                    ${region ? `<p class="text-[11px] text-zinc-500">${region}</p>` : ''}
+                    ${discount ? `<p class="mt-2 text-[11px] leading-relaxed text-zinc-500 dark:text-zinc-400">${discount}</p>` : ''}
+                    ${copy.policyNote ? `<p class="mt-1.5 text-[11px] leading-relaxed text-zinc-400 dark:text-zinc-500">${copy.policyNote}</p>` : ''}
+                </div>
+            </div>
+        `;
+    }
+
+    function loadRegionalPricing() {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
+        fetch(PRICING_ENDPOINT, {
+            headers: { accept: 'application/json' },
+            cache: 'no-store',
+            credentials: 'omit',
+            signal: controller.signal
+        })
+            .then(response => (response.ok ? response.json() : null))
+            .then(prices => {
+                if (!prices || !/^[A-Z]{3}$/.test(prices.currency) ||
+                    !Number.isFinite(prices.annual?.amount) || prices.annual.amount <= 0 ||
+                    !Number.isFinite(prices.lifetime?.amount) || prices.lifetime.amount <= 0) return;
+                regionalPrices = prices;
+                const block = document.getElementById('pro-price-block');
+                if (block) block.innerHTML = regionalPricingHtml();
+                const freePrice = document.getElementById('free-price');
+                if (freePrice) freePrice.textContent = formatPrice(0, prices.currency, 0, prices.country);
+                document.getElementById('pricing-status').textContent = 'Final prices are shown in the app.';
+            })
+            .catch(() => {
+                /* keep the placeholder; the Play Store shows the real price */
+            })
+            .finally(() => clearTimeout(timeout));
+    }
+
     // Pricing Grid
     document.getElementById('pricing-badge').innerText = data.pricing.badgeText;
     document.getElementById('pricing-title').innerHTML = data.pricing.title;
@@ -659,8 +749,8 @@ function renderContent() {
             </div>` : ''}
             <div>
                 <span class="text-xs font-mono ${plan.isRecommended ? 'text-zinc-900 dark:text-white font-semibold' : 'text-zinc-500'} uppercase">${plan.name}</span>
-                <div class="mt-4 mb-6">
-                    ${plan.priceHtml ? plan.priceHtml : `
+                <div class="mt-4 mb-6"${plan.regionalPricing ? ' id="pro-price-block"' : ''}>
+                    ${plan.regionalPricing ? regionalPricingHtml() : plan.priceHtml ? plan.priceHtml : `
                         <div class="flex items-baseline gap-1">
                             <span class="text-3xl sm:text-4xl font-display font-extrabold text-zinc-900 dark:text-white">${plan.price}</span>
                             <span class="text-zinc-500 text-sm font-medium">${plan.pricePeriod}</span>
@@ -687,7 +777,7 @@ function renderContent() {
         </div>
     `).join('');
 
-    setupRegionalPricing();
+    loadRegionalPricing();
 
     // Detailed Feature Comparison Table Rendering
     const comparisonTableBody = document.getElementById('comparison-table-body');

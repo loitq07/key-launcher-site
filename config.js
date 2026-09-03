@@ -227,12 +227,26 @@ const KEY_LAUNCHER_CONTENT = {
         badgeText: "Transparent pricing",
         title: "Use for Free. <br class=\"sm:hidden\">Upgrade to PRO.",
         subtitle: "Core features are entirely free and ad-free forever. Upgrade to PRO with a yearly subscription or a one-time lifetime purchase.",
+
+        // Copy for the regional price block. The prices themselves are served
+        // per-visitor by api/pricing.js and never shipped to the browser.
+        regional: {
+            annualLabel: "1-Year Subscription",
+            lifetimeLabel: "Lifetime Purchase",
+            regionLabel: "Prices for",
+            regionUnknown: "Prices shown in USD. Google Play charges the price set for your account's country.",
+            discountNote: "{pct}% below the global price, adjusted for local purchasing power.",
+            discountMinPct: 10,
+            policyNote: "No sales, ever. Prices only go up \u2014 buy earlier, pay less. Lifetime purchases are never repriced."
+        },
         plans: [
             {
                 name: "Free Plan",
+                price: "Free",
+                pricePeriod: "/ lifetime",
                 priceHtml: `
                     <div class="flex items-baseline gap-1">
-                        <span data-price="free" class="text-3xl font-display font-extrabold text-zinc-900 dark:text-white">Free</span>
+                        <span id="free-price" class="text-3xl font-display font-extrabold text-zinc-900 dark:text-white">Free</span>
                         <span class="text-zinc-500 text-sm">/ lifetime</span>
                     </div>
                 `,
@@ -251,22 +265,11 @@ const KEY_LAUNCHER_CONTENT = {
             },
             {
                 name: "PRO Plan",
-                priceHtml: `
-                    <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between gap-3 border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
-                            <span class="text-xs text-zinc-500">1-Year Subscription</span>
-                            <div class="text-right">
-                                <span data-price="annual" class="text-lg font-bold text-zinc-900 dark:text-white whitespace-nowrap">See in app</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between gap-3 pt-1">
-                            <span class="text-xs text-zinc-500">Lifetime Purchase</span>
-                            <div class="text-right">
-                                <span data-price="lifetime" class="text-lg font-bold text-zinc-900 dark:text-white whitespace-nowrap">See in app</span>
-                            </div>
-                        </div>
-                    </div>
-                `,
+                price: "",
+                pricePeriod: "",
+                // Rendered by app.js from /api/pricing, which resolves the caller's
+                // country at the edge and returns only that country's prices.
+                regionalPricing: true,
                 description: "Tailor every aspect of your mobile layout to fit your aesthetic lofi chill music routines.",
                 buttonText: "Upgrade In-App",
                 buttonUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",

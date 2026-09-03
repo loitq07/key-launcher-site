@@ -1,0 +1,3 @@
+# Dev-only tooling: regenerates api/pricing.js from the launcher repo price
+# matrix. Not needed to build or serve the site, so it is not deployed.
+tools/
