@@ -226,15 +226,13 @@ const KEY_LAUNCHER_CONTENT = {
     pricing: {
         badgeText: "Transparent pricing",
         title: "Use for Free. <br class=\"sm:hidden\">Upgrade to PRO.",
-        subtitle: "Core features are entirely free and ad-free forever. Optional PRO subscription unlocks deep aesthetic customization.",
+        subtitle: "Core features are entirely free and ad-free forever. Upgrade to PRO with a yearly subscription or a one-time lifetime purchase.",
         plans: [
             {
                 name: "Free Plan",
-                price: "$0",
-                pricePeriod: "/ lifetime",
                 priceHtml: `
                     <div class="flex items-baseline gap-1">
-                        <span class="text-3xl font-display font-extrabold text-zinc-900 dark:text-white">$0</span>
+                        <span data-price="free" class="text-3xl font-display font-extrabold text-zinc-900 dark:text-white">Free</span>
                         <span class="text-zinc-500 text-sm">/ lifetime</span>
                     </div>
                 `,
@@ -253,22 +251,18 @@ const KEY_LAUNCHER_CONTENT = {
             },
             {
                 name: "PRO Plan",
-                price: "",
-                pricePeriod: "",
                 priceHtml: `
                     <div class="flex flex-col gap-2">
-                        <div class="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
+                        <div class="flex items-center justify-between gap-3 border-b border-zinc-100 dark:border-zinc-800/80 pb-2">
                             <span class="text-xs text-zinc-500">1-Year Subscription</span>
                             <div class="text-right">
-                                <span class="text-lg font-bold text-zinc-900 dark:text-white">$4.99</span>
-                                <span class="text-xs text-zinc-400 line-through ml-1.5">$9.99</span>
+                                <span data-price="annual" class="text-lg font-bold text-zinc-900 dark:text-white whitespace-nowrap">See in app</span>
                             </div>
                         </div>
-                        <div class="flex items-center justify-between pt-1">
+                        <div class="flex items-center justify-between gap-3 pt-1">
                             <span class="text-xs text-zinc-500">Lifetime Purchase</span>
                             <div class="text-right">
-                                <span class="text-lg font-bold text-zinc-900 dark:text-white">$9.99</span>
-                                <span class="text-xs text-zinc-400 line-through ml-1.5">$19.99</span>
+                                <span data-price="lifetime" class="text-lg font-bold text-zinc-900 dark:text-white whitespace-nowrap">See in app</span>
                             </div>
                         </div>
                     </div>

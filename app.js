@@ -33,6 +33,46 @@ function renderArticleLogo(article) {
     `;
 }
 
+async function setupRegionalPricing() {
+    const status = document.getElementById('pricing-status');
+    const grid = document.getElementById('pricing-grid');
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    grid.setAttribute('aria-busy', 'true');
+
+    try {
+        // The server chooses the region. Browser language only formats the returned currency.
+        const response = await fetch('/api/pricing', {
+            cache: 'no-store',
+            credentials: 'omit',
+            signal: controller.signal
+        });
+        if (!response.ok) throw new Error('Pricing unavailable');
+        const prices = await response.json();
+        if (!prices || !/^[A-Z]{3}$/.test(prices.currency) ||
+            !Number.isFinite(prices.annual) || prices.annual <= 0 ||
+            !Number.isFinite(prices.lifetime) || prices.lifetime <= 0) {
+            throw new Error('Regional pricing unavailable');
+        }
+        const formatter = new Intl.NumberFormat(navigator.language || 'en-US', {
+            style: 'currency',
+            currency: prices.currency,
+            minimumFractionDigits: 0
+        });
+        grid.querySelectorAll('[data-price]').forEach(element => {
+            const plan = element.dataset.price;
+            element.textContent = formatter.format(plan === 'free' ? 0 : prices[plan]);
+        });
+        status.textContent = `Prices in ${prices.currency}. Final prices are shown in the app.`;
+    } catch {
+        // Do not guess another country's price when geolocation or the request is unavailable.
+        status.textContent = 'See your local PRO prices in the app.';
+    } finally {
+        clearTimeout(timeout);
+        grid.setAttribute('aria-busy', 'false');
+    }
+}
+
 function renderContent() {
     const data = KEY_LAUNCHER_CONTENT;
 
@@ -646,6 +686,8 @@ function renderContent() {
             </a>
         </div>
     `).join('');
+
+    setupRegionalPricing();
 
     // Detailed Feature Comparison Table Rendering
     const comparisonTableBody = document.getElementById('comparison-table-body');

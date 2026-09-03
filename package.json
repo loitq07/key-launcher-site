@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Key Launcher Landing Page",
   "scripts": {
-    "build": "tailwindcss -i ./input.css -o ./css/style.css --minify"
+    "build": "tailwindcss -i ./input.css -o ./css/style.css --minify && node scripts/build.cjs",
+    "test": "node --test"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.4"
