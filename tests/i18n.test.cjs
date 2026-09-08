@@ -122,3 +122,22 @@ test('desktop and mobile feature headings have localized supporting labels', () 
         assert.match(html, new RegExp(`id="${id}"`));
     }
 });
+
+test('body uses Manrope and media coverage remains readable without clamping', () => {
+    const tailwind = fs.readFileSync(path.join(root, 'tailwind.config.js'), 'utf8');
+    const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+    assert.match(tailwind, /sans: \['Manrope', 'Segoe UI', 'Arial', 'sans-serif'\]/);
+    assert.match(app, /text-sm leading-6 italic mt-3/);
+    assert.doesNotMatch(app, /text-\[11px\] leading-relaxed italic mt-2 line-clamp-6/);
+    for (const page of ['index.html', 'privacy-policy.html', 'tos.html']) {
+        const html = fs.readFileSync(path.join(root, page), 'utf8');
+        assert.match(html, /family=Manrope:wght@200\.\.800/);
+        assert.doesNotMatch(html, /family=DM\+Sans/);
+    }
+});
+
+test('user reviews use upright text for long-form readability', () => {
+    const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+    assert.match(app, /text-xs sm:text-sm leading-relaxed mb-6/);
+    assert.doesNotMatch(app, /text-xs sm:text-sm leading-relaxed italic mb-6/);
+});

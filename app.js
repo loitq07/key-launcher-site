@@ -417,12 +417,12 @@ function renderContent() {
                     north_east
                 </span>
             </div>
-            <h4 class="font-display font-bold text-sm text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors mt-2">
+            <h4 class="font-display font-bold text-base leading-snug text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors mt-2">
                 ${article.title}
             </h4>
-            <p class="text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed italic mt-2 line-clamp-6">
+            <p class="text-zinc-600 dark:text-zinc-400 text-sm leading-6 italic mt-3">
                 "${article.quote}"
-                ${data.translationNote ? `<span class="ml-1.5 not-italic whitespace-nowrap text-[9px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">${data.translationNote}</span>` : ''}
+                ${data.translationNote ? `<span class="ml-1.5 not-italic whitespace-nowrap text-[10px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">${data.translationNote}</span>` : ''}
             </p>
         </a>
     `).join('');
@@ -938,7 +938,7 @@ function renderContent() {
     const testimonialsContainer = document.getElementById('testimonials-grid');
     testimonialsContainer.innerHTML = data.testimonials.items.map(item => `
         <div class="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/10 rounded-2xl p-6 flex flex-col justify-between shadow-sm break-inside-avoid inline-block w-full mb-6">
-            <p class="text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed italic mb-6">"${item.quote}" ${data.translationNote ? `<span class="ml-1 not-italic whitespace-nowrap text-[9px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">${data.translationNote}</span>` : ''}</p>
+            <p class="text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6">"${item.quote}" ${data.translationNote ? `<span class="ml-1 whitespace-nowrap text-[9px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">${data.translationNote}</span>` : ''}</p>
             <div class="flex items-center gap-3">
                 ${item.avatar ? `
                     <img src="${item.avatar}" alt="${item.author}" class="w-9 h-9 rounded-full object-cover">
