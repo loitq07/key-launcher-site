@@ -239,6 +239,15 @@ const KEY_LAUNCHER_CONTENT = {
             discountMinPct: 10,
             policyNote: "No sales, ever. Prices only go up \u2014 buy earlier, pay less. Lifetime purchases are never repriced."
         },
+        // Public global prices shown while regional Vercel pricing is unavailable.
+        // The API replaces them with the visitor's exact Google Play region price.
+        fallback: {
+            currency: "USD",
+            annual: { amount: 9.99, decimals: 2 },
+            lifetime: { amount: 29.99, decimals: 2 },
+            discountPct: 0,
+            resolved: false
+        },
         plans: [
             {
                 name: "Free Plan",

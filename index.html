@@ -170,6 +170,9 @@
 
     <!-- Load Content Config File first -->
     <script src="config.js" defer></script>
+    <script src="review-translations.js" defer></script>
+    <script src="media-translations.js" defer></script>
+    <script src="i18n.js" defer></script>
 
     <!-- Inline Blocking Script to Prevent Theme Flashing -->
     <script>
@@ -313,7 +316,21 @@
             </nav>
 
             <!-- Actions and Theme Toggle -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <label for="language-select" class="sr-only">Language</label>
+                <div class="relative">
+                    <span class="material-symbols-outlined !text-[17px] absolute left-2 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none">language</span>
+                    <select id="language-select" class="h-9 w-[72px] sm:w-[132px] appearance-none rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 pl-7 pr-5 text-xs font-semibold text-zinc-700 dark:text-zinc-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500/40">
+                        <option value="en">English</option>
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="es">Español</option>
+                        <option value="pt-BR">Português (BR)</option>
+                        <option value="id">Bahasa Indonesia</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                    <span class="material-symbols-outlined !text-[15px] absolute right-1 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">expand_more</span>
+                </div>
                 <!-- Theme Switcher Button -->
                 <button id="theme-toggle" class="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all duration-200" aria-label="Toggle Theme">
                     <span id="theme-icon" class="flex items-center justify-center w-[18px] h-[18px] shrink-0"></span>
@@ -489,7 +506,7 @@
                     <!-- Header Panel (first item in track, same height as cards) -->
                     <div class="shrink-0 flex flex-col justify-center"
                          style="width: 340px; padding-right: 2.5rem; height: 560px;">
-                        <span class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold">Features &amp; Benefits</span>
+                        <span id="features-label-d" class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold">Features &amp; Benefits</span>
                         <h2 id="features-title-d"
                             class="font-display font-extrabold text-zinc-900 dark:text-white tracking-tight leading-tight mt-3 mb-4"
                             style="font-size: clamp(1.75rem, 2.5vw, 2.5rem);">
@@ -504,7 +521,7 @@
                         <div class="flex items-center gap-2 mt-4 text-zinc-400 dark:text-zinc-600 select-none"
                              style="font-size: 11px; font-family: 'JetBrains Mono', monospace;">
                             <i class="ph ph-mouse-scroll"></i>
-                            <span>Scroll to explore</span>
+                            <span id="features-scroll-hint">Scroll to explore</span>
                         </div>
                     </div>
 
@@ -517,7 +534,7 @@
         <!-- MOBILE (<1024px): Clean stacked layout + native swipe carousel -->
         <div id="features-mobile" class="py-16 px-5 overflow-x-hidden">
             <div class="mb-8">
-                <span class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold">Features &amp; Benefits</span>
+                <span id="features-label" class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold">Features &amp; Benefits</span>
                 <h2 id="features-title"
                     class="font-display font-extrabold text-3xl text-zinc-900 dark:text-white tracking-tight mt-3 mb-3 leading-tight">
                     Designed for Speed.<br>Optimized for Focus.
@@ -595,7 +612,7 @@
             <div class="mt-20 max-w-4xl mx-auto">
                 <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6 border-b border-zinc-200 dark:border-zinc-800/80 pb-4">
                     <div class="text-center sm:text-left">
-                        <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white">Detailed Feature Comparison</h3>
+                        <h3 id="comparison-title" class="font-display font-bold text-lg text-zinc-900 dark:text-white">Detailed Feature Comparison</h3>
                         <p class="text-xs text-zinc-500 dark:text-zinc-400 mt-1">Compare all features side-by-side</p>
                     </div>
                 </div>
@@ -607,8 +624,8 @@
                             <table class="w-full text-left border-collapse text-xs sm:text-sm">
                                 <thead>
                                     <tr class="border-b border-zinc-200 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-900/40 text-zinc-700 dark:text-zinc-300 font-semibold">
-                                        <th class="p-4 w-1/2">Feature</th>
-                                        <th class="p-4 text-center w-1/4">Free</th>
+                                        <th id="comparison-feature-label" class="p-4 w-1/2">Feature</th>
+                                        <th id="comparison-free-label" class="p-4 text-center w-1/4">Free</th>
                                         <th class="p-4 text-center w-1/4 text-brand-600 dark:text-brand-400">Pro</th>
                                     </tr>
                                 </thead>

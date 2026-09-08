@@ -35,6 +35,13 @@ function renderArticleLogo(article) {
 
 function renderContent() {
     const data = KEY_LAUNCHER_CONTENT;
+    const ui = data.ui || {
+        ratingOn: 'on Google Play',
+        previousScreenshot: 'Previous screenshot',
+        nextScreenshot: 'Next screenshot',
+        toggleTheme: 'Toggle theme',
+        changeLanguage: 'Change language'
+    };
 
     // Navigation
     // document.getElementById('nav-creator').innerText = data.navigation.creatorText || "BY LOUSIFY TECH";
@@ -109,7 +116,7 @@ function renderContent() {
             </div>
             <div class="flex items-center gap-1.5 flex-wrap justify-center">
                 <span class="font-semibold text-zinc-900 dark:text-white">${data.hero.rating.stars}/5</span>
-                <span class="text-zinc-500 dark:text-zinc-400 font-normal">on Google Play (${data.hero.rating.reviewsCount})</span>
+                <span class="text-zinc-500 dark:text-zinc-400 font-normal">${ui.ratingOn} (${data.hero.rating.reviewsCount})</span>
             </div>
         `;
         ratingContainer.classList.remove('hidden');
@@ -415,6 +422,7 @@ function renderContent() {
             </h4>
             <p class="text-zinc-600 dark:text-zinc-400 text-[11px] leading-relaxed italic mt-2 line-clamp-6">
                 "${article.quote}"
+                ${data.translationNote ? `<span class="ml-1.5 not-italic whitespace-nowrap text-[9px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">${data.translationNote}</span>` : ''}
             </p>
         </a>
     `).join('');
@@ -448,6 +456,16 @@ function renderContent() {
     // ── Mobile: inject cards, hide desktop section via inline style ──
     document.getElementById('features-title').innerText = data.features.title;
     document.getElementById('features-subtitle').innerText = data.features.subtitle;
+    const desktopFeaturesTitle = document.getElementById('features-title-d');
+    const desktopFeaturesSubtitle = document.getElementById('features-subtitle-d');
+    if (desktopFeaturesTitle) desktopFeaturesTitle.innerText = data.features.title;
+    if (desktopFeaturesSubtitle) desktopFeaturesSubtitle.innerText = data.features.subtitle;
+    ['features-label', 'features-label-d'].forEach(id => {
+        const label = document.getElementById(id);
+        if (label) label.innerText = data.ui?.featuresBenefits || 'Features & Benefits';
+    });
+    const featuresScrollHint = document.getElementById('features-scroll-hint');
+    if (featuresScrollHint) featuresScrollHint.innerText = data.ui?.scrollToExplore || 'Scroll to explore';
     const mobileCarousel = document.getElementById('features-carousel');
     if (mobileCarousel) {
         // Mobile card width = 75vw so the next card peeks
@@ -611,7 +629,9 @@ function renderContent() {
     // that country's prices. Keep neutral placeholders until prices are available.
     const PRICING_ENDPOINT = '/api/pricing';
 
-    let regionalPrices = null;
+    // Show public global prices immediately. The regional endpoint replaces them
+    // with the visitor's exact Play-region prices when available.
+    let regionalPrices = data.pricing.fallback || null;
 
     function countryName(code) {
         if (!code) return '';
@@ -674,10 +694,10 @@ function renderContent() {
         const code = prices && prices.resolved ? prices.country : null;
 
         const annual = pending
-            ? 'See in app'
+            ? (data.pricing.seeInAppLabel || 'See in app')
             : formatPrice(prices.annual.amount, prices.currency, prices.annual.decimals, code);
         const lifetime = pending
-            ? 'See in app'
+            ? (data.pricing.seeInAppLabel || 'See in app')
             : formatPrice(prices.lifetime.amount, prices.currency, prices.lifetime.decimals, code);
 
         const minDiscount = typeof copy.discountMinPct === 'number' ? copy.discountMinPct : 10;
@@ -728,7 +748,7 @@ function renderContent() {
                 if (block) block.innerHTML = regionalPricingHtml();
                 const freePrice = document.getElementById('free-price');
                 if (freePrice) freePrice.textContent = formatPrice(0, prices.currency, 0, prices.country);
-                document.getElementById('pricing-status').textContent = 'Final prices are shown in the app.';
+                document.getElementById('pricing-status').textContent = data.pricing.finalPriceLabel || 'Final prices are shown in the app.';
             })
             .catch(() => {
                 /* keep the placeholder; the Play Store shows the real price */
@@ -740,12 +760,20 @@ function renderContent() {
     document.getElementById('pricing-badge').innerText = data.pricing.badgeText;
     document.getElementById('pricing-title').innerHTML = data.pricing.title;
     document.getElementById('pricing-subtitle').innerText = data.pricing.subtitle;
+    const comparisonTitle = document.getElementById('comparison-title');
+    const comparisonFeatureLabel = document.getElementById('comparison-feature-label');
+    const comparisonFreeLabel = document.getElementById('comparison-free-label');
+    if (comparisonTitle) comparisonTitle.innerText = data.pricing.comparisonTitle || 'Detailed Feature Comparison';
+    if (comparisonFeatureLabel) comparisonFeatureLabel.innerText = data.pricing.comparisonFeatureLabel || 'Feature';
+    if (comparisonFreeLabel) comparisonFreeLabel.innerText = data.pricing.comparisonFreeLabel || 'Free';
+    const pricingStatus = document.getElementById('pricing-status');
+    if (pricingStatus) pricingStatus.innerText = data.pricing.pricingStatusLabel || 'See your local PRO prices in the app.';
     const pricingContainer = document.getElementById('pricing-grid');
     pricingContainer.innerHTML = data.pricing.plans.map(plan => `
         <div class="${plan.isRecommended ? 'border-2 border-zinc-900 dark:border-zinc-100 bg-white dark:bg-zinc-950 shadow-xl md:scale-105 z-10' : 'border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 shadow-sm'} rounded-3xl p-8 flex flex-col justify-between relative transition-transform">
             ${plan.isRecommended ? `
             <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-zinc-900 dark:bg-white text-white dark:text-black text-[10px] font-bold uppercase tracking-widest rounded-full">
-                Recommended
+                ${data.pricing.recommendedLabel || 'Recommended'}
             </div>` : ''}
             <div>
                 <span class="text-xs font-mono ${plan.isRecommended ? 'text-zinc-900 dark:text-white font-semibold' : 'text-zinc-500'} uppercase">${plan.name}</span>
@@ -871,13 +899,14 @@ function renderContent() {
     let isExpanded = false;
 
     if (toggleBtn && collapseWrapper && fadeOverlay) {
+        toggleBtn.querySelector('span').innerText = data.pricing.showAllLabel || 'Show All Features';
         toggleBtn.addEventListener('click', () => {
             isExpanded = !isExpanded;
             if (isExpanded) {
                 // Expand
                 const fullHeight = collapseWrapper.scrollHeight;
                 collapseWrapper.style.maxHeight = fullHeight + 'px';
-                toggleBtn.querySelector('span').innerText = 'Show Less';
+                toggleBtn.querySelector('span').innerText = data.pricing.showLessLabel || 'Show Less';
                 toggleIcon.style.transform = 'rotate(180deg)';
                 fadeOverlay.style.opacity = '0';
                 setTimeout(() => {
@@ -890,7 +919,7 @@ function renderContent() {
                 collapseWrapper.style.maxHeight = collapseWrapper.scrollHeight + 'px';
                 collapseWrapper.offsetHeight; // Force reflow
                 collapseWrapper.style.maxHeight = '400px';
-                toggleBtn.querySelector('span').innerText = 'Show All Features';
+                toggleBtn.querySelector('span').innerText = data.pricing.showAllLabel || 'Show All Features';
                 toggleIcon.style.transform = 'rotate(0deg)';
                 fadeOverlay.style.opacity = '1';
                 
@@ -909,7 +938,7 @@ function renderContent() {
     const testimonialsContainer = document.getElementById('testimonials-grid');
     testimonialsContainer.innerHTML = data.testimonials.items.map(item => `
         <div class="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/10 rounded-2xl p-6 flex flex-col justify-between shadow-sm break-inside-avoid inline-block w-full mb-6">
-            <p class="text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed italic mb-6">"${item.quote}"</p>
+            <p class="text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed italic mb-6">"${item.quote}" ${data.translationNote ? `<span class="ml-1 not-italic whitespace-nowrap text-[9px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">${data.translationNote}</span>` : ''}</p>
             <div class="flex items-center gap-3">
                 ${item.avatar ? `
                     <img src="${item.avatar}" alt="${item.author}" class="w-9 h-9 rounded-full object-cover">
@@ -1134,6 +1163,22 @@ function updateThemeIcon() {
 
 // Initial setup
 updateThemeIcon();
+
+// Language selector. Reloading keeps the content renderer and its event handlers single-bound.
+const languageSelect = document.getElementById('language-select');
+if (languageSelect && window.KEY_LAUNCHER_I18N) {
+    languageSelect.value = window.KEY_LAUNCHER_I18N.locale;
+    languageSelect.setAttribute('aria-label', KEY_LAUNCHER_CONTENT.ui?.changeLanguage || 'Change language');
+    themeToggleBtn.setAttribute('aria-label', KEY_LAUNCHER_CONTENT.ui?.toggleTheme || 'Toggle theme');
+    document.getElementById('hero-prev-btn')?.setAttribute('aria-label', KEY_LAUNCHER_CONTENT.ui?.previousScreenshot || 'Previous screenshot');
+    document.getElementById('hero-next-btn')?.setAttribute('aria-label', KEY_LAUNCHER_CONTENT.ui?.nextScreenshot || 'Next screenshot');
+    languageSelect.addEventListener('change', () => {
+        localStorage.setItem('key-launcher-language', languageSelect.value);
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', languageSelect.value);
+        window.location.assign(url.toString());
+    });
+}
 
 themeToggleBtn.addEventListener('click', () => {
     if (document.documentElement.classList.contains('dark')) {
