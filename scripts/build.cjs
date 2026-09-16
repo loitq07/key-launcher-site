@@ -5,7 +5,7 @@ const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'dist');
 
 // Only these files are public. In particular, api/ and its regional table stay server-side.
-const publicFiles = ['index.html', 'privacy-policy.html', 'tos.html', 'app.js', 'config.js', 'i18n.js', 'review-translations.js', 'media-translations.js', 'css', 'assets'];
+const publicFiles = ['index.html', 'privacy-policy.html', 'tos.html', 'app-ads.txt', 'app.js', 'config.js', 'i18n.js', 'review-translations.js', 'media-translations.js', 'css', 'assets'];
 
 if (fs.existsSync(output) && fs.lstatSync(output).isSymbolicLink()) {
     throw new Error('Refusing to replace a linked output directory');
