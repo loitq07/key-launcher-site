@@ -6,17 +6,23 @@ const test = require('node:test');
 const root = path.resolve(__dirname, '..');
 const policy = fs.readFileSync(path.join(root, 'privacy-policy.html'), 'utf8');
 
-test('privacy policy names the production data processors and mediated Meta ads', () => {
+test('privacy policy names the current production data processors', () => {
     for (const disclosure of [
         'Firebase (Google)',
-        'Remote Config',
         'RevenueCat',
         'AppsFlyer',
-        'Google AdMob &amp; User Messaging Platform',
-        'Meta (Facebook SDK &amp; Audience Network)'
+        'Meta (Facebook SDK)'
     ]) {
         assert.match(policy, new RegExp(disclosure.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
     }
+});
+
+test('privacy policy states that build 117 removed advertising modules', () => {
+    assert.match(policy, /Build 117 \(1\.6\.4-free\) and later remove these modules/);
+    assert.match(policy, /current release does not display third-party ads/i);
+    assert.doesNotMatch(policy, /impression-level ad revenue/);
+    assert.doesNotMatch(policy, /Ad privacy choices/);
+    assert.doesNotMatch(policy, /Remote Config to control ad placements/);
 });
 
 test('privacy policy does not retain obsolete local-only or no-sharing claims', () => {
@@ -26,14 +32,10 @@ test('privacy policy does not retain obsolete local-only or no-sharing claims', 
     assert.match(policy, /sends your current coordinates to your selected weather provider/);
 });
 
-test('app-ads.txt publishes the verified AdMob seller and is copied by the build', () => {
-    const appAds = fs.readFileSync(path.join(root, 'app-ads.txt'), 'utf8').trim();
-    // Do not derive a Meta seller record from FACEBOOK_APP_ID. Audience Network requires the
-    // Business/Property ID issued by Monetization Manager, which is not stored in this repo.
-    assert.equal(appAds, 'google.com, pub-7438347568455329, DIRECT, f08c47fec0942fa0');
-
+test('the site no longer publishes an AdMob seller file', () => {
+    assert.equal(fs.existsSync(path.join(root, 'app-ads.txt')), false);
     const buildScript = fs.readFileSync(path.join(root, 'scripts', 'build.cjs'), 'utf8');
-    assert.match(buildScript, /['"]app-ads\.txt['"]/);
+    assert.doesNotMatch(buildScript, /['"]app-ads\.txt['"]/);
 });
 
 test('privacy policy keeps bilingual content and table-of-contents anchors in sync', () => {
