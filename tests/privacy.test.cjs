@@ -10,11 +10,14 @@ test('privacy policy names the current production data processors', () => {
     for (const disclosure of [
         'Firebase (Google)',
         'RevenueCat',
-        'AppsFlyer',
         'Meta (Facebook SDK)'
     ]) {
         assert.match(policy, new RegExp(disclosure.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
     }
+});
+
+test('privacy policy no longer lists the removed attribution provider', () => {
+    assert.doesNotMatch(policy, /AppsFlyer/i);
 });
 
 test('privacy policy states that build 117 removed advertising modules', () => {
