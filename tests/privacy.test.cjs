@@ -28,6 +28,15 @@ test('privacy policy states that build 117 removed advertising modules', () => {
     assert.doesNotMatch(policy, /Remote Config to control ad placements/);
 });
 
+test('privacy policy explains broad contacts access and keeps address-book data on-device', () => {
+    assert.match(policy, /android\.permission\.READ_CONTACTS/);
+    assert.match(policy, /android\.permission\.WRITE_CONTACTS/);
+    assert.match(policy, /real-time T9 search across your complete address book/);
+    assert.match(policy, /Android Contact Picker only returns individual contacts/);
+    assert.match(policy, /DO NOT<\/strong> upload, sync, share, or use address-book data for advertising/);
+    assert.match(policy, /Updated: Oct 13, 2026/);
+});
+
 test('privacy policy does not retain obsolete local-only or no-sharing claims', () => {
     assert.doesNotMatch(policy, /99% of all logic/);
     assert.doesNotMatch(policy, /Your data never leaves your phone/);

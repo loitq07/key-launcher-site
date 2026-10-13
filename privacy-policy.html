@@ -117,8 +117,8 @@
             <div class="flex items-center gap-3">
                 <!-- Updated date -->
                 <span class="hidden md:block text-[11px] font-mono text-zinc-400 dark:text-zinc-600">
-                    <span lang-content="vi">Cập nhật: 10/10/2026</span>
-                    <span lang-content="en">Updated: Oct 10, 2026</span>
+                    <span lang-content="vi">Cập nhật: 13/10/2026</span>
+                    <span lang-content="en">Updated: Oct 13, 2026</span>
                 </span>
 
                 <!-- Language toggle -->
@@ -230,15 +230,19 @@
                         <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">Key Launcher được thiết kế như một công cụ tối giản giúp bạn truy cập ứng dụng và danh bạ nhanh chóng. Hầu hết các quy trình xử lý dữ liệu đều diễn ra trực tiếp trên thiết bị của bạn.</p>
 
                         <h3 class="font-display font-semibold text-base text-zinc-800 dark:text-zinc-200 mb-2">A. Dữ liệu Danh bạ <span class="text-xs font-mono bg-red-50 dark:bg-red-500/10 text-red-500 dark:text-red-400 border border-red-200 dark:border-red-500/20 px-2 py-0.5 rounded-full ml-1">Quyền nhạy cảm</span></h3>
-                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Ứng dụng yêu cầu quyền <code>android.permission.READ_CONTACTS</code>.</p>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">Ứng dụng có thể yêu cầu quyền <code>android.permission.READ_CONTACTS</code> và <code>android.permission.WRITE_CONTACTS</code> khi bạn bật hoặc sử dụng tính năng liên hệ. Quyền này không bắt buộc để sử dụng các chức năng launcher cốt lõi và bạn có thể từ chối hoặc thu hồi quyền trong Cài đặt Android.</p>
                         <ul class="space-y-2 mb-5">
                             <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
                                 <span class="material-symbols-outlined !text-[16px] text-emerald-500 mt-0.5 shrink-0">check_circle</span>
-                                <span><strong class="text-zinc-700 dark:text-zinc-300">Mục đích:</strong> Cho phép bàn phím T9 tìm kiếm danh bạ theo tên hoặc số điện thoại, giúp gọi điện hoặc nhắn tin nhanh.</span>
+                                <span><strong class="text-zinc-700 dark:text-zinc-300">Mục đích:</strong> Cho phép tìm kiếm T9 theo thời gian thực trên toàn bộ danh bạ bằng tên hoặc số điện thoại; hiển thị danh sách liên hệ; gọi điện hoặc nhắn tin; gán liên hệ vào phím tắt; hiển thị ngày sinh trong Quick Glance; và mở hoặc xoá liên hệ khi bạn yêu cầu.</span>
                             </li>
                             <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
                                 <span class="material-symbols-outlined !text-[16px] text-emerald-500 mt-0.5 shrink-0">check_circle</span>
-                                <span><strong class="text-zinc-700 dark:text-zinc-300">Cách xử lý:</strong> Toàn bộ dữ liệu được xử lý <strong class="text-zinc-700 dark:text-zinc-300">nội bộ (local)</strong>. Chúng tôi <strong class="text-red-500 dark:text-red-400">KHÔNG</strong> tải lên hoặc truyền tải thông tin danh bạ tới bất kỳ máy chủ nào.</span>
+                                <span><strong class="text-zinc-700 dark:text-zinc-300">Vì sao cần quyền truy cập rộng:</strong> Bộ chọn người liên hệ của Android chỉ trả về từng liên hệ do người dùng chọn. Cơ chế này không thể hỗ trợ tìm kiếm liên tục trên toàn bộ danh bạ, cập nhật kết quả khi danh bạ thay đổi, tổng hợp ngày sinh, phím tắt liên hệ hoặc quản lý toàn bộ danh sách.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-emerald-500 mt-0.5 shrink-0">check_circle</span>
+                                <span><strong class="text-zinc-700 dark:text-zinc-300">Cách xử lý:</strong> Tên, số điện thoại, ảnh và ngày sinh liên hệ chỉ được xử lý <strong class="text-zinc-700 dark:text-zinc-300">trên thiết bị</strong>. Chúng tôi <strong class="text-red-500 dark:text-red-400">KHÔNG</strong> tải lên, đồng bộ, chia sẻ hoặc sử dụng dữ liệu danh bạ cho quảng cáo.</span>
                             </li>
                         </ul>
 
@@ -250,15 +254,19 @@
                         <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-5">Key Launcher is designed as a minimalist tool. Most processing happens locally on your device.</p>
 
                         <h3 class="font-display font-semibold text-base text-zinc-800 dark:text-zinc-200 mb-2">A. Contacts Data <span class="text-xs font-mono bg-red-50 dark:bg-red-500/10 text-red-500 dark:text-red-400 border border-red-200 dark:border-red-500/20 px-2 py-0.5 rounded-full ml-1">Sensitive Permission</span></h3>
-                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">The App requests the <code>android.permission.READ_CONTACTS</code> permission.</p>
+                        <p class="text-zinc-600 dark:text-zinc-400 leading-relaxed mb-3">The App may request <code>android.permission.READ_CONTACTS</code> and <code>android.permission.WRITE_CONTACTS</code> when you enable or use contact features. This access is optional for the launcher's core functions, and you can deny or revoke it in Android Settings.</p>
                         <ul class="space-y-2 mb-5">
                             <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
                                 <span class="material-symbols-outlined !text-[16px] text-emerald-500 mt-0.5 shrink-0">check_circle</span>
-                                <span><strong class="text-zinc-700 dark:text-zinc-300">Purpose:</strong> Allows the T9 keyboard to search for your contacts and enables quick actions like calling or messaging.</span>
+                                <span><strong class="text-zinc-700 dark:text-zinc-300">Purpose:</strong> Enables real-time T9 search across your complete address book by name or phone number; displays the contact list; starts calls or messages; assigns contacts to launcher hotkeys; shows birthdays in Quick Glance; and opens or deletes contacts when you request those actions.</span>
                             </li>
                             <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
                                 <span class="material-symbols-outlined !text-[16px] text-emerald-500 mt-0.5 shrink-0">check_circle</span>
-                                <span><strong class="text-zinc-700 dark:text-zinc-300">Handling:</strong> All data is processed <strong class="text-zinc-700 dark:text-zinc-300">locally</strong> on your device. We <strong class="text-red-500 dark:text-red-400">DO NOT</strong> upload, sync, or transmit your contact information to external servers.</span>
+                                <span><strong class="text-zinc-700 dark:text-zinc-300">Why broad access is needed:</strong> Android Contact Picker only returns individual contacts selected by the user. It cannot provide continuous full-directory search, live updates when contacts change, birthday aggregation, contact hotkeys, or management of the complete list.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-zinc-600 dark:text-zinc-400">
+                                <span class="material-symbols-outlined !text-[16px] text-emerald-500 mt-0.5 shrink-0">check_circle</span>
+                                <span><strong class="text-zinc-700 dark:text-zinc-300">Handling:</strong> Contact names, phone numbers, photos, and birthdays are processed <strong class="text-zinc-700 dark:text-zinc-300">only on your device</strong>. We <strong class="text-red-500 dark:text-red-400">DO NOT</strong> upload, sync, share, or use address-book data for advertising.</span>
                             </li>
                         </ul>
 
