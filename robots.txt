@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://www.keylauncher.app/sitemap.xml
+Sitemap: https://www.keylauncher.app/help/sitemap.xml
