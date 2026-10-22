@@ -106,9 +106,16 @@ function generateSitemap() {
   xml += '    <priority>0.8</priority>\n';
   xml += '  </url>\n';
 
-  // 5. Blog Index & Editorial Guides
+  // 5. Blog Index & Editorial Guides (EN & VI)
   xml += '  <url>\n';
   xml += `    <loc>${BASE_URL}/blog</loc>\n`;
+  xml += `    <lastmod>${today}</lastmod>\n`;
+  xml += '    <changefreq>daily</changefreq>\n';
+  xml += '    <priority>0.9</priority>\n';
+  xml += '  </url>\n';
+
+  xml += '  <url>\n';
+  xml += `    <loc>${BASE_URL}/blog/vi</loc>\n`;
   xml += `    <lastmod>${today}</lastmod>\n`;
   xml += '    <changefreq>daily</changefreq>\n';
   xml += '    <priority>0.9</priority>\n';
@@ -122,8 +129,18 @@ function generateSitemap() {
   ];
 
   for (const articleRoute of BLOG_ARTICLES) {
+    // English
     xml += '  <url>\n';
     xml += `    <loc>${BASE_URL}${articleRoute}</loc>\n`;
+    xml += `    <lastmod>${today}</lastmod>\n`;
+    xml += '    <changefreq>weekly</changefreq>\n';
+    xml += '    <priority>0.85</priority>\n';
+    xml += '  </url>\n';
+
+    // Vietnamese
+    const viArticleRoute = articleRoute.replace('/blog/', '/blog/vi/');
+    xml += '  <url>\n';
+    xml += `    <loc>${BASE_URL}${viArticleRoute}</loc>\n`;
     xml += `    <lastmod>${today}</lastmod>\n`;
     xml += '    <changefreq>weekly</changefreq>\n';
     xml += '    <priority>0.85</priority>\n';

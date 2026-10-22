@@ -4,6 +4,14 @@
   "outputDirectory": "dist",
   "rewrites": [
     {
+      "source": "/vi/blog",
+      "destination": "/blog/vi"
+    },
+    {
+      "source": "/vi/blog/:path*",
+      "destination": "/blog/vi/:path*"
+    },
+    {
       "source": "/help",
       "destination": "https://key-launcher-help-xyz.vercel.app/help"
     },

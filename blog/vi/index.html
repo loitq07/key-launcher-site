@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Cẩm Nang Tối Giản Số — Cai Nghiện Điện Thoại, Dumbphone & Tập Trung | Key Launcher</title>
+    <meta name="description" content="Khám phá các bài phân tích chuyên sâu, so sánh launcher và chiến lược cai nghiện smartphone. Biến Android thành dumbphone, lấy lại sự tập trung và mở ứng dụng chỉ trong 200ms.">
+    <link rel="canonical" href="https://www.keylauncher.app/blog/vi">
+    <link rel="alternate" hreflang="vi" href="https://www.keylauncher.app/blog/vi">
+    <link rel="alternate" hreflang="en" href="https://www.keylauncher.app/blog">
+    <link rel="alternate" hreflang="x-default" href="https://www.keylauncher.app/blog">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.keylauncher.app/blog/vi">
+    <meta property="og:title" content="Key Launcher Blog — Cẩm Nang Tối Giản Số & So Sánh Android Launcher">
+    <meta property="og:description" content="Hướng dẫn biến Android thành dumbphone, công thái học bàn phím T9 và mẹo dập tắt cơn nghiện màn hình cho người ADHD.">
+    <meta property="og:image" content="https://www.keylauncher.app/assets/logo_key_launcher.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Key Launcher Blog — Cẩm Nang Tối Giản Số & So Sánh Android Launcher">
+    <meta name="twitter:description" content="Hướng dẫn biến Android thành dumbphone, công thái học bàn phím T9 và mẹo dập tắt cơn nghiện màn hình cho người ADHD.">
+    <meta name="twitter:image" content="https://www.keylauncher.app/assets/logo_key_launcher.png">
+    
+    <link rel="icon" type="image/png" href="../../assets/logo_key_launcher.png">
+    <link rel="stylesheet" href="../../css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Key Launcher Blog Tiếng Việt",
+      "url": "https://www.keylauncher.app/blog/vi",
+      "inLanguage": "vi-VN",
+      "description": "Cẩm nang chuyên sâu về tối giản số, công thái học bàn phím T9, thiết lập dumbphone trên Android và mẹo tập trung cho người ADHD.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Key Launcher",
+        "url": "https://www.keylauncher.app",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.keylauncher.app/assets/logo_key_launcher.png"
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Trang chủ",
+          "item": "https://www.keylauncher.app/?lang=vi"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.keylauncher.app/blog/vi"
+        }
+      ]
+    }
+    </script>
+
+    <script>
+        const theme = localStorage.getItem('key-launcher-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (theme === 'dark') document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+    </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+</head>
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-black transition-colors duration-300">
+
+    <!-- Header Navigation (max-w-6xl) -->
+    <header class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition duration-300">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/?lang=vi" class="flex items-center gap-2.5 group">
+                <img src="../../assets/logo_key_launcher.png" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105" width="32" height="32">
+                <div class="flex flex-col">
+                    <span class="font-display font-bold tracking-tight text-zinc-900 dark:text-white leading-none">Key Launcher</span>
+                </div>
+            </a>
+
+            <!-- Menu links (Desktop) -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                <a href="/?lang=vi#features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Tính năng</a>
+                <a href="/?lang=vi#compare" class="hover:text-zinc-900 dark:hover:text-white transition-colors">So sánh</a>
+                <a href="/?lang=vi#pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Bảng giá</a>
+                <a href="/blog/vi" class="text-brand-500 dark:text-brand-400 font-semibold transition-colors flex items-center gap-1.5">
+                    <span>Blog</span>
+                    <span class="px-1.5 py-0.2 text-[10px] font-semibold uppercase tracking-wider rounded bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-500/20">Cẩm nang</span>
+                </a>
+                
+                <!-- More Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-white transition-colors py-2 cursor-pointer focus:outline-none">
+                        <span>Thêm</span>
+                        <i class="ph-bold ph-caret-down text-[12px] transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute left-0 mt-0 pt-2 w-44 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl py-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+                        <a href="/?lang=vi#press" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Báo chí</a>
+                        <a href="/?lang=vi#testimonials" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Đánh giá</a>
+                        <a href="/?lang=vi#faq" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Câu hỏi FAQ</a>
+                    </div>
+                </div>
+
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Trợ giúp</a>
+
+                <!-- Activate Link -->
+                
+            </nav>
+
+            <!-- Actions, Lang Switch & Theme Toggle -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <!-- Language Switcher Pill -->
+                <a href="/blog" class="px-2 py-1 rounded-lg border border-zinc-200 dark:border-zinc-800 text-xs font-mono font-bold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors" title="Switch to English">
+                    EN
+                </a>
+
+                <button id="theme-toggle" class="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all duration-200" aria-label="Đổi giao diện">
+                    <i id="theme-icon" class="ph-bold ph-moon text-[18px]"></i>
+                </button>
+
+                <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex h-9 items-center justify-center px-4 rounded-lg text-xs font-semibold bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-pointer active:scale-[0.97] transition-all duration-200 font-display">
+                    Tải Miễn Phí
+                </a>
+                
+                <button class="md:hidden p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer active:scale-95 transition-all duration-200 flex items-center justify-center" aria-label="Mở menu" id="mobile-menu-btn">
+                    <i class="ph-bold ph-list text-[24px]"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 flex flex-col gap-3 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+            <div class="grid grid-cols-2 gap-2 pb-3 border-b border-zinc-100 dark:border-zinc-800/80">
+                <a href="/?lang=vi#features" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Tính năng
+                </a>
+                <a href="/?lang=vi#compare" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> So sánh
+                </a>
+                <a href="/?lang=vi#pricing" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Bảng giá
+                </a>
+                <a href="/blog/vi" class="flex items-center gap-2 p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-white font-semibold transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Blog
+                </a>
+            </div>
+
+            <div class="flex flex-col gap-1 py-1">
+                <a href="/blog" class="flex items-center justify-between px-3 py-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 font-medium">
+                    <span class="flex items-center gap-2">
+                        <i class="ph-bold ph-globe text-[15px]"></i>
+                        Switch to English Blog
+                    </span>
+                    <span class="text-xs font-mono">EN</span>
+                </a>
+                
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Trung tâm trợ giúp</a>
+                <a href="/?lang=vi#press" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Báo chí đưa tin</a>
+                <a href="/?lang=vi#testimonials" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Người dùng đánh giá</a>
+                <a href="/?lang=vi#faq" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Câu hỏi thường gặp</a>
+            </div>
+
+            <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white hover:bg-brand-500 cursor-pointer active:scale-[0.98] transition-all duration-200 font-display mt-1">
+                <i class="ph-bold ph-download-simple mr-2 text-[18px]"></i> Tải trên Google Play
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12 md:py-16 flex-1 w-full">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400 mb-8" aria-label="Breadcrumb">
+            <a href="/?lang=vi" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Trang chủ</a>
+            <span>/</span>
+            <span class="text-zinc-900 dark:text-white font-medium">Blog</span>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="max-w-4xl mb-14">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900/80 text-[11px] font-medium tracking-wide text-zinc-500 dark:text-zinc-400 mb-4 uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Chuyên mục & Cẩm nang
+            </div>
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-900 dark:text-white leading-[1.15] mb-4">
+                Cai Nghiện Màn Hình, Dumbphone & <span class="text-brand-500 dark:text-brand-400">Siêu Tập Trung</span>.
+            </h1>
+            <p class="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
+                Cẩm nang thực tế, hướng dẫn thiết lập phần cứng và so sánh phần mềm chuyên sâu giúp bạn tiết kiệm hàng giờ lướt điện thoại mỗi ngày mà không mất đi các tiện ích hiện đại.
+            </p>
+        </section>
+
+        <!-- Featured Article (Hero Card) -->
+        <section class="mb-14">
+            <article class="relative group rounded-3xl border border-zinc-200 dark:border-zinc-800/80 bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-900/80 dark:to-zinc-950 p-6 sm:p-10 hover:border-brand-500/40 dark:hover:border-brand-500/40 transition-all duration-300 shadow-sm hover:shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 flex flex-col items-start">
+                        <div class="flex flex-wrap items-center gap-2.5 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                                So sánh & Giá trị
+                            </span>
+                            <span class="text-xs text-zinc-400 dark:text-zinc-500">•</span>
+                            <span class="text-xs text-zinc-500 dark:text-zinc-400">6 phút đọc</span>
+                            <span class="text-xs text-zinc-400 dark:text-zinc-500">•</span>
+                            <span class="text-xs text-zinc-500 dark:text-zinc-400">Tháng 10/2026</span>
+                        </div>
+                        
+                        <h2 class="font-display font-bold text-2xl sm:text-3xl text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors leading-tight mb-4">
+                            <a href="/blog/vi/best-minimalist-phone-alternative" class="focus:outline-none">
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                Giải Pháp Thay Thế Minimalist Phone Tốt Nhất: Vì Sao Key Launcher Vượt Trội Với Chi Phí Rẻ Hơn
+                            </a>
+                        </h2>
+                        
+                        <p class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+                            Mệt mỏi vì thuê bao đắt đỏ 700.000₫/năm và phải cuộn danh sách chữ cái dài vô tận? Khám phá lý do phản xạ bấm số T9 tức thì, bảo mật ngoại tuyến 100% và mức giá trọn đời chỉ 149.000₫ biến Key Launcher thành lựa chọn thay thế hoàn hảo cho Minimalist Phone.
+                        </p>
+
+                        <div class="flex items-center gap-3 text-xs font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform">
+                            <span>Đọc Toàn Bộ Bài Phân Tích</span>
+                            <span class="text-base leading-none">→</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4 flex justify-center">
+                        <div class="w-full max-w-[280px] aspect-[4/3] rounded-2xl bg-gradient-to-tr from-brand-500/20 via-zinc-800 to-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between shadow-inner">
+                            <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+                                <span>VS MINIMALIST</span>
+                                <span class="text-emerald-400 font-bold font-mono">TIẾT KIỆM 75%</span>
+                            </div>
+                            <div class="text-center py-4">
+                                <div class="text-3xl font-display font-extrabold text-white mb-1">T9 2 Chạm</div>
+                                <div class="text-xs text-zinc-400">Phản xạ cơ bắp mở app</div>
+                            </div>
+                            <div class="flex items-center justify-between text-[11px] text-zinc-400 border-t border-zinc-800/80 pt-3">
+                                <span>100% Ngoại Tuyến</span>
+                                <span>149k Trọn Đời</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Articles Grid (3 Strategic Articles) -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="font-display font-bold text-xl sm:text-2xl text-zinc-900 dark:text-white">
+                    Các Cẩm Nang Đọc Thêm
+                </h2>
+                <span class="text-xs font-medium text-zinc-500 dark:text-zinc-400 font-mono">3 Bài viết</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Article 1: Key Launcher vs Niagara Launcher -->
+                <article class="flex flex-col rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 p-6 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200 shadow-sm hover:shadow-md group">
+                    <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 mb-3">
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                            Công Thái Học
+                        </span>
+                        <span>5 phút đọc</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors mb-3 leading-snug">
+                        <a href="/blog/vi/key-launcher-vs-niagara-launcher">
+                            Key Launcher vs. Niagara Launcher: Lướt Chữ Cái Dải Dọc vs. Bàn Phím Số T9 Công Thái Học
+                        </a>
+                    </h3>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 flex-1">
+                        Phân tích công thái học ngón tay cái trên màn hình lớn 6.7"+. Tại sao dải cuộn chữ cái của Niagara gây mỏi cơ và cách bàn phím T9 2 chạm giúp mở app không cần rướn ngón.
+                    </p>
+                    <div class="flex items-center text-xs font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform">
+                        <span>Đọc so sánh</span>
+                        <span class="ml-1">→</span>
+                    </div>
+                </article>
+
+                <!-- Article 2: Turn Android into Dumb Phone -->
+                <article class="flex flex-col rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 p-6 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200 shadow-sm hover:shadow-md group">
+                    <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 mb-3">
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                            Hướng Dẫn Setup
+                        </span>
+                        <span>7 phút đọc</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors mb-3 leading-snug">
+                        <a href="/blog/vi/turn-android-into-dumb-phone">
+                            Cách Biến Mọi Điện Thoại Android Thành Dumb Phone Tối Giản (Cẩm Nang 2026)
+                        </a>
+                    </h3>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 flex-1">
+                        Cẩm nang 5 bước biến smartphone thành điện thoại tối giản: dập tắt cơn nghiện mạng xã hội nhưng vẫn giữ lại các tiện ích thiết yếu như app ngân hàng, bản đồ Google Maps và camera sắc nét.
+                    </p>
+                    <div class="flex items-center text-xs font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform">
+                        <span>Xem hướng dẫn 5 bước</span>
+                        <span class="ml-1">→</span>
+                    </div>
+                </article>
+
+                <!-- Article 3: Best Launcher for ADHD -->
+                <article class="flex flex-col rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/50 p-6 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200 shadow-sm hover:shadow-md group">
+                    <div class="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400 mb-3">
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                            Tâm Lý Học & ADHD
+                        </span>
+                        <span>6 phút đọc</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors mb-3 leading-snug">
+                        <a href="/blog/vi/best-android-launcher-for-adhd">
+                            Android Launcher Tốt Nhất Cho Người ADHD: Dùng "Ma Sát Lành Mạnh" Để Lấy Lại Tập Trung
+                        </a>
+                    </h3>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6 flex-1">
+                        Khám phá khoa học hành vi đằng sau "Healthy Friction" (ma sát lành mạnh). Cách loại bỏ kích thích thị giác vô thức giúp người mắc ADHD dập tắt vòng lặp nghiện dopamine trên điện thoại.
+                    </p>
+                    <div class="flex items-center text-xs font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform">
+                        <span>Khám phá phương pháp</span>
+                        <span class="ml-1">→</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Newsletter / Community Callout (max-w-6xl container) -->
+        <section class="rounded-3xl border border-zinc-200 dark:border-zinc-800 bg-gradient-to-r from-zinc-100 via-white to-zinc-100 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 p-8 sm:p-12 text-center">
+            <div class="max-w-2xl mx-auto flex flex-col items-center">
+                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center mb-4 text-2xl">
+                    <i class="ph-bold ph-key"></i>
+                </div>
+                <h3 class="font-display font-bold text-2xl sm:text-3xl text-zinc-900 dark:text-white mb-3">
+                    Sẵn sàng trải nghiệm giao diện tối giản nhanh nhất?
+                </h3>
+                <p class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mb-6">
+                    Mở ứng dụng tức thì, không thuật toán theo dõi, 100% ngoại tuyến và cam kết không bao giờ hiển thị quảng cáo.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-3">
+                    <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="h-11 px-6 rounded-xl font-display font-bold text-xs bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 flex items-center justify-center gap-2 shadow-sm transition-all duration-150">
+                        <i class="ph-bold ph-download-simple text-sm"></i>
+                        <span>Cài Đặt Miễn Phí Trên Play Store</span>
+                    </a>
+                    <a href="/?lang=vi#features" class="h-11 px-6 rounded-xl font-display font-semibold text-xs border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center gap-2 transition-all duration-150"><i class="ph-bold ph-sparkle text-amber-500 text-sm"></i><span>Khám Phá Tính Năng</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-950 py-12 text-xs text-zinc-500 transition-colors duration-300 mt-14">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left gap-1">
+                <div class="flex items-center gap-2">
+                    <span class="font-display font-bold text-zinc-900 dark:text-white tracking-tight">Key Launcher</span>
+                </div>
+                <p class="mt-1 text-[11px] text-zinc-400 dark:text-zinc-600">© 2026 Lousify Tech. Bản quyền đã được bảo lưu.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-5 sm:gap-6 font-medium">
+                <a href="/?lang=vi" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Trang chủ</a>
+                <a href="/blog/vi" class="text-brand-500 dark:text-brand-400 font-semibold transition-colors">Blog</a>
+                
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Trợ giúp</a>
+                <a href="/tos" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Điều khoản dịch vụ</a>
+                <a href="/privacy-policy" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Chính sách bảo mật</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme & Menu Scripts -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        function updateThemeIcon(isDark) {
+            if (themeIcon) {
+                themeIcon.className = isDark ? 'ph-bold ph-sun text-[18px]' : 'ph-bold ph-moon text-[18px]';
+            }
+        }
+        updateThemeIcon(document.documentElement.classList.contains('dark'));
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('key-launcher-theme', isDark ? 'dark' : 'light');
+                updateThemeIcon(isDark);
+            });
+        }
+    </script>
+</body>
+</html>
