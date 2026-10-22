@@ -98,7 +98,15 @@ function generateSitemap() {
   xml += '    <priority>0.5</priority>\n';
   xml += '  </url>\n';
 
-  // 4. Help Center (55 routes x 14 locales = 770 URLs)
+  // 4. Offline License Activation
+  xml += '  <url>\n';
+  xml += '    <loc>' + BASE_URL + '/activate</loc>\n';
+  xml += '    <lastmod>' + today + '</lastmod>\n';
+  xml += '    <changefreq>weekly</changefreq>\n';
+  xml += '    <priority>0.8</priority>\n';
+  xml += '  </url>\n';
+
+  // 5. Help Center (55 routes x 14 locales = 770 URLs)
   for (const route of HELP_ROUTES) {
     const isRoot = route === '';
     const priority = isRoot ? '0.9' : '0.8';
@@ -129,7 +137,7 @@ function generateSitemap() {
   xml += '</urlset>\n';
 
   fs.writeFileSync(outputFile, xml, 'utf8');
-  console.log(`Generated ${outputFile} with 3 root URLs + ${HELP_ROUTES.length * ALL_LOCALES.length} Help Center URLs (${3 + HELP_ROUTES.length * ALL_LOCALES.length} total).`);
+  console.log(`Generated ${outputFile} with 4 root URLs + ${HELP_ROUTES.length * ALL_LOCALES.length} Help Center URLs (${4 + HELP_ROUTES.length * ALL_LOCALES.length} total).`);
 }
 
 generateSitemap();

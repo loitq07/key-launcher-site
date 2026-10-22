@@ -7,6 +7,7 @@ const output = path.join(root, 'dist');
 // Only these files are public. In particular, api/ and its regional table stay server-side.
 const publicFiles = [
     'index.html',
+    'activate.html',
     'privacy-policy.html',
     'tos.html',
     'robots.txt',

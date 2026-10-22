@@ -50,6 +50,9 @@ function renderContent() {
     if (document.getElementById('nav-link-compare')) {
         document.getElementById('nav-link-compare').innerText = data.navigation.compare || "Compare";
     }
+    if (document.getElementById('nav-link-activate')) {
+        document.getElementById('nav-link-activate').innerText = data.navigation.activate || "Activate";
+    }
     document.getElementById('nav-link-pricing').innerText = data.navigation.pricing;
     document.getElementById('nav-link-testimonials').innerText = data.navigation.testimonials;
     document.getElementById('nav-link-faq').innerText = data.navigation.faq || "FAQ";
@@ -67,6 +70,9 @@ function renderContent() {
     document.getElementById('mobile-link-press').innerText = data.navigation.press;
     if (document.getElementById('mobile-link-compare')) {
         document.getElementById('mobile-link-compare').innerText = data.navigation.compare || "Compare";
+    }
+    if (document.getElementById('mobile-link-activate')) {
+        document.getElementById('mobile-link-activate').innerText = data.navigation.activate || "Activate";
     }
     document.getElementById('mobile-link-pricing').innerText = data.navigation.pricing;
     document.getElementById('mobile-link-testimonials').innerText = data.navigation.testimonials;
@@ -918,6 +924,14 @@ function renderContent() {
     if (comparisonSubtitle) comparisonSubtitle.innerText = data.pricing.comparisonSubtitle || 'Compare all features side-by-side';
     const pricingStatus = document.getElementById('pricing-status');
     if (pricingStatus) pricingStatus.innerText = data.pricing.pricingStatusLabel || 'See your local PRO prices in the app.';
+    const licenseTitle = document.getElementById('pricing-license-title');
+    const licenseDesc = document.getElementById('pricing-license-desc');
+    const licenseBtnText = document.getElementById('pricing-license-btn-text');
+    if (data.pricing.licenseBanner) {
+        if (licenseTitle) licenseTitle.innerText = data.pricing.licenseBanner.title;
+        if (licenseDesc) licenseDesc.innerText = data.pricing.licenseBanner.description;
+        if (licenseBtnText) licenseBtnText.innerText = data.pricing.licenseBanner.buttonText;
+    }
     const pricingContainer = document.getElementById('pricing-grid');
     pricingContainer.innerHTML = data.pricing.plans.map(plan => `
         <div class="${plan.isRecommended ? 'border-2 border-zinc-900 dark:border-zinc-100 bg-white dark:bg-zinc-950 shadow-xl md:scale-105 z-10' : 'border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/40 shadow-sm'} rounded-3xl p-8 flex flex-col justify-between relative transition-transform">

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <title>Kích hoạt Bản quyền Key Launcher Pro – 1-Tap Offline Activation</title>
+    <meta name="description" content="Kích hoạt bản quyền Key Launcher Pro 1 chạm hoàn toàn ngoại tuyến (100% Offline) qua mã License Key mật mã học ECDSA P-256.">
+    <meta property="og:site_name" content="Key Launcher">
+    <meta property="og:title" content="Kích hoạt Bản quyền Key Launcher Pro">
+    <meta property="og:description" content="Kích hoạt bản quyền Key Launcher Pro 1 chạm ngoại tuyến an toàn.">
+    <meta property="og:image" content="https://www.keylauncher.app/assets/og_image.png">
+
+    <!-- Stylesheets -->
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&family=JetBrains+Mono:wght@400..700&display=swap">
+
+    <script>
+        (function(){
+            var stored = localStorage.getItem('theme');
+            var dark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.classList.toggle('dark', dark);
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        })();
+    </script>
+
+    <style>
+        ::selection { background-color: rgba(248, 208, 102, 0.3); color: inherit; }
+        .font-mono-key { font-family: 'JetBrains Mono', monospace; }
+        [lang-content] { display: none; }
+        body.lang-vi [lang-content="vi"] { display: block; }
+        body.lang-en [lang-content="en"] { display: block; }
+        span[lang-content] { display: none; }
+        body.lang-vi span[lang-content="vi"] { display: inline; }
+        body.lang-en span[lang-content="en"] { display: inline; }
+    </style>
+</head>
+<body class="bg-[#050505] text-zinc-100 font-sans overflow-x-hidden antialiased min-h-screen flex flex-col justify-between lang-vi">
+
+    <!-- Radial Glow Background -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none -z-10 overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-amber-500/10 blur-[130px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-yellow-500/5 blur-[150px]"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full border-b border-zinc-800/80 bg-black/80 backdrop-blur-md">
+        <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+            <a href="/" class="flex items-center gap-2.5 group">
+                <img src="assets/logo_key_launcher.png" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105">
+                <span class="font-bold tracking-tight text-white text-base">Key Launcher</span>
+            </a>
+
+            <div class="flex items-center gap-3">
+                <a href="/" class="text-xs text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 -960 960 960"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h487v80H313Z"/></svg>
+                    <span lang-content="vi">Trang chủ</span>
+                    <span lang-content="en">Home</span>
+                </a>
+
+                <!-- Language toggle -->
+                <div class="flex bg-zinc-900 p-0.5 rounded-lg border border-zinc-800">
+                    <button id="btn-vi" onclick="setLanguage('vi')" class="px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-white bg-zinc-800">VN</button>
+                    <button id="btn-en" onclick="setLanguage('en')" class="px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-zinc-400">EN</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-2xl mx-auto px-4 py-12 flex-1 w-full">
+
+        <!-- Case 1: Checking Payment Status (PayOS / VietQR) -->
+        <section id="state-loading" class="hidden text-center py-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 mb-6 text-amber-400 animate-pulse">
+                <svg class="w-8 h-8 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">
+                <span lang-content="vi">Đang xác nhận thanh toán VietQR...</span>
+                <span lang-content="en">Verifying payment status...</span>
+            </h1>
+            <p class="text-zinc-400 text-sm max-w-md mx-auto mb-6">
+                <span lang-content="vi">Hệ thống đang kiểm tra trạng thái chuyển khoản ngân hàng qua PayOS. Mã bản quyền sẽ xuất hiện ngay khi giao dịch hoàn tất.</span>
+                <span lang-content="en">Connecting to PayOS gateway to verify bank transfer. Your license key will generate automatically once verified.</span>
+            </p>
+            <div id="payment-polling-timer" class="text-xs font-mono text-zinc-500">Đang kiểm tra...</div>
+        </section>
+
+        <!-- Case 2: License Key Ready (Success & 1-Tap Activation) -->
+        <section id="state-key-ready" class="hidden">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 -960 960 960"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+                    <span lang-content="vi">Bản quyền Ngoại tuyến Hợp lệ</span>
+                    <span lang-content="en">Valid Cryptographic License</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
+                    <span lang-content="vi">Kích hoạt Key Launcher Pro</span>
+                    <span lang-content="en">Activate Key Launcher Pro</span>
+                </h1>
+                <p class="text-zinc-400 text-sm">
+                    <span lang-content="vi">Chuẩn chữ ký số quân sự ECDSA P-256. Hoạt động 100% ngoại tuyến vĩnh viễn.</span>
+                    <span lang-content="en">Secured by ECDSA NIST P-256 cryptography. 100% offline-ready forever.</span>
+                </p>
+            </div>
+
+            <!-- License Key Card -->
+            <div class="bg-zinc-950/90 border border-zinc-800 rounded-2xl p-6 mb-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
+                <div class="flex items-center justify-between text-xs text-zinc-400 border-b border-zinc-800/80 pb-3 mb-4">
+                    <span class="flex items-center gap-1.5 font-medium text-zinc-300">
+                        <svg class="w-4 h-4 text-amber-400 fill-current" viewBox="0 -960 960 960"><path d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h352l120 120-180 180-80-80-60 60-60-60-40 40h-82q-32 54-86.5 87T280-240Z"/></svg>
+                        <span id="license-email" class="font-mono text-zinc-200"></span>
+                    </span>
+                    <span id="license-plan-badge" class="px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-semibold text-[11px] border border-amber-400/30">LIFETIME</span>
+                </div>
+
+                <div class="relative bg-black/60 rounded-xl p-4 border border-zinc-800/80 mb-5">
+                    <label class="block text-[11px] font-mono uppercase tracking-wider text-zinc-500 mb-1.5">
+                        <span lang-content="vi">Mã License Key của bạn:</span>
+                        <span lang-content="en">Your License Key:</span>
+                    </label>
+                    <p id="display-key" class="font-mono-key text-xs sm:text-sm text-amber-400 break-all select-all leading-relaxed"></p>
+                </div>
+
+                <!-- 1-Tap CTA Button -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a id="btn-deeplink" href="#" class="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold text-sm tracking-wide shadow-lg shadow-amber-500/20 active:scale-98 transition-all">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 -960 960 960"><path d="m422-232 207-248H469l29-224-207 248h160l-29 224ZM320-80l40-280H160l360-520h80l-40 320h240L440-80h-120Z"/></svg>
+                        <span lang-content="vi">Kích hoạt 1 chạm trên Key Launcher</span>
+                        <span lang-content="en">1-Tap Activate on Key Launcher</span>
+                    </a>
+
+                    <button id="btn-copy-key" onclick="copyKeyToClipboard()" class="flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-750 text-zinc-200 font-semibold text-sm active:scale-98 transition-all">
+                        <svg id="copy-icon" class="w-4 h-4 fill-current" viewBox="0 -960 960 960"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Z"/></svg>
+                        <span id="copy-text">
+                            <span lang-content="vi">Sao chép mã</span>
+                            <span lang-content="en">Copy Key</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Activation Instructions Guide -->
+            <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6">
+                <h2 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-amber-400 fill-current" viewBox="0 -960 960 960"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+                    <span lang-content="vi">Hướng dẫn kích hoạt thủ công</span>
+                    <span lang-content="en">Manual Activation Instructions</span>
+                </h2>
+                <ol class="space-y-2.5 text-xs text-zinc-400 pl-4 list-decimal marker:text-amber-400">
+                    <li>
+                        <span lang-content="vi">Nhấn nút <strong>"Kích hoạt 1 chạm trên Key Launcher"</strong> ở trên nếu bạn đang mở trang này trên điện thoại Android đã cài app.</span>
+                        <span lang-content="en">Tap <strong>"1-Tap Activate on Key Launcher"</strong> above if opening directly on your Android device.</span>
+                    </li>
+                    <li>
+                        <span lang-content="vi">Hoặc: Nhấn <strong>"Sao chép mã"</strong> &rarr; Mở ứng dụng <strong>Key Launcher</strong> &rarr; Vào <strong>Cài đặt</strong> &rarr; Chọn <strong>"Kích hoạt bằng mã bản quyền"</strong> &rarr; Nhấn <strong>"Dán từ bộ nhớ tạm"</strong>.</span>
+                        <span lang-content="en">Or: Tap <strong>"Copy Key"</strong> &rarr; Open <strong>Key Launcher</strong> &rarr; Go to <strong>Settings</strong> &rarr; Select <strong>"Activate with License Key"</strong> &rarr; Tap <strong>"Paste"</strong>.</span>
+                    </li>
+                    <li>
+                        <span lang-content="vi"><strong>100% Ngoại tuyến</strong>: Key Launcher xác thực chữ ký toán học ngay trong máy mà không cần kết nối mạng hay dịch vụ Google Play.</span>
+                        <span lang-content="en"><strong>100% Offline</strong>: Mathematically validated locally on-device. Zero network requests or Google Play Services required.</span>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Case 3: Default Form (Manual Key Verification & Direct Checkout) -->
+        <section id="state-default" class="hidden">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
+                    <span lang-content="vi">Kích hoạt & Mua Bản quyền Pro</span>
+                    <span lang-content="en">Activate & Buy Pro License</span>
+                </h1>
+                <p class="text-zinc-400 text-sm">
+                    <span lang-content="vi">Dành cho người dùng E-Ink (Boox Palma), điện thoại phím bấm (Qin, Cat S22) và kho ứng dụng thay thế (GitHub, F-Droid).</span>
+                    <span lang-content="en">For E-Ink devices (Boox Palma), minimalist phones (Qin, Cat S22), and alternative app stores (GitHub, F-Droid).</span>
+                </p>
+            </div>
+
+            <!-- Paste License Key Box -->
+            <div class="bg-zinc-950/80 border border-zinc-800 rounded-2xl p-6 mb-8 backdrop-blur-sm">
+                <h2 class="text-sm font-bold text-white mb-2">
+                    <span lang-content="vi">Bạn đã có mã bản quyền?</span>
+                    <span lang-content="en">Already have a license key?</span>
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input id="input-license-key" type="text" placeholder="KL1.xxxx..." class="flex-1 bg-black border border-zinc-750 focus:border-amber-400 rounded-xl px-4 py-3 text-xs sm:text-sm font-mono text-zinc-100 placeholder-zinc-600 focus:outline-none transition-colors">
+                    <button onclick="handleManualKeySubmit()" class="py-3 px-5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-bold text-xs sm:text-sm transition-colors cursor-pointer shrink-0">
+                        <span lang-content="vi">Kiểm tra & Kích hoạt</span>
+                        <span lang-content="en">Verify & Activate</span>
+                    </button>
+                </div>
+                <div id="manual-key-error" class="hidden text-xs text-rose-400 mt-2"></div>
+            </div>
+
+            <!-- Direct Purchase Options (International + Vietnam VietQR) -->
+            <div class="border-t border-zinc-800/80 pt-8">
+                <h2 class="text-base font-bold text-white mb-4 text-center">
+                    <span lang-content="vi">Chưa có mã? Mua bản quyền tự động</span>
+                    <span lang-content="en">Don't have a key? Buy instant license</span>
+                </h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Vietnam VietQR / PayOS -->
+                    <div class="bg-gradient-to-b from-zinc-900 to-zinc-950 border border-amber-500/30 rounded-2xl p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/40">VIỆT NAM</span>
+                                <span class="text-xs text-zinc-400">VietQR Pro</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-1">Thanh toán VietQR (PayOS)</h3>
+                            <p class="text-xs text-zinc-400 mb-4">Quét mã QR bằng mọi app ngân hàng (VCB, MB, Techcombank...). Cấp key tự động sau 3 giây.</p>
+                            <div class="text-lg font-extrabold text-amber-400 mb-4">149.000đ <span class="text-xs font-normal text-zinc-400">/ Trọn đời</span></div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <input id="payos-email" type="email" placeholder="Email nhận mã..." class="w-full bg-black border border-zinc-800 rounded-lg px-3 py-2 text-xs text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-amber-400">
+                            <button onclick="initiatePayOSPayment()" id="btn-payos-buy" class="w-full py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-bold text-xs transition-colors flex items-center justify-center gap-1.5">
+                                <span>Tạo mã QR thanh toán</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- International Lemon Squeezy -->
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-5 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-2 py-0.5 rounded text-[11px] font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">GLOBAL</span>
+                                <span class="text-xs text-zinc-400">Lemon Squeezy</span>
+                            </div>
+                            <h3 class="font-bold text-white text-base mb-1">International Checkout</h3>
+                            <p class="text-xs text-zinc-400 mb-4">Cards, Apple Pay, Google Pay, PayPal. Instant license delivery to your email.</p>
+                            <div class="text-lg font-extrabold text-white mb-4">$29.99 <span class="text-xs font-normal text-zinc-400">/ Lifetime</span></div>
+                        </div>
+
+                        <a href="https://keylauncher.lemonsqueezy.com/buy/key-launcher-pro" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs transition-colors text-center flex items-center justify-center gap-1.5">
+                            <span>Pay with Card / PayPal</span>
+                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 -960 960 960"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-900 bg-black/60 py-8 text-center text-xs text-zinc-500">
+        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 Key Launcher. All rights reserved.</p>
+            <div class="flex items-center gap-4">
+                <a href="/privacy-policy" class="hover:text-zinc-300 transition-colors">Chính sách bảo mật</a>
+                <span>&bull;</span>
+                <a href="/tos" class="hover:text-zinc-300 transition-colors">Điều khoản dịch vụ</a>
+                <span>&bull;</span>
+                <a href="/help" class="hover:text-zinc-300 transition-colors">Trợ giúp</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Activation Logic -->
+    <script>
+        function setLanguage(lang) {
+            document.body.classList.remove('lang-vi', 'lang-en');
+            document.body.classList.add('lang-' + lang);
+            document.documentElement.lang = lang;
+            document.getElementById('btn-vi').className = lang === 'vi' 
+                ? 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-white bg-zinc-800' 
+                : 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-zinc-400';
+            document.getElementById('btn-en').className = lang === 'en' 
+                ? 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-white bg-zinc-800' 
+                : 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-zinc-400';
+            localStorage.setItem('locale', lang);
+        }
+
+        // Initialize Locale
+        (function() {
+            var saved = localStorage.getItem('locale');
+            if (saved && (saved === 'vi' || saved === 'en')) {
+                setLanguage(saved);
+            } else {
+                var navLang = (navigator.language || '').toLowerCase();
+                setLanguage(navLang.startsWith('vi') ? 'vi' : 'en');
+            }
+        })();
+
+        var currentKey = '';
+
+        function renderReadyKey(key, email, plan) {
+            currentKey = key;
+            document.getElementById('state-loading').classList.add('hidden');
+            document.getElementById('state-default').classList.add('hidden');
+            document.getElementById('state-key-ready').classList.remove('hidden');
+
+            document.getElementById('display-key').textContent = key;
+            document.getElementById('license-email').textContent = email || 'Key Launcher Pro User';
+            document.getElementById('license-plan-badge').textContent = (plan || 'LIFETIME').toUpperCase();
+
+            var deeplinkUrl = 'keylauncher://activate?key=' + encodeURIComponent(key);
+            document.getElementById('btn-deeplink').setAttribute('href', deeplinkUrl);
+        }
+
+        function copyKeyToClipboard() {
+            if (!currentKey) return;
+            navigator.clipboard.writeText(currentKey).then(function() {
+                var copyText = document.getElementById('copy-text');
+                var isVi = document.body.classList.contains('lang-vi');
+                copyText.innerHTML = isVi ? '<span>Đã sao chép!</span>' : '<span>Copied!</span>';
+                setTimeout(function() {
+                    copyText.innerHTML = isVi ? '<span lang-content="vi">Sao chép mã</span>' : '<span lang-content="en">Copy Key</span>';
+                }, 2000);
+            }).catch(function(err) {
+                alert('Không thể sao chép: ' + err);
+            });
+        }
+
+        function handleManualKeySubmit() {
+            var input = document.getElementById('input-license-key');
+            var errEl = document.getElementById('manual-key-error');
+            var val = (input.value || '').trim();
+            errEl.classList.add('hidden');
+
+            if (!val.startsWith('KL1.')) {
+                errEl.textContent = 'Mã bản quyền không đúng định dạng. Phải bắt đầu bằng KL1.';
+                errEl.classList.remove('hidden');
+                return;
+            }
+
+            fetch('/api/license/verify?key=' + encodeURIComponent(val))
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    if (data.valid && data.payload) {
+                        renderReadyKey(val, data.payload.email, data.payload.type);
+                    } else {
+                        errEl.textContent = data.error || 'Mã bản quyền không hợp lệ.';
+                        errEl.classList.remove('hidden');
+                    }
+                })
+                .catch(function(err) {
+                    errEl.textContent = 'Lỗi kết nối kiểm tra: ' + err.message;
+                    errEl.classList.remove('hidden');
+                });
+        }
+
+        async function initiatePayOSPayment() {
+            var emailInput = document.getElementById('payos-email');
+            var email = (emailInput.value || '').trim();
+            if (!email || !email.includes('@')) {
+                alert('Vui lòng nhập email hợp lệ để nhận mã bản quyền.');
+                emailInput.focus();
+                return;
+            }
+
+            var btn = document.getElementById('btn-payos-buy');
+            var originalText = btn.innerHTML;
+            btn.innerHTML = '<span>Đang khởi tạo VietQR...</span>';
+            btn.disabled = true;
+
+            try {
+                var res = await fetch('/api/payos/create-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email, plan: 'lifetime' })
+                });
+                var data = await res.json();
+                if (data.checkoutUrl) {
+                    window.location.href = data.checkoutUrl;
+                } else {
+                    alert('Lỗi tạo thanh toán: ' + (data.message || data.error));
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                }
+            } catch (err) {
+                alert('Lỗi kết nối: ' + err.message);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        // Poll PayOS status if orderCode in URL
+        async function pollPayOSStatus(orderCode, email, plan) {
+            document.getElementById('state-default').classList.add('hidden');
+            document.getElementById('state-loading').classList.remove('hidden');
+
+            var maxAttempts = 30; // 30 * 2.5s = 75s
+            var attempts = 0;
+
+            var timer = setInterval(async function() {
+                attempts++;
+                document.getElementById('payment-polling-timer').textContent = 'Đang kiểm tra lần ' + attempts + '/' + maxAttempts + '...';
+
+                try {
+                    var res = await fetch('/api/payos/check-status?orderCode=' + encodeURIComponent(orderCode) + '&email=' + encodeURIComponent(email || '') + '&plan=' + encodeURIComponent(plan || 'lifetime'));
+                    var data = await res.json();
+
+                    if (data.status === 'PAID' && data.key) {
+                        clearInterval(timer);
+                        renderReadyKey(data.key, email, plan);
+                    } else if (data.status === 'CANCELLED') {
+                        clearInterval(timer);
+                        alert('Giao dịch đã bị huỷ.');
+                        window.location.href = '/activate';
+                    }
+                } catch (e) {
+                    console.error('Polling error:', e);
+                }
+
+                if (attempts >= maxAttempts) {
+                    clearInterval(timer);
+                    document.getElementById('state-loading').classList.add('hidden');
+                    document.getElementById('state-default').classList.remove('hidden');
+                    alert('Hệ thống chưa nhận được tín hiệu thanh toán từ ngân hàng. Nếu bạn đã chuyển khoản, vui lòng giữ lại biên lai và liên hệ support@keylauncher.app để được hỗ trợ.');
+                }
+            }, 2500);
+        }
+
+        // Main entry routing
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var key = params.get('key');
+            var provider = params.get('provider');
+            var orderCode = params.get('orderCode');
+            var email = params.get('email');
+            var plan = params.get('plan');
+
+            if (key) {
+                renderReadyKey(key, email, plan);
+            } else if (provider === 'payos' && orderCode) {
+                pollPayOSStatus(orderCode, email, plan);
+            } else {
+                document.getElementById('state-default').classList.remove('hidden');
+            }
+        })();
+    </script>
+</body>
+</html>

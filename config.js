@@ -9,6 +9,7 @@ const KEY_LAUNCHER_CONTENT = {
         press: "Press",
         compare: "Compare",
         pricing: "Pricing",
+        activate: "Activate",
         testimonials: "Reviews",
         faq: "FAQ",
         help: "Help",
@@ -307,6 +308,11 @@ const KEY_LAUNCHER_CONTENT = {
             discountNote: "{pct}% below the global price, adjusted for local purchasing power.",
             discountMinPct: 10,
             policyNote: "No sales, ever. Prices only go up \u2014 buy earlier, pay less. Lifetime purchases are never repriced."
+        },
+        licenseBanner: {
+            title: "E-Ink, Dumbphone or Non-Google Play user?",
+            description: "Buy or activate 100% offline license keys via VietQR (PayOS) or International Card (Lemon Squeezy).",
+            buttonText: "Buy / Activate License"
         },
         // Public global prices shown while regional Vercel pricing is unavailable.
         // The API replaces them with the visitor's exact Google Play region price.
