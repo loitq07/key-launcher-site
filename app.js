@@ -685,9 +685,9 @@ function renderContent() {
             tabButtons.forEach(btn => {
                 const target = btn.getAttribute('data-competitor');
                 if (target === activeCompetitor) {
-                    btn.className = 'compare-tab-btn py-2 px-1 rounded-lg text-center font-semibold transition-all duration-200 bg-white dark:bg-zinc-900 text-brand-600 dark:text-brand-400 shadow-sm cursor-pointer';
+                    btn.className = 'compare-tab-btn py-2 px-1 rounded-lg flex items-center justify-center gap-1.5 text-center font-semibold transition-all duration-200 bg-white dark:bg-zinc-900 text-brand-600 dark:text-brand-400 shadow-sm cursor-pointer';
                 } else {
-                    btn.className = 'compare-tab-btn py-2 px-1 rounded-lg text-center font-medium transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer';
+                    btn.className = 'compare-tab-btn py-2 px-1 rounded-lg flex items-center justify-center gap-1.5 text-center font-medium transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer';
                 }
             });
 
@@ -696,9 +696,9 @@ function renderContent() {
             const thMinimalist = document.querySelector('th.compare-col-minimalistPhone');
             const thOlauncher = document.querySelector('th.compare-col-olauncher');
 
-            if (thNiagara) thNiagara.className = `compare-col-niagara p-3 sm:p-5 text-center ${activeCompetitor === 'niagara' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%]`;
-            if (thMinimalist) thMinimalist.className = `compare-col-minimalistPhone p-3 sm:p-5 text-center ${activeCompetitor === 'minimalistPhone' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%]`;
-            if (thOlauncher) thOlauncher.className = `compare-col-olauncher p-3 sm:p-5 text-center ${activeCompetitor === 'olauncher' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[14%]`;
+            if (thNiagara) thNiagara.className = `compare-col-niagara p-2 sm:p-5 text-center ${activeCompetitor === 'niagara' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%] align-middle`;
+            if (thMinimalist) thMinimalist.className = `compare-col-minimalistPhone p-2 sm:p-5 text-center ${activeCompetitor === 'minimalistPhone' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%] align-middle`;
+            if (thOlauncher) thOlauncher.className = `compare-col-olauncher p-2 sm:p-5 text-center ${activeCompetitor === 'olauncher' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[14%] align-middle`;
 
             renderTableBody();
         }
@@ -731,29 +731,29 @@ function renderContent() {
                 const olauncherVisible = activeCompetitor === 'olauncher';
 
                 const competitorClass = isPricingRow
-                    ? 'p-3 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm'
-                    : 'p-3 sm:p-5 text-center text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm';
+                    ? 'p-2 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm'
+                    : 'p-2 sm:p-5 text-center text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm';
 
                 const olauncherClass = isOfflineRow
-                    ? 'p-3 sm:p-5 text-center text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-medium'
+                    ? 'p-2 sm:p-5 text-center text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-medium'
                     : competitorClass;
 
                 return `
                     <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                        <td class="p-3.5 sm:p-5 font-medium text-zinc-900 dark:text-white border-r border-zinc-200 dark:border-zinc-800">
+                        <td class="p-3 sm:p-5 font-medium text-zinc-900 dark:text-white border-r border-zinc-200 dark:border-zinc-800 w-[46%] md:w-[28%] align-middle">
                             <div class="font-semibold text-xs sm:text-sm leading-snug">${row.name}</div>
                             <div class="text-[10px] sm:text-[11px] text-zinc-500 dark:text-zinc-400 font-normal leading-normal mt-0.5">${row.desc}</div>
                         </td>
-                        <td class="p-3 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-r border-brand-500/20 ${isPricingRow ? 'font-bold text-zinc-900 dark:text-white' : 'font-semibold text-emerald-600 dark:text-emerald-400'}">
+                        <td class="p-2 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-r border-brand-500/20 w-[27%] md:w-[22%] align-middle ${isPricingRow ? 'font-bold text-zinc-900 dark:text-white' : 'font-semibold text-emerald-600 dark:text-emerald-400'}">
                             ${keyColHtml}
                         </td>
-                        <td class="${competitorClass} ${niagaraVisible ? 'table-cell' : 'hidden'} md:table-cell">
+                        <td class="${competitorClass} ${niagaraVisible ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%] align-middle">
                             <span>${row.niagara}</span>
                         </td>
-                        <td class="${competitorClass} ${minimalistVisible ? 'table-cell' : 'hidden'} md:table-cell">
+                        <td class="${competitorClass} ${minimalistVisible ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%] align-middle">
                             <span>${row.minimalistPhone}</span>
                         </td>
-                        <td class="${olauncherClass} ${olauncherVisible ? 'table-cell' : 'hidden'} md:table-cell">
+                        <td class="${olauncherClass} ${olauncherVisible ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[14%] align-middle">
                             <span>${row.olauncher}</span>
                         </td>
                     </tr>

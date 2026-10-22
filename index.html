@@ -696,15 +696,18 @@
                     <span id="compare-mobile-label">So sánh với:</span>
                     <span id="compare-mobile-hint" class="text-[11px] text-zinc-400 dark:text-zinc-500">Chạm để đổi đối thủ</span>
                 </div>
-                <div id="compare-mobile-tabs" class="grid grid-cols-3 gap-1 p-1 rounded-xl bg-zinc-200/70 dark:bg-zinc-800/70 border border-zinc-200 dark:border-zinc-700/60 backdrop-blur-sm text-xs font-medium">
-                    <button type="button" class="compare-tab-btn py-2 px-1 rounded-lg text-center font-semibold transition-all duration-200 bg-white dark:bg-zinc-900 text-brand-600 dark:text-brand-400 shadow-sm cursor-pointer" data-competitor="niagara">
-                        Niagara
+                <div id="compare-mobile-tabs" class="grid grid-cols-3 gap-1.5 p-1 rounded-xl bg-zinc-200/70 dark:bg-zinc-800/70 border border-zinc-200 dark:border-zinc-700/60 backdrop-blur-sm text-xs font-medium">
+                    <button type="button" class="compare-tab-btn py-2 px-1 rounded-lg flex items-center justify-center gap-1.5 text-center font-semibold transition-all duration-200 bg-white dark:bg-zinc-900 text-brand-600 dark:text-brand-400 shadow-sm cursor-pointer" data-competitor="niagara">
+                        <img src="assets/logo_niagara.png" alt="" class="w-3.5 h-3.5 rounded shrink-0 object-contain">
+                        <span class="truncate">Niagara</span>
                     </button>
-                    <button type="button" class="compare-tab-btn py-2 px-1 rounded-lg text-center font-medium transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer" data-competitor="minimalistPhone">
-                        Minimalist Phone
+                    <button type="button" class="compare-tab-btn py-2 px-1 rounded-lg flex items-center justify-center gap-1.5 text-center font-medium transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer" data-competitor="minimalistPhone">
+                        <img src="assets/logo_minimalist_phone.png" alt="" class="w-3.5 h-3.5 rounded shrink-0 object-contain">
+                        <span class="truncate">Minimalist</span>
                     </button>
-                    <button type="button" class="compare-tab-btn py-2 px-1 rounded-lg text-center font-medium transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer" data-competitor="olauncher">
-                        Olauncher
+                    <button type="button" class="compare-tab-btn py-2 px-1 rounded-lg flex items-center justify-center gap-1.5 text-center font-medium transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer" data-competitor="olauncher">
+                        <img src="assets/logo_olauncher.png" alt="" class="w-3.5 h-3.5 rounded shrink-0 object-contain">
+                        <span class="truncate">Olauncher</span>
                     </button>
                 </div>
             </div>
@@ -712,19 +715,37 @@
             <!-- Comparison Table Container -->
             <div class="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-md shadow-sm">
                 <div id="compare-table-scroll-wrapper" class="overflow-x-auto">
-                    <table id="compare-table" class="w-full text-left border-collapse text-xs sm:text-sm">
+                    <table id="compare-table" class="w-full text-left border-collapse table-fixed text-xs sm:text-sm">
                         <thead>
                             <tr class="border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/90 dark:bg-zinc-900/80 text-zinc-700 dark:text-zinc-300 font-semibold">
-                                <th id="compare-header-feature" class="p-3.5 sm:p-5 font-display border-r border-zinc-200 dark:border-zinc-800 w-[46%] md:w-[28%]">Feature</th>
-                                <th class="p-3 sm:p-5 text-center bg-brand-500/10 dark:bg-brand-500/15 text-brand-600 dark:text-brand-400 border-r border-brand-500/20 w-[27%] md:w-[22%]">
-                                    <div class="inline-flex items-center gap-1 sm:gap-1.5 font-bold font-display text-xs sm:text-base">
-                                        <span>Key Launcher</span>
-                                        <span id="compare-top-badge" class="px-1.5 py-0.5 text-[9px] sm:text-[10px] uppercase font-mono font-bold tracking-wider rounded bg-brand-500 text-white">Top</span>
+                                <th id="compare-header-feature" class="p-3 sm:p-5 font-display border-r border-zinc-200 dark:border-zinc-800 w-[46%] md:w-[28%] align-middle">Feature</th>
+                                <th class="p-2 sm:p-5 text-center bg-brand-500/10 dark:bg-brand-500/15 text-brand-600 dark:text-brand-400 border-r border-brand-500/20 w-[27%] md:w-[22%] align-middle">
+                                    <div class="flex flex-col items-center justify-center gap-1">
+                                        <div class="inline-flex items-center gap-1 sm:gap-1.5 font-bold font-display text-xs sm:text-base">
+                                            <img src="assets/logo_key_launcher.png" alt="Key Launcher" class="w-4 h-4 sm:w-5 sm:h-5 rounded shadow-xs shrink-0 object-contain">
+                                            <span class="truncate">Key Launcher</span>
+                                        </div>
+                                        <span id="compare-top-badge" class="px-1.5 py-0.5 text-[8px] sm:text-[10px] uppercase font-mono font-bold tracking-wider rounded bg-brand-500 text-white leading-none">Top</span>
                                     </div>
                                 </th>
-                                <th class="compare-col-niagara p-3 sm:p-5 text-center w-[27%] md:w-[18%]">Niagara</th>
-                                <th class="compare-col-minimalistPhone p-3 sm:p-5 text-center hidden md:table-cell w-[27%] md:w-[18%]">Minimalist Phone</th>
-                                <th class="compare-col-olauncher p-3 sm:p-5 text-center hidden md:table-cell w-[27%] md:w-[14%]">Olauncher</th>
+                                <th class="compare-col-niagara p-2 sm:p-5 text-center w-[27%] md:w-[18%] align-middle">
+                                    <div class="inline-flex items-center justify-center gap-1 sm:gap-1.5 font-semibold text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+                                        <img src="assets/logo_niagara.png" alt="Niagara" class="w-4 h-4 sm:w-5 sm:h-5 rounded shadow-xs shrink-0 object-contain">
+                                        <span class="truncate">Niagara</span>
+                                    </div>
+                                </th>
+                                <th class="compare-col-minimalistPhone p-2 sm:p-5 text-center hidden md:table-cell w-[27%] md:w-[18%] align-middle">
+                                    <div class="inline-flex items-center justify-center gap-1 sm:gap-1.5 font-semibold text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+                                        <img src="assets/logo_minimalist_phone.png" alt="Minimalist Phone" class="w-4 h-4 sm:w-5 sm:h-5 rounded shadow-xs shrink-0 object-contain">
+                                        <span class="truncate">Minimalist</span>
+                                    </div>
+                                </th>
+                                <th class="compare-col-olauncher p-2 sm:p-5 text-center hidden md:table-cell w-[27%] md:w-[14%] align-middle">
+                                    <div class="inline-flex items-center justify-center gap-1 sm:gap-1.5 font-semibold text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+                                        <img src="assets/logo_olauncher.png" alt="Olauncher" class="w-4 h-4 sm:w-5 sm:h-5 rounded shadow-xs shrink-0 object-contain">
+                                        <span class="truncate">Olauncher</span>
+                                    </div>
+                                </th>
                             </tr>
                         </thead>
                         <tbody id="compare-table-body" class="divide-y divide-zinc-200 dark:divide-zinc-800/80">
