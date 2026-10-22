@@ -93,6 +93,8 @@
         if (theme === 'dark') document.documentElement.classList.add('dark');
         else document.documentElement.classList.remove('dark');
     </script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 </head>
 <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-black transition-colors duration-300">
 
@@ -109,7 +111,7 @@
                     <span>← All Guides</span>
                 </a>
                 <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all" aria-label="Toggle Theme">
-                    <span id="theme-icon" class="material-symbols-outlined !text-[17px]">dark_mode</span>
+                    <i id="theme-icon" class="ph-bold ph-moon text-[18px]"></i>
                 </button>
                 <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex h-8 items-center justify-center px-3 rounded-lg text-xs font-semibold bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 active:scale-95 transition-all font-display">
                     Download Free
@@ -159,7 +161,7 @@
         <!-- Executive Summary Callout -->
         <div class="rounded-2xl border border-blue-500/30 bg-blue-500/5 dark:bg-blue-500/10 p-5 sm:p-6 mb-10 text-sm leading-relaxed">
             <div class="flex items-center gap-2 font-display font-bold text-blue-700 dark:text-blue-400 mb-2">
-                <span class="material-symbols-outlined !text-[18px]">touch_app</span>
+                <i class="ph-fill ph-hand-pointing text-blue-500 text-[18px]"></i>
                 Ergonomics Breakdown
             </div>
             <p class="text-zinc-700 dark:text-zinc-300 mb-3">
@@ -375,7 +377,7 @@
         const themeBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         function updateThemeIcon(isDark) {
-            if (themeIcon) themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            if (themeIcon) themeIcon.className = isDark ? 'ph-bold ph-sun text-[18px]' : 'ph-bold ph-moon text-[18px]';
         }
         updateThemeIcon(document.documentElement.classList.contains('dark'));
         if (themeBtn) {
