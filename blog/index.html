@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Guides — Digital Minimalism, Dumbphone Setup & ADHD Focus | Key Launcher</title>
+    <meta name="description" content="In-depth guides, launcher comparisons, and digital detox strategies. Learn how to turn Android into a dumbphone, beat phone addiction, and launch apps in milliseconds.">
+    <link rel="canonical" href="https://www.keylauncher.app/blog">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.keylauncher.app/blog">
+    <meta property="og:title" content="Key Launcher Blog — Minimalist Phone Guides & Comparisons">
+    <meta property="og:description" content="Explore digital detox guides, minimalist dumbphone setups, and deep-dive comparisons of the fastest Android launchers.">
+    <meta property="og:image" content="https://www.keylauncher.app/assets/logo_key_launcher.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Key Launcher Blog — Minimalist Phone Guides & Comparisons">
+    <meta name="twitter:description" content="Explore digital detox guides, minimalist dumbphone setups, and deep-dive comparisons of the fastest Android launchers.">
+    <meta name="twitter:image" content="https://www.keylauncher.app/assets/logo_key_launcher.png">
+    
+    <link rel="icon" type="image/png" href="../assets/logo_key_launcher.png">
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Key Launcher Blog",
+      "url": "https://www.keylauncher.app/blog",
+      "description": "Guides on digital minimalism, minimalist phone setups, T9 typing speed, and ADHD productivity.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Key Launcher",
+        "url": "https://www.keylauncher.app",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.keylauncher.app/assets/logo_key_launcher.png"
+        }
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.keylauncher.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.keylauncher.app/blog"
+        }
+      ]
+    }
+    </script>
+
+    <script>
+        const theme = localStorage.getItem('key-launcher-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        if (theme === 'dark') document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+    </script>
+</head>
+<body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-black transition-colors duration-300">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition duration-300">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-2.5 group">
+                <img src="../assets/logo_key_launcher.png" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105" width="32" height="32">
+                <div class="flex flex-col">
+                    <span class="font-display font-bold tracking-tight text-zinc-900 dark:text-white leading-none">Key Launcher</span>
+                </div>
+            </a>
+
+            <!-- Menu links (Desktop) -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                <a href="/#features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
+                <a href="/#compare" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Compare</a>
+                <a href="/#pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Pricing</a>
+                <a href="/blog" class="text-brand-500 dark:text-brand-400 font-semibold transition-colors flex items-center gap-1.5">
+                    <span>Blog</span>
+                    <span class="px-1.5 py-0.2 text-[10px] font-semibold uppercase tracking-wider rounded bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-500/20">Guides</span>
+                </a>
+                
+                <!-- More Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-white transition-colors py-2 cursor-pointer focus:outline-none">
+                        <span>More</span>
+                        <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <div class="absolute left-0 mt-0 pt-2 w-44 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl py-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+                        <a href="/#press" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Press</a>
+                        <a href="/#testimonials" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Reviews</a>
+                        <a href="/#faq" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">FAQ</a>
+                    </div>
+                </div>
+
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Help</a>
+
+                <!-- Activate Link -->
+                <a href="/activate" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h272l80 80-60 60-40-40-60 60-40-40-60 60-144-1q-32 54-86.5 87T280-240Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/></svg>
+                    <span>Activate</span>
+                </a>
+            </nav>
+
+            <!-- Actions and Theme Toggle -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="theme-toggle" class="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all duration-200" aria-label="Toggle Theme">
+                    <span id="theme-icon" class="material-symbols-outlined !text-[18px]">dark_mode</span>
+                </button>
+
+                <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex h-9 items-center justify-center px-4 rounded-lg text-xs font-semibold bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-pointer active:scale-[0.97] transition-all duration-200 font-display">
+                    Download Free
+                </a>
+                
+                <button class="md:hidden p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer active:scale-95 transition-all duration-200" aria-label="Toggle Menu" id="mobile-menu-btn">
+                    <svg class="w-6 h-6 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 flex flex-col gap-3 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+            <div class="grid grid-cols-2 gap-2 pb-3 border-b border-zinc-100 dark:border-zinc-800/80">
+                <a href="/#features" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Features
+                </a>
+                <a href="/#compare" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Compare
+                </a>
+                <a href="/#pricing" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Pricing
+                </a>
+                <a href="/blog" class="flex items-center gap-2 p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-white font-semibold transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Blog
+                </a>
+            </div>
+
+            <div class="flex flex-col gap-1 py-1">
+                <a href="/activate" class="flex items-center justify-between px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-colors font-semibold">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h272l80 80-60 60-40-40-60 60-40-40-60 60-144-1q-32 54-86.5 87T280-240Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/></svg>
+                        Activate Offline License
+                    </span>
+                    <span class="text-xs">→</span>
+                </a>
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Help Center</a>
+                <a href="/#press" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Press Coverage</a>
+                <a href="/#testimonials" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">User Reviews</a>
+                <a href="/#faq" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
+            </div>
+
+            <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white hover:bg-brand-500 cursor-pointer active:scale-[0.98] transition-all duration-200 font-display mt-1">
+                <span class="material-symbols-outlined mr-2 !text-[18px]">download</span> Get it on Google Play
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12 md:py-16 flex-1 w-full">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400 mb-8" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Home</a>
+            <span>/</span>
+            <span class="text-zinc-900 dark:text-white font-medium">Blog</span>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="max-w-3xl mb-14">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900/80 text-[11px] font-medium tracking-wide text-zinc-500 dark:text-zinc-400 mb-4 uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span> Editorial & Guides
+            </div>
+            <h1 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-zinc-900 dark:text-white leading-[1.15] mb-4">
+                Digital Detox, Dumbphones & <span class="text-brand-500 dark:text-brand-400">Extreme Focus</span>.
+            </h1>
+            <p class="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed">
+                Practical guides, hardware walkthroughs, and in-depth software comparisons to help you reclaim hours of daily screen time without sacrificing modern essentials.
+            </p>
+        </section>
+
+        <!-- Featured Article (Hero Card) -->
+        <section class="mb-14">
+            <article class="relative group rounded-3xl border border-zinc-200 dark:border-zinc-800/80 bg-gradient-to-br from-white to-zinc-50 dark:from-zinc-900/80 dark:to-zinc-950 p-6 sm:p-10 hover:border-brand-500/40 dark:hover:border-brand-500/40 transition-all duration-300 shadow-sm hover:shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 flex flex-col items-start">
+                        <div class="flex flex-wrap items-center gap-2.5 mb-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20">
+                                Comparison & Value
+                            </span>
+                            <span class="text-xs text-zinc-400 dark:text-zinc-500">•</span>
+                            <span class="text-xs text-zinc-500 dark:text-zinc-400">6 min read</span>
+                            <span class="text-xs text-zinc-400 dark:text-zinc-500">•</span>
+                            <span class="text-xs text-zinc-500 dark:text-zinc-400">October 2026</span>
+                        </div>
+                        
+                        <h2 class="font-display font-bold text-2xl sm:text-3xl text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors leading-tight mb-4">
+                            <a href="/blog/best-minimalist-phone-alternative" class="focus:outline-none">
+                                <span class="absolute inset-0" aria-hidden="true"></span>
+                                Best Minimalist Phone Alternative: Why Key Launcher Offers More for Less
+                            </a>
+                        </h2>
+                        
+                        <p class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed mb-6">
+                            Tired of expensive yearly subscriptions and scrolling endless alphabetical text lists? Discover why Key Launcher's instant T9 muscle memory, 100% offline security, and fair lifetime pricing make it the definitive alternative to Minimalist Phone.
+                        </p>
+
+                        <div class="flex items-center gap-3 text-xs font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform">
+                            <span>Read Full Analysis</span>
+                            <span class="text-base leading-none">→</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-4 flex justify-center">
+                        <div class="w-full max-w-[280px] aspect-[4/3] rounded-2xl bg-gradient-to-tr from-brand-500/20 via-zinc-800 to-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 flex flex-col justify-between shadow-inner">
+                            <div class="flex items-center justify-between text-xs font-mono text-zinc-400">
+                                <span>VS MINIMALIST</span>
+                                <span class="text-emerald-400 font-bold font-mono">SAVE 60%</span>
+                            </div>
+                            <div class="text-center py-4">
+                                <div class="text-3xl font-display font-extrabold text-white mb-1">T9 2-Tap</div>
+                                <div class="text-xs text-zinc-400">Instant muscle memory</div>
+                            </div>
+                            <div class="flex items-center justify-between text-[11px] text-zinc-400 border-t border-zinc-800/80 pt-3">
+                                <span>100% Offline</span>
+                                <span>Zero Tracking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Articles Grid (3 Strategic Articles) -->
+        <section class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="font-display font-bold text-xl sm:text-2xl text-zinc-900 dark:text-white">
+                    Latest Editorial Guides
+                </h2>
+                <span class="text-xs font-medium text-zinc-500 dark:text-zinc-400 font-mono">3 Guides</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Card 1: Key Launcher vs Niagara Launcher -->
+                <article class="flex flex-col rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 hover:-translate-y-1 shadow-sm hover:shadow-lg group">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                            Ergonomics & Speed
+                        </span>
+                        <span class="text-xs text-zinc-400 dark:text-zinc-500">•</span>
+                        <span class="text-xs text-zinc-500 dark:text-zinc-400">7 min read</span>
+                    </div>
+
+                    <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors leading-snug mb-3">
+                        <a href="/blog/key-launcher-vs-niagara-launcher">
+                            Key Launcher vs. Niagara Launcher: Alphabetical Wave vs. T9 Keypad
+                        </a>
+                    </h3>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 flex-1">
+                        Compare one-handed ergonomics on large modern displays: why sliding through a 26-letter vertical wave strains your thumb, while a 9-key dialer opens apps with zero reach penalty.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800/80 text-xs">
+                        <span class="text-zinc-500 dark:text-zinc-400">October 2026</span>
+                        <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-0.5 transition-transform">Read guide →</span>
+                    </div>
+                </article>
+
+                <!-- Card 2: Turn Android Into Dumb Phone -->
+                <article class="flex flex-col rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 hover:-translate-y-1 shadow-sm hover:shadow-lg group">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                            r/dumbphones Guide
+                        </span>
+                        <span class="text-xs text-zinc-400 dark:text-zinc-500">•</span>
+                        <span class="text-xs text-zinc-500 dark:text-zinc-400">8 min read</span>
+                    </div>
+
+                    <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors leading-snug mb-3">
+                        <a href="/blog/turn-android-into-dumb-phone">
+                            How to Turn Any Android Phone into a Minimalist Dumb Phone (2026 Guide)
+                        </a>
+                    </h3>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 flex-1">
+                        Don't sacrifice Google Maps, banking, or your good camera for a clunky flip phone. Here is how to configure high contrast monochrome, Super Focus locks, and biometric vaults on any Android or E-Ink device.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800/80 text-xs">
+                        <span class="text-zinc-500 dark:text-zinc-400">October 2026</span>
+                        <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-0.5 transition-transform">Read guide →</span>
+                    </div>
+                </article>
+
+                <!-- Card 3: Best Launcher for ADHD -->
+                <article class="flex flex-col rounded-2xl border border-zinc-200 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 p-6 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-200 hover:-translate-y-1 shadow-sm hover:shadow-lg group">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="px-2.5 py-0.5 rounded-md text-[11px] font-semibold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                            ADHD & Psychology
+                        </span>
+                        <span class="text-xs text-zinc-400 dark:text-zinc-500">•</span>
+                        <span class="text-xs text-zinc-500 dark:text-zinc-400">7 min read</span>
+                    </div>
+
+                    <h3 class="font-display font-bold text-lg text-zinc-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors leading-snug mb-3">
+                        <a href="/blog/best-android-launcher-for-adhd">
+                            The Best Android Launcher for ADHD: Using Healthy Friction to Reclaim Attention
+                        </a>
+                    </h3>
+
+                    <p class="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed mb-6 flex-1">
+                        Neurodivergent brains crave dopamine triggers. Discover the behavioral psychology of "healthy friction"—how replacing visual app icons with deliberate numeric dialing breaks compulsive loops instantly.
+                    </p>
+
+                    <div class="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800/80 text-xs">
+                        <span class="text-zinc-500 dark:text-zinc-400">October 2026</span>
+                        <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-0.5 transition-transform">Read guide →</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Bottom CTA Box -->
+        <section class="rounded-3xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-900 dark:bg-zinc-900/40 p-8 sm:p-12 text-center text-white relative overflow-hidden">
+            <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="max-w-2xl mx-auto relative z-10">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl tracking-tight mb-3">
+                    Ready to cut 2+ hours of screen time daily?
+                </h2>
+                <p class="text-zinc-400 text-sm sm:text-base leading-relaxed mb-8">
+                    Key Launcher replaces your noisy, colorful app grid with the cleanest T9 predictive keyboard on Android. 100% offline, zero ads, no cloud telemetry.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-display font-bold text-sm bg-brand-500 text-black hover:bg-brand-400 active:scale-95 transition-all shadow-lg shadow-brand-500/20">
+                        <span class="material-symbols-outlined !text-[20px]">download</span>
+                        Get Key Launcher Free
+                    </a>
+                    <a href="/activate" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-display font-semibold text-sm bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 active:scale-95 transition-all">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 -960 960 960"><path d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h272l80 80-60 60-40-40-60 60-40-40-60 60-144-1q-32 54-86.5 87T280-240Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/></svg>
+                        Activate Offline License
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-950 py-12 text-xs text-zinc-500 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left gap-1">
+                <div class="flex items-center gap-2">
+                    <span class="font-display font-bold text-zinc-900 dark:text-white tracking-tight">Key Launcher</span>
+                </div>
+                <p class="mt-1 text-[11px] text-zinc-400 dark:text-zinc-600">© 2026 Lousify Tech. All rights reserved.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-5 sm:gap-6 font-medium">
+                <a href="/" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Home</a>
+                <a href="/blog" class="text-brand-500 dark:text-brand-400 font-semibold transition-colors">Blog</a>
+                <a href="/activate" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Activate License</a>
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Help</a>
+                <a href="/tos" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Terms of Service</a>
+                <a href="/privacy-policy" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Theme toggle
+        const themeBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        function updateThemeIcon(isDark) {
+            if (themeIcon) {
+                themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            }
+        }
+        updateThemeIcon(document.documentElement.classList.contains('dark'));
+        if (themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                const isDark = document.documentElement.classList.toggle('dark');
+                localStorage.setItem('key-launcher-theme', isDark ? 'dark' : 'light');
+                updateThemeIcon(isDark);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -10,6 +10,8 @@ const KEY_LAUNCHER_CONTENT = {
         compare: "Compare",
         pricing: "Pricing",
         activate: "Activate",
+        blog: "Blog",
+        more: "More",
         testimonials: "Reviews",
         faq: "FAQ",
         help: "Help",

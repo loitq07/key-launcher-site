@@ -45,38 +45,69 @@ function renderContent() {
 
     // Navigation
     // document.getElementById('nav-creator').innerText = data.navigation.creatorText || "BY LOUSIFY TECH";
-    document.getElementById('nav-link-features').innerText = data.navigation.features;
-    document.getElementById('nav-link-press').innerText = data.navigation.press;
+    if (document.getElementById('nav-link-features')) {
+        document.getElementById('nav-link-features').innerText = data.navigation.features;
+    }
+    if (document.getElementById('nav-link-press')) {
+        document.getElementById('nav-link-press').innerText = data.navigation.press;
+    }
     if (document.getElementById('nav-link-compare')) {
         document.getElementById('nav-link-compare').innerText = data.navigation.compare || "Compare";
+    }
+    if (document.getElementById('nav-link-pricing')) {
+        document.getElementById('nav-link-pricing').innerText = data.navigation.pricing;
+    }
+    if (document.getElementById('nav-link-blog')) {
+        document.getElementById('nav-link-blog').innerText = data.navigation.blog || "Blog";
+    }
+    if (document.getElementById('nav-link-more')) {
+        document.getElementById('nav-link-more').innerText = data.navigation.more || "More";
     }
     if (document.getElementById('nav-link-activate')) {
         document.getElementById('nav-link-activate').innerText = data.navigation.activate || "Activate";
     }
-    document.getElementById('nav-link-pricing').innerText = data.navigation.pricing;
-    document.getElementById('nav-link-testimonials').innerText = data.navigation.testimonials;
-    document.getElementById('nav-link-faq').innerText = data.navigation.faq || "FAQ";
+    if (document.getElementById('nav-link-testimonials')) {
+        document.getElementById('nav-link-testimonials').innerText = data.navigation.testimonials;
+    }
+    if (document.getElementById('nav-link-faq')) {
+        document.getElementById('nav-link-faq').innerText = data.navigation.faq || "FAQ";
+    }
     if (document.getElementById('nav-link-help')) {
         document.getElementById('nav-link-help').innerText = data.navigation.help || "Help";
         document.getElementById('nav-link-help').href = data.navigation.helpUrl || "https://www.keylauncher.app/help";
     }
     
     const navDownload = document.getElementById('nav-download-btn');
-    navDownload.href = data.navigation.downloadUrl;
-    navDownload.innerText = data.navigation.downloadText;
+    if (navDownload) {
+        navDownload.href = data.navigation.downloadUrl;
+        navDownload.innerText = data.navigation.downloadText;
+    }
 
     // Mobile Menu
-    document.getElementById('mobile-link-features').innerText = data.navigation.features;
-    document.getElementById('mobile-link-press').innerText = data.navigation.press;
+    if (document.getElementById('mobile-link-features')) {
+        document.getElementById('mobile-link-features').innerText = data.navigation.features;
+    }
+    if (document.getElementById('mobile-link-press')) {
+        document.getElementById('mobile-link-press').innerText = data.navigation.press;
+    }
     if (document.getElementById('mobile-link-compare')) {
         document.getElementById('mobile-link-compare').innerText = data.navigation.compare || "Compare";
+    }
+    if (document.getElementById('mobile-link-pricing')) {
+        document.getElementById('mobile-link-pricing').innerText = data.navigation.pricing;
+    }
+    if (document.getElementById('mobile-link-blog')) {
+        document.getElementById('mobile-link-blog').innerText = data.navigation.blog || "Blog";
     }
     if (document.getElementById('mobile-link-activate')) {
         document.getElementById('mobile-link-activate').innerText = data.navigation.activate || "Activate";
     }
-    document.getElementById('mobile-link-pricing').innerText = data.navigation.pricing;
-    document.getElementById('mobile-link-testimonials').innerText = data.navigation.testimonials;
-    document.getElementById('mobile-link-faq').innerText = data.navigation.faq || "FAQ";
+    if (document.getElementById('mobile-link-testimonials')) {
+        document.getElementById('mobile-link-testimonials').innerText = data.navigation.testimonials;
+    }
+    if (document.getElementById('mobile-link-faq')) {
+        document.getElementById('mobile-link-faq').innerText = data.navigation.faq || "FAQ";
+    }
     if (document.getElementById('mobile-link-help')) {
         document.getElementById('mobile-link-help').innerText = data.navigation.help || "Help";
         document.getElementById('mobile-link-help').href = data.navigation.helpUrl || "https://www.keylauncher.app/help";

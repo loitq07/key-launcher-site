@@ -2,7 +2,9 @@
 module.exports = {
   content: [
     "./*.html",
-    "./*.js"
+    "./*.js",
+    "./blog/**/*.html",
+    "./blog/**/*.js"
   ],
   darkMode: 'class',
   theme: {

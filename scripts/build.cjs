@@ -8,6 +8,7 @@ const output = path.join(root, 'dist');
 const publicFiles = [
     'index.html',
     'activate.html',
+    'blog',
     'privacy-policy.html',
     'tos.html',
     'robots.txt',

@@ -523,6 +523,8 @@
         [c.navigation.features, c.navigation.press, c.navigation.pricing, c.navigation.testimonials, c.navigation.faq, c.navigation.help, c.navigation.downloadText] = t.navigation;
         c.navigation.compare = t.compareNav || (locale === 'vi' ? 'So sánh' : locale === 'es' || locale === 'pt-BR' ? 'Comparar' : locale === 'id' ? 'Bandingkan' : locale === 'fr' ? 'Comparer' : locale === 'de' ? 'Vergleich' : 'Compare');
         c.navigation.activate = t.activateNav || (locale === 'vi' ? 'Kích hoạt' : locale === 'es' || locale === 'pt-BR' ? 'Activar' : locale === 'id' ? 'Aktivasi' : locale === 'fr' ? 'Activer' : locale === 'de' ? 'Aktivieren' : 'Activate');
+        c.navigation.blog = t.blogNav || 'Blog';
+        c.navigation.more = t.moreNav || (locale === 'vi' ? 'Thêm' : locale === 'es' || locale === 'pt-BR' ? 'Más' : locale === 'id' ? 'Lainnya' : locale === 'fr' ? 'Plus' : locale === 'de' ? 'Mehr' : 'More');
         c.pricing.licenseBanner = {
             title: locale === 'vi' ? 'E-Ink, Dumbphone hoặc không dùng Google Play?' : 'E-Ink, Dumbphone or Non-Google Play user?',
             description: locale === 'vi' ? 'Mua mã bản quyền ngoại tuyến (100% Offline) qua VietQR (PayOS) hoặc Thẻ Quốc tế (Lemon Squeezy).' : 'Buy or activate 100% offline license keys via VietQR (PayOS) or International Card (Lemon Squeezy).',

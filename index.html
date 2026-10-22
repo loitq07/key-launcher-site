@@ -380,15 +380,35 @@
             </a>
 
             <!-- Menu links (Desktop) -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                <a href="#press" id="nav-link-press" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Press</a>
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                <a href="#features" id="nav-link-features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
                 <a href="#compare" id="nav-link-compare" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Compare</a>
-            <a href="#features" id="nav-link-features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
                 <a href="#pricing" id="nav-link-pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Pricing</a>
-                <a href="/activate" id="nav-link-activate" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Activate</a>
-                <a href="#testimonials" id="nav-link-testimonials" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Reviews</a>
-                <a href="#faq" id="nav-link-faq" class="hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
+                <a href="/blog" id="nav-link-blog" class="hover:text-zinc-900 dark:hover:text-white transition-colors flex items-center gap-1.5">
+                    <span>Blog</span>
+                    <span class="px-1.5 py-0.2 text-[10px] font-semibold uppercase tracking-wider rounded bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-500/20">New</span>
+                </a>
+                
+                <!-- More Dropdown (Press, Reviews, FAQ) -->
+                <div class="relative group">
+                    <button id="nav-link-more" class="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-white transition-colors py-2 cursor-pointer focus:outline-none">
+                        <span>More</span>
+                        <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </button>
+                    <div class="absolute left-0 mt-0 pt-2 w-44 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl py-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+                        <a href="#press" id="nav-link-press" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Press</a>
+                        <a href="#testimonials" id="nav-link-testimonials" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Reviews</a>
+                        <a href="#faq" id="nav-link-faq" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">FAQ</a>
+                    </div>
+                </div>
+
                 <a href="https://www.keylauncher.app/help" id="nav-link-help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Help</a>
+
+                <!-- Activate Badge Link -->
+                <a href="/activate" id="nav-link-activate" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-colors">
+                    <svg class="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h272l80 80-60 60-40-40-60 60-40-40-60 60-144-1q-32 54-86.5 87T280-240Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/></svg>
+                    <span>Activate</span>
+                </a>
             </nav>
 
             <!-- Actions and Theme Toggle -->
@@ -423,17 +443,37 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 flex flex-col gap-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-            <a href="#press" id="mobile-link-press" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Press</a>
-            <a href="#compare" id="mobile-link-compare" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Compare</a>
-            <a href="#features" id="mobile-link-features" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Features</a>
-            <a href="#pricing" id="mobile-link-pricing" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Pricing</a>
-            <a href="/activate" id="mobile-link-activate" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Activate</a>
-            <a href="#testimonials" id="mobile-link-testimonials" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Reviews</a>
-            <a href="#faq" id="mobile-link-faq" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">FAQ</a>
-            <a href="https://www.keylauncher.app/help" id="mobile-link-help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Help</a>
+        <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 flex flex-col gap-3 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+            <div class="grid grid-cols-2 gap-2 pb-3 border-b border-zinc-100 dark:border-zinc-800/80">
+                <a href="#features" id="mobile-link-features" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Features
+                </a>
+                <a href="#compare" id="mobile-link-compare" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Compare
+                </a>
+                <a href="#pricing" id="mobile-link-pricing" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Pricing
+                </a>
+                <a href="/blog" id="mobile-link-blog" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Blog <span class="px-1 text-[9px] font-bold uppercase rounded bg-brand-500/20 text-brand-600 dark:text-brand-400">New</span>
+                </a>
+            </div>
 
-            <a href="" id="mobile-download-btn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white hover:bg-brand-500 cursor-pointer active:scale-[0.98] transition-all duration-200 font-display">
+            <div class="flex flex-col gap-1 py-1">
+                <a href="/activate" id="mobile-link-activate" class="flex items-center justify-between px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-colors font-semibold">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h272l80 80-60 60-40-40-60 60-40-40-60 60-144-1q-32 54-86.5 87T280-240Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Z"/></svg>
+                        Activate Offline License
+                    </span>
+                    <span class="text-xs">→</span>
+                </a>
+                <a href="https://www.keylauncher.app/help" id="mobile-link-help" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Help Center</a>
+                <a href="#press" id="mobile-link-press" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Press</a>
+                <a href="#testimonials" id="mobile-link-testimonials" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Reviews</a>
+                <a href="#faq" id="mobile-link-faq" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
+            </div>
+
+            <a href="" id="mobile-download-btn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white hover:bg-brand-500 cursor-pointer active:scale-[0.98] transition-all duration-200 font-display mt-1">
                 <span class="material-symbols-outlined mr-2 !text-[18px]">download</span> Get it on Google Play
             </a>
         </div>
@@ -1036,7 +1076,9 @@
 
             <!-- Links & Social -->
             <div class="flex flex-col md:flex-row items-center gap-6 md:gap-8 font-medium">
-                <div class="flex items-center gap-6">
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-5 sm:gap-6">
+                    <a href="/blog" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Blog</a>
+                    <a href="/activate" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Activate</a>
                     <a href="" id="footer-help-link" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Help</a>
                     <a href="" id="footer-terms-link" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Terms of Service</a>
                     <a href="" id="footer-privacy-link" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Privacy Policy</a>
