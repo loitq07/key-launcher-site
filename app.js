@@ -675,15 +675,7 @@ function renderContent() {
         const compareMobileHint = document.getElementById('compare-mobile-hint');
         if (compareMobileHint) compareMobileHint.innerText = data.compare.mobileHint || 'Chạm để đổi đối thủ';
 
-        const compareTabAll = document.getElementById('compare-tab-all');
-        if (compareTabAll) compareTabAll.innerText = data.compare.allTab || 'Tất cả';
-
-        const compareScrollHintText = document.getElementById('compare-scroll-hint-text');
-        if (compareScrollHintText) compareScrollHintText.innerText = data.compare.scrollHint || 'Vuốt ngang để xem toàn bộ bảng';
-
         let activeCompetitor = 'niagara';
-        const compareTable = document.getElementById('compare-table');
-        const scrollHint = document.getElementById('compare-scroll-hint');
         const tabButtons = document.querySelectorAll('.compare-tab-btn');
 
         function updateCompetitorView(competitor) {
@@ -699,35 +691,14 @@ function renderContent() {
                 }
             });
 
-            // Adjust table min-width
-            if (activeCompetitor === 'all') {
-                if (compareTable) compareTable.classList.add('min-w-[640px]');
-                if (scrollHint) scrollHint.classList.remove('hidden');
-            } else {
-                if (compareTable) compareTable.classList.remove('min-w-[640px]');
-                if (scrollHint) scrollHint.classList.add('hidden');
-            }
-
-            // Update Header Th visibility & widths
-            const thFeature = document.getElementById('compare-header-feature');
-            const thKey = thFeature ? thFeature.nextElementSibling : null;
+            // Update Header Th visibility
             const thNiagara = document.querySelector('th.compare-col-niagara');
             const thMinimalist = document.querySelector('th.compare-col-minimalistPhone');
             const thOlauncher = document.querySelector('th.compare-col-olauncher');
 
-            if (activeCompetitor === 'all') {
-                if (thFeature) thFeature.className = 'p-3.5 sm:p-5 font-display sticky left-0 z-20 bg-zinc-100/95 dark:bg-zinc-900/95 backdrop-blur-md border-r border-zinc-200 dark:border-zinc-800 min-w-[150px] w-[30%]';
-                if (thKey) thKey.className = 'p-3.5 sm:p-5 text-center bg-brand-500/10 dark:bg-brand-500/15 text-brand-600 dark:text-brand-400 border-r border-brand-500/20 min-w-[125px] w-[22%]';
-                if (thNiagara) thNiagara.className = 'compare-col-niagara p-3.5 sm:p-5 text-center min-w-[110px] w-[16%]';
-                if (thMinimalist) thMinimalist.className = 'compare-col-minimalistPhone p-3.5 sm:p-5 text-center min-w-[120px] w-[18%]';
-                if (thOlauncher) thOlauncher.className = 'compare-col-olauncher p-3.5 sm:p-5 text-center min-w-[110px] w-[14%]';
-            } else {
-                if (thFeature) thFeature.className = 'p-3.5 sm:p-5 font-display sticky left-0 z-20 bg-zinc-100/95 dark:bg-zinc-900/95 backdrop-blur-md border-r border-zinc-200 dark:border-zinc-800 w-[46%] md:w-[28%] min-w-[140px] sm:min-w-0';
-                if (thKey) thKey.className = 'p-3 sm:p-5 text-center bg-brand-500/10 dark:bg-brand-500/15 text-brand-600 dark:text-brand-400 border-r border-brand-500/20 w-[27%] md:w-[22%] min-w-[110px] sm:min-w-0';
-                if (thNiagara) thNiagara.className = `compare-col-niagara p-3 sm:p-5 text-center ${activeCompetitor === 'niagara' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%] min-w-[105px] sm:min-w-0`;
-                if (thMinimalist) thMinimalist.className = `compare-col-minimalistPhone p-3 sm:p-5 text-center ${activeCompetitor === 'minimalistPhone' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%] min-w-[115px] sm:min-w-0`;
-                if (thOlauncher) thOlauncher.className = `compare-col-olauncher p-3 sm:p-5 text-center ${activeCompetitor === 'olauncher' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[14%] min-w-[105px] sm:min-w-0`;
-            }
+            if (thNiagara) thNiagara.className = `compare-col-niagara p-3 sm:p-5 text-center ${activeCompetitor === 'niagara' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%]`;
+            if (thMinimalist) thMinimalist.className = `compare-col-minimalistPhone p-3 sm:p-5 text-center ${activeCompetitor === 'minimalistPhone' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%]`;
+            if (thOlauncher) thOlauncher.className = `compare-col-olauncher p-3 sm:p-5 text-center ${activeCompetitor === 'olauncher' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[14%]`;
 
             renderTableBody();
         }
@@ -755,9 +726,9 @@ function renderContent() {
                     `;
                 }
 
-                const niagaraVisible = activeCompetitor === 'niagara' || activeCompetitor === 'all';
-                const minimalistVisible = activeCompetitor === 'minimalistPhone' || activeCompetitor === 'all';
-                const olauncherVisible = activeCompetitor === 'olauncher' || activeCompetitor === 'all';
+                const niagaraVisible = activeCompetitor === 'niagara';
+                const minimalistVisible = activeCompetitor === 'minimalistPhone';
+                const olauncherVisible = activeCompetitor === 'olauncher';
 
                 const competitorClass = isPricingRow
                     ? 'p-3 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm'
@@ -769,7 +740,7 @@ function renderContent() {
 
                 return `
                     <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                        <td class="p-3.5 sm:p-5 font-medium text-zinc-900 dark:text-white sticky left-0 z-10 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-r border-zinc-200 dark:border-zinc-800 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.06)]">
+                        <td class="p-3.5 sm:p-5 font-medium text-zinc-900 dark:text-white border-r border-zinc-200 dark:border-zinc-800">
                             <div class="font-semibold text-xs sm:text-sm leading-snug">${row.name}</div>
                             <div class="text-[10px] sm:text-[11px] text-zinc-500 dark:text-zinc-400 font-normal leading-normal mt-0.5">${row.desc}</div>
                         </td>
