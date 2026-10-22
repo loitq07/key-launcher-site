@@ -13,7 +13,8 @@ const KEY_LAUNCHER_CONTENT = {
         help: "Help",
         helpUrl: "https://www.keylauncher.app/help",
         downloadText: "Download Free",
-        downloadUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free"
+        downloadUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
+        apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download"
     },
 
     // Hero Section
@@ -24,6 +25,7 @@ const KEY_LAUNCHER_CONTENT = {
         description: "Stop wasting time searching through cluttered screens and getting drawn into social notifications. Key Launcher replaces your standard app grid with a classic T9 keyboard. Press 1-3 number keys, and your app instantly appears. The ultimate tool for digital detox.",
         playStoreBtnUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
         playStoreBadge: "assets/google_play_badge.png",
+        apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download",
         screenshot: "assets/screenshot_hero.png",
         screenshots: [
             "assets/hero_1.webp",
@@ -598,7 +600,8 @@ const KEY_LAUNCHER_CONTENT = {
         description: "Download Key Launcher today on your Android device to simplify operations, skyrocket productivity, and reclaim screen time.",
         buttonText: "Get Free on Play Store",
         buttonUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
-        playStoreBadge: "assets/google_play_badge.png"
+        playStoreBadge: "assets/google_play_badge.png",
+        apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download"
     },
 
     // Footer

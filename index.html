@@ -45,6 +45,59 @@
           "description": "Launch apps in just 2 taps. Minimalist T9 focus launcher for Android with digital detox, extreme battery saving, and absolute offline privacy.",
           "downloadUrl": "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
           "url": "https://www.keylauncher.app/"
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a T9 App Launcher?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A T9 launcher uses the classic 3x4 keypad layout (like old dumb phones) to find and launch apps. Each key represents multiple letters (e.g., 2 is ABC, 3 is DEF). By pressing keys matching your app name (for example, 4-2-6 for 'Han' or 'Games'), the launcher instantly filters your apps. It takes just 2 or 3 taps to open any app, eliminating home screen clutter and helping you avoid mindless scrolling."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Key Launcher safe and private?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Key Launcher operates 100% offline and locally on your device. It does not request internet permissions, does not collect any personal data, and does not upload your usage statistics to any cloud servers. Your private vault and app usage data are stored securely on your own phone."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Key Launcher support custom icon packs and wallpapers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Key Launcher provides full support for custom icon packs, system colors, and various typography choices. You can customize the look of individual icons, set auto-wallpaper changes, and use your favorite fonts. Some advanced visual customizations are part of the optional PRO plan."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will Key Launcher drain my battery?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, on the contrary! Key Launcher is built using efficient native Android architecture. It has no background network synchronization, no ads, and a highly optimized minimalist layout. This helps reduce CPU activity and screen-on power consumption, leading to better battery life."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What messaging and calling integrations are supported?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The launcher supports instant dialing and messaging. By typing contacts or numbers, you can directly launch phone calls, SMS, or open chat apps like WhatsApp, Zalo, and Viber to contact people instantly without navigating through different contact lists."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I try the PRO features before purchasing?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, you can! Key Launcher offers a 30-day free trial for core PRO features, including Focus Mode, Synced Lyrics, and custom Icon Packs. This lets you experience the full potential of the launcher before deciding whether to purchase a yearly subscription or a lifetime license."
+              }
+            }
+          ]
         }
       ]
     }
@@ -329,7 +382,8 @@
             <!-- Menu links (Desktop) -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
                 <a href="#press" id="nav-link-press" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Press</a>
-                <a href="#features" id="nav-link-features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
+                <a href="#compare" id="nav-link-compare" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Compare</a>
+            <a href="#features" id="nav-link-features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
                 <a href="#pricing" id="nav-link-pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Pricing</a>
                 <a href="#testimonials" id="nav-link-testimonials" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Reviews</a>
                 <a href="#faq" id="nav-link-faq" class="hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
@@ -370,6 +424,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 flex flex-col gap-4 text-sm font-medium text-zinc-500 dark:text-zinc-400">
             <a href="#press" id="mobile-link-press" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Press</a>
+            <a href="#compare" id="mobile-link-compare" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Compare</a>
             <a href="#features" id="mobile-link-features" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Features</a>
             <a href="#pricing" id="mobile-link-pricing" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Pricing</a>
             <a href="#testimonials" id="mobile-link-testimonials" class="hover:text-zinc-900 dark:hover:text-white py-1 transition-colors">Reviews</a>
@@ -402,21 +457,31 @@
             </p>
 
             <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-6">
+            <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mb-4">
                 <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" id="hero-playstore-link" target="_blank" rel="noopener noreferrer" class="inline-block transform hover:-translate-y-0.5 active:scale-95 cursor-pointer transition-all duration-200">
                     <img id="hero-playstore-badge-img" src="assets/google_play_badge.png" alt="Get it on Google Play" class="h-[52px]" width="173" height="52">
                 </a>
-               <!--  <div class="flex items-center gap-3">
-                    <a href="" id="hero-reddit-btn" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 hover:dark:text-white hover:border-zinc-300 hover:dark:border-zinc-700 cursor-pointer active:scale-[0.95] transition-all duration-200" aria-label="Reddit">
-                        <i class="ph ph-reddit-logo text-2xl"></i>
-                    </a>
-                    <a href="" id="hero-discord-btn" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 hover:dark:text-white hover:border-zinc-300 hover:dark:border-zinc-700 cursor-pointer active:scale-[0.95] transition-all duration-200" aria-label="Discord">
-                        <i class="ph ph-discord-logo text-2xl"></i>
-                    </a>
-                    <a href="" id="hero-telegram-btn" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-12 h-12 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 hover:dark:text-white hover:border-zinc-300 hover:dark:border-zinc-700 cursor-pointer active:scale-[0.95] transition-all duration-200" aria-label="Telegram">
-                        <i class="ph ph-telegram-logo text-2xl"></i>
-                    </a>
-                </div> -->
+                <a href="https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download" id="hero-apk-download-link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-4 h-[52px] rounded-xl font-medium text-xs text-zinc-900 dark:text-white bg-white/80 dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800/80 shadow-sm transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 group">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9996.4482.9996.9993.0001.5511-.4485.9997-.9996.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9997.4482.9997.9993 0 .5511-.4486.9997-.9997.9997m11.4045-6.02l1.997-3.459a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.568.152l-2.0223 3.503C15.5896 8.4068 13.8566 8 12 8s-3.5896.4068-5.1361.9498L4.8416 5.4468a.4161.4161 0 0 0-.568-.152.416.416 0 0 0-.152.5676l1.997 3.459C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>
+                    </div>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[10px] text-zinc-500 dark:text-zinc-400 font-normal leading-none mb-0.5">Direct APK / Non-GMS</span>
+                        <span class="font-semibold text-xs text-zinc-900 dark:text-white leading-tight">Download APK</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-2.5 mb-5">
+                <a href="https://www.androidauthority.com/key-launcher-android-launcher-3658970/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/60 hover:border-zinc-300 hover:dark:border-zinc-700 text-[11px] text-zinc-600 dark:text-zinc-400 transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span>Featured on <strong class="text-zinc-800 dark:text-zinc-200 font-semibold">Android Authority</strong></span>
+                </a>
+                <a href="https://alternativeto.net/software/key-launcher/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/60 hover:border-zinc-300 hover:dark:border-zinc-700 text-[11px] text-zinc-600 dark:text-zinc-400 transition-colors">
+                    <svg class="w-3 h-3 text-sky-500 fill-current" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l-10-5v6l10 5 10-5v-6l-10 5zm0 7l-10-5v6l10 5 10-5v-6l-10 5z"/></svg>
+                    <span>Listed on <strong class="text-zinc-800 dark:text-zinc-200 font-semibold">AlternativeTo</strong></span>
+                </a>
             </div>
 
             <!-- Rating Badge -->
@@ -611,6 +676,169 @@
     </section>
 
     <!-- Transparent Pricing / Pro Version Section -->
+    
+    <!-- Competitor Comparison Section -->
+    <section id="compare" class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-50/50 dark:bg-zinc-950/40 py-20 md:py-28 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold">Side-by-Side Comparison</span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-zinc-900 dark:text-white tracking-tight mt-2 mb-4">
+                    Why Switch to Key Launcher?
+                </h2>
+                <p class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
+                    Compare Key Launcher with other popular minimalist Android launchers. See why thousands of minimalist phone lovers and power users made the switch.
+                </p>
+            </div>
+
+            <!-- Comparison Table Container -->
+            <div class="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/30 backdrop-blur-md shadow-sm">
+                <div class="overflow-x-auto hide-scrollbar">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/80 dark:bg-zinc-900/60 text-zinc-700 dark:text-zinc-300 font-semibold">
+                                <th class="p-4 sm:p-5 w-[28%] font-display">Feature</th>
+                                <th class="p-4 sm:p-5 text-center w-[22%] bg-brand-500/10 dark:bg-brand-500/15 text-brand-600 dark:text-brand-400 border-x border-brand-500/20">
+                                    <div class="inline-flex items-center gap-1.5 font-bold font-display text-sm sm:text-base">
+                                        <span>Key Launcher</span>
+                                        <span class="px-1.5 py-0.5 text-[10px] uppercase font-mono font-bold tracking-wider rounded bg-brand-500 text-white">Top</span>
+                                    </div>
+                                </th>
+                                <th class="p-4 sm:p-5 text-center w-[18%]">Niagara</th>
+                                <th class="p-4 sm:p-5 text-center w-[18%]">Minimalist Phone</th>
+                                <th class="p-4 sm:p-5 text-center w-[16%]">Olauncher</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800/80">
+                            <!-- Row 1: Search -->
+                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
+                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
+                                    <div>T9 Keypad Fast Search</div>
+                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Launch any app in 1-2 button presses</div>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
+                                    <span class="inline-flex items-center gap-1">
+                                        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                                        Yes (Instant)
+                                    </span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
+                                    <span class="text-xs">❌ Alphabet scroll</span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
+                                    <span class="text-xs">❌ Text list</span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
+                                    <span class="text-xs">❌ Text search</span>
+                                </td>
+                            </tr>
+
+                            <!-- Row 2: QWERTY Swipe Typing -->
+                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
+                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
+                                    <div>QWERTY &amp; Swipe Typing</div>
+                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Glide across keys for lightning speed</div>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
+                                    <span class="inline-flex items-center gap-1">
+                                        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                                        Yes (Both)
+                                    </span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
+                            </tr>
+
+                            <!-- Row 3: Private Vaults -->
+                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
+                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
+                                    <div>Multiple Private Vaults</div>
+                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Separate PIN / biometric locked spaces</div>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
+                                    <span class="inline-flex items-center gap-1">
+                                        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                                        Unlimited Vaults
+                                    </span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
+                                    <span class="text-xs">Hide app only</span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
+                                    <span class="text-xs">App blocker only</span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
+                                    <span class="text-xs">Hide app only</span>
+                                </td>
+                            </tr>
+
+                            <!-- Row 4: Focus Mode & Ambient Utilities -->
+                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
+                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
+                                    <div>Super Focus &amp; Ambient Lyrics</div>
+                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Built-in Pomodoro, desk clock &amp; synced lyrics</div>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
+                                    <span class="inline-flex items-center gap-1">
+                                        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                                        Built-in
+                                    </span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
+                            </tr>
+
+                            <!-- Row 5: Privacy -->
+                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
+                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
+                                    <div>100% Offline &amp; Zero Tracking</div>
+                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">No cloud accounts, no analytics, no ads</div>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
+                                    <span class="inline-flex items-center gap-1">
+                                        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                                        100% Offline
+                                    </span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
+                                    <span class="text-xs">Cloud APIs</span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
+                                    <span class="text-xs">Account required</span>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-emerald-600 dark:text-emerald-400">
+                                    <span class="text-xs">✅ Offline</span>
+                                </td>
+                            </tr>
+
+                            <!-- Row 6: Pricing -->
+                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
+                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
+                                    <div>Pricing Model</div>
+                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Fair and sustainable pricing</div>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-bold text-zinc-900 dark:text-white">
+                                    <div class="text-emerald-600 dark:text-emerald-400">Free Core</div>
+                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Affordable Lifetime Option</div>
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs">
+                                    Annual Subscription
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs">
+                                    High Subscription ($20+/yr)
+                                </td>
+                                <td class="p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs">
+                                    Free / Donation
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="pricing" class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100/30 dark:bg-zinc-950/20 py-20 md:py-32 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center max-w-2xl mx-auto mb-16">
@@ -718,9 +946,18 @@
                 Download Key Launcher today on your Android device to simplify operations, skyrocket productivity, and reclaim screen time.
             </p>
 
-            <div class="flex justify-center items-center">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
                 <a href="" id="cta-btn-link" target="_blank" rel="noopener noreferrer" class="inline-block transform hover:-translate-y-0.5 active:scale-95 cursor-pointer transition-all duration-200">
                     <img id="cta-badge-img" src="" alt="Get it on Google Play" class="h-14">
+                </a>
+                <a href="https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download" id="cta-apk-download-link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-5 h-14 rounded-xl font-medium text-xs sm:text-sm text-zinc-900 dark:text-white bg-white/80 dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800/80 shadow-sm transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 group">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9996.4482.9996.9993.0001.5511-.4485.9997-.9996.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9997.4482.9997.9993 0 .5511-.4486.9997-.9997.9997m11.4045-6.02l1.997-3.459a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.568.152l-2.0223 3.503C15.5896 8.4068 13.8566 8 12 8s-3.5896.4068-5.1361.9498L4.8416 5.4468a.4161.4161 0 0 0-.568-.152.416.416 0 0 0-.152.5676l1.997 3.459C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/></svg>
+                    </div>
+                    <div class="flex flex-col text-left">
+                        <span class="text-[10px] text-zinc-500 dark:text-zinc-400 font-normal leading-none mb-0.5">Direct APK / Non-GMS</span>
+                        <span class="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-white leading-tight">Download APK</span>
+                    </div>
                 </a>
             </div>
         </div>

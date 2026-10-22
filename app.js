@@ -92,6 +92,11 @@ function renderContent() {
     heroPlayLink.href = data.hero.playStoreBtnUrl;
     document.getElementById('hero-playstore-badge-img').src = data.hero.playStoreBadge;
 
+    const heroApkLink = document.getElementById('hero-apk-download-link');
+    if (heroApkLink && data.hero.apkDownloadUrl) {
+        heroApkLink.href = data.hero.apkDownloadUrl;
+    }
+
     // document.getElementById('hero-reddit-btn').href = data.hero.redditBtnUrl;
     // document.getElementById('hero-discord-btn').href = data.hero.discordBtnUrl;
     // document.getElementById('hero-telegram-btn').href = data.hero.telegramBtnUrl;
@@ -1037,6 +1042,11 @@ function renderContent() {
     const ctaBtnLink = document.getElementById('cta-btn-link');
     ctaBtnLink.href = data.downloadCta.buttonUrl;
     document.getElementById('cta-badge-img').src = data.downloadCta.playStoreBadge;
+
+    const ctaApkLink = document.getElementById('cta-apk-download-link');
+    if (ctaApkLink && data.downloadCta.apkDownloadUrl) {
+        ctaApkLink.href = data.downloadCta.apkDownloadUrl;
+    }
 
     // Footer
     document.getElementById('footer-brand').innerText = data.footer.brandText;
