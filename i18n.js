@@ -68,7 +68,74 @@
                 ['Tôi có thể thử tính năng PRO trước khi mua không?', 'Có. Bạn được dùng thử 30 ngày các tính năng PRO cốt lõi như Chế độ tập trung, lời bài hát đồng bộ và gói biểu tượng.']
             ],
             footer: ['SẢN PHẨM CỦA LOUSIFY TECH', '© 2026 Lousify Tech. Bảo lưu mọi quyền.', 'Chính sách quyền riêng tư', 'Điều khoản dịch vụ', 'Trợ giúp'],
-            ui: ['trên Google Play', 'Ảnh chụp trước', 'Ảnh chụp tiếp theo', 'Đổi giao diện', 'Đổi ngôn ngữ', 'Đã dịch', 'Tính năng & Lợi ích', 'Cuộn để khám phá']
+            ui: ['trên Google Play', 'Ảnh chụp trước', 'Ảnh chụp tiếp theo', 'Đổi giao diện', 'Đổi ngôn ngữ', 'Đã dịch', 'Tính năng & Lợi ích', 'Cuộn để khám phá'],
+            compareNav: 'So sánh',
+            mediaBadge: 'Báo chí đưa tin',
+            compare: {
+                badgeText: 'So sánh trực diện',
+                title: 'Tại sao nên chọn Key Launcher?',
+                subtitle: 'So sánh Key Launcher với các trình khởi chạy tối giản phổ biến nhất. Khám phá lý do hàng ngàn người dùng chuyển sang Key Launcher.',
+                featureHeader: 'Tính năng',
+                topBadge: 'Đứng đầu',
+                rows: [
+                    {
+                        name: 'Tìm kiếm T9 siêu nhanh',
+                        desc: 'Mở ứng dụng chỉ với 1-2 lần bấm phím',
+                        keyLauncher: 'Có (Tức thì)',
+                        niagara: '❌ Cuộn chữ cái alphabet',
+                        minimalistPhone: '❌ Danh sách văn bản',
+                        olauncher: '❌ Gõ tìm kiếm văn bản'
+                    },
+                    {
+                        name: 'Bàn phím QWERTY & Vuốt lướt (Swipe)',
+                        desc: 'Lướt ngón tay tìm kiếm siêu tốc độ',
+                        keyLauncher: 'Có (Cả hai)',
+                        niagara: '❌',
+                        minimalistPhone: '❌',
+                        olauncher: '❌'
+                    },
+                    {
+                        name: 'Nhiều Kho riêng tư bảo mật',
+                        desc: 'Tách biệt nhiều không gian khóa PIN / vân tay',
+                        keyLauncher: 'Không giới hạn kho',
+                        niagara: 'Chỉ ẩn ứng dụng',
+                        minimalistPhone: 'Chỉ chặn ứng dụng',
+                        olauncher: 'Chỉ ẩn ứng dụng'
+                    },
+                    {
+                        name: 'Siêu tập trung & Lời bài hát đồng bộ',
+                        desc: 'Tích hợp Pomodoro, đồng hồ để bàn & lời bài hát',
+                        keyLauncher: 'Tích hợp sẵn',
+                        niagara: '❌',
+                        minimalistPhone: '❌',
+                        olauncher: '❌'
+                    },
+                    {
+                        name: '100% Ngoại tuyến & Không theo dõi',
+                        desc: 'Không cần tài khoản đám mây, không thu thập dữ liệu, không quảng cáo',
+                        keyLauncher: '100% Ngoại tuyến',
+                        niagara: 'Dùng API đám mây',
+                        minimalistPhone: 'Bắt buộc tài khoản',
+                        olauncher: '✅ Ngoại tuyến'
+                    },
+                    {
+                        name: 'Mô hình giá & Chi phí',
+                        desc: 'Mức giá hợp lý và bền vững',
+                        keyLauncherMain: 'Bản miễn phí đầy đủ',
+                        keyLauncherSub: 'Tùy chọn trọn đời giá rẻ',
+                        niagara: 'Thuê bao theo năm',
+                        minimalistPhone: 'Thuê bao đắt đỏ ($20+/năm)',
+                        olauncher: 'Miễn phí / Ủng hộ'
+                    }
+                ]
+            },
+            uiDetails: {
+                apkSubtext: 'Tải APK trực tiếp',
+                apkTitle: 'Tải file APK',
+                featuredOn: 'Nổi bật trên',
+                listedOn: 'Có mặt trên',
+                comparisonSubtitle: 'So sánh tất cả tính năng song song'
+            }
         },
         es: {
             meta: ['Key Launcher - Lanzador T9 minimalista para Android', 'Abre aplicaciones en solo 2 toques. Desintoxicación digital, gran ahorro de batería y privacidad total sin conexión.'],
@@ -173,6 +240,84 @@
         ]
     };
 
+    const compareTranslations = {
+        es: {
+            badgeText: 'Comparativa directa',
+            title: '¿Por qué elegir Key Launcher?',
+            subtitle: 'Compara Key Launcher con otros lanzadores minimalistas populares de Android y descubre por qué miles de usuarios se han cambiado.',
+            featureHeader: 'Función',
+            topBadge: 'Top',
+            rows: [
+                { name: 'Búsqueda T9 rápida', desc: 'Abre cualquier app en 1-2 pulsaciones', keyLauncher: 'Sí (Instantáneo)', niagara: '❌ Desplazamiento alfabético', minimalistPhone: '❌ Lista de texto', olauncher: '❌ Búsqueda de texto' },
+                { name: 'QWERTY y escritura por deslizamiento', desc: 'Desliza sobre el teclado a máxima velocidad', keyLauncher: 'Sí (Ambos)', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: 'Múltiples bóvedas privadas', desc: 'Espacios separados con PIN o huella', keyLauncher: 'Bóvedas ilimitadas', niagara: 'Solo ocultar apps', minimalistPhone: 'Solo bloqueador de apps', olauncher: 'Solo ocultar apps' },
+                { name: 'Súper concentración y letras de música', desc: 'Pomodoro, reloj de escritorio y letras sincronizadas', keyLauncher: 'Integrado', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: '100% offline y sin seguimiento', desc: 'Sin cuentas en la nube, analíticas ni anuncios', keyLauncher: '100% sin conexión', niagara: 'APIs en la nube', minimalistPhone: 'Requiere cuenta', olauncher: '✅ Sin conexión' },
+                { name: 'Modelo de precios', desc: 'Precios justos y sostenibles', keyLauncherMain: 'Esencial gratis', keyLauncherSub: 'Opción de por vida asequible', niagara: 'Suscripción anual', minimalistPhone: 'Suscripción cara ($20+/año)', olauncher: 'Gratis / Donación' }
+            ]
+        },
+        'pt-BR': {
+            badgeText: 'Comparativo lado a lado',
+            title: 'Por que mudar para o Key Launcher?',
+            subtitle: 'Compare o Key Launcher com outros launchers minimalistas populares e veja por que milhares de usuários fizeram a transição.',
+            featureHeader: 'Recurso',
+            topBadge: 'Top',
+            rows: [
+                { name: 'Busca T9 rápida', desc: 'Abra qualquer app em 1-2 toques', keyLauncher: 'Sim (Instantâneo)', niagara: '❌ Rolagem alfabética', minimalistPhone: '❌ Lista de texto', olauncher: '❌ Busca por texto' },
+                { name: 'QWERTY e digitação por gesto', desc: 'Deslize pelas teclas com agilidade', keyLauncher: 'Sim (Ambos)', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: 'Múltiplos cofres privados', desc: 'Espaços protegidos por PIN ou biometria', keyLauncher: 'Cofres ilimitados', niagara: 'Apenas ocultar apps', minimalistPhone: 'Apenas bloqueador de apps', olauncher: 'Apenas ocultar apps' },
+                { name: 'Super Foco e letras de música', desc: 'Pomodoro integrado, relógio de mesa e letras', keyLauncher: 'Integrado', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: '100% offline e sem rastreamento', desc: 'Sem contas na nuvem, telemetria ou anúncios', keyLauncher: '100% offline', niagara: 'APIs na nuvem', minimalistPhone: 'Exige conta', olauncher: '✅ Offline' },
+                { name: 'Modelo de preços', desc: 'Preços justos e sustentáveis', keyLauncherMain: 'Gratuito essencial', keyLauncherSub: 'Opção vitalícia acessível', niagara: 'Assinatura anual', minimalistPhone: 'Assinatura cara ($20+/ano)', olauncher: 'Grátis / Doação' }
+            ]
+        },
+        id: {
+            badgeText: 'Perbandingan Berdampingan',
+            title: 'Mengapa Beralih ke Key Launcher?',
+            subtitle: 'Bandingkan Key Launcher dengan peluncur minimalis populer lainnya dan temukan alasan ribuan pengguna beralih.',
+            featureHeader: 'Fitur',
+            topBadge: 'Teratas',
+            rows: [
+                { name: 'Pencarian T9 Cepat', desc: 'Buka aplikasi apa pun dalam 1-2 ketukan', keyLauncher: 'Ya (Instan)', niagara: '❌ Gulir alfabet', minimalistPhone: '❌ Daftar teks', olauncher: '❌ Pencarian teks' },
+                { name: 'QWERTY & Ketik Geser (Swipe)', desc: 'Luncurkan jari untuk kecepatan kilat', keyLauncher: 'Ya (Keduanya)', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: 'Banyak Brankas Pribadi', desc: 'Ruang terpisah terkunci PIN / biometrik', keyLauncher: 'Brankas Tak Terbatas', niagara: 'Hanya sembunyikan app', minimalistPhone: 'Hanya pemblokir app', olauncher: 'Hanya sembunyikan app' },
+                { name: 'Fokus Super & Lirik Musik', desc: 'Pomodoro bawaan, jam meja & lirik tersinkron', keyLauncher: 'Bawaan', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: '100% Offline & Tanpa Pelacakan', desc: 'Tanpa akun cloud, analitik, atau iklan', keyLauncher: '100% Offline', niagara: 'API Cloud', minimalistPhone: 'Perlu akun', olauncher: '✅ Offline' },
+                { name: 'Model Harga', desc: 'Harga adil dan berkelanjutan', keyLauncherMain: 'Fitur Inti Gratis', keyLauncherSub: 'Opsi Seumur Hidup Terjangkau', niagara: 'Langganan Tahunan', minimalistPhone: 'Langganan Mahal ($20+/thn)', olauncher: 'Gratis / Donasi' }
+            ]
+        },
+        fr: {
+            badgeText: 'Comparatif côte à côte',
+            title: 'Pourquoi choisir Key Launcher ?',
+            subtitle: 'Comparez Key Launcher aux autres lanceurs minimalistes Android et découvrez pourquoi des milliers d’utilisateurs l’ont adopté.',
+            featureHeader: 'Fonctionnalité',
+            topBadge: 'Top',
+            rows: [
+                { name: 'Recherche T9 rapide', desc: 'Lancez n’importe quelle application en 1-2 gestes', keyLauncher: 'Oui (Instantané)', niagara: '❌ Défilement alphabétique', minimalistPhone: '❌ Liste texte', olauncher: '❌ Recherche texte' },
+                { name: 'QWERTY et frappe par glissement', desc: 'Glissez sur les touches à toute vitesse', keyLauncher: 'Oui (Les deux)', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: 'Plusieurs coffres privés', desc: 'Espaces sécurisés par code PIN ou biométrie', keyLauncher: 'Coffres illimités', niagara: 'Masquage d’apps uniquement', minimalistPhone: 'Bloqueur d’apps uniquement', olauncher: 'Masquage d’apps uniquement' },
+                { name: 'Super Focus et paroles de musique', desc: 'Pomodoro, horloge de bureau et paroles intégrés', keyLauncher: 'Intégré', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: '100 % hors ligne et sans suivi', desc: 'Sans compte cloud, sans télémétrie ni publicité', keyLauncher: '100 % hors ligne', niagara: 'API cloud', minimalistPhone: 'Compte requis', olauncher: '✅ Hors ligne' },
+                { name: 'Modèle tarifaire', desc: 'Des tarifs équitables et transparents', keyLauncherMain: 'Fonctions de base gratuites', keyLauncherSub: 'Option à vie abordable', niagara: 'Abonnement annuel', minimalistPhone: 'Abonnement élevé (20 $+/an)', olauncher: 'Gratuit / Don' }
+            ]
+        },
+        de: {
+            badgeText: 'Direkter Vergleich',
+            title: 'Warum zu Key Launcher wechseln?',
+            subtitle: 'Vergleiche Key Launcher mit anderen minimalistischen Android-Launchern und erfahre, warum Tausende umgestiegen sind.',
+            featureHeader: 'Funktion',
+            topBadge: 'Top',
+            rows: [
+                { name: 'Schnelle T9-Suche', desc: 'Jede App mit 1-2 Tastendrücken starten', keyLauncher: 'Ja (Sofort)', niagara: '❌ Alphabetisches Scrollen', minimalistPhone: '❌ Textliste', olauncher: '❌ Textsuche' },
+                { name: 'QWERTY & Wisch-Tastatur (Swipe)', desc: 'Mit Wischgesten blitzschnell tippen', keyLauncher: 'Ja (Beides)', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: 'Mehrere private Tresore', desc: 'Separate, mit PIN / Biometrie gesperrte Bereiche', keyLauncher: 'Unbegrenzte Tresore', niagara: 'Nur Apps ausblenden', minimalistPhone: 'Nur App-Blocker', olauncher: 'Nur Apps ausblenden' },
+                { name: 'Super Focus & Liedtexte', desc: 'Integrierter Pomodoro-Timer, Schreibtischuhr & Liedtexte', keyLauncher: 'Integriert', niagara: '❌', minimalistPhone: '❌', olauncher: '❌' },
+                { name: '100 % offline & ohne Tracking', desc: 'Keine Cloud-Konten, keine Analysen, keine Werbung', keyLauncher: '100 % offline', niagara: 'Cloud-APIs', minimalistPhone: 'Konto erforderlich', olauncher: '✅ Offline' },
+                { name: 'Preise & Modell', desc: 'Faire und transparente Preise', keyLauncherMain: 'Kostenlose Basis', keyLauncherSub: 'Erschwingliche Lifetime-Option', niagara: 'Jahresabo', minimalistPhone: 'Teures Abo (20 $+/Jahr)', olauncher: 'Kostenlos / Spende' }
+            ]
+        }
+    };
+
     function normalizeLocale(locale) {
         if (!locale) return null;
         const exact = Object.keys(supportedLocales).find(key => key.toLowerCase() === locale.toLowerCase());
@@ -192,13 +337,27 @@
         if (!t) return;
         const c = KEY_LAUNCHER_CONTENT;
         [c.navigation.features, c.navigation.press, c.navigation.pricing, c.navigation.testimonials, c.navigation.faq, c.navigation.help, c.navigation.downloadText] = t.navigation;
+        c.navigation.compare = t.compareNav || (locale === 'vi' ? 'So sánh' : locale === 'es' || locale === 'pt-BR' ? 'Comparar' : locale === 'id' ? 'Bandingkan' : locale === 'fr' ? 'Comparer' : locale === 'de' ? 'Vergleich' : 'Compare');
         [c.hero.badgeText, c.hero.titleLine1, c.hero.titleLine2, c.hero.description, c.hero.rating.reviewsCount, ...c.hero.valueProps] = t.hero;
+        c.media.badgeText = t.mediaBadge || (locale === 'vi' ? 'Báo chí đưa tin' : locale === 'es' ? 'Cobertura de prensa' : locale === 'pt-BR' ? 'Cobertura da imprensa' : locale === 'id' ? 'Liputan Media' : locale === 'fr' ? 'Couverture médiatique' : locale === 'de' ? 'Medienecho' : 'Media Coverage');
         [c.media.title, c.media.subtitle, c.media.video.title] = t.sections.media;
         [c.features.title, c.features.subtitle] = t.sections.features;
         c.features.items.forEach((item, index) => [item.title, item.description] = t.features[index]);
         [c.focusMode.badgeText, c.focusMode.title, c.focusMode.description] = t.sections.focus;
         c.focusMode.bullets.forEach((item, index) => [item.title, item.description] = t.focusBullets[index]);
+        const activeCompare = t.compare || compareTranslations[locale];
+        if (activeCompare) {
+            c.compare = {
+                badgeText: activeCompare.badgeText,
+                title: activeCompare.title,
+                subtitle: activeCompare.subtitle,
+                featureHeader: activeCompare.featureHeader,
+                topBadge: activeCompare.topBadge,
+                rows: activeCompare.rows
+            };
+        }
         [c.pricing.badgeText, c.pricing.title, c.pricing.subtitle] = t.sections.pricing;
+        c.pricing.comparisonSubtitle = t.uiDetails?.comparisonSubtitle || (locale === 'vi' ? 'So sánh tất cả tính năng song song' : locale === 'es' ? 'Compara todas las funciones lado a lado' : locale === 'pt-BR' ? 'Compare todos os recursos lado a lado' : locale === 'id' ? 'Bandingkan semua fitur berdampingan' : locale === 'fr' ? 'Comparez toutes les fonctionnalités côte à côte' : locale === 'de' ? 'Vergleiche alle Funktionen nebeneinander' : 'Compare all features side-by-side');
         [c.pricing.plans[0].name, c.pricing.plans[0].price, c.pricing.plans[0].pricePeriod, c.pricing.plans[0].description, c.pricing.plans[0].buttonText, c.pricing.plans[1].name, c.pricing.plans[1].description, c.pricing.plans[1].buttonText, c.pricing.regional.annualLabel, c.pricing.regional.lifetimeLabel, c.pricing.regional.regionLabel] = t.pricing;
         c.pricing.finalPriceLabel = t.pricing[11];
         c.pricing.seeInAppLabel = t.pricing[12];
@@ -224,7 +383,19 @@
         c.faq.items.forEach((item, index) => [item.question, item.answer] = t.faq[index]);
         [c.downloadCta.title, c.downloadCta.description, c.downloadCta.buttonText] = t.sections.cta;
         [c.footer.creatorText, c.footer.copyright, c.footer.privacyText, c.footer.termsText, c.footer.helpText] = t.footer;
-        c.ui = { ratingOn: t.ui[0], previousScreenshot: t.ui[1], nextScreenshot: t.ui[2], toggleTheme: t.ui[3], changeLanguage: t.ui[4], featuresBenefits: t.ui[6], scrollToExplore: t.ui[7] };
+        c.ui = {
+            ratingOn: t.ui[0],
+            previousScreenshot: t.ui[1],
+            nextScreenshot: t.ui[2],
+            toggleTheme: t.ui[3],
+            changeLanguage: t.ui[4],
+            featuresBenefits: t.ui[6],
+            scrollToExplore: t.ui[7],
+            apkSubtext: t.uiDetails?.apkSubtext || (locale === 'vi' ? 'Tải APK trực tiếp' : locale === 'es' ? 'APK directo / Sin GMS' : locale === 'pt-BR' ? 'APK direto / Sem GMS' : locale === 'id' ? 'APK Langsung / Non-GMS' : locale === 'fr' ? 'APK direct / Sans GMS' : locale === 'de' ? 'Direkte APK / Ohne GMS' : 'Direct APK / Non-GMS'),
+            apkTitle: t.uiDetails?.apkTitle || (locale === 'vi' ? 'Tải file APK' : locale === 'es' ? 'Descargar APK' : locale === 'pt-BR' ? 'Baixar APK' : locale === 'id' ? 'Unduh APK' : locale === 'fr' ? 'Télécharger l\'APK' : locale === 'de' ? 'APK herunterladen' : 'Download APK'),
+            featuredOn: t.uiDetails?.featuredOn || (locale === 'vi' ? 'Nổi bật trên' : locale === 'es' ? 'Destacado en' : locale === 'pt-BR' ? 'Destaque no' : locale === 'id' ? 'Disorot di' : locale === 'fr' ? 'En vedette sur' : locale === 'de' ? 'Vorgestellt auf' : 'Featured on'),
+            listedOn: t.uiDetails?.listedOn || (locale === 'vi' ? 'Có mặt trên' : locale === 'es' ? 'Listado en' : locale === 'pt-BR' ? 'Listado no' : locale === 'id' ? 'Terdaftar di' : locale === 'fr' ? 'Référencé sur' : locale === 'de' ? 'Gelistet auf' : 'Listed on')
+        };
         const localizedQuotes = quoteTranslations[locale];
         if (localizedQuotes) {
             const completeMedia = window.KEY_LAUNCHER_MEDIA_TRANSLATIONS?.[locale];

@@ -67,6 +67,12 @@ test('browser locale is used on the first visit and unsupported locales fall bac
 
 test('Vietnamese pricing includes localized plans, comparison table, and regional notes', () => {
     const content = loadLocale('vi').KEY_LAUNCHER_CONTENT;
+    assert.equal(content.navigation.compare, 'So sánh');
+    assert.equal(content.compare.title, 'Tại sao nên chọn Key Launcher?');
+    assert.equal(content.compare.rows.length, 6);
+    assert.equal(content.compare.rows[0].name, 'Tìm kiếm T9 siêu nhanh');
+    assert.equal(content.ui.apkTitle, 'Tải file APK');
+    assert.equal(content.ui.featuredOn, 'Nổi bật trên');
     assert.equal(content.pricing.plans[0].features[0].name, 'Tìm kiếm T9 siêu nhanh (hỗ trợ dấu tiếng Việt)');
     assert.equal(content.pricing.plans[1].features[0].name, 'Không giới hạn mục ghim và widget');
     assert.equal(content.pricing.comparison.categories[0].nameEn, 'Cốt lõi');

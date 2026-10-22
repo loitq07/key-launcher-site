@@ -7,6 +7,7 @@ const KEY_LAUNCHER_CONTENT = {
         logo: "assets/logo_key_launcher.png",
         features: "Features",
         press: "Press",
+        compare: "Compare",
         pricing: "Pricing",
         testimonials: "Reviews",
         faq: "FAQ",
@@ -51,6 +52,7 @@ const KEY_LAUNCHER_CONTENT = {
 
     // Media Coverage / Press & Videos
     media: {
+        badgeText: "Media Coverage",
         title: "Featured In & Reviews",
         subtitle: "See what tech journalists and creators are saying about Key Launcher's minimalist approach.",
         articles: [
@@ -224,11 +226,72 @@ const KEY_LAUNCHER_CONTENT = {
         ]
     },
 
+    // Competitor Comparison Section
+    compare: {
+        badgeText: "Side-by-Side Comparison",
+        title: "Why Switch to Key Launcher?",
+        subtitle: "Compare Key Launcher with other popular minimalist Android launchers. See why thousands of minimalist phone lovers and power users made the switch.",
+        featureHeader: "Feature",
+        topBadge: "Top",
+        rows: [
+            {
+                name: "T9 Keypad Fast Search",
+                desc: "Launch any app in 1-2 button presses",
+                keyLauncher: "Yes (Instant)",
+                niagara: "❌ Alphabet scroll",
+                minimalistPhone: "❌ Text list",
+                olauncher: "❌ Text search"
+            },
+            {
+                name: "QWERTY & Swipe Typing",
+                desc: "Glide across keys for lightning speed",
+                keyLauncher: "Yes (Both)",
+                niagara: "❌",
+                minimalistPhone: "❌",
+                olauncher: "❌"
+            },
+            {
+                name: "Multiple Private Vaults",
+                desc: "Separate PIN / biometric locked spaces",
+                keyLauncher: "Unlimited Vaults",
+                niagara: "Hide app only",
+                minimalistPhone: "App blocker only",
+                olauncher: "Hide app only"
+            },
+            {
+                name: "Super Focus & Ambient Lyrics",
+                desc: "Built-in Pomodoro, desk clock & synced lyrics",
+                keyLauncher: "Built-in",
+                niagara: "❌",
+                minimalistPhone: "❌",
+                olauncher: "❌"
+            },
+            {
+                name: "100% Offline & Zero Tracking",
+                desc: "No cloud accounts, no analytics, no ads",
+                keyLauncher: "100% Offline",
+                niagara: "Cloud APIs",
+                minimalistPhone: "Account required",
+                olauncher: "✅ Offline"
+            },
+            {
+                name: "Pricing Model",
+                desc: "Fair and sustainable pricing",
+                keyLauncherMain: "Free Core",
+                keyLauncherSub: "Affordable Lifetime Option",
+                niagara: "Annual Subscription",
+                minimalistPhone: "High Subscription ($20+/yr)",
+                olauncher: "Free / Donation"
+            }
+        ]
+    },
+
     // Pricing / Plans Section
     pricing: {
         badgeText: "Transparent pricing",
         title: "Use for Free. <br class=\"sm:hidden\">Upgrade to PRO.",
         subtitle: "Core features are entirely free and ad-free forever. Upgrade to PRO with a yearly subscription or a one-time lifetime purchase.",
+        comparisonSubtitle: "Compare all features side-by-side",
 
         // Copy for the regional price block. The prices themselves are served
         // per-visitor by api/pricing.js and never shipped to the browser.
@@ -615,5 +678,20 @@ const KEY_LAUNCHER_CONTENT = {
         termsUrl: "/tos",
         helpText: "Help",
         helpUrl: "https://www.keylauncher.app/help"
+    },
+
+    // UI and Supporting Labels
+    ui: {
+        ratingOn: "on Google Play",
+        previousScreenshot: "Previous screenshot",
+        nextScreenshot: "Next screenshot",
+        toggleTheme: "Toggle theme",
+        changeLanguage: "Change language",
+        featuresBenefits: "Features & Benefits",
+        scrollToExplore: "Scroll to explore",
+        apkSubtext: "Direct APK / Non-GMS",
+        apkTitle: "Download APK",
+        featuredOn: "Featured on",
+        listedOn: "Listed on"
     }
 };

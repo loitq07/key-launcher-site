@@ -47,6 +47,9 @@ function renderContent() {
     // document.getElementById('nav-creator').innerText = data.navigation.creatorText || "BY LOUSIFY TECH";
     document.getElementById('nav-link-features').innerText = data.navigation.features;
     document.getElementById('nav-link-press').innerText = data.navigation.press;
+    if (document.getElementById('nav-link-compare')) {
+        document.getElementById('nav-link-compare').innerText = data.navigation.compare || "Compare";
+    }
     document.getElementById('nav-link-pricing').innerText = data.navigation.pricing;
     document.getElementById('nav-link-testimonials').innerText = data.navigation.testimonials;
     document.getElementById('nav-link-faq').innerText = data.navigation.faq || "FAQ";
@@ -62,6 +65,9 @@ function renderContent() {
     // Mobile Menu
     document.getElementById('mobile-link-features').innerText = data.navigation.features;
     document.getElementById('mobile-link-press').innerText = data.navigation.press;
+    if (document.getElementById('mobile-link-compare')) {
+        document.getElementById('mobile-link-compare').innerText = data.navigation.compare || "Compare";
+    }
     document.getElementById('mobile-link-pricing').innerText = data.navigation.pricing;
     document.getElementById('mobile-link-testimonials').innerText = data.navigation.testimonials;
     document.getElementById('mobile-link-faq').innerText = data.navigation.faq || "FAQ";
@@ -95,6 +101,19 @@ function renderContent() {
     const heroApkLink = document.getElementById('hero-apk-download-link');
     if (heroApkLink && data.hero.apkDownloadUrl) {
         heroApkLink.href = data.hero.apkDownloadUrl;
+    }
+    const heroApkSub = document.getElementById('hero-apk-subtext');
+    if (heroApkSub && ui.apkSubtext) heroApkSub.innerText = ui.apkSubtext;
+    const heroApkTitle = document.getElementById('hero-apk-title');
+    if (heroApkTitle && ui.apkTitle) heroApkTitle.innerText = ui.apkTitle;
+
+    const heroTrustAa = document.getElementById('hero-trust-aa');
+    if (heroTrustAa && ui.featuredOn) {
+        heroTrustAa.innerHTML = `${ui.featuredOn} <strong class="text-zinc-800 dark:text-zinc-200 font-semibold">Android Authority</strong>`;
+    }
+    const heroTrustAlt = document.getElementById('hero-trust-alt');
+    if (heroTrustAlt && ui.listedOn) {
+        heroTrustAlt.innerHTML = `${ui.listedOn} <strong class="text-zinc-800 dark:text-zinc-200 font-semibold">AlternativeTo</strong>`;
     }
 
     // document.getElementById('hero-reddit-btn').href = data.hero.redditBtnUrl;
@@ -403,6 +422,10 @@ function renderContent() {
     `).join('');
 
     // Media (Press & Video Showcase)
+    const mediaBadge = document.getElementById('media-badge');
+    if (mediaBadge && data.media.badgeText) {
+        mediaBadge.innerText = data.media.badgeText;
+    }
     document.getElementById('media-title').innerText = data.media.title;
     document.getElementById('media-subtitle').innerText = data.media.subtitle;
     document.getElementById('media-video-frame').src = data.media.video.embedUrl;
@@ -629,6 +652,76 @@ function renderContent() {
         }
     }
 
+    // Competitor Comparison Section (#compare)
+    if (data.compare) {
+        const compareBadge = document.getElementById('compare-badge');
+        if (compareBadge) compareBadge.innerText = data.compare.badgeText || 'Side-by-Side Comparison';
+
+        const compareTitle = document.getElementById('compare-title');
+        if (compareTitle) compareTitle.innerText = data.compare.title || 'Why Switch to Key Launcher?';
+
+        const compareSubtitle = document.getElementById('compare-subtitle');
+        if (compareSubtitle) compareSubtitle.innerText = data.compare.subtitle || 'Compare Key Launcher with other popular minimalist Android launchers.';
+
+        const compareHeaderFeature = document.getElementById('compare-header-feature');
+        if (compareHeaderFeature) compareHeaderFeature.innerText = data.compare.featureHeader || 'Feature';
+
+        const compareTopBadge = document.getElementById('compare-top-badge');
+        if (compareTopBadge) compareTopBadge.innerText = data.compare.topBadge || 'Top';
+
+        const compareTableBody = document.getElementById('compare-table-body');
+        if (compareTableBody && Array.isArray(data.compare.rows)) {
+            compareTableBody.innerHTML = data.compare.rows.map((row, idx) => {
+                const isPricingRow = idx === data.compare.rows.length - 1 && row.keyLauncherMain;
+                const isOfflineRow = idx === 4;
+
+                let keyColHtml = '';
+                if (isPricingRow) {
+                    keyColHtml = `
+                        <div class="text-emerald-600 dark:text-emerald-400">${row.keyLauncherMain}</div>
+                        <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">${row.keyLauncherSub}</div>
+                    `;
+                } else {
+                    keyColHtml = `
+                        <span class="inline-flex items-center gap-1">
+                            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                            ${row.keyLauncher}
+                        </span>
+                    `;
+                }
+
+                const olauncherClass = isOfflineRow
+                    ? 'p-4 sm:p-5 text-center text-emerald-600 dark:text-emerald-400'
+                    : (isPricingRow ? 'p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs' : 'p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400');
+
+                const competitorCellClass = isPricingRow
+                    ? 'p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs'
+                    : 'p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400';
+
+                return `
+                    <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
+                        <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
+                            <div>${row.name}</div>
+                            <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">${row.desc}</div>
+                        </td>
+                        <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 ${isPricingRow ? 'font-bold text-zinc-900 dark:text-white' : 'font-semibold text-emerald-600 dark:text-emerald-400'}">
+                            ${keyColHtml}
+                        </td>
+                        <td class="${competitorCellClass}">
+                            <span class="${isPricingRow ? '' : 'text-xs'}">${row.niagara}</span>
+                        </td>
+                        <td class="${competitorCellClass}">
+                            <span class="${isPricingRow ? '' : 'text-xs'}">${row.minimalistPhone}</span>
+                        </td>
+                        <td class="${olauncherClass}">
+                            <span class="${isPricingRow ? '' : 'text-xs'}">${row.olauncher}</span>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+    }
+
     // ---- Regional pricing -------------------------------------------------
     // /api/pricing resolves the caller's country at the edge and returns only
     // that country's prices. Keep neutral placeholders until prices are available.
@@ -641,7 +734,8 @@ function renderContent() {
     function countryName(code) {
         if (!code) return '';
         try {
-            return new Intl.DisplayNames(['en'], { type: 'region' }).of(code) || code;
+            const currentLocale = window.KEY_LAUNCHER_I18N?.locale || 'en';
+            return new Intl.DisplayNames([currentLocale, 'en'], { type: 'region' }).of(code) || code;
         } catch (e) {
             return code;
         }
@@ -771,6 +865,8 @@ function renderContent() {
     if (comparisonTitle) comparisonTitle.innerText = data.pricing.comparisonTitle || 'Detailed Feature Comparison';
     if (comparisonFeatureLabel) comparisonFeatureLabel.innerText = data.pricing.comparisonFeatureLabel || 'Feature';
     if (comparisonFreeLabel) comparisonFreeLabel.innerText = data.pricing.comparisonFreeLabel || 'Free';
+    const comparisonSubtitle = document.getElementById('comparison-subtitle');
+    if (comparisonSubtitle) comparisonSubtitle.innerText = data.pricing.comparisonSubtitle || 'Compare all features side-by-side';
     const pricingStatus = document.getElementById('pricing-status');
     if (pricingStatus) pricingStatus.innerText = data.pricing.pricingStatusLabel || 'See your local PRO prices in the app.';
     const pricingContainer = document.getElementById('pricing-grid');
@@ -1047,6 +1143,10 @@ function renderContent() {
     if (ctaApkLink && data.downloadCta.apkDownloadUrl) {
         ctaApkLink.href = data.downloadCta.apkDownloadUrl;
     }
+    const ctaApkSub = document.getElementById('cta-apk-subtext');
+    if (ctaApkSub && ui.apkSubtext) ctaApkSub.innerText = ui.apkSubtext;
+    const ctaApkTitle = document.getElementById('cta-apk-title');
+    if (ctaApkTitle && ui.apkTitle) ctaApkTitle.innerText = ui.apkTitle;
 
     // Footer
     document.getElementById('footer-brand').innerText = data.footer.brandText;
