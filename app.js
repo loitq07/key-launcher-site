@@ -669,8 +669,73 @@ function renderContent() {
         const compareTopBadge = document.getElementById('compare-top-badge');
         if (compareTopBadge) compareTopBadge.innerText = data.compare.topBadge || 'Top';
 
-        const compareTableBody = document.getElementById('compare-table-body');
-        if (compareTableBody && Array.isArray(data.compare.rows)) {
+        const compareMobileLabel = document.getElementById('compare-mobile-label');
+        if (compareMobileLabel) compareMobileLabel.innerText = data.compare.mobileLabel || 'So sánh với:';
+
+        const compareMobileHint = document.getElementById('compare-mobile-hint');
+        if (compareMobileHint) compareMobileHint.innerText = data.compare.mobileHint || 'Chạm để đổi đối thủ';
+
+        const compareTabAll = document.getElementById('compare-tab-all');
+        if (compareTabAll) compareTabAll.innerText = data.compare.allTab || 'Tất cả';
+
+        const compareScrollHintText = document.getElementById('compare-scroll-hint-text');
+        if (compareScrollHintText) compareScrollHintText.innerText = data.compare.scrollHint || 'Vuốt ngang để xem toàn bộ bảng';
+
+        let activeCompetitor = 'niagara';
+        const compareTable = document.getElementById('compare-table');
+        const scrollHint = document.getElementById('compare-scroll-hint');
+        const tabButtons = document.querySelectorAll('.compare-tab-btn');
+
+        function updateCompetitorView(competitor) {
+            activeCompetitor = competitor;
+
+            // Update tab button active styles
+            tabButtons.forEach(btn => {
+                const target = btn.getAttribute('data-competitor');
+                if (target === activeCompetitor) {
+                    btn.className = 'compare-tab-btn py-2 px-1 rounded-lg text-center font-semibold transition-all duration-200 bg-white dark:bg-zinc-900 text-brand-600 dark:text-brand-400 shadow-sm cursor-pointer';
+                } else {
+                    btn.className = 'compare-tab-btn py-2 px-1 rounded-lg text-center font-medium transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer';
+                }
+            });
+
+            // Adjust table min-width
+            if (activeCompetitor === 'all') {
+                if (compareTable) compareTable.classList.add('min-w-[640px]');
+                if (scrollHint) scrollHint.classList.remove('hidden');
+            } else {
+                if (compareTable) compareTable.classList.remove('min-w-[640px]');
+                if (scrollHint) scrollHint.classList.add('hidden');
+            }
+
+            // Update Header Th visibility & widths
+            const thFeature = document.getElementById('compare-header-feature');
+            const thKey = thFeature ? thFeature.nextElementSibling : null;
+            const thNiagara = document.querySelector('th.compare-col-niagara');
+            const thMinimalist = document.querySelector('th.compare-col-minimalistPhone');
+            const thOlauncher = document.querySelector('th.compare-col-olauncher');
+
+            if (activeCompetitor === 'all') {
+                if (thFeature) thFeature.className = 'p-3.5 sm:p-5 font-display sticky left-0 z-20 bg-zinc-100/95 dark:bg-zinc-900/95 backdrop-blur-md border-r border-zinc-200 dark:border-zinc-800 min-w-[150px] w-[30%]';
+                if (thKey) thKey.className = 'p-3.5 sm:p-5 text-center bg-brand-500/10 dark:bg-brand-500/15 text-brand-600 dark:text-brand-400 border-r border-brand-500/20 min-w-[125px] w-[22%]';
+                if (thNiagara) thNiagara.className = 'compare-col-niagara p-3.5 sm:p-5 text-center min-w-[110px] w-[16%]';
+                if (thMinimalist) thMinimalist.className = 'compare-col-minimalistPhone p-3.5 sm:p-5 text-center min-w-[120px] w-[18%]';
+                if (thOlauncher) thOlauncher.className = 'compare-col-olauncher p-3.5 sm:p-5 text-center min-w-[110px] w-[14%]';
+            } else {
+                if (thFeature) thFeature.className = 'p-3.5 sm:p-5 font-display sticky left-0 z-20 bg-zinc-100/95 dark:bg-zinc-900/95 backdrop-blur-md border-r border-zinc-200 dark:border-zinc-800 w-[46%] md:w-[28%] min-w-[140px] sm:min-w-0';
+                if (thKey) thKey.className = 'p-3 sm:p-5 text-center bg-brand-500/10 dark:bg-brand-500/15 text-brand-600 dark:text-brand-400 border-r border-brand-500/20 w-[27%] md:w-[22%] min-w-[110px] sm:min-w-0';
+                if (thNiagara) thNiagara.className = `compare-col-niagara p-3 sm:p-5 text-center ${activeCompetitor === 'niagara' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%] min-w-[105px] sm:min-w-0`;
+                if (thMinimalist) thMinimalist.className = `compare-col-minimalistPhone p-3 sm:p-5 text-center ${activeCompetitor === 'minimalistPhone' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[18%] min-w-[115px] sm:min-w-0`;
+                if (thOlauncher) thOlauncher.className = `compare-col-olauncher p-3 sm:p-5 text-center ${activeCompetitor === 'olauncher' ? 'table-cell' : 'hidden'} md:table-cell w-[27%] md:w-[14%] min-w-[105px] sm:min-w-0`;
+            }
+
+            renderTableBody();
+        }
+
+        function renderTableBody() {
+            const compareTableBody = document.getElementById('compare-table-body');
+            if (!compareTableBody || !Array.isArray(data.compare.rows)) return;
+
             compareTableBody.innerHTML = data.compare.rows.map((row, idx) => {
                 const isPricingRow = idx === data.compare.rows.length - 1 && row.keyLauncherMain;
                 const isOfflineRow = idx === 4;
@@ -678,48 +743,61 @@ function renderContent() {
                 let keyColHtml = '';
                 if (isPricingRow) {
                     keyColHtml = `
-                        <div class="text-emerald-600 dark:text-emerald-400">${row.keyLauncherMain}</div>
-                        <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">${row.keyLauncherSub}</div>
+                        <div class="text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-bold">${row.keyLauncherMain}</div>
+                        <div class="text-[10px] sm:text-[11px] text-zinc-500 dark:text-zinc-400 font-normal mt-0.5">${row.keyLauncherSub}</div>
                     `;
                 } else {
                     keyColHtml = `
-                        <span class="inline-flex items-center gap-1">
-                            <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
+                        <span class="inline-flex items-center gap-1 text-xs sm:text-sm">
+                            <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" viewBox="0 -960 960 960"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
                             ${row.keyLauncher}
                         </span>
                     `;
                 }
 
-                const olauncherClass = isOfflineRow
-                    ? 'p-4 sm:p-5 text-center text-emerald-600 dark:text-emerald-400'
-                    : (isPricingRow ? 'p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs' : 'p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400');
+                const niagaraVisible = activeCompetitor === 'niagara' || activeCompetitor === 'all';
+                const minimalistVisible = activeCompetitor === 'minimalistPhone' || activeCompetitor === 'all';
+                const olauncherVisible = activeCompetitor === 'olauncher' || activeCompetitor === 'all';
 
-                const competitorCellClass = isPricingRow
-                    ? 'p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs'
-                    : 'p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400';
+                const competitorClass = isPricingRow
+                    ? 'p-3 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm'
+                    : 'p-3 sm:p-5 text-center text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm';
+
+                const olauncherClass = isOfflineRow
+                    ? 'p-3 sm:p-5 text-center text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-medium'
+                    : competitorClass;
 
                 return `
                     <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                        <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
-                            <div>${row.name}</div>
-                            <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">${row.desc}</div>
+                        <td class="p-3.5 sm:p-5 font-medium text-zinc-900 dark:text-white sticky left-0 z-10 bg-white/95 dark:bg-zinc-900/95 backdrop-blur-md border-r border-zinc-200 dark:border-zinc-800 shadow-[2px_0_4px_-2px_rgba(0,0,0,0.06)]">
+                            <div class="font-semibold text-xs sm:text-sm leading-snug">${row.name}</div>
+                            <div class="text-[10px] sm:text-[11px] text-zinc-500 dark:text-zinc-400 font-normal leading-normal mt-0.5">${row.desc}</div>
                         </td>
-                        <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 ${isPricingRow ? 'font-bold text-zinc-900 dark:text-white' : 'font-semibold text-emerald-600 dark:text-emerald-400'}">
+                        <td class="p-3 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-r border-brand-500/20 ${isPricingRow ? 'font-bold text-zinc-900 dark:text-white' : 'font-semibold text-emerald-600 dark:text-emerald-400'}">
                             ${keyColHtml}
                         </td>
-                        <td class="${competitorCellClass}">
-                            <span class="${isPricingRow ? '' : 'text-xs'}">${row.niagara}</span>
+                        <td class="${competitorClass} ${niagaraVisible ? 'table-cell' : 'hidden'} md:table-cell">
+                            <span>${row.niagara}</span>
                         </td>
-                        <td class="${competitorCellClass}">
-                            <span class="${isPricingRow ? '' : 'text-xs'}">${row.minimalistPhone}</span>
+                        <td class="${competitorClass} ${minimalistVisible ? 'table-cell' : 'hidden'} md:table-cell">
+                            <span>${row.minimalistPhone}</span>
                         </td>
-                        <td class="${olauncherClass}">
-                            <span class="${isPricingRow ? '' : 'text-xs'}">${row.olauncher}</span>
+                        <td class="${olauncherClass} ${olauncherVisible ? 'table-cell' : 'hidden'} md:table-cell">
+                            <span>${row.olauncher}</span>
                         </td>
                     </tr>
                 `;
             }).join('');
         }
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const competitor = btn.getAttribute('data-competitor');
+                if (competitor) updateCompetitorView(competitor);
+            });
+        });
+
+        updateCompetitorView('niagara');
     }
 
     // ---- Regional pricing -------------------------------------------------

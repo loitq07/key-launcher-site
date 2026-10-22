@@ -233,6 +233,10 @@ const KEY_LAUNCHER_CONTENT = {
         subtitle: "Compare Key Launcher with other popular minimalist Android launchers. See why thousands of minimalist phone lovers and power users made the switch.",
         featureHeader: "Feature",
         topBadge: "Top",
+        mobileLabel: "Compare with:",
+        mobileHint: "Tap to switch",
+        allTab: "All",
+        scrollHint: "Swipe horizontally to see all columns",
         rows: [
             {
                 name: "T9 Keypad Fast Search",

@@ -81,6 +81,84 @@ test('Vietnamese pricing includes localized plans, comparison table, and regiona
     assert.match(content.pricing.regional.policyNote, /Không bao giờ giảm giá/);
 });
 
+test('all supported non-English locales have complete localized competitor comparisons and detailed pricing matrix', () => {
+    const expectations = {
+        vi: {
+            navCompare: 'So sánh',
+            compareTitle: 'Tại sao nên chọn Key Launcher?',
+            firstRow: 'Tìm kiếm T9 siêu nhanh',
+            mobileLabel: 'So sánh với:',
+            allTab: 'Tất cả',
+            categoryCore: 'Cốt lõi',
+            freeVal: '8 mục',
+            apkTitle: 'Tải file APK'
+        },
+        es: {
+            navCompare: 'Comparar',
+            compareTitle: '¿Por qué elegir Key Launcher?',
+            firstRow: 'Búsqueda T9 rápida',
+            mobileLabel: 'Comparar con:',
+            allTab: 'Todos',
+            categoryCore: 'Básico',
+            freeVal: '8 elementos',
+            apkTitle: 'Descargar archivo APK'
+        },
+        'pt-BR': {
+            navCompare: 'Comparar',
+            compareTitle: 'Por que mudar para o Key Launcher?',
+            firstRow: 'Busca T9 rápida',
+            mobileLabel: 'Comparar com:',
+            allTab: 'Todos',
+            categoryCore: 'Principal',
+            freeVal: '8 itens',
+            apkTitle: 'Baixar arquivo APK'
+        },
+        id: {
+            navCompare: 'Bandingkan',
+            compareTitle: 'Mengapa Beralih ke Key Launcher?',
+            firstRow: 'Pencarian T9 Cepat',
+            mobileLabel: 'Bandingkan dengan:',
+            allTab: 'Semua',
+            categoryCore: 'Inti',
+            freeVal: '8 item',
+            apkTitle: 'Unduh file APK'
+        },
+        fr: {
+            navCompare: 'Comparer',
+            compareTitle: 'Pourquoi choisir Key Launcher ?',
+            firstRow: 'Recherche T9 rapide',
+            mobileLabel: 'Comparer avec :',
+            allTab: 'Tous',
+            categoryCore: 'Essentiel',
+            freeVal: '8 éléments',
+            apkTitle: 'Télécharger le fichier APK'
+        },
+        de: {
+            navCompare: 'Vergleich',
+            compareTitle: 'Warum zu Key Launcher wechseln?',
+            firstRow: 'Schnelle T9-Suche',
+            mobileLabel: 'Vergleichen mit:',
+            allTab: 'Alle',
+            categoryCore: 'Kernfunktionen',
+            freeVal: '8 Elemente',
+            apkTitle: 'APK-Datei herunterladen'
+        }
+    };
+
+    for (const [locale, exp] of Object.entries(expectations)) {
+        const content = loadLocale(locale).KEY_LAUNCHER_CONTENT;
+        assert.equal(content.navigation.compare, exp.navCompare, `${locale} nav compare label mismatch`);
+        assert.equal(content.compare.title, exp.compareTitle, `${locale} compare title mismatch`);
+        assert.equal(content.compare.rows[0].name, exp.firstRow, `${locale} first row mismatch`);
+        assert.equal(content.compare.mobileLabel, exp.mobileLabel, `${locale} mobile label mismatch`);
+        assert.equal(content.compare.allTab, exp.allTab, `${locale} all tab mismatch`);
+        assert.equal(content.compare.rows.length, 6, `${locale} rows count must be 6`);
+        assert.equal(content.pricing.comparison.categories[0].nameEn, exp.categoryCore, `${locale} category Core mismatch`);
+        assert.equal(content.pricing.comparison.categories[0].features[1].free, exp.freeVal, `${locale} free value mismatch`);
+        assert.equal(content.ui.apkTitle, exp.apkTitle, `${locale} apk title mismatch`);
+    }
+});
+
 test('localized reviews preserve the full source detail instead of summaries', () => {
     const englishReviews = loadLocale('en').KEY_LAUNCHER_CONTENT.testimonials.items;
     for (const locale of ['vi', 'es', 'pt-BR', 'id', 'fr', 'de']) {
