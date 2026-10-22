@@ -98,30 +98,96 @@
 </head>
 <body class="bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-black transition-colors duration-300">
 
-    <!-- Header Navigation -->
+        <!-- Header Navigation (Consistent max-w-6xl across all pages) -->
     <header class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition duration-300">
-        <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
             <a href="/" class="flex items-center gap-2.5 group">
                 <img src="../../assets/logo_key_launcher.png" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105" width="32" height="32">
                 <span class="font-display font-bold tracking-tight text-zinc-900 dark:text-white leading-none">Key Launcher</span>
             </a>
 
-            <div class="flex items-center gap-4">
-                <a href="/blog" class="text-xs font-semibold text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors flex items-center gap-1">
-                    <span>← All Guides</span>
+            <!-- Menu links (Desktop) -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+                <a href="/#features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
+                <a href="/#compare" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Compare</a>
+                <a href="/#pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Pricing</a>
+                <a href="/blog" class="text-brand-500 dark:text-brand-400 font-semibold transition-colors flex items-center gap-1.5">
+                    <span>Blog</span>
                 </a>
-                <button id="theme-toggle" class="w-8 h-8 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all" aria-label="Toggle Theme">
+                
+                <!-- More Dropdown -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-white transition-colors py-2 cursor-pointer focus:outline-none">
+                        <span>More</span>
+                        <i class="ph-bold ph-caret-down text-[12px] transition-transform group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute left-0 mt-0 pt-2 w-44 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl py-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
+                        <a href="/#press" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Press</a>
+                        <a href="/#testimonials" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Reviews</a>
+                        <a href="/#faq" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">FAQ</a>
+                    </div>
+                </div>
+
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Help</a>
+
+                <!-- Activate Link -->
+                <a href="/activate" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-colors">
+                    <i class="ph-bold ph-key text-[13px] text-amber-500"></i>
+                    <span>Activate</span>
+                </a>
+            </nav>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <!-- Left / Main Article Column (8 cols) -->
+            <div class="lg:col-span-8">
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="theme-toggle" class="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all duration-200" aria-label="Toggle Theme">
                     <i id="theme-icon" class="ph-bold ph-moon text-[18px]"></i>
                 </button>
-                <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex h-8 items-center justify-center px-3 rounded-lg text-xs font-semibold bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 active:scale-95 transition-all font-display">
+                <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex h-9 items-center justify-center px-4 rounded-lg text-xs font-semibold bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-pointer active:scale-[0.97] transition-all duration-200 font-display">
                     Download Free
                 </a>
+                <button class="md:hidden p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer active:scale-95 transition-all duration-200 flex items-center justify-center" aria-label="Toggle Menu" id="mobile-menu-btn">
+                    <i class="ph-bold ph-list text-[24px]"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 flex flex-col gap-3 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+            <div class="grid grid-cols-2 gap-2 pb-3 border-b border-zinc-100 dark:border-zinc-800/80">
+                <a href="/#features" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Features
+                </a>
+                <a href="/#compare" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Compare
+                </a>
+                <a href="/#pricing" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Pricing
+                </a>
+                <a href="/blog" class="flex items-center gap-2 p-2 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-white font-semibold transition-colors">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Blog
+                </a>
+            </div>
+            <div class="flex flex-col gap-1 py-1">
+                <a href="/activate" class="flex items-center justify-between px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 font-semibold">
+                    <span class="flex items-center gap-2">
+                        <i class="ph-bold ph-key text-[16px]"></i>
+                        Activate Offline License
+                    </span>
+                    <span class="text-xs">→</span>
+                </a>
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Help Center</a>
+                <a href="/#press" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Press Coverage</a>
+                <a href="/#testimonials" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">User Reviews</a>
+                <a href="/#faq" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
             </div>
         </div>
     </header>
 
     <!-- Main Article Container -->
-    <main class="max-w-3xl mx-auto px-4 py-10 md:py-14 flex-1 w-full">
+    <main class="max-w-6xl mx-auto px-4 py-10 md:py-14 flex-1 w-full">
         <!-- Breadcrumb -->
         <nav class="flex items-center gap-2 text-xs text-zinc-500 dark:text-zinc-400 mb-6" aria-label="Breadcrumb">
             <a href="/" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Home</a>
@@ -303,8 +369,73 @@
             </div>
 
             <!-- Related Articles -->
-            <div class="mt-12">
-                <h4 class="font-display font-bold text-sm text-zinc-900 dark:text-white uppercase tracking-wider mb-4">
+                        </div>
+
+            <!-- Right Column / Sticky Sidebar (4 cols) -->
+            <aside class="hidden lg:block lg:col-span-4 sticky top-24 space-y-6">
+                <!-- Table of Contents Widget -->
+                <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-5 shadow-sm">
+                    <h3 class="font-display font-bold text-xs uppercase tracking-wider text-zinc-900 dark:text-white mb-3 flex items-center gap-2">
+                        <i class="ph-bold ph-list-bullets text-brand-500 text-[14px]"></i>
+                        <span>On This Page</span>
+                    </h3>
+                    <nav class="space-y-2 text-xs text-zinc-600 dark:text-zinc-400 font-medium">
+                        <a href="#adhd-smartphone-trap" class="block hover:text-zinc-900 dark:hover:text-white hover:translate-x-1 transition-all">1. The ADHD Smartphone Dilemma</a>
+<a href="#science-of-friction" class="block hover:text-zinc-900 dark:hover:text-white hover:translate-x-1 transition-all">2. The Science of Healthy Friction</a>
+<a href="#three-pillars" class="block hover:text-zinc-900 dark:hover:text-white hover:translate-x-1 transition-all">3. 3 Pillars of Key Launcher</a>
+<a href="#5-minute-setup" class="block hover:text-zinc-900 dark:hover:text-white hover:translate-x-1 transition-all">4. 5-Minute Setup Walkthrough</a>
+<a href="#community-feedback" class="block hover:text-zinc-900 dark:hover:text-white hover:translate-x-1 transition-all">5. Verified User Results</a>
+                    </nav>
+                </div>
+
+                <!-- Quick Try Card -->
+                <div class="rounded-2xl border border-brand-500/30 bg-gradient-to-br from-brand-500/10 via-zinc-900/20 to-zinc-950 p-5 text-zinc-900 dark:text-zinc-100">
+                    <div class="text-xs font-mono uppercase tracking-wider text-brand-600 dark:text-brand-400 font-bold mb-1">
+                        BREAK DOPAMINE LOOPS
+                    </div>
+                    <h4 class="font-display font-bold text-base mb-2">Healthy Friction for ADHD</h4>
+                    <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+                        Reclaim your focus with the fastest, zero-distraction T9 homescreen for Android.
+                    </p>
+                    <div class="space-y-2">
+                        <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg bg-brand-500 text-black font-display font-bold text-xs hover:bg-brand-400 transition-colors">
+                            <i class="ph-bold ph-download-simple"></i>
+                            Download Free on Play Store
+                        </a>
+                        <a href="/activate" class="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 font-display font-semibold text-xs hover:bg-zinc-100 dark:hover:bg-zinc-700 transition-colors">
+                            <i class="ph-bold ph-key text-amber-500"></i>
+                            Offline Key (PayOS & Cards)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fast Facts Widget -->
+                <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 p-5 text-xs space-y-2.5">
+                    <div class="font-display font-bold text-zinc-900 dark:text-white uppercase tracking-wider text-[11px] mb-2">
+                        At A Glance
+                    </div>
+                    <div class="flex items-center justify-between py-1 border-b border-zinc-100 dark:border-zinc-800/80">
+                        <span class="text-zinc-500 dark:text-zinc-400">Launch Speed</span>
+                        <span class="font-mono font-bold text-emerald-500">&lt; 200 ms</span>
+                    </div>
+                    <div class="flex items-center justify-between py-1 border-b border-zinc-100 dark:border-zinc-800/80">
+                        <span class="text-zinc-500 dark:text-zinc-400">Privacy</span>
+                        <span class="font-mono font-bold text-emerald-500">100% Offline</span>
+                    </div>
+                    <div class="flex items-center justify-between py-1 border-b border-zinc-100 dark:border-zinc-800/80">
+                        <span class="text-zinc-500 dark:text-zinc-400">Lifetime VN</span>
+                        <span class="font-mono font-bold text-zinc-900 dark:text-white">149.000₫</span>
+                    </div>
+                    <div class="flex items-center justify-between py-1">
+                        <span class="text-zinc-500 dark:text-zinc-400">Ad-Free</span>
+                        <span class="font-mono font-bold text-emerald-500">Zero Ads Forever</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <section class="mt-16 pt-10 border-t border-zinc-200 dark:border-zinc-800/80">
+            <h4 class="font-display font-bold text-sm text-zinc-900 dark:text-white uppercase tracking-wider mb-4">
                     Related Reading
                 </h4>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -321,29 +452,46 @@
                         </div>
                     </a>
                 </div>
-            </div>
-        </footer>
+            </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-950 py-10 text-xs text-zinc-500 transition-colors duration-300 mt-12">
-        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>© 2026 Key Launcher. ADHD & Mindful Technology Research.</div>
-            <div class="flex items-center gap-4">
-                <a href="/" class="hover:text-zinc-900 dark:hover:text-zinc-300">Home</a>
-                <a href="/blog" class="hover:text-zinc-900 dark:hover:text-zinc-300">Blog</a>
-                <a href="/activate" class="hover:text-zinc-900 dark:hover:text-zinc-300">Activate License</a>
-                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-300">Help</a>
+        <!-- Footer (Consistent max-w-6xl across all pages) -->
+    <footer class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100 dark:bg-zinc-950 py-12 text-xs text-zinc-500 transition-colors duration-300 mt-14">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left gap-1">
+                <div class="flex items-center gap-2">
+                    <span class="font-display font-bold text-zinc-900 dark:text-white tracking-tight">Key Launcher</span>
+                </div>
+                <p class="mt-1 text-[11px] text-zinc-400 dark:text-zinc-600">© 2026 Lousify Tech. All rights reserved.</p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-5 sm:gap-6 font-medium">
+                <a href="/" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Home</a>
+                <a href="/blog" class="text-brand-500 dark:text-brand-400 font-semibold transition-colors">Blog</a>
+                <a href="/activate" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Activate License</a>
+                <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Help</a>
+                <a href="/tos" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Terms of Service</a>
+                <a href="/privacy-policy" class="hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">Privacy Policy</a>
             </div>
         </div>
     </footer>
 
-    <!-- Theme script -->
+    <!-- Theme & Menu Scripts -->
     <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
         const themeBtn = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         function updateThemeIcon(isDark) {
-            if (themeIcon) themeIcon.className = isDark ? 'ph-bold ph-sun text-[18px]' : 'ph-bold ph-moon text-[18px]';
+            if (themeIcon) {
+                themeIcon.className = isDark ? 'ph-bold ph-sun text-[18px]' : 'ph-bold ph-moon text-[18px]';
+            }
         }
         updateThemeIcon(document.documentElement.classList.contains('dark'));
         if (themeBtn) {

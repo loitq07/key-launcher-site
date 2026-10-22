@@ -56,7 +56,7 @@
 
     <!-- Header -->
     <header class="sticky top-0 z-50 w-full border-b border-zinc-800/80 bg-black/80 backdrop-blur-md">
-        <div class="max-w-4xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
             <a href="/" class="flex items-center gap-2.5 group">
                 <img src="assets/logo_key_launcher.png" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105">
                 <span class="font-bold tracking-tight text-white text-base">Key Launcher</span>
@@ -87,10 +87,7 @@
         <!-- Case 1: Checking Payment Status (PayOS / VietQR) -->
         <section id="state-loading" class="hidden text-center py-12">
             <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 mb-6 text-amber-400 animate-pulse">
-                <svg class="w-8 h-8 animate-spin" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
-                </svg>
+                <i class="ph-bold ph-spinner animate-spin text-3xl"></i>
             </div>
             <h1 class="text-2xl sm:text-3xl font-extrabold text-white mb-2">
                 <span lang-content="vi">Đang xác nhận thanh toán VietQR...</span>
@@ -107,7 +104,7 @@
         <section id="state-key-ready" class="hidden">
             <div class="text-center mb-8">
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-3">
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 -960 960 960"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+                    <i class="ph-bold ph-check-circle text-sm"></i>
                     <span lang-content="vi">Bản quyền Ngoại tuyến Hợp lệ</span>
                     <span lang-content="en">Valid Cryptographic License</span>
                 </div>
@@ -125,7 +122,7 @@
             <div class="bg-zinc-950/90 border border-zinc-800 rounded-2xl p-6 mb-6 shadow-2xl relative overflow-hidden backdrop-blur-sm">
                 <div class="flex items-center justify-between text-xs text-zinc-400 border-b border-zinc-800/80 pb-3 mb-4">
                     <span class="flex items-center gap-1.5 font-medium text-zinc-300">
-                        <svg class="w-4 h-4 text-amber-400 fill-current" viewBox="0 -960 960 960"><path d="M280-400q-33 0-56.5-23.5T200-480q0-33 23.5-56.5T280-560q33 0 56.5 23.5T360-480q0 33-23.5 56.5T280-400Zm0 160q-100 0-170-70T40-480q0-100 70-170t170-70q67 0 121.5 33t86.5 87h352l120 120-180 180-80-80-60 60-60-60-40 40h-82q-32 54-86.5 87T280-240Z"/></svg>
+                        <i class="ph-bold ph-key text-amber-400 text-sm"></i>
                         <span id="license-email" class="font-mono text-zinc-200"></span>
                     </span>
                     <span id="license-plan-badge" class="px-2 py-0.5 rounded bg-amber-400/10 text-amber-300 font-semibold text-[11px] border border-amber-400/30">LIFETIME</span>
@@ -142,13 +139,13 @@
                 <!-- 1-Tap CTA Button -->
                 <div class="flex flex-col sm:flex-row gap-3">
                     <a id="btn-deeplink" href="#" class="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold text-sm tracking-wide shadow-lg shadow-amber-500/20 active:scale-98 transition-all">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 -960 960 960"><path d="m422-232 207-248H469l29-224-207 248h160l-29 224ZM320-80l40-280H160l360-520h80l-40 320h240L440-80h-120Z"/></svg>
+                        <i class="ph-bold ph-lightning text-lg"></i>
                         <span lang-content="vi">Kích hoạt 1 chạm trên Key Launcher</span>
                         <span lang-content="en">1-Tap Activate on Key Launcher</span>
                     </a>
 
                     <button id="btn-copy-key" onclick="copyKeyToClipboard()" class="flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-750 text-zinc-200 font-semibold text-sm active:scale-98 transition-all">
-                        <svg id="copy-icon" class="w-4 h-4 fill-current" viewBox="0 -960 960 960"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Z"/></svg>
+                        <i id="copy-icon" class="ph-bold ph-copy text-sm"></i>
                         <span id="copy-text">
                             <span lang-content="vi">Sao chép mã</span>
                             <span lang-content="en">Copy Key</span>
@@ -160,7 +157,7 @@
             <!-- Activation Instructions Guide -->
             <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6">
                 <h2 class="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                    <svg class="w-4 h-4 text-amber-400 fill-current" viewBox="0 -960 960 960"><path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>
+                    <i class="ph-bold ph-info text-amber-400 text-sm"></i>
                     <span lang-content="vi">Hướng dẫn kích hoạt thủ công</span>
                     <span lang-content="en">Manual Activation Instructions</span>
                 </h2>
@@ -252,7 +249,7 @@
 
                         <a href="https://keylauncher.lemonsqueezy.com/buy/key-launcher-pro" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white font-bold text-xs transition-colors text-center flex items-center justify-center gap-1.5">
                             <span>Pay with Card / PayPal</span>
-                            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 -960 960 960"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+                            <i class="ph-bold ph-arrow-up-right text-xs"></i>
                         </a>
                     </div>
                 </div>
@@ -263,7 +260,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-zinc-900 bg-black/60 py-8 text-center text-xs text-zinc-500">
-        <div class="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p>&copy; 2026 Key Launcher. All rights reserved.</p>
             <div class="flex items-center gap-4">
                 <a href="/privacy-policy" class="hover:text-zinc-300 transition-colors">Chính sách bảo mật</a>
