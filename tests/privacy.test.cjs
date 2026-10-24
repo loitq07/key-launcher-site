@@ -34,7 +34,7 @@ test('privacy policy explains broad contacts access and keeps address-book data 
     assert.match(policy, /real-time T9 search across your complete address book/);
     assert.match(policy, /Android Contact Picker only returns individual contacts/);
     assert.match(policy, /DO NOT<\/strong> upload, sync, share, or use address-book data for advertising/);
-    assert.match(policy, /Updated: Oct 13, 2026/);
+    assert.match(policy, /Updated: Oct 24, 2026/);
 });
 
 test('privacy policy does not retain obsolete local-only or no-sharing claims', () => {

@@ -117,8 +117,8 @@
             <div class="flex items-center gap-3">
                 <!-- Updated date -->
                 <span class="hidden md:block text-[11px] font-mono text-zinc-400 dark:text-zinc-600">
-                    <span lang-content="vi">Cập nhật: 13/10/2026</span>
-                    <span lang-content="en">Updated: Oct 13, 2026</span>
+                    <span lang-content="vi">Cập nhật: 24/10/2026</span>
+                    <span lang-content="en">Updated: Oct 24, 2026</span>
                 </span>
 
                 <!-- Language toggle -->
@@ -278,8 +278,8 @@
                     <div class="mt-5 flex items-start gap-3 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-xl p-4">
                         <span class="material-symbols-outlined !text-[18px] text-emerald-500 mt-0.5 shrink-0">shield</span>
                         <p class="text-sm text-zinc-700 dark:text-zinc-300">
-                            <span lang-content="vi">Danh bạ, lịch, nội dung thông báo, truy vấn tìm kiếm T9 và bố cục launcher được xử lý trên thiết bị. Các tính năng trực tuyến và đo lường truyền những loại dữ liệu được mô tả bên dưới. Phiên bản hiện tại không hiển thị quảng cáo của bên thứ ba.</span>
-                            <span lang-content="en">Contacts, calendar entries, notification content, T9 search queries, and launcher layouts are processed on-device. Online and measurement features transmit the data types described below. The current release does not display third-party ads.</span>
+                            <span lang-content="vi">Danh bạ, lịch, nội dung thông báo và bố cục launcher được xử lý trên thiết bị. Khi nguồn tìm kiếm Internet bật, nội dung đang nhập vào ô tìm kiếm cũng được gửi tới Google để lấy gợi ý. Các tính năng trực tuyến và đo lường truyền những loại dữ liệu được mô tả bên dưới. Phiên bản hiện tại không hiển thị quảng cáo của bên thứ ba.</span>
+                            <span lang-content="en">Contacts, calendar entries, notification content, and launcher layouts are processed on-device. When the Internet search source is enabled, text entered in the search field is also sent to Google for suggestions. Online and measurement features transmit the data types described below. The current release does not display third-party ads.</span>
                         </p>
                     </div>
                 </section>
@@ -367,6 +367,27 @@
                                     <span lang-content="en">OpenWeatherMap, Open-Meteo, and WAQI receive coordinates (when you enable weather and grant permission) and an IP address to return weather/air-quality data.</span>
                                 </p>
                             </div>
+                        </div>
+                        <div class="p-4 rounded-xl border border-zinc-100 dark:border-zinc-800/60 bg-zinc-50 dark:bg-zinc-900/40">
+                            <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-200"><span lang-content="vi">Gợi ý tìm kiếm (Google)</span><span lang-content="en">Search suggestions (Google)</span></p>
+                            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                <span lang-content="vi">Nguồn tìm kiếm Internet được bật mặc định và có thể tắt trong Cài đặt tìm kiếm. Khi bật, nội dung đang nhập được gửi qua HTTPS tới dịch vụ gợi ý Google Search và Google Play cùng ngôn ngữ/khu vực của thiết bị; dịch vụ cũng nhận địa chỉ IP. Điều này có thể xảy ra cả khi bạn đang tìm app hoặc liên hệ cục bộ. Tắt nguồn Internet sẽ dừng các yêu cầu gợi ý này. Dữ liệu danh bạ và danh sách app vẫn được đối chiếu trên thiết bị; chúng tôi không gửi toàn bộ danh bạ hay danh sách app tới dịch vụ gợi ý. Google xử lý dữ liệu theo <a class="underline hover:text-brand-500" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Chính sách quyền riêng tư của Google</a>.</span>
+                                <span lang-content="en">The Internet search source is enabled by default and can be disabled in Search settings. While enabled, text entered in the search field is sent over HTTPS to Google Search and Google Play autocomplete, together with the device language/region; these services also receive an IP address. This can happen while you are looking for a local app or contact. Disabling the Internet source stops these suggestion requests. Contacts and installed apps are matched on-device; we do not send your full address book or app list to the suggestion services. Google processes this data under the <a class="underline hover:text-brand-500" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>.</span>
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-xl border border-zinc-100 dark:border-zinc-800/60 bg-zinc-50 dark:bg-zinc-900/40">
+                            <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-200"><span lang-content="vi">Đọc tin, dịch và đọc thành tiếng</span><span lang-content="en">News reader, translation and read aloud</span></p>
+                            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                <span lang-content="vi">Khi tải nguồn tin, ảnh hoặc bài viết, website cung cấp nội dung nhận yêu cầu truy cập và địa chỉ IP của bạn. Dịch trên thiết bị bằng ML Kit là lựa chọn mặc định: nội dung bài viết được dịch tại máy, còn mô hình ngôn ngữ có thể cần tải xuống; Google nhận thông tin thiết bị/cài đặt, sự kiện sử dụng và chẩn đoán của SDK. Nếu bạn chọn dịch trực tuyến bằng Google Translate, Google Cloud Translation hoặc Gemini, nội dung bài viết và ngôn ngữ dịch được gửi tới Google; API key do bạn cung cấp chỉ được gửi tới dịch vụ Google tương ứng. Nếu bạn chọn giọng đọc Microsoft Edge trực tuyến, văn bản cần đọc được gửi tới Microsoft để tạo âm thanh. Giọng đọc hệ thống được xử lý bởi bộ máy giọng nói bạn chọn và có thể dùng mạng tùy giọng. Các tính năng dịch/đọc chỉ chạy khi bạn sử dụng chúng. Xem <a class="underline hover:text-brand-500" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">chính sách Google</a> và <a class="underline hover:text-brand-500" href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer">chính sách Microsoft</a>.</span>
+                                <span lang-content="en">When feeds, images or articles are loaded, the content website receives the requested address and your IP address. On-device translation with ML Kit is the default: article text is translated on-device, while language models may need downloading; Google receives device/installation information, SDK usage events and diagnostics. If you select online translation with Google Translate, Google Cloud Translation or Gemini, article text and translation languages are sent to Google; an API key you supply is sent only to the corresponding Google service. If you select online Microsoft Edge voices, text to be read is sent to Microsoft to generate speech. System voices are handled by your selected speech engine and may use a network depending on the voice. Translation/read-aloud features run when you use them. See the <a class="underline hover:text-brand-500" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google policy</a> and <a class="underline hover:text-brand-500" href="https://privacy.microsoft.com/privacystatement" target="_blank" rel="noopener noreferrer">Microsoft policy</a>.</span>
+                            </p>
+                        </div>
+                        <div class="p-4 rounded-xl border border-zinc-100 dark:border-zinc-800/60 bg-zinc-50 dark:bg-zinc-900/40">
+                            <p class="text-sm font-semibold text-zinc-800 dark:text-zinc-200"><span lang-content="vi">Lời bài hát (LRCLIB)</span><span lang-content="en">Lyrics (LRCLIB)</span></p>
+                            <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                                <span lang-content="vi">Tính năng lời bài hát tắt mặc định. Khi bật, ứng dụng gửi tên bài hát, nghệ sĩ và thời lượng (nếu có) từ phiên phát nhạc tới LRCLIB qua HTTPS để tìm lời; LRCLIB cũng nhận địa chỉ IP. Ứng dụng không tải tệp âm thanh hoặc nội dung thông báo khác lên LRCLIB. Bạn có thể tắt tính năng lời bài hát để dừng các yêu cầu này.</span>
+                                <span lang-content="en">Lyrics are disabled by default. When enabled, the App sends the current track title, artist and duration (when available) from the media session to LRCLIB over HTTPS to find lyrics; LRCLIB also receives your IP address. The App does not upload audio files or other notification content to LRCLIB. You can disable lyrics to stop these requests.</span>
+                            </p>
                         </div>
                     </div>
                 </section>
