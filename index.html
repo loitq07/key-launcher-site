@@ -7,14 +7,14 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/favicon.png">
-    
+
     <!-- Primary SEO Meta Tags -->
     <title>Key Launcher — T9 & QWERTY Focus Launcher for Android</title>
     <meta name="title" content="Key Launcher — T9 & QWERTY Focus Launcher for Android">
     <meta name="description" content="Find apps with T9 or QWERTY, try Swipe Typing (Beta), and focus with a Pomodoro desk clock. Free core features, no ads, and optional Pro upgrades.">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="canonical" href="https://www.keylauncher.app/">
-    
+
     <!-- Google Search Site Name & App Structured Data -->
     <script type="application/ld+json">
 {
@@ -146,7 +146,7 @@
     ]
 }
     </script>
-    
+
     <!-- Open Graph / Facebook / Twitter -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.keylauncher.app/">
@@ -161,23 +161,23 @@
     <link rel="preload" href="assets/hero_1.webp" as="image" type="image/webp">
     <link rel="preload" href="assets/google_play_badge.png" as="image" type="image/png">
     <link rel="preload" href="config.js" as="script">
-    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="css/style.css?v=20261025-shared-nav" as="style">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=20261025-shared-nav">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap">
-    
+
     <!-- Google Material Symbols Outlined -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
     <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
     <noscript>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
     </noscript>
-    
+
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 
@@ -304,7 +304,7 @@
     </script>
 
 
-    
+
     <style>
         /* Custom styles */
         .glass-panel {
@@ -337,7 +337,7 @@
             background-color: rgba(251, 188, 6, 0.25);
             color: inherit;
         }
-        
+
         /* Adjust Material Symbols alignment */
         .material-symbols-outlined {
             display: inline-flex;
@@ -354,8 +354,8 @@
             top: 50%;
             border-radius: 28px;
             overflow: hidden;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
-                        opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                        opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
                         filter 0.6s ease;
             transform-origin: 50% 120%;
             cursor: pointer;
@@ -368,7 +368,7 @@
         .dark .carousel-card {
             /* no shadow */
         }
-        
+
         /* Highlight active card with brightness */
         .carousel-card.active-card {
             filter: brightness(1.02);
@@ -376,7 +376,7 @@
         .dark .carousel-card.active-card {
             filter: brightness(1.05);
         }
-        
+
         /* Slightly dim non-active cards */
         .carousel-card:not(.active-card) {
             filter: brightness(0.9) contrast(0.95);
@@ -384,7 +384,7 @@
         .dark .carousel-card:not(.active-card) {
             filter: brightness(0.7) contrast(0.9);
         }
-        
+
         /* Hover effects for non-active cards */
         .carousel-card:not(.active-card):hover {
             filter: brightness(0.95) contrast(0.98);
@@ -400,7 +400,7 @@
     </script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
-<body class="bg-zinc-50 dark:bg-[#030014] text-zinc-800 dark:text-zinc-100 font-sans selection:bg-brand-500/20 overflow-x-hidden antialiased transition-colors duration-300 pt-16 lg:pt-0">
+<body class="bg-zinc-50 dark:bg-[#030014] text-zinc-800 dark:text-zinc-100 font-sans selection:bg-brand-500/20 overflow-x-hidden antialiased transition-colors duration-300">
 
     <!-- Radial Glowing Background Elements -->
     <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full pointer-events-none -z-10 overflow-hidden opacity-0 dark:opacity-100 transition-opacity duration-300">
@@ -409,119 +409,59 @@
     </div>
 
     <!-- Navigation Header -->
-    <header class="fixed lg:sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/80 dark:bg-zinc-950/70 backdrop-blur-md transition duration-300">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-2 group">
-                <img id="nav-logo" src="" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105 hidden" width="32" height="32">
-                <div id="nav-logo-fallback" class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center font-display font-bold text-white text-lg transition-transform group-hover:scale-105">
-                    K
+    <!-- SITE_NAVIGATION_START -->
+<header id="site-navigation" data-page-kind="home" data-locale="en" class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+        <a href="/?lang=en" data-nav-home class="flex items-center gap-2.5 group shrink-0">
+            <img src="/assets/logo_key_launcher.png" alt="Key Launcher" width="32" height="32" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105">
+            <span class="font-display font-bold tracking-tight text-zinc-900 dark:text-white leading-none">Key Launcher</span>
+        </a>
+        <nav aria-label="Main navigation" class="hidden lg:flex items-center gap-5 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+            <a href="/?lang=en#features" data-nav-link="features" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="features">Features</span></a>
+<a href="/?lang=en#compare" data-nav-link="compare" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="compare">Compare</span></a>
+<a href="/?lang=en#pricing" data-nav-link="pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="pricing">Pricing</span></a>
+<a href="/blog" data-nav-link="blog" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="blog">Blog</span></a>
+            <details id="nav-more" class="site-nav-more relative group">
+                <summary class="flex items-center gap-1 py-2 cursor-pointer hover:text-zinc-900 dark:hover:text-white">
+                    <span data-nav-label="more">More</span>
+                    <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <div class="absolute left-0 top-full w-48 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl py-2">
+                    <a href="/?lang=en#press" data-nav-link="press" class="block px-4 py-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"><span data-nav-label="press">Press</span></a>
+<a href="/?lang=en#testimonials" data-nav-link="testimonials" class="block px-4 py-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"><span data-nav-label="testimonials">Reviews</span></a>
+<a href="/?lang=en#faq" data-nav-link="faq" class="block px-4 py-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"><span data-nav-label="faq">FAQ</span></a>
+<a href="/activate?lang=en" data-nav-link="activate" class="block px-4 py-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"><span data-nav-label="activate">Activate license</span></a>
                 </div>
-                <div class="flex flex-col">
-                    <span class="font-display font-bold tracking-tight text-zinc-900 dark:text-white leading-none">Key Launcher</span>
-                    <!-- <span id="nav-creator" class="text-[9px] text-zinc-400 dark:text-zinc-500 font-mono tracking-wider">BY LOUSIFY TECH</span> -->
-                </div>
-            </a>
-
-            <!-- Menu links (Desktop) -->
-            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
-                <a href="#features" id="nav-link-features" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Features</a>
-                <a href="#compare" id="nav-link-compare" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Compare</a>
-                <a href="#pricing" id="nav-link-pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Pricing</a>
-                <a href="/blog" id="nav-link-blog" class="hidden hover:text-zinc-900 dark:hover:text-white transition-colors items-center gap-1.5">
-                    <span>Blog</span>
-                    <span class="px-1.5 py-0.2 text-[10px] font-semibold uppercase tracking-wider rounded bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-500/20">New</span>
-                </a>
-                
-                <!-- More Dropdown (Press, Reviews, FAQ) -->
-                <div class="relative group">
-                    <button id="nav-link-more" class="flex items-center gap-1 hover:text-zinc-900 dark:hover:text-white transition-colors py-2 cursor-pointer focus:outline-none">
-                        <span>More</span>
-                        <i class="ph-bold ph-caret-down text-[12px] transition-transform group-hover:rotate-180"></i>
-                    </button>
-                    <div class="absolute left-0 mt-0 pt-2 w-44 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl py-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-150 z-50">
-                        <a href="#press" id="nav-link-press" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Press</a>
-                        <a href="#testimonials" id="nav-link-testimonials" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">Reviews</a>
-                        <a href="#faq" id="nav-link-faq" class="flex items-center gap-2 px-4 py-2 text-xs font-medium text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800/60 transition-colors">FAQ</a>
-                    </div>
-                </div>
-
-                <a href="https://www.keylauncher.app/help" id="nav-link-help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors">Help</a>
-
-                <!-- Activate Badge Link -->
-                <a href="/activate" id="nav-link-activate" class="hidden items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-colors">
-                    <i class="ph-bold ph-key text-[13px] text-amber-500"></i>
-                    <span>Activate</span>
-                </a>
-            </nav>
-
-            <!-- Actions and Theme Toggle -->
-            <div class="flex items-center gap-2 sm:gap-3">
-                <label for="language-select" class="sr-only">Language</label>
-                <div class="relative">
-                    <span class="material-symbols-outlined !text-[17px] absolute left-2 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none">language</span>
-                    <select id="language-select" class="h-9 w-[72px] sm:w-[132px] appearance-none rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 pl-7 pr-5 text-xs font-semibold text-zinc-700 dark:text-zinc-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500/40">
-                        <option value="en">English</option>
-                        <option value="vi">Tiếng Việt</option>
-                        <option value="es">Español</option>
-                        <option value="pt-BR">Português (BR)</option>
-                        <option value="id">Bahasa Indonesia</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                    </select>
-                    <span class="material-symbols-outlined !text-[15px] absolute right-1 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none">expand_more</span>
-                </div>
-                <!-- Theme Switcher Button -->
-                <button id="theme-toggle" class="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all duration-200" aria-label="Toggle Theme">
-                    <span id="theme-icon" class="flex items-center justify-center w-[18px] h-[18px] shrink-0"></span>
-                </button>
-
-                <a href="" id="nav-download-btn" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex h-9 items-center justify-center px-4 rounded-lg text-xs font-semibold bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-pointer active:scale-[0.97] transition-all duration-200 font-display">
-                    Download Free
-                </a>
-                
-                <button class="md:hidden p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white cursor-pointer active:scale-95 transition-all duration-200 flex items-center justify-center" aria-label="Toggle Menu" id="mobile-menu-btn">
-                    <i class="ph-bold ph-list text-[24px]"></i>
-                </button>
-            </div>
+            </details>
+            <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="help">Help</span></a>
+        </nav>
+        <div class="flex items-center gap-2 sm:gap-3">
+            <label for="language-select" class="sr-only" data-nav-label="languageLabel">Language</label>
+            <select id="language-select" aria-label="Language" class="h-9 w-16 sm:w-28 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500/40"><option value="en" selected>English</option><option value="vi">Tiếng Việt</option><option value="es">Español</option><option value="pt-BR">Português (BR)</option><option value="id">Bahasa Indonesia</option><option value="fr">Français</option><option value="de">Deutsch</option></select>
+            <button id="theme-toggle" type="button" aria-label="Toggle Theme" class="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all duration-200">
+                <svg aria-hidden="true" class="hidden dark:block" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+                <svg aria-hidden="true" class="dark:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
+            </button>
+            <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex h-9 items-center justify-center px-4 rounded-lg text-xs font-semibold bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors font-display"><span data-nav-label="downloadText">Download Free</span></a>
+            <button id="mobile-menu-btn" type="button" aria-label="Toggle Menu" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900">
+                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
+    </div>
+    <nav id="mobile-menu" aria-label="Mobile navigation" class="hidden lg:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+        <div class="grid grid-cols-2 gap-2 pb-3 border-b border-zinc-100 dark:border-zinc-800"><a href="/?lang=en#features" data-nav-link="features" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="features">Features</span></a>
+<a href="/?lang=en#compare" data-nav-link="compare" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="compare">Compare</span></a>
+<a href="/?lang=en#pricing" data-nav-link="pricing" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="pricing">Pricing</span></a>
+<a href="/blog" data-nav-link="blog" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="blog">Blog</span></a></div>
+        <div class="flex flex-col gap-1 py-3"><a href="/?lang=en#press" data-nav-link="press" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="press">Press</span></a>
+<a href="/?lang=en#testimonials" data-nav-link="testimonials" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="testimonials">Reviews</span></a>
+<a href="/?lang=en#faq" data-nav-link="faq" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="faq">FAQ</span></a>
+<a href="/activate?lang=en" data-nav-link="activate" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="activate">Activate license</span></a><a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="help">Help</span></a></div>
+        <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full px-4 py-2.5 rounded-lg bg-brand-500 text-black font-display font-bold text-sm"><span data-nav-label="downloadText">Download Free</span></a>
+    </nav>
+</header>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 flex flex-col gap-3 text-sm font-medium text-zinc-600 dark:text-zinc-400">
-            <div class="grid grid-cols-3 gap-2 pb-3 border-b border-zinc-100 dark:border-zinc-800/80">
-                <a href="#features" id="mobile-link-features" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
-                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Features
-                </a>
-                <a href="#compare" id="mobile-link-compare" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
-                    <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Compare
-                </a>
-                <a href="#pricing" id="mobile-link-pricing" class="flex items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Pricing
-                </a>
-                <a href="/blog" id="mobile-link-blog" class="hidden items-center gap-2 p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-zinc-900 dark:hover:text-white transition-colors">
-                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span> Blog <span class="px-1 text-[9px] font-bold uppercase rounded bg-brand-500/20 text-brand-600 dark:text-brand-400">New</span>
-                </a>
-            </div>
-
-            <div class="flex flex-col gap-1 py-1">
-                <a href="/activate" id="mobile-link-activate" class="hidden items-center justify-between px-3 py-2 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 hover:bg-amber-500/20 transition-colors font-semibold">
-                    <span class="flex items-center gap-2">
-                        <i class="ph-bold ph-key text-[16px] text-amber-500"></i>
-                        Activate Offline License
-                    </span>
-                    <span class="text-xs">→</span>
-                </a>
-                <a href="https://www.keylauncher.app/help" id="mobile-link-help" target="_blank" rel="noopener noreferrer" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Help Center</a>
-                <a href="#press" id="mobile-link-press" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Press</a>
-                <a href="#testimonials" id="mobile-link-testimonials" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">Reviews</a>
-                <a href="#faq" id="mobile-link-faq" class="px-3 py-2 hover:text-zinc-900 dark:hover:text-white transition-colors">FAQ</a>
-            </div>
-
-            <a href="" id="mobile-download-btn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full px-4 py-2.5 rounded-lg text-sm font-semibold bg-brand-600 text-white hover:bg-brand-500 cursor-pointer active:scale-[0.98] transition-all duration-200 font-display mt-1">
-                <i class="ph-bold ph-download-simple mr-2 text-[18px]"></i> Get it on Google Play
-            </a>
-        </div>
-    </header>
+<!-- SITE_NAVIGATION_END -->
 
     <!-- Hero Section -->
     <div class="overflow-x-clip">
@@ -531,14 +471,14 @@
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900/80 text-[11px] font-medium tracking-wide text-zinc-500 dark:text-zinc-400 mb-6 uppercase">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> <span id="hero-badge">Key Launcher 2.0</span>
             </div>
-            
+
             <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-zinc-900 dark:text-white leading-[1.1] mb-6">
                 <span id="hero-title-1">Everything starts</span> <br>
                 <span id="hero-title-2" class="text-brand-500 dark:text-brand-400">
                     with a key.
                 </span>
             </h1>
-            
+
             <p id="hero-desc" class="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg max-w-xl leading-relaxed mb-8 mx-auto md:mx-0">
                 Launch apps with T9 or QWERTY, try Swipe Typing (Beta), and make room for focus. Customize your home screen, organize private spaces, and turn your phone into a Pomodoro desk clock.
             </p>
@@ -589,7 +529,7 @@
             <div class="relative w-full flex flex-col items-center justify-center overflow-visible">
                 <!-- Glowing Aura Background behind the deck -->
                 <div class="absolute w-[280px] h-[280px] rounded-full bg-brand-500/10 dark:bg-brand-500/5 blur-[80px] pointer-events-none -z-10"></div>
-                
+
                 <!-- Card Deck Container -->
                 <div id="hero-deck-carousel" class="relative w-[220px] h-[440px] sm:w-[245px] sm:h-[490px] flex items-center justify-center overflow-visible cursor-grab active:cursor-grabbing z-10">
                     <!-- Initial active card for fast LCP -->
@@ -597,19 +537,19 @@
                         <img src="assets/hero_1.webp" alt="Key Launcher Screenshot 1" class="w-full h-auto block pointer-events-none select-none">
                     </div>
                 </div>
-                
+
                 <!-- Desktop Controls (arrows & indicator dots, hidden on mobile) -->
                 <div class="hidden md:flex flex-col items-center gap-4 mt-6 z-20">
                     <div class="flex items-center gap-4">
                         <button id="hero-prev-btn" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800/80 bg-white/90 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 hover:dark:text-white hover:border-zinc-300 hover:dark:border-zinc-700 active:scale-95 transition-all duration-200 cursor-pointer shadow-sm" aria-label="Previous screenshot">
                             <i class="ph-bold ph-caret-left text-sm shrink-0"></i>
                         </button>
-                        
+
                         <!-- Dots indicator -->
                         <div id="hero-carousel-dots" class="flex items-center gap-1.5">
                             <!-- Injected by JS -->
                         </div>
-                        
+
                         <button id="hero-next-btn" class="w-9 h-9 flex items-center justify-center rounded-full border border-zinc-200 dark:border-zinc-800/80 bg-white/90 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 hover:dark:text-white hover:border-zinc-300 hover:dark:border-zinc-700 active:scale-95 transition-all duration-200 cursor-pointer shadow-sm" aria-label="Next screenshot">
                             <i class="ph-bold ph-caret-right text-sm shrink-0"></i>
                         </button>
@@ -633,7 +573,7 @@
                     See what tech journalists and creators are saying about Key Launcher.
                 </p>
             </div>
-            
+
             <div class="flex flex-col gap-12">
                 <!-- Video Showcase -->
                 <div class="w-full max-w-3xl mx-auto flex flex-col">
@@ -740,7 +680,7 @@
     <section id="focus-mode" class="border-t border-zinc-200 dark:border-zinc-900 bg-white dark:bg-zinc-950 py-20 md:py-32 transition-colors duration-300 overflow-hidden relative">
         <!-- Glow Decorative Element -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/10 dark:bg-brand-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
-        
+
         <div class="max-w-6xl mx-auto px-6">
             <!-- Centered Header -->
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -754,7 +694,7 @@
                     Settle into a Pomodoro session with a desk clock, music controls and your agenda. Optional automatic Do Not Disturb uses Android’s priority rules when permission is granted; allowed calls and alerts follow your system settings.
                 </p>
             </div>
-            
+
             <!-- Bullet features list (3-column layout on desktop) -->
             <div id="focus-mode-bullets" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
                 <!-- Loaded dynamically -->
@@ -776,7 +716,7 @@
                     <i class="ph-bold ph-caret-right text-xs"></i>
                 </a>
             </div>
-            
+
             <!-- Large Centered Landscape Video Showcase -->
             <div class="max-w-5xl mx-auto flex justify-center">
                 <video id="focus-mode-video" autoplay loop muted playsinline class="w-full aspect-video block rounded-2xl" width="1024" height="576"></video>
@@ -785,7 +725,7 @@
     </section>
 
     <!-- Transparent Pricing / Pro Version Section -->
-    
+
     <!-- Competitor Comparison Section -->
     <section id="compare" class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-50/50 dark:bg-zinc-950/40 py-20 md:py-28 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4">
@@ -967,7 +907,7 @@
     <section class="max-w-5xl mx-auto px-4 pb-24">
         <div class="p-8 md:p-12 text-center relative overflow-hidden">
             <div class="absolute -top-12 -left-12 w-48 h-48 rounded-full bg-brand-500/5 blur-3xl pointer-events-none"></div>
-            
+
             <h2 id="cta-title" class="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl text-zinc-900 dark:text-white tracking-tight mb-4">
                 Ready to Experience T9 Speed?
             </h2>
@@ -1037,12 +977,13 @@
     </dialog>
 
     <!-- Rendering and Theme Scripts -->
-    <script src="app.js" defer></script>
+    <script src="app.js?v=20261025-shared-nav" defer></script>
     <script src="demo.js" defer></script>
     <!-- Vercel Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
+<script src="/navigation.js?v=20261025-shared-nav" defer></script>
 </body>
 </html>

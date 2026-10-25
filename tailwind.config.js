@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./*.html",
     "./*.js",
+    "./partials/**/*.html",
     "./blog/**/*.html",
     "./blog/**/*.js"
   ],

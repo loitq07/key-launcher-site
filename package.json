@@ -4,7 +4,8 @@
   "description": "Key Launcher Landing Page",
   "scripts": {
     "sitemap": "node scripts/generate-sitemap.cjs",
-    "build": "node scripts/generate-sitemap.cjs && tailwindcss -i ./input.css -o ./css/style.css --minify && node scripts/build.cjs",
+    "build": "node scripts/generate-navigation.cjs && node scripts/generate-sitemap.cjs && tailwindcss -i ./input.css -o ./css/style.css --minify && node scripts/build.cjs",
+    "preview": "node scripts/preview.cjs",
     "test": "node --test"
   },
   "devDependencies": {

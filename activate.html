@@ -16,8 +16,8 @@
     <meta property="og:image" content="https://www.keylauncher.app/assets/og_image.png">
 
     <!-- Stylesheets -->
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preload" href="css/style.css?v=20261025-shared-nav" as="style">
+    <link rel="stylesheet" href="css/style.css?v=20261025-shared-nav">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,31 +55,59 @@
     </div>
 
     <!-- Header -->
-    <header class="sticky top-0 z-50 w-full border-b border-zinc-800/80 bg-black/80 backdrop-blur-md">
-        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
-            <a href="/" class="flex items-center gap-2.5 group">
-                <img src="assets/logo_key_launcher.png" alt="Key Launcher" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105">
-                <span class="font-bold tracking-tight text-white text-base">Key Launcher</span>
-            </a>
-
-            <div class="flex items-center gap-4">
-                <a href="/" class="text-xs text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
-                    <i class="ph-bold ph-arrow-left text-[13px]"></i>
-                    <span lang-content="vi">Trang chủ</span>
-                    <span lang-content="en">Home</span>
-                </a>
-                <a href="/blog" class="text-xs text-zinc-400 hover:text-white transition-colors flex items-center gap-1">
-                    <span>Blog</span>
-                </a>
-
-                <!-- Language toggle -->
-                <div class="flex bg-zinc-900 p-0.5 rounded-lg border border-zinc-800">
-                    <button id="btn-vi" onclick="setLanguage('vi')" class="px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-white bg-zinc-800">VN</button>
-                    <button id="btn-en" onclick="setLanguage('en')" class="px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-zinc-400">EN</button>
+    <!-- SITE_NAVIGATION_START -->
+<header id="site-navigation" data-page-kind="document" data-locale="vi" class="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/80 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+        <a href="/?lang=vi" data-nav-home class="flex items-center gap-2.5 group shrink-0">
+            <img src="/assets/logo_key_launcher.png" alt="Key Launcher" width="32" height="32" class="w-8 h-8 rounded-lg transition-transform group-hover:scale-105">
+            <span class="font-display font-bold tracking-tight text-zinc-900 dark:text-white leading-none">Key Launcher</span>
+        </a>
+        <nav aria-label="Điều hướng chính" class="hidden lg:flex items-center gap-5 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+            <a href="/?lang=vi#features" data-nav-link="features" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="features">Tính năng</span></a>
+<a href="/?lang=vi#compare" data-nav-link="compare" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="compare">So sánh</span></a>
+<a href="/?lang=vi#pricing" data-nav-link="pricing" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="pricing">Bảng giá</span></a>
+<a href="/blog/vi" data-nav-link="blog" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="blog">Blog</span></a>
+            <details id="nav-more" class="site-nav-more relative group">
+                <summary class="flex items-center gap-1 py-2 cursor-pointer hover:text-zinc-900 dark:hover:text-white">
+                    <span data-nav-label="more">Thêm</span>
+                    <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                </summary>
+                <div class="absolute left-0 top-full w-48 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl py-2">
+                    <a href="/?lang=vi#press" data-nav-link="press" class="block px-4 py-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"><span data-nav-label="press">Báo chí</span></a>
+<a href="/?lang=vi#testimonials" data-nav-link="testimonials" class="block px-4 py-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"><span data-nav-label="testimonials">Đánh giá</span></a>
+<a href="/?lang=vi#faq" data-nav-link="faq" class="block px-4 py-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"><span data-nav-label="faq">FAQ</span></a>
+<a href="/activate?lang=vi" data-nav-link="activate" class="block px-4 py-2 text-xs hover:bg-zinc-100 dark:hover:bg-zinc-800"><span data-nav-label="activate">Kích hoạt bản quyền</span></a>
                 </div>
-            </div>
+            </details>
+            <a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900 dark:hover:text-white transition-colors"><span data-nav-label="help">Trợ giúp</span></a>
+        </nav>
+        <div class="flex items-center gap-2 sm:gap-3">
+            <label for="language-select" class="sr-only" data-nav-label="languageLabel">Ngôn ngữ</label>
+            <select id="language-select" aria-label="Ngôn ngữ" class="h-9 w-16 sm:w-28 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-2 text-xs font-semibold text-zinc-700 dark:text-zinc-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500/40"><option value="en">English</option><option value="vi" selected>Tiếng Việt</option></select>
+            <button id="theme-toggle" type="button" aria-label="Đổi giao diện" class="w-9 h-9 flex items-center justify-center rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900 cursor-pointer active:scale-95 transition-all duration-200">
+                <svg aria-hidden="true" class="hidden dark:block" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+                <svg aria-hidden="true" class="dark:hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.5 13A8.5 8.5 0 0 1 11 3.5 8.5 8.5 0 1 0 20.5 13Z"/></svg>
+            </button>
+            <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex h-9 items-center justify-center px-4 rounded-lg text-xs font-semibold bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors font-display"><span data-nav-label="downloadText">Tải Miễn Phí</span></a>
+            <button id="mobile-menu-btn" type="button" aria-label="Mở menu" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-900">
+                <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
-    </header>
+    </div>
+    <nav id="mobile-menu" aria-label="Điều hướng di động" class="hidden lg:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-4 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+        <div class="grid grid-cols-2 gap-2 pb-3 border-b border-zinc-100 dark:border-zinc-800"><a href="/?lang=vi#features" data-nav-link="features" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="features">Tính năng</span></a>
+<a href="/?lang=vi#compare" data-nav-link="compare" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="compare">So sánh</span></a>
+<a href="/?lang=vi#pricing" data-nav-link="pricing" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="pricing">Bảng giá</span></a>
+<a href="/blog/vi" data-nav-link="blog" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="blog">Blog</span></a></div>
+        <div class="flex flex-col gap-1 py-3"><a href="/?lang=vi#press" data-nav-link="press" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="press">Báo chí</span></a>
+<a href="/?lang=vi#testimonials" data-nav-link="testimonials" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="testimonials">Đánh giá</span></a>
+<a href="/?lang=vi#faq" data-nav-link="faq" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="faq">FAQ</span></a>
+<a href="/activate?lang=vi" data-nav-link="activate" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="activate">Kích hoạt bản quyền</span></a><a href="https://www.keylauncher.app/help" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900"><span data-nav-label="help">Trợ giúp</span></a></div>
+        <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full px-4 py-2.5 rounded-lg bg-brand-500 text-black font-display font-bold text-sm"><span data-nav-label="downloadText">Tải Miễn Phí</span></a>
+    </nav>
+</header>
+
+<!-- SITE_NAVIGATION_END -->
 
     <!-- Main Content Area -->
     <main class="max-w-2xl mx-auto px-4 py-12 flex-1 w-full">
@@ -278,12 +306,6 @@
             document.body.classList.remove('lang-vi', 'lang-en');
             document.body.classList.add('lang-' + lang);
             document.documentElement.lang = lang;
-            document.getElementById('btn-vi').className = lang === 'vi' 
-                ? 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-white bg-zinc-800' 
-                : 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-zinc-400';
-            document.getElementById('btn-en').className = lang === 'en' 
-                ? 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-white bg-zinc-800' 
-                : 'px-2.5 py-1 text-xs font-semibold rounded-md transition-all text-zinc-400';
             localStorage.setItem('locale', lang);
         }
 
@@ -446,5 +468,6 @@
             }
         })();
     </script>
+<script src="/navigation.js?v=20261025-shared-nav" defer></script>
 </body>
 </html>
