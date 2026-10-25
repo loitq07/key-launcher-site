@@ -28,12 +28,15 @@ const KEY_LAUNCHER_CONTENT = {
         titleLine2: "with a key.",
         description: "Launch apps with T9 or QWERTY, try Swipe Typing (Beta), and make room for focus. Customize your home screen, organize private spaces, and turn your phone into a Pomodoro desk clock.",
         demoText: "Watch the 2.0 demo",
+        demoEmbedUrl: "https://www.youtube-nocookie.com/embed/eomHRqCAvow",
+        demoTitle: "Key Launcher 2.0 demo",
+        demoCloseText: "Close video",
         demoUrl: "https://youtu.be/eomHRqCAvow",
         playStoreBtnUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
         playStoreBadge: "assets/google_play_badge.png",
         apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download",
-        screenshot: "assets/screenshot_hero.png",
-        screenshots: ["assets/hero_1.webp", "assets/screenshots/3_qwerty.png", "assets/hero_2.webp", "assets/hero_3.webp", "assets/hero_4.webp", "assets/hero_5.webp", "assets/hero_6.webp", "assets/hero_7.webp", "assets/hero_8.webp"],
+        screenshot: "assets/screenshots/home-t9-keyboard.png",
+        screenshots: ["assets/screenshots/home-t9-keyboard.png", "assets/screenshots/3_qwerty.png", "assets/screenshots/7_vault.png", "assets/screenshots/4_glass.png", "assets/screenshots/widget-center.png", "assets/screenshots/5_shortcuts.png", "assets/screenshots/8_focus.png", "assets/screenshots/2_devices.png"],
         rating: {
             stars: 4.7,
             reviewsCount: "100+ reviews",
@@ -103,92 +106,28 @@ const KEY_LAUNCHER_CONTENT = {
         title: "Designed for Speed. Optimized for Focus.",
         subtitle: "Break your smartphone addiction. Simplify your daily workflow with our practical, distraction-free features.",
         items: [
-            {
-                icon: "bolt",
-                title: "Ultra-Fast T9 Search",
-                description: "Find apps with a few keystrokes.",
-                footerLabel: "AI Suggestions",
-                footerValue: "Self-learning",
-                footerColor: "text-emerald-500",
-                image: "assets/feature_search.png"
-            },
-            {
-                icon: "call",
-                title: "Instant Call",
-                description: "Call, SMS, or Search Instantly.",
-                footerLabel: "Supported integrations",
-                footerValue: "Zalo, WhatsApp, Viber",
-                footerColor: "text-zinc-600 dark:text-zinc-400",
-                image: "assets/feature_call.jpg"
-            },
-            {
-                icon: "play_circle",
-                title: "Live Synced Lyrics",
-                description: "Relax to Music, Right on Your Home Screen.",
-                footerLabel: "Media Engine",
-                footerValue: "Chill Mode",
-                footerColor: "text-brand-500 dark:text-brand-400",
-                image: "assets/feature_lyrics.jpg"
-            },
-            {
-                icon: "widgets",
-                title: "Widget Center",
-                description: "Your Favorite Widgets One Place",
-                footerLabel: "Panel type",
-                footerValue: "Hidden / Anti-Distraction",
-                footerColor: "text-zinc-600 dark:text-zinc-400",
-                image: "assets/feature_widgets.jpg"
-            },
-            {
-                icon: "calendar_today",
-                title: "Calendar & Agenda",
-                description: "Agenda right in your hand",
-                footerLabel: "Agenda",
-                footerValue: "Easy import / export",
-                footerColor: "text-brand-500 dark:text-brand-400",
-                image: "assets/feature_calendar.jpg"
-            },
-            {
-                icon: "hourglass_empty",
-                title: "Pomodoro Focus Timer",
-                description: "Built-In Deep Work Mode.",
-                footerLabel: "Work Ethic",
-                footerValue: "Deep Work Mode",
-                footerColor: "text-brand-500 dark:text-brand-400",
-                image: "assets/feature_pomodoro.jpg"
-            },
-            {
-                icon: "shield",
-                title: "Private Vault",
-                description: "Separate private spaces, each with its own passcode.",
-                footerLabel: "Vault storage",
-                footerValue: "Stored on your device",
-                footerColor: "text-emerald-500",
-                image: "assets/feature_vault.jpg"
-            },
-            {
-                icon: "palette",
-                title: "Material You & Typography",
-                description: "Themes That Feel Uniquely Yours.",
-                footerLabel: "Layout",
-                footerValue: "Monochrome / System colors",
-                footerColor: "text-zinc-600 dark:text-zinc-400",
-                image: "assets/feature_theme.jpg"
-            }
+            { id: "search", title: "T9 & QWERTY Search", description: "Find your apps with a few digits or letters. Choose Standard, BlackBerry, QWERTZ or AZERTY.", image: "assets/screenshots/home-t9-keyboard.png", imageAlt: "T9 & QWERTY Search", badge: "" },
+            { id: "swipe", title: "Swipe Typing", description: "Glide across T9 or QWERTY keys to search. Swipe Typing is in Beta and matching may vary by language.", image: "assets/screenshots/3_qwerty.png", imageAlt: "Swipe Typing", badge: "Beta" },
+            { id: "vaults", title: "Multiple Private Vaults", description: "Keep apps, contacts and shortcuts in separate spaces, each with its own passcode. Additional vaults are a Pro feature.", image: "assets/screenshots/7_vault.png", imageAlt: "Multiple Private Vaults", badge: "New in 2.0" },
+            { id: "appearance", title: "Glass & Personalization", description: "Make it yours with frosted Glass keys, Neon Glow, Ripple and 3D Home transitions. Try advanced effects in the Pro trial.", image: "assets/screenshots/4_glass.png", imageAlt: "Glass & Personalization", badge: "New in 2.0" },
+            { id: "widgets", title: "Widget Center & Stack", description: "Keep widgets in a dedicated panel, or swipe through a shared Stack on Home and in Notification Center.", image: "assets/screenshots/widget-center.png", imageAlt: "Widget Center & Stack", badge: "" },
+            { id: "shortcuts", title: "Super Shortcuts", description: "Assign apps, contacts and actions to memorable number or letter keys. Your everyday shortcuts, close at hand.", image: "assets/screenshots/5_shortcuts.png", imageAlt: "Super Shortcuts", badge: "" },
+            { id: "focus", title: "Super Focus", description: "Turn your phone into a desk clock with Pomodoro, music controls and your calendar within reach.", image: "assets/screenshots/8_focus.png", imageAlt: "Super Focus", badge: "" },
+            { id: "devices", title: "Foldables & Physical Keys", description: "Use different keyboards on inner and cover screens, split Home and panels, or search with a physical keyboard.", image: "assets/screenshots/2_devices.png", imageAlt: "Foldables & Physical Keys", badge: "" }
         ]
     },
 
     // Focus Mode Highlight Section
     focusMode: {
         badgeText: "Super Focus",
-        title: "Mute Distractions. <br class=\"hidden sm:inline\">Silence the Noise.",
-        description: "Turn your device into the ultimate desk companion. Key Launcher's Super Focus mode silences all distracting notifications and replaces your standard interface with a minimalist dashboard. Enjoy seamless, zero-distraction access to essential utilities like your music player, calendar, Pomodoro timer, personal photo slideshow, and a classic offline game for quick breaks.",
+        title: "A desk clock. A little more focus.",
+        description: "Settle into a Pomodoro session with a desk clock, music controls and your agenda. Optional automatic Do Not Disturb uses Android’s priority rules when permission is granted; allowed calls and alerts follow your system settings.",
         image: "assets/focus_mode.webm",
         bullets: [
             {
                 icon: "do_not_disturb_on",
-                title: "1-Tap Silent Mode",
-                description: "Instantly mute incoming alerts from all distracting social apps."
+                title: "Optional Do Not Disturb",
+                description: "Enable automatic DND with permission. Android’s allowed calls and alerts still apply."
             },
             {
                 icon: "music_note",
@@ -221,21 +160,21 @@ const KEY_LAUNCHER_CONTENT = {
     // Competitor Comparison Section
     compare: {
         badgeText: "Side-by-Side Comparison",
-        title: "Why Switch to Key Launcher?",
-        subtitle: "Compare Key Launcher with other popular minimalist Android launchers. See why thousands of minimalist phone lovers and power users made the switch.",
+        title: "Choose the approach that fits you",
+        subtitle: "Compare navigation, focus tools and purchase options using each launcher’s official information.",
         featureHeader: "Feature",
-        topBadge: "Top",
+        topBadge: "2.0",
         mobileLabel: "Compare with:",
         mobileHint: "Tap to switch",
         allTab: "All",
         scrollHint: "Swipe horizontally to see all columns",
         rows: [
-            { name: "T9 Keypad Fast Search", desc: "Find apps with a few keystrokes.", keyLauncher: "Yes (Instant)", niagara: "❌ Alphabet scroll", minimalistPhone: "❌ Text list", olauncher: "❌ Text search" },
-            { name: "QWERTY & Swipe Typing", desc: "QWERTY search + Swipe Typing (Beta)", keyLauncher: "Yes (Both)", niagara: "❌", minimalistPhone: "❌", olauncher: "❌" },
-            { name: "Multiple Private Vaults", desc: "Separate vaults with their own passcodes", keyLauncher: "Multiple vaults with Pro", niagara: "Hide app only", minimalistPhone: "App blocker only", olauncher: "Hide app only" },
-            { name: "Super Focus & Ambient Lyrics", desc: "Built-in Pomodoro, desk clock & synced lyrics", keyLauncher: "Built-in", niagara: "❌", minimalistPhone: "❌", olauncher: "❌" },
-            { name: "Search & privacy", desc: "App and contact search on-device; online services disclosed", keyLauncher: "Local search + online features", niagara: "See privacy policy", minimalistPhone: "See privacy policy", olauncher: "See privacy policy" },
-            { name: "Pricing Model", desc: "Fair and sustainable pricing", keyLauncherMain: "Free Core", keyLauncherSub: "Affordable Lifetime Option", niagara: "Annual Subscription", minimalistPhone: "High Subscription ($20+/yr)", olauncher: "Free / Donation" }
+            { name: "App access", desc: "How you reach your apps", keyLauncher: "T9 & QWERTY keypad", niagara: "Wave alphabet", minimalistPhone: "Text-based app list", olauncher: "Text-based home" },
+            { name: "Focus tools", desc: "Different ways to reduce distractions", keyLauncher: "Pomodoro desk clock", niagara: "Usage Breaker (Pro)", minimalistPhone: "App blocking & launch delays", olauncher: "Minimal home screen" },
+            { name: "Customization", desc: "Ways to shape the home screen", keyLauncher: "Glass, fonts & touch effects", niagara: "Themes, icons & fonts (Pro)", minimalistPhone: "Monochrome mode", olauncher: "Text & wallpapers" },
+            { name: "Organization", desc: "Keep useful things within reach", keyLauncher: "Vaults, Widget Center & Stack", niagara: "Pop-up folders & widget stacks (Pro)", minimalistPhone: "Hide apps & notifications", olauncher: "Hide unused apps" },
+            { name: "Privacy details", desc: "Read how each app handles data", keyLauncher: "<a class=\"underline underline-offset-2\" href=\"/privacy-policy\">Local search; see policy</a>", niagara: "<a class=\"underline underline-offset-2\" href=\"https://niagaralauncher.com/privacy-policy/\" target=\"_blank\" rel=\"noopener noreferrer\">See privacy policy</a>", minimalistPhone: "<a class=\"underline underline-offset-2\" href=\"https://www.minimalistphone.com/privacy-policy\" target=\"_blank\" rel=\"noopener noreferrer\">See privacy policy</a>", olauncher: "<a class=\"underline underline-offset-2\" href=\"https://pages.flycricket.io/olauncher/privacy.html\" target=\"_blank\" rel=\"noopener noreferrer\">See privacy policy</a>" },
+            { name: "Pricing model", desc: "Plans and regional prices are shown by each provider", niagara: "Free + yearly / lifetime Pro", minimalistPhone: "Monthly / annual / one-time", olauncher: "Free & open source", keyLauncherMain: "Free core", keyLauncherSub: "Yearly or lifetime Pro" }
         ]
     },
 
@@ -594,30 +533,17 @@ const KEY_LAUNCHER_CONTENT = {
         title: "Frequently Asked Questions",
         subtitle: "Have questions about Key Launcher? Find answers to the most common queries below.",
         items: [
-            {
-                question: "What is a T9 App Launcher?",
-                answer: "A T9 launcher uses a classic 3×4 keypad to filter apps by the letters on each number key. Enter a few digits, then choose the matching app. Key Launcher also offers QWERTY search and Swipe Typing (Beta)."
-            },
-            {
-                question: "Is Key Launcher safe and private?",
-                answer: "App and contact search runs on your device, and Private Vault contents are stored locally. Online features such as web suggestions, weather and lyrics use network services. The app also uses analytics, crash reporting and purchase services. See the Privacy Policy for details."
-            },
-            {
-                question: "Does Key Launcher support custom icon packs and wallpapers?",
-                answer: "Yes. Key Launcher provides full support for custom icon packs, system colors, and various typography choices. You can customize the look of individual icons, set auto-wallpaper changes, and use your favorite fonts. Some advanced visual customizations are part of the optional PRO plan."
-            },
-            {
-                question: "Will Key Launcher drain my battery?",
-                answer: "Battery use depends on your setup. An always-on Focus clock, live widgets, weather refresh and other active features can increase power use. Adjust these features in Settings to suit your device."
-            },
-            {
-                question: "What messaging and calling integrations are supported?",
-                answer: "The launcher supports instant dialing and messaging. By typing contacts or numbers, you can directly launch phone calls, SMS, or open chat apps like WhatsApp, Zalo, and Viber to contact people instantly without navigating through different contact lists."
-            },
-            {
-                question: "Can I try the PRO features before purchasing?",
-                answer: "Yes. You can try Pro features in the app before upgrading. Check the app for your trial duration and terms; existing installations may keep earlier trial terms. Pro is available as a yearly subscription or a lifetime purchase."
-            }
+            { question: "What is a T9 App Launcher?", answer: "A T9 launcher uses a classic 3×4 keypad to filter apps by the letters on each number key. Enter a few digits, then choose the matching app. Key Launcher also offers QWERTY search and Swipe Typing (Beta)." },
+            { question: "Is Key Launcher safe and private?", answer: "App and contact search runs on your device, and Private Vault contents are stored locally. Online features such as web suggestions, weather and lyrics use network services. The app also uses analytics, crash reporting and purchase services. See the Privacy Policy for details." },
+            { question: "Does Key Launcher support custom icon packs and wallpapers?", answer: "Yes. Key Launcher provides full support for custom icon packs, system colors, and various typography choices. You can customize the look of individual icons, set auto-wallpaper changes, and use your favorite fonts. Some advanced visual customizations are part of the optional PRO plan." },
+            { question: "Will Key Launcher drain my battery?", answer: "Battery use depends on your setup. An always-on Focus clock, live widgets, weather refresh and other active features can increase power use. Adjust these features in Settings to suit your device." },
+            { question: "What messaging and calling integrations are supported?", answer: "The launcher supports instant dialing and messaging. By typing contacts or numbers, you can directly launch phone calls, SMS, or open chat apps like WhatsApp, Zalo, and Viber to contact people instantly without navigating through different contact lists." },
+            { question: "Can I try the PRO features before purchasing?", answer: "Yes. You can try Pro features in the app before upgrading. Check the app for your trial duration and terms; existing installations may keep earlier trial terms. Pro is available as a yearly subscription or a lifetime purchase." },
+            { question: "How do I switch between T9 and QWERTY?", answer: "Open Settings → Keyboard → Keyboard type. Choose T9 or QWERTY; QWERTY also offers Standard, BlackBerry, QWERTZ and AZERTY layouts. Both use the same app search engine." },
+            { question: "Is Swipe Typing ready to use?", answer: "Swipe Typing is available in Beta on T9 and QWERTY. Glide across the keys to search; accuracy depends on the selected input language and query. You can continue using ordinary taps whenever you prefer." },
+            { question: "How do Multiple Private Vaults work?", answer: "Create separate vaults for apps, contacts and shortcuts, each with its own passcode. Free includes one vault item; additional vaults and unlimited items are available with Pro or the in-app trial. Vaults hide items inside the launcher; they do not encrypt another app’s data or create a separate Android profile." },
+            { question: "What is the difference between Widget Center and Widget Stack?", answer: "Widget Center is a dedicated panel for arranging widgets: Free includes 3 per Center. Widget Stack lets you swipe between widgets in the Home or Notification Center area: Free includes 2, with up to 4 on Pro or during the trial." },
+            { question: "Which features need an internet connection?", answer: "Local app and contact search works without a connection. Web suggestions, RSS, online weather, lyrics lookup and online reader tools need network access. Analytics, crash reporting and purchase services also use the network; see the Privacy Policy for details." }
         ]
     },
 

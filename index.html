@@ -100,6 +100,46 @@
                         "@type": "Answer",
                         "text": "Yes. You can try Pro features in the app before upgrading. Check the app for your trial duration and terms; existing installations may keep earlier trial terms. Pro is available as a yearly subscription or a lifetime purchase."
                     }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I switch between T9 and QWERTY?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Open Settings → Keyboard → Keyboard type. Choose T9 or QWERTY; QWERTY also offers Standard, BlackBerry, QWERTZ and AZERTY layouts. Both use the same app search engine."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is Swipe Typing ready to use?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Swipe Typing is available in Beta on T9 and QWERTY. Glide across the keys to search; accuracy depends on the selected input language and query. You can continue using ordinary taps whenever you prefer."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do Multiple Private Vaults work?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Create separate vaults for apps, contacts and shortcuts, each with its own passcode. Free includes one vault item; additional vaults and unlimited items are available with Pro or the in-app trial. Vaults hide items inside the launcher; they do not encrypt another app’s data or create a separate Android profile."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is the difference between Widget Center and Widget Stack?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Widget Center is a dedicated panel for arranging widgets: Free includes 3 per Center. Widget Stack lets you swipe between widgets in the Home or Notification Center area: Free includes 2, with up to 4 on Pro or during the trial."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Which features need an internet connection?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Local app and contact search works without a connection. Web suggestions, RSS, online weather, lyrics lookup and online reader tools need network access. Analytics, crash reporting and purchase services also use the network; see the Privacy Policy for details."
+                    }
                 }
             ]
         }
@@ -118,7 +158,7 @@
     <meta name="twitter:image" content="https://www.keylauncher.app/assets/og-image.jpg">
 
     <!-- Preloads for speed/LCP -->
-    <link rel="preload" href="assets/hero_1.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/screenshots/home-t9-keyboard.png" as="image" type="image/png">
     <link rel="preload" href="assets/google_play_badge.png" as="image" type="image/png">
     <link rel="preload" href="config.js" as="script">
     <link rel="preload" href="css/style.css" as="style">
@@ -508,9 +548,9 @@
                 <a href="https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free" id="hero-playstore-link" target="_blank" rel="noopener noreferrer" class="inline-block transform hover:-translate-y-0.5 active:scale-95 cursor-pointer transition-all duration-200">
                     <img id="hero-playstore-badge-img" src="assets/google_play_badge.png" alt="Get it on Google Play" class="h-[52px]" width="173" height="52">
                 </a>
-                <a id="hero-demo-link" href="https://youtu.be/eomHRqCAvow" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-4 h-[52px] rounded-xl border border-zinc-300 dark:border-zinc-700 text-sm font-semibold text-zinc-800 dark:text-zinc-200 hover:border-brand-500 transition-colors">
+                <button id="hero-demo-link" type="button" aria-haspopup="dialog" aria-controls="demo-dialog" class="inline-flex items-center justify-center gap-2 px-4 h-[52px] rounded-xl border border-zinc-300 dark:border-zinc-700 text-sm font-semibold text-zinc-800 dark:text-zinc-200 hover:border-brand-500 transition-colors">
                     <i class="ph-bold ph-play-circle text-xl" aria-hidden="true"></i><span id="hero-demo-text">Watch the 2.0 demo</span>
-                </a>
+                </button>
                 <a href="https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download" id="hero-apk-download-link" target="_blank" rel="noopener noreferrer" class="hidden items-center gap-3 px-4 h-[52px] rounded-xl font-medium text-xs text-zinc-900 dark:text-white bg-white/80 dark:bg-zinc-900/80 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800/80 shadow-sm transform hover:-translate-y-0.5 active:scale-95 transition-all duration-200 group">
                     <div class="w-8 h-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform">
                         <i class="ph-bold ph-android-logo text-base"></i>
@@ -554,7 +594,7 @@
                 <div id="hero-deck-carousel" class="relative w-[220px] h-[440px] sm:w-[245px] sm:h-[490px] flex items-center justify-center overflow-visible cursor-grab active:cursor-grabbing z-10">
                     <!-- Initial active card for fast LCP -->
                     <div class="carousel-card active-card" data-card-index="0" style="z-index: 30; opacity: 1; pointer-events: auto; transform: translateX(0px) translateY(-50%) scale(1) rotate(0deg); position: absolute; width: 100%; height: auto; top: 50%; border-radius: 28px; overflow: hidden;">
-                        <img src="assets/hero_1.webp" alt="Key Launcher Screenshot 1" class="w-full h-auto block pointer-events-none select-none">
+                        <img src="assets/screenshots/home-t9-keyboard.png" alt="Key Launcher Screenshot 1" class="w-full h-auto block pointer-events-none select-none">
                     </div>
                 </div>
                 
@@ -708,10 +748,10 @@
                     Super Focus
                 </span>
                 <h2 id="focus-mode-title" class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-zinc-900 dark:text-white tracking-tight leading-tight mb-6">
-                    Mute Distractions. Silence the Noise.
+                    A desk clock. A little more focus.
                 </h2>
                 <p id="focus-mode-desc" class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
-                    Turn your device into the ultimate desk companion. Key Launcher's Super Focus mode silences all distracting notifications and replaces your standard interface with a minimalist dashboard. Enjoy seamless, zero-distraction access to essential utilities like your music player, calendar, Pomodoro timer, personal photo slideshow, and a classic offline game for quick breaks.
+                    Settle into a Pomodoro session with a desk clock, music controls and your agenda. Optional automatic Do Not Disturb uses Android’s priority rules when permission is granted; allowed calls and alerts follow your system settings.
                 </p>
             </div>
             
@@ -751,12 +791,8 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center max-w-3xl mx-auto mb-14">
                 <span id="compare-badge" class="text-[11px] font-mono tracking-widest text-brand-500 dark:text-brand-400 uppercase font-semibold">Side-by-Side Comparison</span>
-                <h2 id="compare-title" class="font-display font-extrabold text-3xl sm:text-4xl text-zinc-900 dark:text-white tracking-tight mt-2 mb-4">
-                    Why Switch to Key Launcher?
-                </h2>
-                <p id="compare-subtitle" class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">
-                    Compare Key Launcher with other popular minimalist Android launchers. See why thousands of minimalist phone lovers and power users made the switch.
-                </p>
+                <h2 id="compare-title" class="font-display font-extrabold text-3xl sm:text-4xl text-zinc-900 dark:text-white tracking-tight mt-2 mb-4">Choose the approach that fits you</h2>
+                <p id="compare-subtitle" class="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed">Compare navigation, focus tools and purchase options using each launcher’s official information.</p>
             </div>
 
             <!-- Mobile Competitor Selector (Hidden on desktop md:hidden) -->
@@ -794,7 +830,7 @@
                                             <img src="assets/logo_key_launcher.png" alt="Key Launcher" class="w-4 h-4 sm:w-5 sm:h-5 rounded shadow-xs shrink-0 object-contain">
                                             <span class="truncate">Key Launcher</span>
                                         </div>
-                                        <span id="compare-top-badge" class="px-1.5 py-0.5 text-[8px] sm:text-[10px] uppercase font-mono font-bold tracking-wider rounded bg-brand-500 text-white leading-none">Top</span>
+                                        <span id="compare-top-badge" class="px-1.5 py-0.5 text-[8px] sm:text-[10px] uppercase font-mono font-bold tracking-wider rounded bg-brand-500 text-white leading-none">2.0</span>
                                     </div>
                                 </th>
                                 <th class="compare-col-niagara px-1 sm:px-5 py-2 sm:py-5 text-center w-[28%] md:w-[18%] align-middle">
@@ -818,134 +854,18 @@
                             </tr>
                         </thead>
                         <tbody id="compare-table-body" class="divide-y divide-zinc-200 dark:divide-zinc-800/80">
-                            <!-- Row 1: Search -->
-                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
-                                    <div>T9 Keypad Fast Search</div>
-                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Find apps with a few keystrokes.</div>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
-                                    <span class="inline-flex items-center gap-1">
-                                        <i class="ph-bold ph-check text-sm shrink-0"></i>
-                                        Yes (Instant)
-                                    </span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
-                                    <span class="text-xs">❌ Alphabet scroll</span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
-                                    <span class="text-xs">❌ Text list</span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
-                                    <span class="text-xs">❌ Text search</span>
-                                </td>
-                            </tr>
-
-                            <!-- Row 2: QWERTY Swipe Typing -->
-                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
-                                    <div>QWERTY &amp; Swipe Typing</div>
-                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">QWERTY search + Swipe Typing (Beta)</div>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
-                                    <span class="inline-flex items-center gap-1">
-                                        <i class="ph-bold ph-check text-sm shrink-0"></i>
-                                        Yes (Both)
-                                    </span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
-                            </tr>
-
-                            <!-- Row 3: Private Vaults -->
-                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
-                                    <div>Multiple Private Vaults</div>
-                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Separate vaults with their own passcodes</div>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
-                                    <span class="inline-flex items-center gap-1">
-                                        <i class="ph-bold ph-check text-sm shrink-0"></i>
-                                        Multiple vaults with Pro
-                                    </span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
-                                    <span class="text-xs">Hide app only</span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
-                                    <span class="text-xs">App blocker only</span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
-                                    <span class="text-xs">Hide app only</span>
-                                </td>
-                            </tr>
-
-                            <!-- Row 4: Focus Mode & Ambient Utilities -->
-                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
-                                    <div>Super Focus &amp; Ambient Lyrics</div>
-                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Built-in Pomodoro, desk clock &amp; synced lyrics</div>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
-                                    <span class="inline-flex items-center gap-1">
-                                        <i class="ph-bold ph-check text-sm shrink-0"></i>
-                                        Built-in
-                                    </span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-400 dark:text-zinc-600">❌</td>
-                            </tr>
-
-                            <!-- Row 5: Privacy -->
-                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
-                                    <div>Search &amp; privacy</div>
-                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">App and contact search on-device; online services disclosed</div>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-semibold text-emerald-600 dark:text-emerald-400">
-                                    <span class="inline-flex items-center gap-1">
-                                        <i class="ph-bold ph-check text-sm shrink-0"></i>
-                                        Local search + online features
-                                    </span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
-                                    <span class="text-xs">See privacy policy</span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-500 dark:text-zinc-400">
-                                    <span class="text-xs">See privacy policy</span>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-emerald-600 dark:text-emerald-400">
-                                    <span class="text-xs">See privacy policy</span>
-                                </td>
-                            </tr>
-
-                            <!-- Row 6: Pricing -->
-                            <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
-                                <td class="p-4 sm:p-5 font-medium text-zinc-900 dark:text-white">
-                                    <div>Pricing Model</div>
-                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Fair and sustainable pricing</div>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-x border-brand-500/20 font-bold text-zinc-900 dark:text-white">
-                                    <div class="text-emerald-600 dark:text-emerald-400">Free Core</div>
-                                    <div class="text-[11px] text-zinc-500 dark:text-zinc-400 font-normal">Affordable Lifetime Option</div>
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs">
-                                    Annual Subscription
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs">
-                                    High Subscription ($20+/yr)
-                                </td>
-                                <td class="p-4 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs">
-                                    Free / Donation
-                                </td>
-                            </tr>
+                            <tr><td class="p-2.5 sm:p-5"><div class="font-semibold">App access</div><div class="text-xs text-zinc-500">How you reach your apps</div></td><td class="p-2 sm:p-5 text-center bg-brand-500/5">T9 & QWERTY keypad</td><td class="compare-col-niagara p-2 sm:p-5 text-center">Wave alphabet</td><td class="compare-col-minimalistPhone hidden md:table-cell p-2 sm:p-5 text-center">Text-based app list</td><td class="compare-col-olauncher hidden md:table-cell p-2 sm:p-5 text-center">Text-based home</td></tr>
+                            <tr><td class="p-2.5 sm:p-5"><div class="font-semibold">Focus tools</div><div class="text-xs text-zinc-500">Different ways to reduce distractions</div></td><td class="p-2 sm:p-5 text-center bg-brand-500/5">Pomodoro desk clock</td><td class="compare-col-niagara p-2 sm:p-5 text-center">Usage Breaker (Pro)</td><td class="compare-col-minimalistPhone hidden md:table-cell p-2 sm:p-5 text-center">App blocking & launch delays</td><td class="compare-col-olauncher hidden md:table-cell p-2 sm:p-5 text-center">Minimal home screen</td></tr>
+                            <tr><td class="p-2.5 sm:p-5"><div class="font-semibold">Customization</div><div class="text-xs text-zinc-500">Ways to shape the home screen</div></td><td class="p-2 sm:p-5 text-center bg-brand-500/5">Glass, fonts & touch effects</td><td class="compare-col-niagara p-2 sm:p-5 text-center">Themes, icons & fonts (Pro)</td><td class="compare-col-minimalistPhone hidden md:table-cell p-2 sm:p-5 text-center">Monochrome mode</td><td class="compare-col-olauncher hidden md:table-cell p-2 sm:p-5 text-center">Text & wallpapers</td></tr>
+                            <tr><td class="p-2.5 sm:p-5"><div class="font-semibold">Organization</div><div class="text-xs text-zinc-500">Keep useful things within reach</div></td><td class="p-2 sm:p-5 text-center bg-brand-500/5">Vaults, Widget Center & Stack</td><td class="compare-col-niagara p-2 sm:p-5 text-center">Pop-up folders & widget stacks (Pro)</td><td class="compare-col-minimalistPhone hidden md:table-cell p-2 sm:p-5 text-center">Hide apps & notifications</td><td class="compare-col-olauncher hidden md:table-cell p-2 sm:p-5 text-center">Hide unused apps</td></tr>
+                            <tr><td class="p-2.5 sm:p-5"><div class="font-semibold">Privacy details</div><div class="text-xs text-zinc-500">Read how each app handles data</div></td><td class="p-2 sm:p-5 text-center bg-brand-500/5"><a class="underline underline-offset-2" href="/privacy-policy">Local search; see policy</a></td><td class="compare-col-niagara p-2 sm:p-5 text-center"><a class="underline underline-offset-2" href="https://niagaralauncher.com/privacy-policy/" target="_blank" rel="noopener noreferrer">See privacy policy</a></td><td class="compare-col-minimalistPhone hidden md:table-cell p-2 sm:p-5 text-center"><a class="underline underline-offset-2" href="https://www.minimalistphone.com/privacy-policy" target="_blank" rel="noopener noreferrer">See privacy policy</a></td><td class="compare-col-olauncher hidden md:table-cell p-2 sm:p-5 text-center"><a class="underline underline-offset-2" href="https://pages.flycricket.io/olauncher/privacy.html" target="_blank" rel="noopener noreferrer">See privacy policy</a></td></tr>
+                            <tr><td class="p-2.5 sm:p-5"><div class="font-semibold">Pricing model</div><div class="text-xs text-zinc-500">Plans and regional prices are shown by each provider</div></td><td class="p-2 sm:p-5 text-center bg-brand-500/5">Free core<br>Yearly or lifetime Pro</td><td class="compare-col-niagara p-2 sm:p-5 text-center">Free + yearly / lifetime Pro</td><td class="compare-col-minimalistPhone hidden md:table-cell p-2 sm:p-5 text-center">Monthly / annual / one-time</td><td class="compare-col-olauncher hidden md:table-cell p-2 sm:p-5 text-center">Free & open source</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        <div id="compare-sources" class="max-w-6xl mx-auto px-4 mt-6 text-xs leading-relaxed text-zinc-500 dark:text-zinc-400"><span data-source-label>Official sources</span>: <a class="underline" href="https://niagaralauncher.com/" target="_blank" rel="noopener noreferrer">Niagara</a> · <a class="underline" href="https://www.minimalistphone.com/android" target="_blank" rel="noopener noreferrer">minimalist phone</a> · <a class="underline" href="https://faq.minimalistphone.com/en/category/android-minimalist-phone-sw8wdb/" target="_blank" rel="noopener noreferrer">minimalist phone FAQ</a> · <a class="underline" href="https://github.com/tanujnotes/Olauncher" target="_blank" rel="noopener noreferrer">Olauncher</a><p data-source-note>Checked 25 Oct 2026. Features and prices can change; check the provider for your region.</p></div>
     </section>
 
     <section id="pricing" class="border-t border-zinc-200 dark:border-zinc-900 bg-zinc-100/30 dark:bg-zinc-950/20 py-20 md:py-32 transition-colors duration-300">
@@ -1108,8 +1028,17 @@
         </div>
     </footer>
 
+    <dialog id="demo-dialog" class="demo-dialog bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 shadow-2xl" aria-labelledby="demo-dialog-title">
+        <div class="flex items-center justify-between gap-4 p-4 border-b border-zinc-200 dark:border-zinc-800">
+            <h2 id="demo-dialog-title" class="font-display font-bold text-base">Key Launcher 2.0 demo</h2>
+            <button id="demo-close" type="button" autofocus class="w-10 h-10 shrink-0 rounded-full flex items-center justify-center hover:bg-zinc-100 dark:hover:bg-zinc-800" aria-label="Close video"><i class="ph-bold ph-x text-xl" aria-hidden="true"></i></button>
+        </div>
+        <div id="demo-video-container" class="aspect-[9/16] w-full bg-black"></div>
+    </dialog>
+
     <!-- Rendering and Theme Scripts -->
     <script src="app.js" defer></script>
+    <script src="demo.js" defer></script>
     <!-- Vercel Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };

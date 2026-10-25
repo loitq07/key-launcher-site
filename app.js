@@ -130,7 +130,6 @@ function renderContent() {
     document.getElementById('hero-title-1').innerText = data.hero.titleLine1;
     document.getElementById('hero-title-2').innerText = data.hero.titleLine2;
     document.getElementById('hero-desc').innerText = data.hero.description;
-    document.getElementById('hero-demo-link').href = data.hero.demoUrl;
     document.getElementById('hero-demo-text').innerText = data.hero.demoText;
     
     const heroPlayLink = document.getElementById('hero-playstore-link');
@@ -495,29 +494,21 @@ function renderContent() {
     `).join('');
 
     // ── Features Section ──────────────────────────────────────────────
-    function buildFeatureCard(item) {
-        const hasBg = item.image && item.image.trim() !== '';
+    function buildFeatureCard(item, mobile = false) {
+        const escape = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
         return `
-        <div class="feature-card snap-start shrink-0 rounded-3xl overflow-hidden relative shadow-xl group
-                    ${hasBg ? '' : 'bg-zinc-100 dark:bg-zinc-900'}"
-             style="width: 340px; height: 560px; flex-shrink: 0;">
-            ${hasBg ? `
-                <img src="${item.image}" alt="${item.title}"
-                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]">
-            ` : `
-                <div class="absolute inset-0 bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900"></div>
-            `}
-            <div class="absolute top-0 left-0 right-0 p-7 z-10">
-                <span class="text-[10px] font-mono uppercase tracking-widest mb-3 block
-                            ${hasBg ? 'text-white/55' : 'text-zinc-400 dark:text-zinc-500'}">
-                    ${item.title}
-                </span>
-                <h3 class="font-display font-extrabold text-2xl leading-snug
-                           ${hasBg ? 'text-white' : 'text-zinc-900 dark:text-white'}">
-                    ${item.description}
-                </h3>
+        <article class="feature-card ${mobile ? 'feature-card-mobile' : ''} snap-start shrink-0 rounded-3xl overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 flex flex-col" data-feature="${item.id}">
+            <div class="feature-card-visual bg-black flex-1 min-h-0 overflow-hidden">
+                <img src="${item.image}" alt="${escape(item.imageAlt)}" loading="lazy" decoding="async" class="w-full h-full object-contain">
             </div>
-        </div>`;
+            <div class="p-5">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                    <h3 class="font-display font-bold text-base text-zinc-900 dark:text-white">${escape(item.title)}</h3>
+                    ${item.badge ? `<span class="rounded-full bg-brand-500/15 text-brand-600 dark:text-brand-400 px-2 py-1 text-[10px] font-semibold">${escape(item.badge)}</span>` : ''}
+                </div>
+                <p class="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">${escape(item.description)}</p>
+            </div>
+        </article>`;
     }
 
     // ── Mobile: inject cards, hide desktop section via inline style ──
@@ -535,31 +526,7 @@ function renderContent() {
     if (featuresScrollHint) featuresScrollHint.innerText = data.ui?.scrollToExplore || 'Scroll to explore';
     const mobileCarousel = document.getElementById('features-carousel');
     if (mobileCarousel) {
-        // Mobile card width = 75vw so the next card peeks
-        mobileCarousel.innerHTML = data.features.items.map(item => {
-            const hasBg = item.image && item.image.trim() !== '';
-            return `
-            <div class="feature-card snap-start shrink-0 rounded-3xl overflow-hidden shadow-xl group
-                        ${hasBg ? 'bg-white dark:bg-zinc-900' : 'bg-zinc-100 dark:bg-zinc-900'}"
-                 style="width: 75vw;">
-                ${hasBg ? `
-                    <div class="w-full overflow-hidden aspect-[4/5] relative">
-                        <img src="${item.image}" alt="${item.title}"
-                             class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                ` : `
-                    <div class="w-full bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900 aspect-[4/5]"></div>
-                `}
-                <div class="p-4">
-                    <span class="text-[10px] font-mono uppercase tracking-widest mb-1.5 block text-zinc-400 dark:text-zinc-500">
-                        ${item.title}
-                    </span>
-                    <h3 class="font-display font-extrabold text-base leading-snug text-zinc-900 dark:text-white">
-                        ${item.description}
-                    </h3>
-                </div>
-            </div>`;
-        }).join('');
+        mobileCarousel.innerHTML = data.features.items.map(item => buildFeatureCard(item, true)).join('');
     }
 
     // ── Mobile paging dots ────────────────────────────────────────────
@@ -748,7 +715,6 @@ function renderContent() {
 
             compareTableBody.innerHTML = data.compare.rows.map((row, idx) => {
                 const isPricingRow = idx === data.compare.rows.length - 1 && row.keyLauncherMain;
-                const isOfflineRow = idx === 4;
 
                 let keyColHtml = '';
                 if (isPricingRow) {
@@ -759,7 +725,6 @@ function renderContent() {
                 } else {
                     keyColHtml = `
                         <span class="inline-flex items-center gap-1 text-xs sm:text-sm">
-                            <i class="ph-bold ph-check text-xs sm:text-sm shrink-0"></i>
                             ${row.keyLauncher}
                         </span>
                     `;
@@ -773,9 +738,7 @@ function renderContent() {
                     ? 'p-2 sm:p-5 text-center text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm'
                     : 'p-2 sm:p-5 text-center text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm';
 
-                const olauncherClass = isOfflineRow
-                    ? 'p-2 sm:p-5 text-center text-emerald-600 dark:text-emerald-400 text-xs sm:text-sm font-medium'
-                    : competitorClass;
+                const olauncherClass = competitorClass;
 
                 return `
                     <tr class="hover:bg-zinc-50/50 dark:hover:bg-zinc-800/20 transition-colors">
@@ -783,7 +746,7 @@ function renderContent() {
                             <div class="font-semibold text-xs sm:text-sm leading-snug">${row.name}</div>
                             <div class="text-[10px] sm:text-[11px] text-zinc-500 dark:text-zinc-400 font-normal leading-normal mt-0.5">${row.desc}</div>
                         </td>
-                        <td class="px-1.5 sm:px-5 py-2 sm:py-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-r border-brand-500/20 w-[37%] md:w-[22%] align-middle ${isPricingRow ? 'font-bold text-zinc-900 dark:text-white' : 'font-semibold text-emerald-600 dark:text-emerald-400'}">
+                        <td class="px-1.5 sm:px-5 py-2 sm:py-5 text-center bg-brand-500/5 dark:bg-brand-500/10 border-r border-brand-500/20 w-[37%] md:w-[22%] align-middle ${isPricingRow ? 'font-bold text-zinc-900 dark:text-white' : 'font-semibold text-zinc-800 dark:text-zinc-200'}">
                             ${keyColHtml}
                         </td>
                         <td class="${competitorClass} ${niagaraVisible ? 'table-cell' : 'hidden'} md:table-cell w-[28%] md:w-[18%] align-middle">
@@ -941,6 +904,12 @@ function renderContent() {
                 /* keep the placeholder; the Play Store shows the real price */
             })
             .finally(() => clearTimeout(timeout));
+    }
+
+    const compareSources = document.getElementById('compare-sources');
+    if (compareSources) {
+        compareSources.querySelector('[data-source-label]').textContent = data.compare.sourcesLabel;
+        compareSources.querySelector('[data-source-note]').textContent = data.compare.sourceNote;
     }
 
     // Pricing Grid

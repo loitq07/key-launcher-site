@@ -14,6 +14,7 @@ const publicFiles = [
     'robots.txt',
     'sitemap.xml',
     'app.js',
+    'demo.js',
     'config.js',
     'i18n.js',
     'review-translations.js',

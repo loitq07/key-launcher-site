@@ -43,7 +43,7 @@ test('every language offered by the selector has a complete core translation', (
         assert.ok(content.navigation.features);
         assert.equal(content.features.items.length, 8);
         assert.equal(content.focusMode.bullets.length, 6);
-        assert.equal(content.faq.items.length, 6);
+        assert.equal(content.faq.items.length, 11);
         if (locale === 'en') {
             assert.equal(content.translationNote, undefined);
         } else {
@@ -68,9 +68,9 @@ test('browser locale is used on the first visit and unsupported locales fall bac
 test('Vietnamese pricing includes localized plans, comparison table, and regional notes', () => {
     const content = loadLocale('vi').KEY_LAUNCHER_CONTENT;
     assert.equal(content.navigation.compare, 'So sánh');
-    assert.equal(content.compare.title, 'Tại sao nên chọn Key Launcher?');
+    assert.equal(content.compare.title, 'Chọn cách dùng phù hợp với bạn');
     assert.equal(content.compare.rows.length, 6);
-    assert.equal(content.compare.rows[0].name, 'Tìm kiếm T9 siêu nhanh');
+    assert.equal(content.compare.rows[0].name, 'Mở ứng dụng');
     assert.equal(content.ui.apkTitle, 'Tải file APK');
     assert.equal(content.ui.featuredOn, 'Nổi bật trên');
     assert.equal(content.pricing.plans[0].features[0].name, "Tìm kiếm T9 & QWERTY và vuốt để tìm (Beta)");
@@ -85,8 +85,8 @@ test('all supported non-English locales have complete localized competitor compa
     const expectations = {
         vi: {
             navCompare: 'So sánh',
-            compareTitle: 'Tại sao nên chọn Key Launcher?',
-            firstRow: 'Tìm kiếm T9 siêu nhanh',
+            compareTitle: 'Chọn cách dùng phù hợp với bạn',
+            firstRow: 'Mở ứng dụng',
             mobileLabel: 'So sánh với:',
             allTab: 'Tất cả',
             categoryCore: 'Cốt lõi',
@@ -95,8 +95,8 @@ test('all supported non-English locales have complete localized competitor compa
         },
         es: {
             navCompare: 'Comparar',
-            compareTitle: '¿Por qué elegir Key Launcher?',
-            firstRow: 'Búsqueda T9 rápida',
+            compareTitle: 'Elige el enfoque que mejor te encaje',
+            firstRow: 'Acceso a apps',
             mobileLabel: 'Comparar con:',
             allTab: 'Todos',
             categoryCore: 'Básico',
@@ -105,8 +105,8 @@ test('all supported non-English locales have complete localized competitor compa
         },
         'pt-BR': {
             navCompare: 'Comparar',
-            compareTitle: 'Por que mudar para o Key Launcher?',
-            firstRow: 'Busca T9 rápida',
+            compareTitle: 'Escolha a abordagem ideal para você',
+            firstRow: 'Acesso aos apps',
             mobileLabel: 'Comparar com:',
             allTab: 'Todos',
             categoryCore: 'Principal',
@@ -115,8 +115,8 @@ test('all supported non-English locales have complete localized competitor compa
         },
         id: {
             navCompare: 'Bandingkan',
-            compareTitle: 'Mengapa Beralih ke Key Launcher?',
-            firstRow: 'Pencarian T9 Cepat',
+            compareTitle: 'Pilih cara yang cocok untuk Anda',
+            firstRow: 'Akses aplikasi',
             mobileLabel: 'Bandingkan dengan:',
             allTab: 'Semua',
             categoryCore: 'Inti',
@@ -125,8 +125,8 @@ test('all supported non-English locales have complete localized competitor compa
         },
         fr: {
             navCompare: 'Comparer',
-            compareTitle: 'Pourquoi choisir Key Launcher ?',
-            firstRow: 'Recherche T9 rapide',
+            compareTitle: 'Choisissez l’approche qui vous convient',
+            firstRow: 'Accès aux apps',
             mobileLabel: 'Comparer avec :',
             allTab: 'Tous',
             categoryCore: 'Essentiel',
@@ -135,8 +135,8 @@ test('all supported non-English locales have complete localized competitor compa
         },
         de: {
             navCompare: 'Vergleich',
-            compareTitle: 'Warum zu Key Launcher wechseln?',
-            firstRow: 'Schnelle T9-Suche',
+            compareTitle: 'Wähle den passenden Ansatz',
+            firstRow: 'App-Zugriff',
             mobileLabel: 'Vergleichen mit:',
             allTab: 'Alle',
             categoryCore: 'Kernfunktionen',
