@@ -36,7 +36,7 @@ const KEY_LAUNCHER_CONTENT = {
         playStoreBadge: "assets/google_play_badge.png",
         apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download",
         screenshot: "assets/screenshot_hero.png",
-        screenshots: ["assets/hero_1.webp","assets/screenshots/3_qwerty.png","assets/hero_2.webp","assets/hero_3.webp","assets/hero_4.webp","assets/hero_5.webp","assets/hero_6.webp","assets/hero_7.webp","assets/hero_8.webp"],
+        screenshots: ["assets/hero_1.webp","assets/hero_2.webp","assets/hero_3.webp","assets/hero_4.webp","assets/hero_5.webp","assets/hero_6.webp","assets/hero_7.webp","assets/hero_8.webp"],
         rating: {
             stars: 4.7,
             reviewsCount: "100+ reviews",
@@ -106,11 +106,11 @@ const KEY_LAUNCHER_CONTENT = {
         title: "Designed for Speed. Optimized for Focus.",
         subtitle: "Break your smartphone addiction. Simplify your daily workflow with our practical, distraction-free features.",
         items: [
-            { id: "search", title: "T9 & QWERTY Search", description: "Find your apps with a few digits or letters. Choose Standard, BlackBerry, QWERTZ or AZERTY.", image: "assets/screenshots/home-t9-keyboard.png", imageAlt: "T9 & QWERTY Search", badge: "" },
+            { id: "search", title: "T9 & QWERTY Search", description: "Find your apps with a few digits or letters. Choose Standard, BlackBerry, QWERTZ or AZERTY.", image: "assets/screenshots/1_t9.png", imageAlt: "T9 & QWERTY Search", badge: "" },
             { id: "swipe", title: "Swipe Typing", description: "Glide across T9 or QWERTY keys to search. Swipe Typing is in Beta and matching may vary by language.", image: "assets/screenshots/3_qwerty.png", imageAlt: "Swipe Typing", badge: "Beta" },
             { id: "vaults", title: "Multiple Private Vaults", description: "Keep apps, contacts and shortcuts in separate spaces, each with its own passcode. Additional vaults are a Pro feature.", image: "assets/screenshots/7_vault.png", imageAlt: "Multiple Private Vaults", badge: "New in 2.0" },
             { id: "appearance", title: "Glass & Personalization", description: "Make it yours with frosted Glass keys, Neon Glow, Ripple and 3D Home transitions. Try advanced effects in the Pro trial.", image: "assets/screenshots/4_glass.png", imageAlt: "Glass & Personalization", badge: "New in 2.0" },
-            { id: "widgets", title: "Widget Center & Stack", description: "Keep widgets in a dedicated panel, or swipe through a shared Stack on Home and in Notification Center.", image: "assets/screenshots/widget-center.png", imageAlt: "Widget Center & Stack", badge: "" },
+            { id: "widgets", title: "Widget Center & Stack", description: "Keep widgets in a dedicated panel, or swipe through a shared Stack on Home and in Notification Center.", image: "assets/screenshots/6_widgets.png", imageAlt: "Widget Center & Stack", badge: "" },
             { id: "shortcuts", title: "Super Shortcuts", description: "Assign apps, contacts and actions to memorable number or letter keys. Your everyday shortcuts, close at hand.", image: "assets/screenshots/5_shortcuts.png", imageAlt: "Super Shortcuts", badge: "" },
             { id: "focus", title: "Super Focus", description: "Turn your phone into a desk clock with Pomodoro, music controls and your calendar within reach.", image: "assets/screenshots/8_focus.png", imageAlt: "Super Focus", badge: "" },
             { id: "devices", title: "Foldables & Physical Keys", description: "Use different keyboards on inner and cover screens, split Home and panels, or search with a physical keyboard.", image: "assets/screenshots/2_devices.png", imageAlt: "Foldables & Physical Keys", badge: "" }
