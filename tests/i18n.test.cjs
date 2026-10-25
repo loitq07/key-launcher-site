@@ -225,3 +225,23 @@ test('user reviews use upright text for long-form readability', () => {
     assert.match(app, /text-xs sm:text-sm leading-relaxed mb-6/);
     assert.doesNotMatch(app, /text-xs sm:text-sm leading-relaxed italic mb-6/);
 });
+
+
+test('feature screenshots follow the selected language and use English when a translated set is unavailable', () => {
+    const expectedNames = {
+        search: '1_t9.png', devices: '2_devices.png', swipe: '3_qwerty.png',
+        appearance: '4_glass.png', shortcuts: '5_shortcuts.png', widgets: '6_widgets.png',
+        vaults: '7_vault.png', focus: '8_focus.png'
+    };
+    for (const locale of ['en', 'vi', 'pt-BR', 'id', 'es', 'fr', 'de', 'xx']) {
+        const items = loadLocale(locale).KEY_LAUNCHER_CONTENT.features.items;
+        const directory = ['vi', 'pt-BR', 'id'].includes(locale) ? locale + '/' : '';
+        assert.equal(new Set(items.map(item => item.image)).size, 8);
+        for (const item of items) {
+            assert.equal(item.image, 'assets/screenshots/' + directory + expectedNames[item.id], locale + ': ' + item.id);
+            assert.ok(fs.existsSync(path.join(root, item.image)), item.image);
+        }
+    }
+    assert.equal(loadLocale(null, 'vi-VN').KEY_LAUNCHER_CONTENT.features.items[0].image, 'assets/screenshots/vi/1_t9.png');
+    assert.equal(loadLocale('en', 'vi-VN').KEY_LAUNCHER_CONTENT.features.items[0].image, 'assets/screenshots/1_t9.png');
+});

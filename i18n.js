@@ -703,6 +703,16 @@
     }
 
     applyTranslation(translations[locale]);
+
+    // Reuse the eight 2.0 listing screenshots in the selected language.
+    // Languages without a complete translated set keep the English originals.
+    const screenshotLocales = { vi: 'vi', 'pt-BR': 'pt-BR', id: 'id' };
+    const screenshotLocale = screenshotLocales[locale];
+    if (screenshotLocale) {
+        KEY_LAUNCHER_CONTENT.features.items.forEach(item => {
+            item.image = item.image.replace('assets/screenshots/', `assets/screenshots/${screenshotLocale}/`);
+        });
+    }
     const demoLabels = {"en":"Watch the 2.0 demo","vi":"Xem demo phiên bản 2.0","es":"Ver la demo de la versión 2.0","pt-BR":"Ver a demonstração da versão 2.0","id":"Tonton demo versi 2.0","fr":"Voir la démo de la version 2.0","de":"Demo zur Version 2.0 ansehen"};
     KEY_LAUNCHER_CONTENT.hero.demoText = demoLabels[locale];
 
