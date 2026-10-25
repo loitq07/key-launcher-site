@@ -73,8 +73,8 @@ test('Vietnamese pricing includes localized plans, comparison table, and regiona
     assert.equal(content.compare.rows[0].name, 'Tìm kiếm T9 siêu nhanh');
     assert.equal(content.ui.apkTitle, 'Tải file APK');
     assert.equal(content.ui.featuredOn, 'Nổi bật trên');
-    assert.equal(content.pricing.plans[0].features[0].name, 'Tìm kiếm T9 siêu nhanh (hỗ trợ dấu tiếng Việt)');
-    assert.equal(content.pricing.plans[1].features[0].name, 'Không giới hạn mục ghim và widget');
+    assert.equal(content.pricing.plans[0].features[0].name, "Tìm kiếm T9 & QWERTY và vuốt để tìm (Beta)");
+    assert.equal(content.pricing.plans[1].features[0].name, "Không giới hạn mục ghim và widget trong Widget Center; tối đa 4 widget trong Stack");
     assert.equal(content.pricing.comparison.categories[0].nameEn, 'Cốt lõi');
     assert.equal(content.pricing.comparison.categories[0].features[1].free, '8 mục');
     assert.equal(content.pricing.showAllLabel, 'Hiển thị tất cả tính năng');

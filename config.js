@@ -23,34 +23,23 @@ const KEY_LAUNCHER_CONTENT = {
 
     // Hero Section
     hero: {
-        badgeText: "Latest release",
-        titleLine1: "Two Taps.",
-        titleLine2: "Launch Apps.",
-        description: "Stop wasting time searching through cluttered screens and getting drawn into social notifications. Key Launcher replaces your standard app grid with a classic T9 keyboard. Press 1-3 number keys, and your app instantly appears. The ultimate tool for digital detox.",
+        badgeText: "Key Launcher 2.0",
+        titleLine1: "Everything starts",
+        titleLine2: "with a key.",
+        description: "Launch apps with T9 or QWERTY, try Swipe Typing (Beta), and make room for focus. Customize your home screen, organize private spaces, and turn your phone into a Pomodoro desk clock.",
+        demoText: "Watch the 2.0 demo",
+        demoUrl: "https://youtu.be/eomHRqCAvow",
         playStoreBtnUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
         playStoreBadge: "assets/google_play_badge.png",
         apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download",
         screenshot: "assets/screenshot_hero.png",
-        screenshots: [
-            "assets/hero_1.webp",
-            "assets/hero_2.webp",
-            "assets/hero_3.webp",
-            "assets/hero_4.webp",
-            "assets/hero_5.webp",
-            "assets/hero_6.webp",
-            "assets/hero_7.webp",
-            "assets/hero_8.webp"
-        ],
+        screenshots: ["assets/hero_1.webp", "assets/screenshots/3_qwerty.png", "assets/hero_2.webp", "assets/hero_3.webp", "assets/hero_4.webp", "assets/hero_5.webp", "assets/hero_6.webp", "assets/hero_7.webp", "assets/hero_8.webp"],
         rating: {
             stars: 4.7,
             reviewsCount: "100+ reviews",
             label: "4.7/5 on Google Play"
         },
-        valueProps: [
-            "Free Core Features",
-            "100% Ad-Free",
-            "Offline Privacy"
-        ]
+        valueProps: ["T9 & QWERTY search", "Swipe Typing (Beta)", "Free core · Ad-free"]
     },
 
     // Media Coverage / Press & Videos
@@ -117,7 +106,7 @@ const KEY_LAUNCHER_CONTENT = {
             {
                 icon: "bolt",
                 title: "Ultra-Fast T9 Search",
-                description: "Launch Any App in Two Taps.",
+                description: "Find apps with a few keystrokes.",
                 footerLabel: "AI Suggestions",
                 footerValue: "Self-learning",
                 footerColor: "text-emerald-500",
@@ -171,9 +160,9 @@ const KEY_LAUNCHER_CONTENT = {
             {
                 icon: "shield",
                 title: "Private Vault",
-                description: "Hide Apps. No Cloud. Zero Tracking.",
-                footerLabel: "Data pipeline",
-                footerValue: "100% Offline / Local",
+                description: "Separate private spaces, each with its own passcode.",
+                footerLabel: "Vault storage",
+                footerValue: "Stored on your device",
                 footerColor: "text-emerald-500",
                 image: "assets/feature_vault.jpg"
             },
@@ -241,55 +230,12 @@ const KEY_LAUNCHER_CONTENT = {
         allTab: "All",
         scrollHint: "Swipe horizontally to see all columns",
         rows: [
-            {
-                name: "T9 Keypad Fast Search",
-                desc: "Launch any app in 1-2 button presses",
-                keyLauncher: "Yes (Instant)",
-                niagara: "❌ Alphabet scroll",
-                minimalistPhone: "❌ Text list",
-                olauncher: "❌ Text search"
-            },
-            {
-                name: "QWERTY & Swipe Typing",
-                desc: "Glide across keys for lightning speed",
-                keyLauncher: "Yes (Both)",
-                niagara: "❌",
-                minimalistPhone: "❌",
-                olauncher: "❌"
-            },
-            {
-                name: "Multiple Private Vaults",
-                desc: "Separate PIN / biometric locked spaces",
-                keyLauncher: "Unlimited Vaults",
-                niagara: "Hide app only",
-                minimalistPhone: "App blocker only",
-                olauncher: "Hide app only"
-            },
-            {
-                name: "Super Focus & Ambient Lyrics",
-                desc: "Built-in Pomodoro, desk clock & synced lyrics",
-                keyLauncher: "Built-in",
-                niagara: "❌",
-                minimalistPhone: "❌",
-                olauncher: "❌"
-            },
-            {
-                name: "100% Offline & Zero Tracking",
-                desc: "No cloud accounts, no analytics, no ads",
-                keyLauncher: "100% Offline",
-                niagara: "Cloud APIs",
-                minimalistPhone: "Account required",
-                olauncher: "✅ Offline"
-            },
-            {
-                name: "Pricing Model",
-                desc: "Fair and sustainable pricing",
-                keyLauncherMain: "Free Core",
-                keyLauncherSub: "Affordable Lifetime Option",
-                niagara: "Annual Subscription",
-                minimalistPhone: "High Subscription ($20+/yr)",
-                olauncher: "Free / Donation"
-            }
+            { name: "T9 Keypad Fast Search", desc: "Find apps with a few keystrokes.", keyLauncher: "Yes (Instant)", niagara: "❌ Alphabet scroll", minimalistPhone: "❌ Text list", olauncher: "❌ Text search" },
+            { name: "QWERTY & Swipe Typing", desc: "QWERTY search + Swipe Typing (Beta)", keyLauncher: "Yes (Both)", niagara: "❌", minimalistPhone: "❌", olauncher: "❌" },
+            { name: "Multiple Private Vaults", desc: "Separate vaults with their own passcodes", keyLauncher: "Multiple vaults with Pro", niagara: "Hide app only", minimalistPhone: "App blocker only", olauncher: "Hide app only" },
+            { name: "Super Focus & Ambient Lyrics", desc: "Built-in Pomodoro, desk clock & synced lyrics", keyLauncher: "Built-in", niagara: "❌", minimalistPhone: "❌", olauncher: "❌" },
+            { name: "Search & privacy", desc: "App and contact search on-device; online services disclosed", keyLauncher: "Local search + online features", niagara: "See privacy policy", minimalistPhone: "See privacy policy", olauncher: "See privacy policy" },
+            { name: "Pricing Model", desc: "Fair and sustainable pricing", keyLauncherMain: "Free Core", keyLauncherSub: "Affordable Lifetime Option", niagara: "Annual Subscription", minimalistPhone: "High Subscription ($20+/yr)", olauncher: "Free / Donation" }
         ]
     },
 
@@ -341,12 +287,12 @@ const KEY_LAUNCHER_CONTENT = {
                 buttonUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
                 isRecommended: false,
                 features: [
-                    { name: "Lightning-fast T9 search (Vietnamese diacritics)", included: true },
-                    { name: "Up to 8 pinned items & 3 widgets", included: true },
-                    { name: "3 Super Shortcut slots (keys 1-3)", included: true },
-                    { name: "1 Private Vault secure item & 1 App Limit", included: true },
-                    { name: "30-day trial of Focus Mode, Synced Lyrics, Icon Packs & Backup", included: true },
-                    { name: "Notification Dots, Quick Actions & Swipe Gestures included", included: true }
+                    { name: "T9 & QWERTY search with Swipe Typing (Beta)", included: true },
+                    { name: "8 pinned items, 3 widgets per Widget Center & 2 Stack widgets", included: true },
+                    { name: "3 Super Shortcuts", included: true },
+                    { name: "1 Private Vault item & 1 App Limit", included: true },
+                    { name: "In-app trial of Pro features; see terms in the app", included: true },
+                    { name: "Notification Dots, Quick Actions & Home swipe gestures", included: true }
                 ]
             },
             {
@@ -361,12 +307,12 @@ const KEY_LAUNCHER_CONTENT = {
                 buttonUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
                 isRecommended: true,
                 features: [
-                    { name: "Unlimited pinned items & widgets", included: true },
-                    { name: "All 9 Super Shortcut slots & unlimited app pages", included: true },
-                    { name: "Unlimited Private Vault items & App Limits", included: true },
-                    { name: "Full Focus Mode, Synced Lyrics & Icon Packs", included: true },
-                    { name: "Custom fonts, keyboard color presets & Calculator Mode", included: true },
-                    { name: "Auto wallpaper, unlimited RSS sources & Backup / Restore", included: true }
+                    { name: "Unlimited pinned items & Widget Center widgets; up to 4 Stack widgets", included: true },
+                    { name: "All Super Shortcut keys & unlimited Home pages", included: true },
+                    { name: "Multiple Private Vaults, unlimited vault items & App Limits", included: true },
+                    { name: "Focus Mode, Synced Lyrics & Icon Packs", included: true },
+                    { name: "Glass keyboard, Neon Glow, Ripple & 3D Home transitions", included: true },
+                    { name: "Custom fonts, Calculator, auto wallpaper & Backup / Restore", included: true }
                 ]
             }
         ],
@@ -379,24 +325,30 @@ const KEY_LAUNCHER_CONTENT = {
                         { nameEn: "Pinned Items", free: "8 items", pro: "Unlimited" },
                         { nameEn: "Swipe Gestures", free: "✅", pro: "✅" },
                         { nameEn: "Contact Search", free: "✅", pro: "✅" },
-                        { nameEn: "Hide Apps & Contacts", free: "✅", pro: "✅" },
+                        { nameEn: "Hide Apps & Contacts", free: "10 apps; unlimited contacts", pro: "Unlimited" },
                         { nameEn: "Double-Tap to Lock", free: "✅", pro: "✅" },
-                        { nameEn: "App Pages", free: "2 pages", pro: "Unlimited" }
+                        { nameEn: "App Pages", free: "2 pages", pro: "Unlimited" },
+                        { nameEn: "QWERTY Search", free: "✅", pro: "✅" },
+                        { nameEn: "Swipe Typing (Beta)", free: "✅", pro: "✅" }
                     ]
                 },
                 {
                     nameEn: "Keyboard",
                     features: [
-                        { nameEn: "Calculator Mode", free: "30-day trial", pro: "✅" },
-                        { nameEn: "Ringer Toggle", free: "30-day trial", pro: "✅" },
-                        { nameEn: "Keyboard Color Presets", free: "30-day trial", pro: "✅" }
+                        { nameEn: "Calculator Mode", free: "In-app trial", pro: "✅" },
+                        { nameEn: "Ringer Toggle", free: "In-app trial", pro: "✅" },
+                        { nameEn: "Keyboard Color Presets", free: "In-app trial", pro: "✅" },
+                        { nameEn: "Glass Keyboard", free: "In-app trial", pro: "✅" },
+                        { nameEn: "Neon Glow & Ripple", free: "In-app trial", pro: "✅" },
+                        { nameEn: "3D Home Transitions", free: "In-app trial", pro: "✅" }
                     ]
                 },
                 {
                     nameEn: "Widget Center",
                     features: [
                         { nameEn: "Widgets Quantity", free: "3 widgets", pro: "Unlimited" },
-                        { nameEn: "Custom Wallpaper", free: "❌", pro: "✅" }
+                        { nameEn: "Custom Wallpaper", free: "❌", pro: "✅" },
+                        { nameEn: "Widget Stack (Home / Notification Center)", free: "2 widgets", pro: "4 widgets" }
                     ]
                 },
                 {
@@ -404,43 +356,43 @@ const KEY_LAUNCHER_CONTENT = {
                     features: [
                         { nameEn: "Clock Widget", free: "✅", pro: "✅" },
                         { nameEn: "Calendar Widget", free: "✅", pro: "✅" },
-                        { nameEn: "Weather Widget", free: "✅", pro: "✅" },
-                        { nameEn: "Stack Widget", free: "✅", pro: "✅" }
+                        { nameEn: "Weather Widget", free: "✅", pro: "✅" }
                     ]
                 },
                 {
                     nameEn: "Super Shortcut & Hotkey",
                     features: [
-                        { nameEn: "Super Shortcut", free: "3 slots", pro: "All 9 slots" }
+                        { nameEn: "Super Shortcut", free: "3 slots", pro: "All keys" }
                     ]
                 },
                 {
                     nameEn: "Private Vault",
                     features: [
-                        { nameEn: "Private Vault", free: "1 item", pro: "Unlimited" }
+                        { nameEn: "Private Vault", free: "1 item", pro: "Unlimited" },
+                        { nameEn: "Additional Private Vaults", free: "In-app trial", pro: "✅" }
                     ]
                 },
                 {
                     nameEn: "Focus Mode",
                     features: [
-                        { nameEn: "Focus Mode", free: "30-day trial", pro: "✅" },
-                        { nameEn: "Always-On Screen", free: "30-day trial", pro: "✅" }
+                        { nameEn: "Focus Mode", free: "In-app trial", pro: "✅" },
+                        { nameEn: "Always-On Screen", free: "In-app trial", pro: "✅" }
                     ]
                 },
                 {
                     nameEn: "Music",
                     features: [
                         { nameEn: "Music Controls", free: "✅", pro: "✅" },
-                        { nameEn: "Synced Lyrics", free: "30-day trial", pro: "✅" }
+                        { nameEn: "Synced Lyrics", free: "In-app trial", pro: "✅" }
                     ]
                 },
                 {
                     nameEn: "Appearance",
                     features: [
                         { nameEn: "Wallpaper Options", free: "✅", pro: "✅" },
-                        { nameEn: "Auto Wallpaper Change", free: "30-day trial", pro: "✅" },
-                        { nameEn: "Icon Pack Support", free: "30-day trial", pro: "✅" },
-                        { nameEn: "Custom Fonts", free: "30-day trial", pro: "✅" },
+                        { nameEn: "Auto Wallpaper Change", free: "In-app trial", pro: "✅" },
+                        { nameEn: "Icon Pack Support", free: "In-app trial", pro: "✅" },
+                        { nameEn: "Custom Fonts", free: "In-app trial", pro: "✅" },
                         { nameEn: "Icon Customization", free: "✅", pro: "✅" },
                         { nameEn: "Notification Dots", free: "✅", pro: "✅" },
                         { nameEn: "Wallpaper Overlay", free: "✅", pro: "✅" }
@@ -461,7 +413,7 @@ const KEY_LAUNCHER_CONTENT = {
                 {
                     nameEn: "Settings & Data",
                     features: [
-                        { nameEn: "Backup & Restore", free: "30-day trial", pro: "✅" }
+                        { nameEn: "Backup & Restore", free: "In-app trial", pro: "✅" }
                     ]
                 },
                 {
@@ -644,11 +596,11 @@ const KEY_LAUNCHER_CONTENT = {
         items: [
             {
                 question: "What is a T9 App Launcher?",
-                answer: "A T9 launcher uses the classic 3x4 keypad layout (like old dumb phones) to find and launch apps. Each key represents multiple letters (e.g., 2 is ABC, 3 is DEF). By pressing keys matching your app name (for example, 4-2-6 for 'Han' or 'Games'), the launcher instantly filters your apps. It takes just 2 or 3 taps to open any app, eliminating home screen clutter and helping you avoid mindless scrolling."
+                answer: "A T9 launcher uses a classic 3×4 keypad to filter apps by the letters on each number key. Enter a few digits, then choose the matching app. Key Launcher also offers QWERTY search and Swipe Typing (Beta)."
             },
             {
                 question: "Is Key Launcher safe and private?",
-                answer: "Absolutely. Key Launcher operates 100% offline and locally on your device. It does not request internet permissions, does not collect any personal data, and does not upload your usage statistics to any cloud servers. Your private vault and app usage data are stored securely on your own phone."
+                answer: "App and contact search runs on your device, and Private Vault contents are stored locally. Online features such as web suggestions, weather and lyrics use network services. The app also uses analytics, crash reporting and purchase services. See the Privacy Policy for details."
             },
             {
                 question: "Does Key Launcher support custom icon packs and wallpapers?",
@@ -656,7 +608,7 @@ const KEY_LAUNCHER_CONTENT = {
             },
             {
                 question: "Will Key Launcher drain my battery?",
-                answer: "No, on the contrary! Key Launcher is built using efficient native Android architecture. It has no background network synchronization, no ads, and a highly optimized minimalist layout. This helps reduce CPU activity and screen-on power consumption, leading to better battery life."
+                answer: "Battery use depends on your setup. An always-on Focus clock, live widgets, weather refresh and other active features can increase power use. Adjust these features in Settings to suit your device."
             },
             {
                 question: "What messaging and calling integrations are supported?",
@@ -664,7 +616,7 @@ const KEY_LAUNCHER_CONTENT = {
             },
             {
                 question: "Can I try the PRO features before purchasing?",
-                answer: "Yes, you can! Key Launcher offers a 30-day free trial for core PRO features, including Focus Mode, Synced Lyrics, and custom Icon Packs. This lets you experience the full potential of the launcher before deciding whether to purchase a yearly subscription or a lifetime license."
+                answer: "Yes. You can try Pro features in the app before upgrading. Check the app for your trial duration and terms; existing installations may keep earlier trial terms. Pro is available as a yearly subscription or a lifetime purchase."
             }
         ]
     },

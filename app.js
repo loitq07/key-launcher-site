@@ -130,6 +130,8 @@ function renderContent() {
     document.getElementById('hero-title-1').innerText = data.hero.titleLine1;
     document.getElementById('hero-title-2').innerText = data.hero.titleLine2;
     document.getElementById('hero-desc').innerText = data.hero.description;
+    document.getElementById('hero-demo-link').href = data.hero.demoUrl;
+    document.getElementById('hero-demo-text').innerText = data.hero.demoText;
     
     const heroPlayLink = document.getElementById('hero-playstore-link');
     heroPlayLink.href = data.hero.playStoreBtnUrl;
@@ -1070,7 +1072,7 @@ function renderContent() {
         
         if (lowerVal.includes('trial') || lowerVal.includes('only') || lowerVal.includes('items') || lowerVal.includes('widgets') || lowerVal.includes('item') || lowerVal.includes('slot')) {
             return `
-                <span class="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700/60 whitespace-nowrap">
+                <span class="inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-700/60 max-w-full whitespace-normal text-center">
                     ${val}
                 </span>
             `;
