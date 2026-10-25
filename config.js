@@ -35,8 +35,8 @@ const KEY_LAUNCHER_CONTENT = {
         playStoreBtnUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
         playStoreBadge: "assets/google_play_badge.png",
         apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download",
-        screenshot: "assets/screenshots/home-t9-keyboard.png",
-        screenshots: ["assets/screenshots/home-t9-keyboard.png", "assets/screenshots/3_qwerty.png", "assets/screenshots/7_vault.png", "assets/screenshots/4_glass.png", "assets/screenshots/widget-center.png", "assets/screenshots/5_shortcuts.png", "assets/screenshots/8_focus.png", "assets/screenshots/2_devices.png"],
+        screenshot: "assets/screenshot_hero.png",
+        screenshots: ["assets/hero_1.webp","assets/screenshots/3_qwerty.png","assets/hero_2.webp","assets/hero_3.webp","assets/hero_4.webp","assets/hero_5.webp","assets/hero_6.webp","assets/hero_7.webp","assets/hero_8.webp"],
         rating: {
             stars: 4.7,
             reviewsCount: "100+ reviews",
