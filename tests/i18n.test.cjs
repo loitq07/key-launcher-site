@@ -34,6 +34,27 @@ function loadLocale(locale, browserLocale = 'en-US') {
     return context;
 }
 
+test('Liquid Glass is a separate fourteen-day trial in every supported locale', () => {
+    for (const locale of ['en', 'vi', 'es', 'pt-BR', 'id', 'fr', 'de']) {
+        const content = loadLocale(locale).KEY_LAUNCHER_CONTENT;
+        const appearance = content.features.items.find(item => item.id === 'appearance');
+        assert.match(appearance.title, /Liquid Glass/, locale);
+        assert.match(appearance.description, /14/, locale);
+        assert.match(appearance.description, /13/, locale);
+        const free = content.pricing.plans[0].features.filter(item => /Liquid Glass/.test(item.name));
+        assert.equal(free.length, 1, locale);
+        assert.match(free[0].name, /14/, locale);
+        const row = content.pricing.comparison.categories.flatMap(category => category.features)
+            .find(item => item.nameEn.includes('Liquid Glass'));
+        assert.match(row.free, /14/, locale);
+        assert.equal(row.pro, '✅', locale);
+        const faq = content.faq.items.find(item => /Liquid.Glass/.test(item.question));
+        assert.ok(faq, locale);
+        assert.match(faq.answer, /14/, locale);
+        assert.match(faq.answer, /Pro/, locale);
+    }
+});
+
 test('every language offered by the selector has a complete core translation', () => {
     const locales = ['en', 'vi', 'es', 'pt-BR', 'id', 'fr', 'de'];
     for (const locale of locales) {
@@ -43,7 +64,7 @@ test('every language offered by the selector has a complete core translation', (
         assert.ok(content.navigation.features);
         assert.equal(content.features.items.length, 8);
         assert.equal(content.focusMode.bullets.length, 6);
-        assert.equal(content.faq.items.length, 11);
+        assert.equal(content.faq.items.length, 12);
         if (locale === 'en') {
             assert.equal(content.translationNote, undefined);
         } else {

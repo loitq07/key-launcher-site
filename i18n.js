@@ -727,6 +727,77 @@
     KEY_LAUNCHER_CONTENT.compare.sourcesLabel = labels.sources;
     KEY_LAUNCHER_CONTENT.compare.sourceNote = labels.note;
 
+    // Liquid Glass has a separate feature trial, independent of the general Pro trial.
+    const liquidGlassCopy = {
+    "en": {
+        "title": "Liquid Glass & Personalization",
+        "description": "Refract your wallpaper with Liquid Glass on Android 13+. Try it free for 14 days from first activation, then continue with Pro. Other advanced effects follow the general Pro trial.",
+        "free": "Liquid Glass: separate 14-day trial from first activation",
+        "period": "14-day trial",
+        "question": "How does the Liquid Glass trial work?",
+        "answer": "Liquid Glass has its own free 14-day trial on Android 13+, independent of the general Pro trial and Google Play subscription offers. It starts when you first enable it and apply the setting, or finish enabling it from the introduction popup. After 14 days, Pro is required with no grace period. Your wallpaper and settings are preserved and return when you buy Pro. Turning it off and on does not restart the trial. Existing enabled installations start the trial on their first launch of the updated app. Pro users keep access without consuming the trial."
+    },
+    "vi": {
+        "title": "Liquid Glass & Cá nhân hóa",
+        "description": "Khúc xạ hình nền với Liquid Glass trên Android 13+. Dùng thử riêng 14 ngày từ lần bật đầu tiên, sau đó tiếp tục với Pro. Các hiệu ứng nâng cao khác theo trial Pro chung.",
+        "free": "Liquid Glass: dùng thử riêng 14 ngày từ lần bật đầu tiên",
+        "period": "Dùng thử 14 ngày",
+        "question": "Trial Liquid Glass hoạt động thế nào?",
+        "answer": "Liquid Glass có 14 ngày dùng thử miễn phí riêng trên Android 13+, độc lập với trial Pro chung và ưu đãi thuê bao Google Play. Trial bắt đầu khi bật lần đầu rồi bấm Apply, hoặc hoàn tất bật từ popup giới thiệu. Sau 14 ngày cần Pro, không có gia hạn đệm. Ảnh nền và cấu hình vẫn được giữ, tự áp dụng lại khi mua Pro. Tắt rồi bật lại không khởi động lại trial. Nếu đã bật trước bản cập nhật, trial bắt đầu khi chạy bản mới lần đầu. Người dùng Pro không tiêu hao trial."
+    },
+    "es": {
+        "title": "Liquid Glass y personalización",
+        "description": "Refracta tu fondo con Liquid Glass en Android 13+. Prueba independiente de 14 días desde la primera activación; después requiere Pro. Los demás efectos siguen la prueba general de Pro.",
+        "free": "Liquid Glass: prueba independiente de 14 días desde la primera activación",
+        "period": "Prueba de 14 días",
+        "question": "¿Cómo funciona la prueba de Liquid Glass?",
+        "answer": "Liquid Glass tiene una prueba gratuita independiente de 14 días en Android 13+, separada de la prueba general de Pro y las ofertas de Google Play. Empieza al activarlo y pulsar Apply, o al completar la activación en la presentación. Después se requiere Pro, sin período de gracia. El fondo y los ajustes se conservan y vuelven al comprar Pro. Desactivar y reactivar no reinicia el plazo. Si ya estaba activo antes de la actualización, empieza al abrir la nueva versión por primera vez. Los usuarios Pro no consumen esta prueba."
+    },
+    "pt-BR": {
+        "title": "Liquid Glass e personalização",
+        "description": "Refrate seu papel de parede com Liquid Glass no Android 13+. Teste separado de 14 dias desde a primeira ativação; depois requer Pro. Outros efeitos seguem o teste geral do Pro.",
+        "free": "Liquid Glass: teste separado de 14 dias desde a primeira ativação",
+        "period": "Teste de 14 dias",
+        "question": "Como funciona o teste do Liquid Glass?",
+        "answer": "O Liquid Glass tem um teste grátis separado de 14 dias no Android 13+, independente do teste geral do Pro e das ofertas do Google Play. Começa ao ativar e tocar em Apply, ou concluir a ativação na apresentação. Depois requer Pro, sem período de tolerância. O papel de parede e as configurações ficam salvos e voltam ao comprar Pro. Desativar e reativar não reinicia o prazo. Se já estava ativo antes da atualização, começa na primeira abertura da nova versão. Usuários Pro não consomem este teste."
+    },
+    "id": {
+        "title": "Liquid Glass & Personalisasi",
+        "description": "Biaskan wallpaper dengan Liquid Glass di Android 13+. Uji coba terpisah 14 hari sejak aktivasi pertama, lalu perlu Pro. Efek lain mengikuti uji coba Pro umum.",
+        "free": "Liquid Glass: uji coba terpisah 14 hari sejak aktivasi pertama",
+        "period": "Uji coba 14 hari",
+        "question": "Bagaimana uji coba Liquid Glass bekerja?",
+        "answer": "Liquid Glass memiliki uji coba gratis terpisah 14 hari di Android 13+, independen dari uji coba Pro umum dan penawaran Google Play. Dimulai saat pertama diaktifkan dan menekan Apply, atau menyelesaikan aktivasi dari popup perkenalan. Setelah itu perlu Pro tanpa masa tenggang. Wallpaper dan pengaturan tetap tersimpan dan kembali saat membeli Pro. Mematikan lalu menyalakan tidak mengulang waktu. Jika sudah aktif sebelum pembaruan, dimulai saat pertama membuka versi baru. Pengguna Pro tidak menghabiskan uji coba ini."
+    },
+    "fr": {
+        "title": "Liquid Glass et personnalisation",
+        "description": "Réfractez votre fond avec Liquid Glass sur Android 13+. Essai indépendant de 14 jours dès la première activation, puis Pro requis. Les autres effets suivent l’essai Pro général.",
+        "free": "Liquid Glass : essai indépendant de 14 jours dès la première activation",
+        "period": "Essai de 14 jours",
+        "question": "Comment fonctionne l’essai Liquid Glass ?",
+        "answer": "Liquid Glass possède un essai gratuit indépendant de 14 jours sur Android 13+, distinct de l’essai Pro général et des offres Google Play. Il commence à la première activation avec Apply ou à la fin de l’activation depuis la présentation. Pro est ensuite requis, sans délai de grâce. Le fond et les réglages sont conservés et rétablis à l’achat de Pro. Désactiver et réactiver ne relance pas le délai. S’il était déjà actif avant la mise à jour, l’essai commence au premier lancement de la nouvelle version. Les utilisateurs Pro ne consomment pas cet essai."
+    },
+    "de": {
+        "title": "Liquid Glass & Personalisierung",
+        "description": "Liquid Glass bricht dein Hintergrundbild ab Android 13. Separater 14-Tage-Test ab der ersten Aktivierung, danach ist Pro nötig. Andere Effekte folgen dem allgemeinen Pro-Test.",
+        "free": "Liquid Glass: separater 14-Tage-Test ab der ersten Aktivierung",
+        "period": "14-Tage-Test",
+        "question": "Wie funktioniert der Liquid-Glass-Test?",
+        "answer": "Liquid Glass hat ab Android 13 eine eigene kostenlose 14-tägige Testphase, unabhängig vom allgemeinen Pro-Test und Google-Play-Angeboten. Sie beginnt beim ersten Aktivieren mit Apply oder nach abgeschlossener Aktivierung im Einführungsfenster. Danach ist ohne Schonfrist Pro nötig. Hintergrund und Einstellungen bleiben gespeichert und werden beim Pro-Kauf wiederhergestellt. Aus- und Einschalten startet die Frist nicht neu. War der Effekt vor dem Update bereits aktiv, beginnt sie beim ersten Start der neuen Version. Pro-Nutzer verbrauchen diesen Test nicht."
+    }
+};
+    const liquidGlass = liquidGlassCopy[locale];
+    const appearance = KEY_LAUNCHER_CONTENT.features.items.find(item => item.id === 'appearance');
+    appearance.title = liquidGlass.title;
+    appearance.description = liquidGlass.description;
+    appearance.imageAlt = liquidGlass.title;
+    KEY_LAUNCHER_CONTENT.pricing.plans[0].features.push({ name: liquidGlass.free, included: true });
+    KEY_LAUNCHER_CONTENT.pricing.plans[1].features.push({ name: 'Liquid Glass', included: true });
+    KEY_LAUNCHER_CONTENT.pricing.comparison.categories[1].features.push({
+        nameEn: 'Liquid Glass (Android 13+)', free: liquidGlass.period, pro: '✅'
+    });
+    KEY_LAUNCHER_CONTENT.faq.items.push({ question: liquidGlass.question, answer: liquidGlass.answer });
+
     // Keep structured answers consistent with the visible localized FAQ.
     document.querySelectorAll?.('script[type="application/ld+json"]').forEach(script => {
         const schema = JSON.parse(script.textContent);
