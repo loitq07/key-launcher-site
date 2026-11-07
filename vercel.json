@@ -22,6 +22,17 @@
   ],
   "redirects": [
     {
+      "source": "/:path((?!\\.well-known(?:/|$)).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "keylauncher.app"
+        }
+      ],
+      "destination": "https://www.keylauncher.app/:path",
+      "permanent": true
+    },
+    {
       "source": "/api/pricing.js",
       "destination": "/api/pricing",
       "permanent": false
@@ -35,6 +46,21 @@
       "source": "/guide/:path*",
       "destination": "https://www.keylauncher.app/help/:path*",
       "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/.well-known/assetlinks.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300"
+        }
+      ]
     }
   ]
 }

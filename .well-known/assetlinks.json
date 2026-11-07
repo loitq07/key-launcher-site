@@ -1,0 +1,27 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.loitran.minimalt9launcher.free",
+      "sha256_cert_fingerprints": [
+        "CB:0E:3A:2E:08:41:66:60:16:69:EF:0E:24:CE:2B:FC:0F:DA:89:83:92:97:EC:23:C9:58:51:86:6C:64:17:2D",
+        "9C:94:CB:4C:26:25:90:85:9A:F2:F4:9C:18:DF:8E:0F:67:8E:39:85:E9:AE:4A:19:20:BC:8C:97:36:70:13:CC"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.loitran.minimalt9launcher.pro",
+      "sha256_cert_fingerprints": [
+        "9C:94:CB:4C:26:25:90:85:9A:F2:F4:9C:18:DF:8E:0F:67:8E:39:85:E9:AE:4A:19:20:BC:8C:97:36:70:13:CC"
+      ]
+    }
+  }
+]

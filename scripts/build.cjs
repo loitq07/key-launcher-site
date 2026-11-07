@@ -21,7 +21,8 @@ const publicFiles = [
     'review-translations.js',
     'media-translations.js',
     'css',
-    'assets'
+    'assets',
+    '.well-known'
 ];
 
 if (fs.existsSync(output) && fs.lstatSync(output).isSymbolicLink()) {
