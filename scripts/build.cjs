@@ -34,6 +34,9 @@ if (path.dirname(output) !== root || path.basename(output) !== 'dist') {
 fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(output);
 for (const file of publicFiles) {
-    fs.cpSync(path.join(root, file), path.join(output, file), { recursive: true });
+    fs.cpSync(path.join(root, file), path.join(output, file), {
+        recursive: true,
+        filter: (src) => !src.replace(/\\/g, '/').includes('assets/legacy')
+    });
 }
 console.log('Built public site in dist/; server pricing is excluded.');

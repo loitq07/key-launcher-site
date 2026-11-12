@@ -1026,9 +1026,13 @@ function renderContent() {
         <div class="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/10 rounded-2xl p-6 flex flex-col justify-between shadow-sm break-inside-avoid inline-block w-full mb-6">
             <p class="text-zinc-600 dark:text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6">"${item.quote}" ${data.translationNote ? `<span class="ml-1 whitespace-nowrap text-[9px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500">${data.translationNote}</span>` : ''}</p>
             <div class="flex items-center gap-3">
-                ${item.avatar ? `
-                    <img src="${item.avatar}" alt="${item.author}" class="w-9 h-9 rounded-full object-cover">
-                ` : `
+                ${item.avatar ? (
+                    /\.(mp4|webm)$/i.test(item.avatar) ? `
+                        <video src="${item.avatar}" autoplay loop muted playsinline class="w-9 h-9 rounded-full object-cover pointer-events-none"></video>
+                    ` : `
+                        <img src="${item.avatar}" alt="${item.author}" class="w-9 h-9 rounded-full object-cover" loading="lazy">
+                    `
+                ) : `
                     <div class="w-9 h-9 rounded-full bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center font-display font-bold text-xs text-brand-500 dark:text-brand-400">
                         ${item.initials}
                     </div>

@@ -111,14 +111,14 @@ const KEY_LAUNCHER_CONTENT = {
         title: "Designed for Speed. Optimized for Focus.",
         subtitle: "Break your smartphone addiction. Simplify your daily workflow with our practical, distraction-free features.",
         items: [
-            { id: "search", title: "T9 & QWERTY Search", description: "Find your apps with a few digits or letters. Choose Standard, BlackBerry, QWERTZ or AZERTY.", image: "assets/screenshots/1_t9.png", imageAlt: "T9 & QWERTY Search", badge: "" },
-            { id: "swipe", title: "Swipe Typing", description: "Glide across T9 or QWERTY keys to search. Swipe Typing is in Beta and matching may vary by language.", image: "assets/screenshots/3_qwerty.png", imageAlt: "Swipe Typing", badge: "Beta" },
-            { id: "vaults", title: "Multiple Private Vaults", description: "Keep apps, contacts and shortcuts in separate spaces, each with its own passcode. Additional vaults are a Pro feature.", image: "assets/screenshots/7_vault.png", imageAlt: "Multiple Private Vaults", badge: "New in 2.0" },
-            { id: "appearance", title: "Liquid Glass & Personalization", description: "Refract your wallpaper with Liquid Glass on Android 13+. Try it free for 14 days from first activation, then continue with Pro. Other advanced effects follow the general Pro trial.", image: "assets/screenshots/4_glass.png", imageAlt: "Glass & Personalization", badge: "New in 2.0" },
-            { id: "widgets", title: "Widget Center & Stack", description: "Keep widgets in a dedicated panel, or swipe through a shared Stack on Home and in Notification Center.", image: "assets/screenshots/6_widgets.png", imageAlt: "Widget Center & Stack", badge: "" },
-            { id: "shortcuts", title: "Super Shortcuts", description: "Assign apps, contacts and actions to memorable number or letter keys. Your everyday shortcuts, close at hand.", image: "assets/screenshots/5_shortcuts.png", imageAlt: "Super Shortcuts", badge: "" },
-            { id: "focus", title: "Super Focus", description: "Turn your phone into a desk clock with Pomodoro, music controls and your calendar within reach.", image: "assets/screenshots/8_focus.png", imageAlt: "Super Focus", badge: "" },
-            { id: "devices", title: "Foldables & Physical Keys", description: "Use different keyboards on inner and cover screens, split Home and panels, or search with a physical keyboard.", image: "assets/screenshots/2_devices.png", imageAlt: "Foldables & Physical Keys", badge: "" }
+            { id: "search", title: "T9 & QWERTY Search", description: "Find your apps with a few digits or letters. Choose Standard, BlackBerry, QWERTZ or AZERTY.", image: "assets/screenshots/1_t9.webp", imageAlt: "T9 & QWERTY Search", badge: "" },
+            { id: "swipe", title: "Swipe Typing", description: "Glide across T9 or QWERTY keys to search. Swipe Typing is in Beta and matching may vary by language.", image: "assets/screenshots/3_qwerty.webp", imageAlt: "Swipe Typing", badge: "Beta" },
+            { id: "vaults", title: "Multiple Private Vaults", description: "Keep apps, contacts and shortcuts in separate spaces, each with its own passcode. Additional vaults are a Pro feature.", image: "assets/screenshots/7_vault.webp", imageAlt: "Multiple Private Vaults", badge: "New in 2.0" },
+            { id: "appearance", title: "Liquid Glass & Personalization", description: "Refract your wallpaper with Liquid Glass on Android 13+. Try it free for 14 days from first activation, then continue with Pro. Other advanced effects follow the general Pro trial.", image: "assets/screenshots/4_glass.webp", imageAlt: "Glass & Personalization", badge: "New in 2.0" },
+            { id: "widgets", title: "Widget Center & Stack", description: "Keep widgets in a dedicated panel, or swipe through a shared Stack on Home and in Notification Center.", image: "assets/screenshots/6_widgets.webp", imageAlt: "Widget Center & Stack", badge: "" },
+            { id: "shortcuts", title: "Super Shortcuts", description: "Assign apps, contacts and actions to memorable number or letter keys. Your everyday shortcuts, close at hand.", image: "assets/screenshots/5_shortcuts.webp", imageAlt: "Super Shortcuts", badge: "" },
+            { id: "focus", title: "Super Focus", description: "Turn your phone into a desk clock with Pomodoro, music controls and your calendar within reach.", image: "assets/screenshots/8_focus.webp", imageAlt: "Super Focus", badge: "" },
+            { id: "devices", title: "Foldables & Physical Keys", description: "Use different keyboards on inner and cover screens, split Home and panels, or search with a physical keyboard.", image: "assets/screenshots/2_devices.webp", imageAlt: "Foldables & Physical Keys", badge: "" }
         ]
     },
 
@@ -391,28 +391,28 @@ const KEY_LAUNCHER_CONTENT = {
             },
             {
                 quote: "Key Launcher has completely changed the way I use my phone. Searching for T9 is incredibly fast, and the minimalist design eliminates all that visual clutter from colorful icons that make you want to procrastinate. The integrated Pomodoro Focus mode and the hidden widget center are fantastic tools. Lightweight, fast, and it delivers exactly what it promises for a good digital detox. I highly recommend it!",
-                avatar: "assets/j_paulo.png",
+                avatar: "assets/j_paulo.webp",
                 initials: "JP",
                 author: "J. Paulo",
                 role: "Oppo Find X5"
             },
             {
                 quote: "A really cool and original alternative launcher! There are plenty of customization options while still keeping speed a priority. Once you get the hang of the T9-style keyboard, it becomes indispensable for everyday use. A big thumbs up to the development team for this alternative launcher! 👌",
-                avatar: "assets/johan_gautreau.png",
+                avatar: "assets/johan_gautreau.webp",
                 initials: "JG",
                 author: "Johan Gautreau",
                 role: "Samsung Galaxy Z Flip3 5G"
             },
             {
                 quote: "This might be one of the most beautifully made launchers. sleek clean fast down to the core. only one thing I found lowkey weird - you have swipe up, down and left gestures that do their job perfectly. i would love to see some habit tracker with statistics in built with the swipe right gesture of the dev thinks it's a good enough idea. in my opinion that would make this an absolute unit, the perfect launcher.",
-                avatar: "assets/pranjal_kumar.gif",
+                avatar: "assets/pranjal_kumar.mp4",
                 initials: "PK",
                 author: "Pranjal Kumar",
                 role: "Nothing Phone 1"
             },
             {
                 quote: "Absolutely fantastic, even better than Niagara Launcher, and that is high praise indeed. And with loads of potential.",
-                avatar: "assets/veralithos.png",
+                avatar: "assets/veralithos.webp",
                 initials: "V",
                 author: "Veralithos",
                 role: "POCO X3 NFC"
@@ -482,7 +482,7 @@ const KEY_LAUNCHER_CONTENT = {
             },
             {
                 quote: "This launcher is exceptional, offering a visually stunning experience that serves as a compelling reason to utilize the Android platform.",
-                avatar: "assets/ivan_lara_mainar.png",
+                avatar: "assets/ivan_lara_mainar.webp",
                 initials: "IM",
                 author: "Ivan Lara Mainar",
                 role: "Samsung Galaxy S25 Ultra"
@@ -517,7 +517,7 @@ const KEY_LAUNCHER_CONTENT = {
             },
             {
                 quote: "my favourite launcher on samsung so far, still working to make it mine but I love it!",
-                avatar: "assets/jesse_wills.png",
+                avatar: "assets/jesse_wills.webp",
                 initials: "JW",
                 author: "Jesse Wills",
                 role: "Samsung Galaxy S24 Ultra"

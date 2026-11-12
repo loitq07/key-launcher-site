@@ -250,9 +250,9 @@ test('user reviews use upright text for long-form readability', () => {
 
 test('feature screenshots follow the selected language and use English when a translated set is unavailable', () => {
     const expectedNames = {
-        search: '1_t9.png', devices: '2_devices.png', swipe: '3_qwerty.png',
-        appearance: '4_glass.png', shortcuts: '5_shortcuts.png', widgets: '6_widgets.png',
-        vaults: '7_vault.png', focus: '8_focus.png'
+        search: '1_t9.webp', devices: '2_devices.webp', swipe: '3_qwerty.webp',
+        appearance: '4_glass.webp', shortcuts: '5_shortcuts.webp', widgets: '6_widgets.webp',
+        vaults: '7_vault.webp', focus: '8_focus.webp'
     };
     for (const locale of ['en', 'vi', 'pt-BR', 'id', 'es', 'fr', 'de', 'xx']) {
         const items = loadLocale(locale).KEY_LAUNCHER_CONTENT.features.items;
@@ -263,6 +263,6 @@ test('feature screenshots follow the selected language and use English when a tr
             assert.ok(fs.existsSync(path.join(root, item.image)), item.image);
         }
     }
-    assert.equal(loadLocale(null, 'vi-VN').KEY_LAUNCHER_CONTENT.features.items[0].image, 'assets/screenshots/vi/1_t9.png');
-    assert.equal(loadLocale('en', 'vi-VN').KEY_LAUNCHER_CONTENT.features.items[0].image, 'assets/screenshots/1_t9.png');
+    assert.equal(loadLocale(null, 'vi-VN').KEY_LAUNCHER_CONTENT.features.items[0].image, 'assets/screenshots/vi/1_t9.webp');
+    assert.equal(loadLocale('en', 'vi-VN').KEY_LAUNCHER_CONTENT.features.items[0].image, 'assets/screenshots/1_t9.webp');
 });
