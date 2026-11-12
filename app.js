@@ -1155,28 +1155,44 @@ function renderContent() {
     footerPrivacy.innerText = data.footer.privacyText;
     footerPrivacy.href = data.footer.privacyUrl;
 
+    const emailLink = document.getElementById('footer-email-link');
+    if (emailLink) {
+        const email = (data.footer && (data.footer.email || data.footer.emailUrl)) ||
+                      (data.navigation && (data.navigation.email || data.navigation.emailUrl)) ||
+                      "loi@keylauncher.app";
+        const emailUrl = email.startsWith('mailto:') ? email : `mailto:${email}`;
+        emailLink.href = emailUrl;
+        emailLink.title = `Email: ${email.replace(/^mailto:/, '')}`;
+    }
+
+    const redditUrl = (data.navigation && data.navigation.redditUrl) || (data.footer && data.footer.redditUrl);
     const redditLink = document.getElementById('footer-reddit-link');
     if (redditLink) {
-        if (data.navigation.redditUrl) {
-            redditLink.href = data.navigation.redditUrl;
+        if (redditUrl) {
+            redditLink.href = redditUrl;
+            redditLink.classList.remove('hidden');
         } else {
             redditLink.classList.add('hidden');
         }
     }
     
+    const discordUrl = (data.navigation && data.navigation.discordUrl) || (data.footer && data.footer.discordUrl);
     const discordLink = document.getElementById('footer-discord-link');
     if (discordLink) {
-        if (data.navigation.discordUrl) {
-            discordLink.href = data.navigation.discordUrl;
+        if (discordUrl) {
+            discordLink.href = discordUrl;
+            discordLink.classList.remove('hidden');
         } else {
             discordLink.classList.add('hidden');
         }
     }
 
+    const telegramUrl = (data.navigation && data.navigation.telegramUrl) || (data.footer && data.footer.telegramUrl);
     const telegramLink = document.getElementById('footer-telegram-link');
     if (telegramLink) {
-        if (data.navigation.telegramUrl) {
-            telegramLink.href = data.navigation.telegramUrl;
+        if (telegramUrl) {
+            telegramLink.href = telegramUrl;
+            telegramLink.classList.remove('hidden');
         } else {
             telegramLink.classList.add('hidden');
         }

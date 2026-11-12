@@ -18,7 +18,12 @@ const KEY_LAUNCHER_CONTENT = {
         helpUrl: "https://www.keylauncher.app/help",
         downloadText: "Download Free",
         downloadUrl: "https://play.google.com/store/apps/details?id=com.loitran.minimalt9launcher.free",
-        apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download"
+        apkDownloadUrl: "https://apkpure.com/key-launcher-%C2%B7-t9-productivity/com.loitran.minimalt9launcher.free/download",
+        redditUrl: "https://www.reddit.com/r/keylauncher/",
+        discordUrl: "https://discord.gg/dKjBSqyaQc",
+        telegramUrl: "https://t.me/klnchr",
+        email: "loi@keylauncher.app",
+        emailUrl: "mailto:loi@keylauncher.app"
     },
 
     // Hero Section
@@ -567,7 +572,12 @@ const KEY_LAUNCHER_CONTENT = {
         termsText: "Terms of Service",
         termsUrl: "/tos",
         helpText: "Help",
-        helpUrl: "https://www.keylauncher.app/help"
+        helpUrl: "https://www.keylauncher.app/help",
+        email: "loi@keylauncher.app",
+        emailUrl: "mailto:loi@keylauncher.app",
+        redditUrl: "https://www.reddit.com/r/keylauncher/",
+        discordUrl: "https://discord.gg/dKjBSqyaQc",
+        telegramUrl: "https://t.me/klnchr"
     },
 
     // UI and Supporting Labels
